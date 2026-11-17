@@ -7,6 +7,7 @@
 - [x] Evaluation references, random seeds and per-model normalization.
 - [x] Episode logs and complete task-level results for all five models.
 - [x] Five selected model checkpoints on Hugging Face.
+- [x] [Five-checkpoint simulator smoke evaluation](docs/smoke-evaluation.md).
 - [ ] Training code, data preparation and launch recipes.
 
 RoboDemo separates demonstration intent from execution progress with
