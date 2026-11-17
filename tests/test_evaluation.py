@@ -84,7 +84,11 @@ def test_reference_quarters_without_video(monkeypatch):
     assert len(calls) == 1 and cached_demo is demo and cached_clips is clips
 
 
-def test_renderer_matches_policy_device(monkeypatch):
+@pytest.mark.parametrize("identifier", [
+    "00000000-0000-0000-0000-000000000001",
+    "GPU-00000000-0000-0000-0000-000000000001",
+])
+def test_renderer_matches_policy_device(monkeypatch, identifier):
     calls = []
 
     def fake_query(command, **kwargs):
@@ -92,8 +96,8 @@ def test_renderer_matches_policy_device(monkeypatch):
         return "00000000:4F:00.0\n"
 
     monkeypatch.setattr("device.subprocess.check_output", fake_query)
-    assert pci_render_device("GPU-synthetic") == "pci:4F:00.0"
-    assert calls[0][2] == "GPU-synthetic"
+    assert pci_render_device(identifier) == "pci:4F:00.0"
+    assert calls[0][2] == "GPU-00000000-0000-0000-0000-000000000001"
 
 
 def test_all_shipped_model_modules_import_without_weights():

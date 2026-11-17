@@ -10,6 +10,17 @@ ROOT = Path(__file__).resolve().parents[1]
 MODELS = ["full50", "c15", "c30", "c45", "c15-wo"]
 
 
+def test_smoke_evaluation_episode_limit():
+    from evaluate import parser
+    required = ["--model", "c15", "--checkpoint", "/model.pt",
+                "--data-root", "/dataset", "--output", "/output"]
+    assert parser().parse_args(required).max_episodes is None
+    assert parser().parse_args(required + ["--max-episodes", "1"]).max_episodes == 1
+    for invalid in ("0", "-1", "not-a-number"):
+        with pytest.raises(SystemExit):
+            parser().parse_args(required + ["--max-episodes", invalid])
+
+
 @pytest.mark.parametrize("model", MODELS)
 def test_inference_configuration_and_normalization(model):
     config = OmegaConf.load(ROOT / "configs" / (model + ".yaml"))

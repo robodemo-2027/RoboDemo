@@ -9,6 +9,13 @@ from io_utils import ROOT, read_json, write_json
 MODELS = {"full50": 240000, "c15": 90000, "c30": 160000, "c45": 260000, "c15-wo": 100000}
 
 
+def positive_int(value):
+    value = int(value)
+    if value < 1:
+        raise argparse.ArgumentTypeError("Expected a positive episode count.")
+    return value
+
+
 def parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--model", choices=MODELS, required=True)
@@ -17,6 +24,8 @@ def parser():
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--split", choices=["all", "seen", "unseen"], default="all")
     p.add_argument("--task-level", help="Optional task-level subset, e.g. L0_TwoRobotFoldTowel-v1")
+    p.add_argument("--max-episodes", type=positive_int,
+                   help="Evaluate only the first N matching trials, preserving their published order.")
     return p
 
 
@@ -51,6 +60,8 @@ def main():
         trials.append(t)
     if not trials:
         raise ValueError("The requested split/task-level has no trials.")
+    if args.max_episodes is not None:
+        trials = trials[:args.max_episodes]
     args.output.mkdir(parents=True, exist_ok=False)
     checkpoint = {"step": MODELS[args.model], "weight_path": str(args.checkpoint.resolve())}
     model, load_record = load_model(checkpoint, ROOT / "configs" / (args.model + ".yaml"))

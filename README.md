@@ -98,6 +98,9 @@ Choose `full50`, `c15`, `c30`, `c45` or `c15-wo`. Add `--split seen` or
 L0_TwoRobotFoldTowel-v1` for a task-level subset. Use a new output directory
 for each evaluation.
 
+For a smoke evaluation, add `--max-episodes 1` to run one complete episode.
+This limits the trial count without shortening the 500-control-step horizon.
+
 The evaluator queries the policy every control step, retains a new action
 chunk every four steps, and combines up to four overlapping chunks.
 Each applied, bounded action is fed back into execution memory.
