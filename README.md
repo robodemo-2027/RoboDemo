@@ -6,7 +6,7 @@
 - [x] Imitator Game evaluation code and environment specifications.
 - [x] Evaluation references, random seeds and per-model normalization.
 - [x] Episode logs and complete task-level results for all five models.
-- [ ] Publish the five model checkpoints.
+- [x] Five selected model checkpoints on Hugging Face.
 - [ ] Training code, data preparation and launch recipes.
 
 RoboDemo separates demonstration intent from execution progress with
@@ -18,12 +18,13 @@ parameters remain fixed during evaluation.
 
 | Model | Checkpoint | Reference | Seen SR (%) | Unseen SR (%) |
 | --- | ---: | --- | ---: | ---: |
-| RoboDemo-c15 | 90,000 | Human | 89.5 | 0.0 |
-| RoboDemo-c30 | 160,000 | Human | 94.0 | 0.5 |
-| RoboDemo-c45 | 260,000 | Human | 88.5 | 11.5 |
-| RoboDemo-c15-wo | 100,000 | Retrieved robot | 90.0 | 0.0 |
+| [RoboDemo-c15](https://huggingface.co/mxk1998/RoboDemo-c15) | 90,000 | Human | 89.5 | 0.0 |
+| [RoboDemo-c30](https://huggingface.co/mxk1998/RoboDemo-c30) | 160,000 | Human | 94.0 | 0.5 |
+| [RoboDemo-c45](https://huggingface.co/mxk1998/RoboDemo-c45) | 260,000 | Human | 88.5 | 11.5 |
+| [RoboDemo-c15-wo](https://huggingface.co/mxk1998/RoboDemo-c15-wo) | 100,000 | Retrieved robot | 90.0 | 0.0 |
 
-RoboDemo-full50 at **240,000** updates achieves **84.6% SR** across all 50
+[RoboDemo-full50](https://huggingface.co/mxk1998/RoboDemo-full50)
+at **240,000** updates achieves **84.6% SR** across all 50
 tasks (1,692 / 2,000 episodes). The three-scale Seen mean is **90.7%**.
 Each nested-corpus model is evaluated on 200 Seen and 200 Unseen episodes.
 For C15-wo, Unseen denotes tasks held out from policy training; task-matched
@@ -32,6 +33,8 @@ robot references are supplied from the benchmark training bank.
 [Complete results](results/README.md) include all 360 task-level cells.
 The selected checkpoint for each model is the one used for the reported
 results. Checkpoints are distributed separately from this code repository.
+Download all five models from the
+[RoboDemo model collection](https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc).
 
 ## Installation
 
