@@ -1,0 +1,74 @@
+[
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "successes": 1692,
+    "episodes": 2000,
+    "success_rate": 84.6
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "successes": 179,
+    "episodes": 200,
+    "success_rate": 89.5
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "successes": 0,
+    "episodes": 200,
+    "success_rate": 0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "successes": 188,
+    "episodes": 200,
+    "success_rate": 94
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "successes": 1,
+    "episodes": 200,
+    "success_rate": 0.5
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "successes": 177,
+    "episodes": 200,
+    "success_rate": 88.5
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "successes": 23,
+    "episodes": 200,
+    "success_rate": 11.5
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "successes": 180,
+    "episodes": 200,
+    "success_rate": 90
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "successes": 0,
+    "episodes": 200,
+    "success_rate": 0
+  }
+]

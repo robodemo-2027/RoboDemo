@@ -1,0 +1,10 @@
+model,checkpoint_step,split,successes,episodes,success_rate
+RoboDemo-full50,240000,all,1692,2000,84.6
+RoboDemo-c15,90000,seen,179,200,89.5
+RoboDemo-c15,90000,unseen,0,200,0
+RoboDemo-c30,160000,seen,188,200,94
+RoboDemo-c30,160000,unseen,1,200,0.5
+RoboDemo-c45,260000,seen,177,200,88.5
+RoboDemo-c45,260000,unseen,23,200,11.5
+RoboDemo-c15-wo,100000,seen,180,200,90
+RoboDemo-c15-wo,100000,unseen,0,200,0

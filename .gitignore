@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+.DS_Store
+._*
+outputs/
+checkpoints/
+*.pt
+*.pth
+*.safetensors
+*.npz
+*.mp4
