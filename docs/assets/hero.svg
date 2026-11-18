@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="432" viewBox="0 0 1120 432" role="img" aria-labelledby="title desc">
+  <title id="title">RoboDemo</title>
+  <desc id="desc">Keep the intent. Track the interaction. Demonstration-guided manipulation with dual-cascaded test-time memory. Full50 success rate: 84.6 percent across 50 tasks. Five released checkpoints.</desc>
+  <defs>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".8" fill="#bcc8be"/>
+    </pattern>
+    <linearGradient id="paper" x2="1" y2="1">
+      <stop stop-color="#f8f7f1"/>
+      <stop offset="1" stop-color="#eeefe6"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="m0 0 6 3-6 3" fill="none" stroke="#255d52" stroke-width="1.2"/>
+    </marker>
+  </defs>
+  <rect width="1120" height="432" fill="url(#paper)"/>
+  <rect x="642" y="24" width="456" height="308" fill="url(#dots)" opacity=".6"/>
+  <path d="M674 311C638 186 703 24 850 33S1050 77 1069 163" fill="none" stroke="#d2d9cf"/>
+  <path d="M665 291C694 322 769 338 854 323S1027 294 1078 317" fill="none" stroke="#d2d9cf"/>
+  <g font-family="'Avenir Next', 'Trebuchet MS', sans-serif" fill="#255d52">
+    <text x="48" y="46" font-size="13" font-weight="600" letter-spacing="2.7">ROBOT LEARNING / DUAL-CASCADED TTT</text>
+  </g>
+  <g font-family="Baskerville, Georgia, serif" fill="#203b33">
+    <text x="43" y="157" font-size="107" letter-spacing="-4">RoboDemo</text>
+    <text x="48" y="224" font-size="34">Keep the <tspan font-style="italic" fill="#255d52">intent.</tspan></text>
+    <text x="48" y="269" font-size="34">Track the <tspan font-style="italic" fill="#b84f36">interaction.</tspan></text>
+  </g>
+  <text x="48" y="313" font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="17" fill="#5c685f">Demonstration-guided manipulation with dual memory.</text>
+  <g font-family="'Avenir Next', 'Trebuchet MS', sans-serif">
+    <text x="746" y="50" font-size="12" letter-spacing="2" fill="#526b5d">REFERENCE</text>
+    <g fill="#f8faf5" stroke="#819b87">
+      <rect x="738" y="65" width="38" height="28" rx="3" transform="rotate(-9 757 79)"/>
+      <rect x="757" y="61" width="38" height="28" rx="3" transform="rotate(-4 776 75)"/>
+      <rect x="777" y="60" width="38" height="28" rx="3" transform="rotate(4 796 74)"/>
+      <rect x="796" y="64" width="38" height="28" rx="3" transform="rotate(9 815 78)"/>
+    </g>
+    <path d="M787 95V113" fill="none" stroke="#255d52" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <circle cx="786" cy="175" r="57" fill="#e0eadc" stroke="#255d52" stroke-width="1.5"/>
+    <circle cx="786" cy="175" r="47" fill="none" stroke="#b5c7b0" stroke-dasharray="2 5"/>
+    <text x="786" y="192" text-anchor="middle" font-family="Baskerville, Georgia, serif" font-size="52" fill="#255d52">R</text>
+    <text x="786" y="255" text-anchor="middle" font-size="12" letter-spacing="2.1" fill="#255d52">INTENT</text>
+    <path d="M849 175C887 175 879 246 906 246" fill="none" stroke="#255d52" stroke-width="2" marker-end="url(#arrow)"/>
+    <circle cx="967" cy="246" r="53" fill="#f1dbca" stroke="#b84f36" stroke-width="1.5"/>
+    <circle cx="967" cy="246" r="43" fill="none" stroke="#d6aa8e" stroke-dasharray="2 5"/>
+    <text x="967" y="263" text-anchor="middle" font-family="Baskerville, Georgia, serif" font-size="52" fill="#b84f36">E</text>
+    <text x="967" y="324" text-anchor="middle" font-size="12" letter-spacing="2.1" fill="#9f5039">PROGRESS</text>
+    <path d="M1025 246H1071" fill="none" stroke="#255d52" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M967 183V128H908" fill="none" stroke="#c49679" stroke-width="1.3" stroke-dasharray="4 5"/>
+    <g fill="#ba7755">
+      <rect x="851" y="119" width="12" height="17" rx="2"/>
+      <rect x="870" y="113" width="12" height="23" rx="2" opacity=".7"/>
+      <rect x="889" y="106" width="12" height="30" rx="2" opacity=".4"/>
+    </g>
+  </g>
+  <path d="M48 351H1072" stroke="#cbd2c6"/>
+  <path d="M407 374V411M745 374V411" stroke="#cbd2c6"/>
+  <g font-family="Baskerville, Georgia, serif" font-size="36" fill="#203b33">
+    <text x="48" y="402">84.6<tspan font-size="24">%</tspan></text>
+    <text x="440" y="402">50</text>
+    <text x="778" y="402">5</text>
+  </g>
+  <g font-family="'Avenir Next', 'Trebuchet MS', sans-serif" font-size="12" letter-spacing="1.1" fill="#5c685f">
+    <text x="166" y="398">FULL50 SUCCESS RATE</text>
+    <text x="508" y="398">BENCHMARK TASKS</text>
+    <text x="824" y="398">RELEASED CHECKPOINTS</text>
+  </g>
+</svg>

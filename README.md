@@ -1,21 +1,55 @@
-# RoboDemo
+<a href="#models-and-results">
+  <picture>
+    <source media="(max-width: 600px)" srcset="docs/assets/hero-mobile.svg">
+    <img src="docs/assets/hero.svg" width="1120" alt="RoboDemo. Keep the intent. Track the interaction. Demonstration-guided manipulation with dual memory.">
+  </picture>
+</a>
+
+<p align="center">
+  <a href="https://robodemo-2027.github.io/"><strong>Project Page</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc"><strong>Model Collection</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="#models-and-results"><strong>Results</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="#installation"><strong>Get Started</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="docs/smoke-evaluation.md"><strong>Runtime Verification</strong></a>
+</p>
 
 ## Release Status
 
-- [x] Model architecture and dual-memory inference.
-- [x] Imitator Game evaluation code and environment specifications.
-- [x] Evaluation references, random seeds and per-model normalization.
-- [x] Episode logs and complete task-level results for all five models.
-- [x] Five selected model checkpoints on Hugging Face.
-- [x] [Five-checkpoint simulator smoke evaluation](docs/smoke-evaluation.md).
-- [ ] Training code, data preparation and launch recipes.
+- [x] **Code:** model architecture, dual-memory inference, evaluator and environment.
+- [x] **Models & results:** five checkpoints, trial plans, normalization and 3,600 episode logs.
+- [x] **Verified:** all five models complete a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
+- [ ] **Next release:** training code, training-data preparation and launch recipes.
 
-RoboDemo separates demonstration intent from execution progress with
-dual-cascaded test-time memory. A reference video initializes Retrieval-TTT;
-completed interaction transitions update Execution-TTT. The learned policy
-parameters remain fixed during evaluation.
+## One Demonstration, Two Memories
+
+A demonstration shows **what should happen**. Interaction history reveals
+**what actually happened**. RoboDemo keeps these two kinds of context separate:
+Retrieval-TTT retains the reference intent, while Execution-TTT accumulates
+realized progress. The action expert reads them in that order, refining
+reference guidance without overwriting it.
+
+<a href="#evaluation">
+  <picture>
+    <source media="(max-width: 600px)" srcset="docs/assets/memory-mobile.svg">
+    <img src="docs/assets/memory.svg" width="1120" alt="Separate context writes, cascaded memory reads: reference video initializes intent memory; completed interactions update progress memory. Action tokens read Retrieval-TTT before Execution-TTT.">
+  </picture>
+</a>
+
+The reference can be a human demonstration or a retrieved robot video.
+Learned policy parameters remain fixed during evaluation; the two fast-weight
+memories have independent update schedules.
 
 ## Models And Results
+
+**Full50: 84.6% success across all 50 Imitator Game tasks.**
+[RoboDemo-full50](https://huggingface.co/mxk1998/RoboDemo-full50), at
+240,000 updates, completes 1,692 of 2,000 episodes.
+
+The nested-corpus models use 200 Seen and 200 Unseen episodes each:
 
 | Model | Checkpoint | Reference | Seen SR (%) | Unseen SR (%) |
 | --- | ---: | --- | ---: | ---: |
@@ -24,24 +58,26 @@ parameters remain fixed during evaluation.
 | [RoboDemo-c45](https://huggingface.co/mxk1998/RoboDemo-c45) | 260,000 | Human | 88.5 | 11.5 |
 | [RoboDemo-c15-wo](https://huggingface.co/mxk1998/RoboDemo-c15-wo) | 100,000 | Retrieved robot | 90.0 | 0.0 |
 
-[RoboDemo-full50](https://huggingface.co/mxk1998/RoboDemo-full50)
-at **240,000** updates achieves **84.6% SR** across all 50
-tasks (1,692 / 2,000 episodes). The three-scale Seen mean is **90.7%**.
-Each nested-corpus model is evaluated on 200 Seen and 200 Unseen episodes.
+The C15/C30/C45 Seen mean is **90.7%**.
 For C15-wo, Unseen denotes tasks held out from policy training; task-matched
 robot references are supplied from the benchmark training bank.
 
-[Complete results](results/README.md) include all 360 task-level cells.
-The selected checkpoint for each model is the one used for the reported
-results. Checkpoints are distributed separately from this code repository.
-Download all five models from the
-[RoboDemo model collection](https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc).
+[All 360 task-level results](results/README.md) &middot;
+[Download the five checkpoints](https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc)
+
+Each linked checkpoint is the one used for its reported results.
+Weights are hosted on Hugging Face; this repository contains the code and logs.
 
 ## Installation
 
-The evaluation environment uses Linux, Python 3.10, PyTorch 2.6.0 / CUDA
-12.4, Transformers 4.57.6, SAPIEN 3.0.3 and Gymnasium 0.29.1.
-See [environment setup](environments/README.md) for installation and rendering.
+**Linux &middot; Python 3.10 &middot; PyTorch 2.6.0 / CUDA 12.4**
+
+The evaluator uses Transformers 4.57.6, SAPIEN 3.0.3 and Gymnasium 0.29.1.
+See [environment setup](environments/README.md) for the full dependency
+inventory and rendering configuration.
+
+<details>
+<summary><strong>Install the evaluation environment</strong></summary>
 
 ```bash
 python -m venv .venv
@@ -52,13 +88,16 @@ pip install -r environments/requirements-evaluation.txt
 pip install flash-attn==2.7.4.post1 --no-build-isolation
 ```
 
+</details>
+
 ## Data Preparation
 
 Follow the [Imitator Game project](https://imitator-game.github.io/) to obtain
 the IG-10K dataset, simulator and assets. Use the paired human-reference and
 simulation subsets. Dataset media are distributed by the benchmark.
 
-Configure the dataset, simulator and pretrained encoder locations:
+<details>
+<summary><strong>Configure data, simulator and pretrained encoder paths</strong></summary>
 
 ```bash
 export ROBODEMO_DATA_ROOT=/data/IG-10K-Dataset
@@ -82,6 +121,8 @@ reported experiments. Paths inside those files are relative to the IG-10K
 dataset root. C15-wo also includes its 400 selected robot-reference identities
 and candidate scores.
 
+</details>
+
 ## Evaluation
 
 Use a downloaded policy checkpoint and a GPU allocated to your job:
@@ -94,13 +135,22 @@ CUDA_VISIBLE_DEVICES=0 python evaluation/evaluate.py \
   --output outputs/c15
 ```
 
-Choose `full50`, `c15`, `c30`, `c45` or `c15-wo`. Add `--split seen` or
-`--split unseen` for a nested-corpus split, or `--task-level
-L0_TwoRobotFoldTowel-v1` for a task-level subset. Use a new output directory
-for each evaluation.
+Choose `full50`, `c15`, `c30`, `c45` or `c15-wo`, with its corresponding
+checkpoint. Use a new output directory for each evaluation.
 
-For a smoke evaluation, add `--max-episodes 1` to run one complete episode.
-This limits the trial count without shortening the 500-control-step horizon.
+| To evaluate | Add |
+| --- | --- |
+| One complete episode | `--max-episodes 1` |
+| A nested-corpus split | `--split seen` or `--split unseen` |
+| A task-level subset | `--task-level L0_TwoRobotFoldTowel-v1` |
+
+All five released checkpoints have passed a real 500-step simulator run.
+[Verification report and commands](docs/smoke-evaluation.md).
+
+<details>
+<summary><strong>Evaluation protocol and C15-wo references</strong></summary>
+
+The episode limit changes the trial count, not the 500-control-step horizon.
 
 The evaluator queries the policy every control step, retains a new action
 chunk every four steps, and combines up to four overlapping chunks.
@@ -112,6 +162,8 @@ For the reported C15-wo episodes, the evaluator reuses the published
 initial-observation retrieval selections. `evaluation/retrieval.py` also
 provides the original query-conditioned scorer for a prepared candidate
 feature bank; see [reference retrieval](docs/retrieval.md).
+
+</details>
 
 ## Evaluation Logs
 
@@ -129,6 +181,9 @@ The result package covers 3,600 episodes.
 
 ## Code Layout
 
+<details>
+<summary><strong>Browse the repository structure</strong></summary>
+
 | Directory | Contents |
 | --- | --- |
 | `models/human/demottt` | Human-reference policy, reference encoder and dual-memory modules |
@@ -143,6 +198,8 @@ The two policy source trees preserve their respective evaluation
 implementations. The original `demottt` module name is retained for checkpoint
 compatibility. Training launchers, optimizers and checkpoint-resume tooling
 will be released in the next stage.
+
+</details>
 
 ## Acknowledgments
 
