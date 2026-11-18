@@ -12,3 +12,6 @@ checkpoints/
 *.safetensors
 *.npz
 *.mp4
+!examples/assets/human-reference.mp4
+!examples/assets/human-conditioned-execution.mp4
+!examples/assets/robot-episode.npz

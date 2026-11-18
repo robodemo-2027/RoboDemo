@@ -20,3 +20,6 @@ their original distribution terms.
 - OpenVLA logging utility: `licenses/OPENVLA_LICENSE`.
 - Xiaomi Robotics components: `licenses/XIAOMI_ROBOTICS_LICENSE` (Apache 2.0).
 - Qwen model adaptation: `licenses/APACHE-2.0.txt`.
+- Imitator Game human-video excerpt: Apache 2.0
+  (`licenses/APACHE-2.0.txt`); source and extraction details are in
+  `examples/assets/SOURCE.md`.

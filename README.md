@@ -28,11 +28,22 @@
 - [x] **Code:** model architecture, dual-memory inference, evaluator and environment.
 - [x] **Models & results:** five checkpoints, trial plans, normalization and 3,600 episode logs.
 - [x] **Verified:** all five models completed a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
+- [x] **Getting started:** genuine recorded inputs, two minimal inference examples, and per-model single/eight-GPU launchers.
+- [x] **Retrieval:** selected Refreward scorer, GPT annotations, audited instructions and compact reference maps.
+- [x] **Environment:** shared Docker recipe, pinned dependencies and environment diagnostics.
+- [x] **Tests:** offline regression suite and an [optional GitHub Actions template](environments/ci/README.md).
+- [ ] **Automation:** activate the supplied Actions workflow.
+- [ ] **Validation next:** fresh Docker GPU run, native 32/80-GB sizing and eight-GPU end-to-end evaluation.
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
 
 **Start here:** [Evaluate a checkpoint](docs/quickstart.md) &middot;
 [Browse complete results](results/README.md) &middot;
 [Paper comparisons and ablations](results/paper/README.md).
+
+[Minimal examples](examples/README.md) &middot;
+[Docker environment](https://huggingface.co/mxk1998/RoboDemo-Evaluation) &middot;
+[GPU sizing and launchers](docs/evaluation-scaling.md) &middot;
+[Refreward weights and data](docs/retrieval.md).
 
 ## Overview
 
@@ -43,7 +54,7 @@
   <img src="docs/assets/paper/teaser.png" width="1120" alt="Paper Figure 1. Generated textual or visual guidance versus RoboDemo's demonstration-intent and interaction-progress memories.">
 </a>
 
-*Figure 1. From generated guidance to retrieved video as guidance.
+*Figure 1. From generated guidance to demonstration video as guidance.
 RoboDemo preserves reference guidance while tracking actual execution.*
 
 RoboDemo is a demonstration-augmented manipulation framework built on
@@ -181,6 +192,10 @@ The evaluator uses Transformers 4.57.6, SAPIEN 3.0.3 and Gymnasium 0.29.1.
 See [environment setup](environments/README.md) for the full dependency
 inventory and rendering configuration.
 
+For a container-based setup, use the shared
+[Docker build recipe](https://huggingface.co/mxk1998/RoboDemo-Evaluation).
+It covers all five checkpoints and includes driver and asset diagnostics.
+
 <details>
 <summary><strong>Install the evaluation environment</strong></summary>
 
@@ -259,6 +274,12 @@ checkpoint. Use a new output directory for each evaluation.
 All five released checkpoints have passed a real 500-step simulator run.
 [Verification report and commands](docs/smoke-evaluation.md).
 
+For parallel evaluation, use the [ten model-specific launchers](docs/evaluation-scaling.md).
+Start with `--workers-per-gpu 1`; `--max-episodes` controls the total trial
+count without changing the evaluation horizon or per-worker model memory.
+The [two minimal examples](examples/README.md) explain human-video-to-action
+inference and initial-image-conditioned robot-reference retrieval.
+
 <details>
 <summary><strong>Evaluation protocol and C15-wo references</strong></summary>
 
@@ -307,6 +328,8 @@ comparisons, ablations, real-world results and inference measurements.
 | `evaluation` | Rollout, action aggregation, reference selection and summarization |
 | `configs` | Inference configurations, normalization and trial manifests |
 | `environments` | Evaluation dependency versions and simulator setup |
+| `scripts/evaluate` | Single-GPU and eight-GPU launchers for every checkpoint |
+| `examples` | Recorded human/robot episode and two minimal inference workflows |
 | `results` | Episode logs, summary and per-task tables |
 | `docs/assets/paper` | Paper figures: original SVG and PDF, with web previews |
 

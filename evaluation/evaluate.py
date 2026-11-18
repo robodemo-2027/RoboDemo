@@ -4,9 +4,11 @@ import os
 from pathlib import Path
 import sys
 import traceback
+from datetime import datetime, timezone
 from io_utils import ROOT, read_json, write_json
-
-MODELS = {"full50": 240000, "c15": 90000, "c30": 160000, "c45": 260000, "c15-wo": 100000}
+from planning import (
+    MODELS, select_trials, shard_trials, run_manifest, prepare_output, checked_result, summary,
+)
 
 
 def positive_int(value):
@@ -26,11 +28,30 @@ def parser():
     p.add_argument("--task-level", help="Optional task-level subset, e.g. L0_TwoRobotFoldTowel-v1")
     p.add_argument("--max-episodes", type=positive_int,
                    help="Evaluate only the first N matching trials, preserving their published order.")
+    p.add_argument("--num-shards", type=positive_int, default=1)
+    p.add_argument("--shard-index", type=int, default=0)
+    p.add_argument("--resume", action="store_true",
+                   help="Continue the same run; retain completed successes AND task failures.")
     return p
 
 
 def main():
     args = parser().parse_args()
+    plan, all_trials = select_trials(args.model, args.split, args.task_level, args.max_episodes)
+    trials = shard_trials(all_trials, args.num_shards, args.shard_index)
+    manifest = run_manifest(args, trials)
+    prepare_output(args.output, manifest, args.resume)
+    results = []
+    pending = []
+    for trial in trials:
+        destination = args.output / trial["trial_id"]
+        if (destination / "result.json").exists():
+            results.append(checked_result(destination / "result.json", trial, manifest))
+        else:
+            pending.append(trial)
+    write_json(args.output / "summary.json", summary(manifest, results))
+    if not pending:
+        return
     if not os.environ.get("CUDA_VISIBLE_DEVICES"):
         raise RuntimeError("Set CUDA_VISIBLE_DEVICES to your allocated GPU before evaluation.")
     robot = args.model == "c15-wo"
@@ -45,24 +66,6 @@ def main():
     from rollout import rollout
     from device import pci_render_device
     render_device = pci_render_device(torch.cuda.get_device_properties(0).uuid)
-    plan = read_json(ROOT / "configs" / (args.model + "_trials.json"))
-    seen = {"FoldTowel", "PlaceFileFolder", "PlaceMugRack", "PlacePlateRack", "StirSpoon"}
-    trials = []
-    for original in plan["trials"]:
-        t = dict(original)
-        task = t["base_task"].removeprefix("TwoRobot").removesuffix("-v1")
-        t["split"] = "all" if args.model == "full50" else "seen" if task in seen else "unseen"
-        t.setdefault("task_id", t.get("human_task"))
-        if args.split != "all" and t["split"] != args.split:
-            continue
-        if args.task_level and t["task_level"] != args.task_level:
-            continue
-        trials.append(t)
-    if not trials:
-        raise ValueError("The requested split/task-level has no trials.")
-    if args.max_episodes is not None:
-        trials = trials[:args.max_episodes]
-    args.output.mkdir(parents=True, exist_ok=False)
     checkpoint = {"step": MODELS[args.model], "weight_path": str(args.checkpoint.resolve())}
     model, load_record = load_model(checkpoint, ROOT / "configs" / (args.model + ".yaml"))
     write_json(args.output / "model_load.json", load_record)
@@ -79,9 +82,8 @@ def main():
     }
     current_env = None
     env = None
-    results = []
     try:
-        for trial in trials:
+        for trial in pending:
             if trial["task_level"] != current_env:
                 if env is not None:
                     env.close()
@@ -95,10 +97,16 @@ def main():
                     reconfiguration_freq=1, max_episode_steps=500)
                 current_env = trial["task_level"]
             destination = args.output / trial["trial_id"]
+            if destination.exists():
+                archive = args.output / "incomplete"
+                archive.mkdir(exist_ok=True)
+                stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%f")
+                destination.rename(archive / (trial["trial_id"] + "-" + stamp))
             destination.mkdir()
             write_json(destination / "trial.json", trial)
             rollout(model, references, trial, env, destination, checkpoint, plan)
             results.append(read_json(destination / "result.json"))
+            write_json(args.output / "summary.json", summary(manifest, results))
     except BaseException:
         write_json(args.output / "failure.json", {
             "trial_id": trial["trial_id"], "error": traceback.format_exc(),
@@ -107,10 +115,7 @@ def main():
     finally:
         if env is not None:
             env.close()
-    write_json(args.output / "summary.json", {
-        "model": plan["model"], "checkpoint_step": checkpoint["step"],
-        "episodes": len(results), "successes": sum(r["success"] for r in results),
-        "success_rate": 100 * sum(r["success"] for r in results) / len(results)})
+    write_json(args.output / "summary.json", summary(manifest, results))
 
 
 if __name__ == "__main__":

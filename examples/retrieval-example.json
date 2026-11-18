@@ -1,0 +1,72 @@
+{
+  "query": {
+    "id": 3806,
+    "uid": "L0_TwoRobotPourKettle-v1:6",
+    "repo": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1",
+    "episode": 6,
+    "fps": 30,
+    "length": 281,
+    "level": 0,
+    "task": "TwoRobotPourKettle",
+    "language": "Grasp the kettle and position it above the cup for pouring.",
+    "language_mode": "canonical",
+    "video_start_frame": 1709,
+    "source_kind": "robot_simulation",
+    "video": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/videos/observation.images.zed2i/chunk-000/file-000.mp4",
+    "data": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/data/chunk-000/file-000.parquet",
+    "replay_group": "group-08886"
+  },
+  "candidates": [
+    {
+      "id": 3836,
+      "uid": "L0_TwoRobotPourKettle-v1:36",
+      "repo": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1",
+      "episode": 36,
+      "fps": 30,
+      "length": 295,
+      "level": 0,
+      "task": "TwoRobotPourKettle",
+      "language": "Grasp the kettle and position it above the cup for pouring.",
+      "language_mode": "canonical",
+      "video_start_frame": 10223,
+      "source_kind": "robot_simulation",
+      "video": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/videos/observation.images.zed2i/chunk-000/file-000.mp4",
+      "data": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/data/chunk-000/file-000.parquet",
+      "replay_group": "group-07220"
+    },
+    {
+      "id": 3815,
+      "uid": "L0_TwoRobotPourKettle-v1:15",
+      "repo": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1",
+      "episode": 15,
+      "fps": 30,
+      "length": 289,
+      "level": 0,
+      "task": "TwoRobotPourKettle",
+      "language": "Grasp the kettle and position it above the cup for pouring.",
+      "language_mode": "canonical",
+      "video_start_frame": 4256,
+      "source_kind": "robot_simulation",
+      "video": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/videos/observation.images.zed2i/chunk-000/file-000.mp4",
+      "data": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/data/chunk-000/file-000.parquet",
+      "replay_group": "group-05212"
+    },
+    {
+      "id": 3820,
+      "uid": "L0_TwoRobotPourKettle-v1:20",
+      "repo": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1",
+      "episode": 20,
+      "fps": 30,
+      "length": 282,
+      "level": 0,
+      "task": "TwoRobotPourKettle",
+      "language": "Grasp the kettle and position it above the cup for pouring.",
+      "language_mode": "canonical",
+      "video_start_frame": 5681,
+      "source_kind": "robot_simulation",
+      "video": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/videos/observation.images.zed2i/chunk-000/file-000.mp4",
+      "data": "imitator_sim_v1_zed2i/L0_TwoRobotPourKettle-v1/data/chunk-000/file-000.parquet",
+      "replay_group": "group-06393"
+    }
+  ]
+}

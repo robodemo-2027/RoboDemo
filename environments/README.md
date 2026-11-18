@@ -28,3 +28,75 @@ These are simulator rates, not a claim of 20-Hz wall-clock policy inference.
 The tests use small synthetic tensors and saved episode records.
 They do not load pretrained weights, run the simulator, make network requests
 or control a physical robot. A new GPU rollout is separate from those tests.
+
+## Docker Recipe
+
+The same build files are mirrored in
+[the shared Hugging Face evaluation repository](https://huggingface.co/mxk1998/RoboDemo-Evaluation).
+They serve all five policy checkpoints. We provide a **Docker build recipe**,
+not a prebuilt container image. The recorded native environment has completed
+policy/simulator runs; a fresh Docker build and GPU run still need validation.
+
+The image fixes Python 3.10.20, the CUDA 12.4 PyTorch build, simulator source,
+and package versions. Dataset assets and model files are mounted separately.
+It deliberately does not install the simulator repository's current training
+extras, which target a different Python/PyTorch stack.
+
+```bash
+docker build -t robodemo-evaluation:cu124 environments
+
+# Run from the RoboDemo repository; /data/robodemo-assets is an example path.
+export ROBODEMO_HOST_ASSETS=/data/robodemo-assets
+export ROBODEMO_HOST_OUTPUTS="$PWD/outputs"
+export ROBODEMO_GPU=0
+mkdir -p "$ROBODEMO_HOST_OUTPUTS"
+docker compose -f environments/docker-compose.yml run --rm evaluation \
+  python environments/check_environment.py --assets
+```
+
+The asset mount should contain `IG-10K-Dataset/`, `maniskill/`,
+`Qwen3-VL-4B-Instruct/`, `vjepa2/`, and `vjepa2-ac-vitg.pt`.
+Place policy weights in the repository's ignored `checkpoints/` directory.
+Run one complete episode:
+
+```bash
+docker compose -f environments/docker-compose.yml run --rm evaluation \
+  bash scripts/evaluate/c15-single.sh \
+  --checkpoint checkpoints/RoboDemo-c15/pytorch_model.pt \
+  --data-root /assets/IG-10K-Dataset --max-episodes 1 \
+  --output /outputs/c15-smoke
+```
+
+For eight GPUs, use `docker run --gpus '"device=0,1,2,3,4,5,6,7"'`
+with the same mounts/environment, and set container `CUDA_VISIBLE_DEVICES`
+to its eight visible device indices. The supplied Compose example allocates
+one GPU; it is not an eight-GPU reservation.
+
+## Host Driver And Diagnostics
+
+The validated native evaluation used NVIDIA driver **555.42.06**. CUDA
+12.4 wheels require a compatible Linux driver (CUDA 12.x minor-version
+compatibility starts at 525.60.13), but that CUDA floor alone does not certify
+SAPIEN/Vulkan/OptiX compatibility. Prefer the recorded driver when reproducing
+rendering. Do not install a kernel driver inside the container.
+
+`nvidia-smi`'s "CUDA Version" is the driver's supported CUDA level, not the
+PyTorch build's toolkit version. Use `torch.version.cuda` to check the latter.
+The host needs NVIDIA Container Toolkit, Vulkan driver discovery, and
+`libnvoptix.so.1` from its matching NVIDIA driver. The container requests
+`compute,utility,graphics` driver capabilities. If OptiX is absent, install
+its matching host driver component rather than substituting a different
+shader or turning off denoising.
+
+```bash
+nvidia-smi
+python environments/check_environment.py --assets \
+  --output outputs/environment.json
+# Package and simulator-import checks without initializing CUDA:
+python environments/check_environment.py --cpu-only
+```
+
+The diagnostics do not run an episode. Follow them with a one-episode
+simulator smoke test before starting a larger evaluation. See
+[memory and parallelism](../docs/evaluation-scaling.md) for 32-GB/80-GB
+starting configurations and the currently measured scope.

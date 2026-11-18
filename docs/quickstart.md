@@ -123,3 +123,14 @@ python evaluation/export_results.py --output outputs/result-tables
 
 Model architecture and evaluation are released. Training code and launch
 recipes remain on the [release roadmap](../README.md#release-status).
+
+## Docker, Parallel Evaluation And Examples
+
+The [shared Docker recipe](../environments/README.md#docker-recipe) uses the
+same environment for all five checkpoints. Check the host driver and assets
+with `python environments/check_environment.py --assets`.
+
+Use the [per-model one/eight-GPU launchers](evaluation-scaling.md) to choose
+episode count, workers per GPU, and restart an interrupted run. For learning
+the interfaces without a simulator, start with the
+[minimal policy and retrieval examples](../examples/README.md).

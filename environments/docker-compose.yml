@@ -1,0 +1,26 @@
+services:
+  evaluation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: robodemo-evaluation:cu124
+    shm_size: 8gb
+    working_dir: /workspace/RoboDemo
+    volumes:
+      - ..:/workspace/RoboDemo
+      - ${ROBODEMO_HOST_ASSETS:?Set ROBODEMO_HOST_ASSETS}:/assets:ro
+      - ${ROBODEMO_HOST_OUTPUTS:?Set ROBODEMO_HOST_OUTPUTS}:/outputs
+    environment:
+      CUDA_VISIBLE_DEVICES: "0"
+      ROBODEMO_DATA_ROOT: /assets/IG-10K-Dataset
+      MS_ASSET_DIR: /assets/maniskill
+      ROBODEMO_QWEN: /assets/Qwen3-VL-4B-Instruct
+      ROBODEMO_VJEPA2_SOURCE: /assets/vjepa2
+      ROBODEMO_VJEPA2_WEIGHTS: /assets/vjepa2-ac-vitg.pt
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${ROBODEMO_GPU:?Set ROBODEMO_GPU to an allocated GPU}"]
+              capabilities: [gpu]
