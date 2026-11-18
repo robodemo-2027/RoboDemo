@@ -1,9 +1,9 @@
 # Copyright 2025 starVLA community. All rights reserved.
 # Licensed under the MIT License, Version 1.0 (the "License");
 # Implemented by starVLA community in 2026.
-# Modification: DemoTTT writer/query-separated XR-1 Action-DiT wrapper.
+# Modification: DemoTTT writer/query-separated backbone Action-DiT wrapper.
 
-"""Insert DemoTTT dual fast-weight reads between XR-1 attention and FFN."""
+"""Insert DemoTTT dual fast-weight reads between backbone attention and FFN."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from demottt.memory.ttt import FastWeights, TTTMLP, detach_fast_weights
 
 
 def modulate(value: torch.Tensor, shift: torch.Tensor, scale: torch.Tensor) -> torch.Tensor:
-    """Apply XR-1's AdaLN modulation without importing the heavyweight VLM stack."""
+    """Apply backbone's AdaLN modulation without importing the heavyweight VLM stack."""
 
     return value * (1.0 + scale) + shift
 
@@ -27,7 +27,7 @@ class DemoTTTContext:
     """All slow-path tensors used by a single Action-DiT invocation.
 
     Training tensors are indexed by the environment-time batch ``[B,S,...]``.
-    XR-1 flattens them in ``[S,B,K,...]`` order, where ``K`` is its diffusion
+    backbone flattens them in ``[S,B,K,...]`` order, where ``K`` is its diffusion
     training repeat. Runtime state is deliberately kept on the layer instead of
     in checkpoints.
     """
@@ -66,7 +66,7 @@ class DemoTTTContext:
 
 
 class DemoTTTDecoderLayer(nn.Module):
-    """Original XR-1 attention, serial v2 memory reads, then original FFN."""
+    """Original backbone attention, serial v2 memory reads, then original FFN."""
 
     def __init__(self, base_layer: nn.Module, config: dict) -> None:
         super().__init__()
@@ -557,7 +557,7 @@ class DemoTTTDecoderLayer(nn.Module):
 
 
 class DemoTTTDiT(nn.Module):
-    """Drop-in XR-1 DiT wrapper with explicit writer/query-separated context."""
+    """Drop-in backbone DiT wrapper with explicit writer/query-separated context."""
 
     def __init__(self, base_dit: nn.Module, config: dict) -> None:
         super().__init__()

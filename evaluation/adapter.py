@@ -5,6 +5,7 @@ import torch
 from omegaconf import OmegaConf
 
 from io_utils import ROOT
+from checkpoint import load_policy_state
 
 def load_model(checkpoint, config_path):
     from demottt import build_policy
@@ -14,21 +15,21 @@ def load_model(checkpoint, config_path):
     model = build_policy(config)
     state = torch.load(checkpoint["weight_path"], map_location="cpu",
                        mmap=True, weights_only=True)
-    incompatible = model.load_state_dict(state, strict=True)
+    incompatible = load_policy_state(model, state)
     del state
     model.eval().cuda()
-    original = model.xr1.prepare_context
+    original = model.backbone.prepare_context
     model._evaluation_mask_checks = 0
 
     def prepare_context(batch, *args, **kwargs):
         mask = batch["action_mask"]
         if tuple(mask.shape) != (1, 30, 60) or not bool(
                 (mask[..., :16] == 1).all()) or bool(mask[..., 16:].any()):
-            raise RuntimeError("XR-1 requires exactly 16 active action dimensions")
+            raise RuntimeError("The policy requires exactly 16 active action dimensions")
         model._evaluation_mask_checks += 1
         return original(batch, *args, **kwargs)
 
-    model.xr1.prepare_context = prepare_context
+    model.backbone.prepare_context = prepare_context
     gc.collect()
     return model, {
         "checkpoint_step": checkpoint["step"], "checkpoint_path": checkpoint["weight_path"],

@@ -3,7 +3,7 @@
 # Implemented by starVLA community in 2026.
 # Modification: Serial Retrieval/Execution memory orchestration for DemoTTT.
 
-"""Dual-memory orchestration independent of the XR-1 attention/FFN wrapper."""
+"""Dual-memory orchestration independent of the backbone attention/FFN wrapper."""
 
 from __future__ import annotations
 

@@ -1,22 +1,15 @@
 # Copyright 2025 starVLA community. All rights reserved.
 # Licensed under the MIT License, Version 1.0 (the "License");
 # Implemented by starVLA community in 2026.
-# Modification: Adapt Xiaomi-Robotics-1 XR-1 post-training to starVLA RoboDojo batches.
+# Modification: Adapt the backbone to starVLA RoboDojo batches.
 
-"""Isolated adapter for the official Xiaomi-Robotics-1 XR-1 model.
-
-The XR-1 implementation and its weights are loaded from Xiaomi's official
-Hugging Face model (or from an official ``model_states.pt`` plus source tree).
-This module only adapts starVLA's example-list API and RoboDojo's compact action
-layout to XR-1's fixed 30 x 60 action contract.
-"""
+"""Adapt example-list inputs to the backbone's 30 x 60 action contract."""
 
 from __future__ import annotations
 
 import copy
 import itertools
 import math
-from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Sequence
 
 import numpy as np
@@ -24,7 +17,7 @@ import torch
 import torch.nn as nn
 from PIL import Image
 from torch.utils.data.dataloader import default_collate
-from transformers import AutoModel, AutoProcessor
+from transformers import AutoProcessor
 from transformers.video_utils import VideoMetadata
 
 from demottt.data.images import to_pil_preserve
@@ -37,15 +30,15 @@ STATE_ID = 151670
 IM_START_ID = 151644
 IMAGE_ID = 151655
 VIDEO_ID = 151656
-XR1_ACTION_DIM = 60
-XR1_ACTION_LENGTH = 30
+BACKBONE_ACTION_DIM = 60
+BACKBONE_ACTION_LENGTH = 30
 HUMAN_MIBOT_SOURCE_INDICES = (7, 8, 9, 10, 11, 12, 13, 36, 37, 38, 39, 40, 41, 42)
 HUMAN_MIBOT_SLOT_INDICES = (0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14)
 HUMAN_MIBOT_STATE_SLOT_INDICES = tuple(range(16, 30))
 
 
-def _resize_xr1_image(image: Image.Image, factor: int = 32, max_pixels: int = 160000) -> Image.Image:
-    """Match the official XR-1 resize rule while preserving aspect ratio."""
+def _resize_backbone_image(image: Image.Image, factor: int = 32, max_pixels: int = 160000) -> Image.Image:
+    """Match the official backbone resize rule while preserving aspect ratio."""
     image = image.convert("RGB")
     width, height = image.size
     new_height = max(factor, round(height / factor) * factor)
@@ -57,14 +50,14 @@ def _resize_xr1_image(image: Image.Image, factor: int = 32, max_pixels: int = 16
     return image.resize((new_width, new_height), Image.Resampling.BILINEAR)
 
 
-class _XR1PackedCollator:
+class _BackbonePackedCollator:
     """The official packed Qwen3-VL collation contract, driven by local paths."""
 
     def __init__(self, processor_path: str, max_length: int = 20000) -> None:
         self.max_length = int(max_length)
         self.last_selected_indices: List[int] = []
         special_tokens = {"score": "<score>", "state": "<state>"}
-        special_tokens.update({f"a_{index}": f"<a_{index}>" for index in range(XR1_ACTION_DIM)})
+        special_tokens.update({f"a_{index}": f"<a_{index}>" for index in range(BACKBONE_ACTION_DIM)})
         self.processor = AutoProcessor.from_pretrained(
             processor_path,
             use_fast=True,
@@ -72,8 +65,8 @@ class _XR1PackedCollator:
             local_files_only=True,
         )
         ids = self.processor.tokenizer.convert_tokens_to_ids(["<score>", "<state>", "<a_0>", "<a_59>"])
-        if ids != [SCORE_ID, STATE_ID, STATE_ID + 1, STATE_ID + XR1_ACTION_DIM]:
-            raise ValueError(f"XR-1 special-token IDs do not match the official model: {ids}")
+        if ids != [SCORE_ID, STATE_ID, STATE_ID + 1, STATE_ID + BACKBONE_ACTION_DIM]:
+            raise ValueError(f"backbone special-token IDs do not match the official model: {ids}")
 
     def _position_ids(self, inputs: Dict[str, torch.Tensor]) -> torch.Tensor:
         input_ids = inputs["input_ids"]
@@ -108,7 +101,7 @@ class _XR1PackedCollator:
             )
             visual_start = min(image_start, video_start)
             if visual_start == len(tokens):
-                raise ValueError("XR-1 could not align image/video grids with visual placeholder tokens")
+                raise ValueError("backbone could not align image/video grids with visual placeholder tokens")
             if image_start < video_start:
                 grid = image_grids[image_index]
                 image_index += 1
@@ -162,23 +155,23 @@ class _XR1PackedCollator:
             condition_end = int(im_starts[-1]) if training else length
             if not training:
                 ids = inputs["input_ids"][0]
-                target_tokens = (ids == SCORE_ID) | ((ids > STATE_ID) & (ids <= STATE_ID + XR1_ACTION_DIM))
+                target_tokens = (ids == SCORE_ID) | ((ids > STATE_ID) & (ids <= STATE_ID + BACKBONE_ACTION_DIM))
                 history = sample.get("history_action")
                 history_count = 0 if history is None else int(history.shape[0])
                 if bool(target_tokens.any()) or len(state_tokens) != history_count:
-                    raise ValueError("XR-1 inference requires conditions only; state tokens must match history actions")
+                    raise ValueError("backbone inference requires conditions only; state tokens must match history actions")
             if training:
                 # Explicit-history prompts may contain earlier <state> placeholders
                 # carrying action embeddings. The final one is the current state.
                 im_starts = im_starts[im_starts < state_tokens[-1, 0]]
                 if im_starts.numel() == 0:
-                    raise ValueError("XR-1 could not locate the RoboDojo action-conditioning turn")
+                    raise ValueError("backbone could not locate the RoboDojo action-conditioning turn")
                 condition_end = int(im_starts[-1])
             payload = {key: value for key, value in sample.items() if key != "messages"}
             selected.append((inputs, payload, condition_end, sample_index))
             total_length += length
         if not selected:
-            raise ValueError(f"No XR-1 sample fits MAX_LENGTH={self.max_length}")
+            raise ValueError(f"No backbone sample fits MAX_LENGTH={self.max_length}")
 
         self.last_selected_indices = [sample_index for _, _, _, sample_index in selected]
         lengths = [inputs["input_ids"].shape[1] for inputs, _, _, _ in selected]
@@ -209,7 +202,7 @@ class _XR1PackedCollator:
         payloads = [payload for _, payload, _, _ in selected]
         if any("history_action" in payload for payload in payloads):
             history_actions = [
-                payload.pop("history_action", torch.empty(0, XR1_ACTION_DIM, dtype=torch.bfloat16))
+                payload.pop("history_action", torch.empty(0, BACKBONE_ACTION_DIM, dtype=torch.bfloat16))
                 for payload in payloads
             ]
             result["history_action"] = torch.cat(history_actions, dim=0)
@@ -232,71 +225,71 @@ class _XR1PackedCollator:
         return result
 
 
-class _XiaomiXR1PolicyBase(baseframework):
-    """Official XR-1 model with a reversible RoboDojo-to-60D slot adapter."""
+class _BackbonePolicyBase(baseframework):
+    """Official backbone model with a reversible RoboDojo-to-60D slot adapter."""
 
     def __init__(self, config: Any = None, **_: Any) -> None:
         super().__init__()
         self.config = config
-        xr1_cfg = config.framework.get("xr1", {})
-        self.source_width = int(xr1_cfg.get("source_width", config.framework.action_model.action_dim))
-        self.action_length = int(xr1_cfg.get("action_length", XR1_ACTION_LENGTH))
-        if self.action_length != XR1_ACTION_LENGTH:
-            raise ValueError("The released XR-1 checkpoint requires action_length=30")
+        backbone_cfg = config.framework.get("backbone", {})
+        self.source_width = int(backbone_cfg.get("source_width", config.framework.action_model.action_dim))
+        self.action_length = int(backbone_cfg.get("action_length", BACKBONE_ACTION_LENGTH))
+        if self.action_length != BACKBONE_ACTION_LENGTH:
+            raise ValueError("The released backbone checkpoint requires action_length=30")
         self.source_indices = tuple(
             int(index)
-            for index in xr1_cfg.get("source_indices", [7, 8, 9, 10, 11, 12, 13, 36, 37, 38, 39, 40, 41, 42])
+            for index in backbone_cfg.get("source_indices", [7, 8, 9, 10, 11, 12, 13, 36, 37, 38, 39, 40, 41, 42])
         )
         self.slot_indices = tuple(
             int(index)
-            for index in xr1_cfg.get("slot_indices", [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14])
+            for index in backbone_cfg.get("slot_indices", [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14])
         )
         if len(self.slot_indices) != len(self.source_indices):
-            raise ValueError("framework.xr1.source_indices and slot_indices must have the same length")
+            raise ValueError("framework.backbone.source_indices and slot_indices must have the same length")
         if len(set(self.slot_indices)) != len(self.slot_indices) or len(set(self.source_indices)) != len(
             self.source_indices
         ):
-            raise ValueError("framework.xr1 source/target slot mappings must be unique")
+            raise ValueError("framework.backbone source/target slot mappings must be unique")
         if max(self.source_indices) >= self.source_width:
-            raise ValueError("framework.xr1.source_width is too small for source_indices")
-        self.use_source_state = bool(xr1_cfg.get("use_source_state", True))
+            raise ValueError("framework.backbone.source_width is too small for source_indices")
+        self.use_source_state = bool(backbone_cfg.get("use_source_state", True))
         self.state_source_indices = tuple(
-            int(index) for index in xr1_cfg.get("state_source_indices", self.source_indices)
+            int(index) for index in backbone_cfg.get("state_source_indices", self.source_indices)
         )
         self.state_slot_indices = tuple(
-            int(index) for index in xr1_cfg.get("state_slot_indices", self.slot_indices)
+            int(index) for index in backbone_cfg.get("state_slot_indices", self.slot_indices)
         )
         if len(self.state_slot_indices) != len(self.state_source_indices):
             raise ValueError(
-                "framework.xr1.state_source_indices and state_slot_indices must have the same length"
+                "framework.backbone.state_source_indices and state_slot_indices must have the same length"
             )
         if len(set(self.state_slot_indices)) != len(self.state_slot_indices) or len(
             set(self.state_source_indices)
         ) != len(self.state_source_indices):
-            raise ValueError("framework.xr1 state source/target slot mappings must be unique")
+            raise ValueError("framework.backbone state source/target slot mappings must be unique")
         if self.state_source_indices and max(self.state_source_indices) >= self.source_width:
-            raise ValueError("framework.xr1.source_width is too small for state_source_indices")
-        if self.state_slot_indices and max(self.state_slot_indices) >= XR1_ACTION_DIM:
-            raise ValueError("framework.xr1.state_slot_indices exceed the XR-1 60-D state")
+            raise ValueError("framework.backbone.source_width is too small for state_source_indices")
+        if self.state_slot_indices and max(self.state_slot_indices) >= BACKBONE_ACTION_DIM:
+            raise ValueError("framework.backbone.state_slot_indices exceed the backbone 60-D state")
 
-        processor_path = str(xr1_cfg.get("processor_path", config.framework.qwenvl.base_vlm))
-        self.collator = _XR1PackedCollator(processor_path, int(xr1_cfg.get("max_length", 20000)))
-        self.xr1 = self._load_official_model(xr1_cfg)
-        self.context_view_indices = tuple(int(index) for index in xr1_cfg.get("context_view_indices", [0]))
-        self.context_include_actions = bool(xr1_cfg.get("context_include_actions", True))
-        self.context_action_encoder = bool(xr1_cfg.get("context_action_encoder", False))
-        self.context_max_pixels = int(xr1_cfg.get("context_max_pixels", 32768))
+        processor_path = str(backbone_cfg.get("processor_path", config.framework.qwenvl.base_vlm))
+        self.collator = _BackbonePackedCollator(processor_path, int(backbone_cfg.get("max_length", 20000)))
+        self.backbone = self._build_backbone(backbone_cfg)
+        self.context_view_indices = tuple(int(index) for index in backbone_cfg.get("context_view_indices", [0]))
+        self.context_include_actions = bool(backbone_cfg.get("context_include_actions", True))
+        self.context_action_encoder = bool(backbone_cfg.get("context_action_encoder", False))
+        self.context_max_pixels = int(backbone_cfg.get("context_max_pixels", 32768))
         if not self.context_view_indices or min(self.context_view_indices) < 0:
-            raise ValueError("framework.xr1.context_view_indices must contain non-negative view indices")
+            raise ValueError("framework.backbone.context_view_indices must contain non-negative view indices")
         if self.context_max_pixels <= 0:
-            raise ValueError("framework.xr1.context_max_pixels must be positive")
+            raise ValueError("framework.backbone.context_max_pixels must be positive")
         if self.context_action_encoder:
-            if not hasattr(self.xr1, "state_projector_choice"):
-                raise ValueError("XR-1 history action encoding requires state_projector_choice")
-            self.history_action_projector = copy.deepcopy(self.xr1.state_projector_choice)
+            if not hasattr(self.backbone, "state_projector_choice"):
+                raise ValueError("backbone history action encoding requires state_projector_choice")
+            self.history_action_projector = copy.deepcopy(self.backbone.state_projector_choice)
 
     def get_optimizer_param_groups(self, base_lr: float) -> List[Dict[str, Any]]:
-        """Reproduce XR-1's AdamW decay split inside the starVLA trainer."""
+        """Reproduce backbone's AdamW decay split inside the starVLA trainer."""
         no_decay_names = ("bias", "norm", "ln", "rotary_emb", "adaln")
         decay, no_decay = [], []
         for name, parameter in self.named_parameters():
@@ -305,95 +298,28 @@ class _XiaomiXR1PolicyBase(baseframework):
             target = no_decay if any(marker in name.lower() for marker in no_decay_names) else decay
             target.append(parameter)
         return [
-            {"params": decay, "lr": base_lr, "weight_decay": 0.1, "name": "xr1_decay"},
-            {"params": no_decay, "lr": base_lr, "weight_decay": 0.0, "name": "xr1_no_decay"},
+            {"params": decay, "lr": base_lr, "weight_decay": 0.1, "name": "backbone_decay"},
+            {"params": no_decay, "lr": base_lr, "weight_decay": 0.0, "name": "backbone_no_decay"},
         ]
 
     @staticmethod
-    def _load_official_model(xr1_cfg: Any) -> nn.Module:
-        load_xr1_pretrained = bool(xr1_cfg.get("load_pretrained", True))
-        qwen_model_path = str(xr1_cfg.get("processor_path"))
-        if not load_xr1_pretrained:
-            from demottt._vendor.starvla.model.third_party.xiaomi_xr1 import xr1 as OfficialXR1
+    def _build_backbone(spec: Any) -> nn.Module:
+        """Construct the architecture for a complete RoboDemo policy checkpoint."""
+        from transformers.modeling_utils import no_init_weights
+        from demottt._vendor.starvla.model.third_party.backbone import PolicyBackbone
 
-            model = OfficialXR1(
-                freq_coefficient=float(xr1_cfg.get("freq_coefficient", 1.0)),
-                freq_excluded_dims=list(xr1_cfg.get("freq_excluded_dims", [17, 18, 19])),
-                ffn_gradient_checkpointing=bool(xr1_cfg.get("ffn_gradient_checkpointing", True)),
-                async_train=bool(xr1_cfg.get("async_train", True)),
-                qwen_model_path=qwen_model_path,
+        with no_init_weights():
+            model = PolicyBackbone(
+                freq_coefficient=float(spec.get("freq_coefficient", 1.0)),
+                freq_excluded_dims=list(spec.get("freq_excluded_dims", [17, 18, 19])),
+                ffn_gradient_checkpointing=bool(spec.get("ffn_gradient_checkpointing", True)),
+                async_train=bool(spec.get("async_train", True)),
+                qwen_model_path=str(spec.processor_path),
             )
-            qwen_state = model.vlm.__class__.from_pretrained(
-                qwen_model_path,
-                attn_implementation="flash_attention_2",
-                dtype=torch.bfloat16,
-                local_files_only=True,
-            ).state_dict()
-            incompatible = model.vlm.load_state_dict(qwen_state, strict=True)
-            del qwen_state
-            if incompatible.missing_keys or incompatible.unexpected_keys:
-                raise RuntimeError(f"Base Qwen3-VL checkpoint mismatch: {incompatible}")
-            model.vlm.model.get_input_embeddings().requires_grad_(False)
-            return model
-
-        pretrained = Path(str(xr1_cfg.get("pretrained", ""))).expanduser()
-        if not pretrained.exists():
-            raise FileNotFoundError(
-                f"Xiaomi XR-1 weights are not ready: {pretrained}. Set framework.xr1.pretrained."
-            )
-        if pretrained.is_dir():
-            checkpoint_candidates = (
-                pretrained / "pytorch_model.pt",
-                pretrained / "model_states.pt",
-                pretrained / "pretrained_ckpt" / "model_states.pt",
-            )
-            checkpoint_file = next((path for path in checkpoint_candidates if path.is_file()), None)
-            if checkpoint_file is not None:
-                pretrained = checkpoint_file
-            else:
-                config_path = pretrained / "config.json"
-                if not config_path.is_file():
-                    raise FileNotFoundError(
-                        f"XR-1 directory has neither pytorch_model.pt, model_states.pt, "
-                        f"nor config.json: {pretrained}"
-                    )
-                import json
-
-                with config_path.open("r", encoding="utf-8") as config_file:
-                    model_config = json.load(config_file)
-                if not model_config.get("model_type"):
-                    raise ValueError(
-                        f"XR-1 config.json has no model_type and no model_states.pt was found: {pretrained}"
-                    )
-                return AutoModel.from_pretrained(
-                    str(pretrained),
-                    trust_remote_code=True,
-                    attn_implementation="flash_attention_2",
-                    dtype=torch.bfloat16,
-                    local_files_only=True,
-                )
-
-        from demottt._vendor.starvla.model.third_party.xiaomi_xr1 import xr1 as OfficialXR1
-
-        model = OfficialXR1(
-            freq_coefficient=float(xr1_cfg.get("freq_coefficient", 1.0)),
-            freq_excluded_dims=list(xr1_cfg.get("freq_excluded_dims", [17, 18, 19])),
-            ffn_gradient_checkpointing=bool(xr1_cfg.get("ffn_gradient_checkpointing", True)),
-            async_train=bool(xr1_cfg.get("async_train", True)),
-            qwen_model_path=qwen_model_path,
-        )
-        checkpoint = torch.load(pretrained, map_location="cpu", mmap=True, weights_only=False)
-        state_dict = checkpoint.get("module", checkpoint)
-        for prefix in ("model.", "xr1."):
-            if state_dict and all(key.startswith(prefix) for key in state_dict):
-                state_dict = {key.removeprefix(prefix): value for key, value in state_dict.items()}
-                break
-        incompatible = model.load_state_dict(state_dict, strict=True)
-        if incompatible.missing_keys or incompatible.unexpected_keys:
-            raise RuntimeError(f"Official XR-1 checkpoint mismatch: {incompatible}")
+        model.vlm.tie_weights()
         return model
 
-    def _to_xr1(
+    def _to_backbone(
         self,
         value: Any,
         *,
@@ -414,7 +340,7 @@ class _XiaomiXR1PolicyBase(baseframework):
         tensor = tensor[-length:, source_indices]
         if tensor.shape[0] < length:
             tensor = torch.cat([tensor, tensor[-1:].expand(length - tensor.shape[0], -1)], dim=0)
-        output = torch.zeros(length, XR1_ACTION_DIM, dtype=tensor.dtype, device=tensor.device)
+        output = torch.zeros(length, BACKBONE_ACTION_DIM, dtype=tensor.dtype, device=tensor.device)
         output[:, slot_indices] = tensor
         return output
 
@@ -425,7 +351,7 @@ class _XiaomiXR1PolicyBase(baseframework):
         actual_length: int,
         training: bool,
     ) -> List[Dict[str, Any]]:
-        images = [_resize_xr1_image(to_pil_preserve(image)) for image in images]
+        images = [_resize_backbone_image(to_pil_preserve(image)) for image in images]
         labels = ("Ego", "Left-Wrist", "Right-Wrist")
         content: List[Dict[str, Any]] = []
         for index, image in enumerate(images):
@@ -453,7 +379,7 @@ class _XiaomiXR1PolicyBase(baseframework):
         training: bool,
     ) -> List[Dict[str, Any]]:
         """Build one causal prompt containing a sampled demonstration and target-prefix history."""
-        current_images = [_resize_xr1_image(to_pil_preserve(image)) for image in example["image"]]
+        current_images = [_resize_backbone_image(to_pil_preserve(image)) for image in example["image"]]
         labels = ("Ego", "Left-Wrist", "Right-Wrist")
         content: List[Dict[str, Any]] = []
 
@@ -470,7 +396,7 @@ class _XiaomiXR1PolicyBase(baseframework):
                     )
                 label = labels[view_index] if view_index < len(labels) else f"View-{view_index}"
                 frames = [
-                    _resize_xr1_image(
+                    _resize_backbone_image(
                         to_pil_preserve(step["image"][view_index]),
                         max_pixels=self.context_max_pixels,
                     )
@@ -556,22 +482,22 @@ class _XiaomiXR1PolicyBase(baseframework):
     def _build_samples(self, examples: List[dict], training: bool) -> List[Dict[str, Any]]:
         samples = []
         for example in examples:
-            action = self._to_xr1(example["action"], length=self.action_length)
+            action = self._to_backbone(example["action"], length=self.action_length)
             if self.use_source_state:
-                state = self._to_xr1(
+                state = self._to_backbone(
                     example.get("state", np.zeros((1, self.source_width))),
                     length=1,
                     source_indices=self.state_source_indices,
                     slot_indices=self.state_slot_indices,
                 )
             else:
-                state = torch.zeros(1, XR1_ACTION_DIM, dtype=torch.bfloat16)
+                state = torch.zeros(1, BACKBONE_ACTION_DIM, dtype=torch.bfloat16)
             source_mask = example.get("action_mask")
             if source_mask is None:
                 mask = torch.zeros_like(action, dtype=torch.int32)
                 mask[:, self.slot_indices] = 1
             else:
-                mask = self._to_xr1(source_mask, length=self.action_length).ne(0).to(torch.int32)
+                mask = self._to_backbone(source_mask, length=self.action_length).ne(0).to(torch.int32)
             valid_steps = mask.any(dim=-1)
             actual_length = int(valid_steps.long().sum().clamp(min=1, max=self.action_length))
             has_explicit_history = "history" in example or "demonstration" in example
@@ -585,14 +511,14 @@ class _XiaomiXR1PolicyBase(baseframework):
                 action_values = []
                 for segment_name in ("demonstration", "history"):
                     for step in example.get(segment_name, []):
-                        step_action = self._to_xr1(step["action"], length=self.action_length)
+                        step_action = self._to_backbone(step["action"], length=self.action_length)
                         stride = max(1, int(step.get("trajectory_delta_to_next", 1)))
                         action_index = min(stride, step_action.shape[0]) - 1
                         action_values.append(step_action[action_index])
                 history_action = (
                     torch.stack(action_values)
                     if action_values
-                    else torch.empty(0, XR1_ACTION_DIM, dtype=torch.bfloat16)
+                    else torch.empty(0, BACKBONE_ACTION_DIM, dtype=torch.bfloat16)
                 )
             samples.append(
                 {
@@ -610,7 +536,7 @@ class _XiaomiXR1PolicyBase(baseframework):
 
     def _prepare_batch(self, examples: List[dict], training: bool) -> Dict[str, torch.Tensor]:
         batch = self.collator(self._build_samples(examples, training), training=training)
-        device = next(self.xr1.parameters()).device
+        device = next(self.backbone.parameters()).device
         batch = {key: value.to(device) if torch.is_tensor(value) else value for key, value in batch.items()}
         history_action = batch.pop("history_action", None)
         if history_action is not None and history_action.shape[0] > 0:
@@ -621,13 +547,13 @@ class _XiaomiXR1PolicyBase(baseframework):
     def encode_context_features(self, examples: List[dict], context_feature_pool: str = "all") -> torch.Tensor:
         """Encode observation prompts only, for demonstration-context warmup."""
         if not examples:
-            raise ValueError("XR-1 context encoding requires a non-empty example list")
-        features = self.xr1.encode_context(
+            raise ValueError("backbone context encoding requires a non-empty example list")
+        features = self.backbone.encode_context(
             self._prepare_batch(examples, training=False),
             context_feature_pool=context_feature_pool,
         )
         if features.shape[0] != len(self.collator.last_selected_indices):
-            raise ValueError("XR-1 context feature count does not match packed examples")
+            raise ValueError("backbone context feature count does not match packed examples")
         if len(self.collator.last_selected_indices) != len(examples):
             raise ValueError(
                 "Demonstration context batch exceeded MAX_LENGTH; reduce demo_context_batch_size"
@@ -638,7 +564,7 @@ class _XiaomiXR1PolicyBase(baseframework):
     def encode_video_context_features(self, trajectory: List[dict]) -> torch.Tensor:
         """Encode a demonstration window as synchronized per-view Qwen videos."""
         if not trajectory:
-            raise ValueError("XR-1 video context requires a non-empty trajectory window")
+            raise ValueError("backbone video context requires a non-empty trajectory window")
         view_count = len(trajectory[0]["image"])
         if view_count <= 0 or any(len(step["image"]) != view_count for step in trajectory):
             raise ValueError("Every demonstration frame must contain the same positive number of views")
@@ -655,7 +581,7 @@ class _XiaomiXR1PolicyBase(baseframework):
         for view_index in range(view_count):
             label = labels[view_index] if view_index < len(labels) else f"View-{view_index}"
             frames = [
-                _resize_xr1_image(to_pil_preserve(step["image"][view_index]))
+                _resize_backbone_image(to_pil_preserve(step["image"][view_index]))
                 for step in trajectory
             ]
             content.extend(
@@ -677,12 +603,12 @@ class _XiaomiXR1PolicyBase(baseframework):
         )
         if batch["input_ids"].shape[1] > self.collator.max_length:
             raise ValueError(
-                "Demonstration video window exceeded XR-1 MAX_LENGTH; "
+                "Demonstration video window exceeded backbone MAX_LENGTH; "
                 "reduce demo_context_batch_size"
             )
-        device = next(self.xr1.parameters()).device
+        device = next(self.backbone.parameters()).device
         batch = {key: value.to(device) if torch.is_tensor(value) else value for key, value in batch.items()}
-        return self.xr1.encode_video_context(
+        return self.backbone.encode_video_context(
             batch,
             frame_count=len(trajectory),
             view_count=view_count,
@@ -696,16 +622,16 @@ class _XiaomiXR1PolicyBase(baseframework):
         **_: Any,
     ) -> Dict[str, torch.Tensor]:
         if not examples:
-            raise ValueError("XR-1 policy forward requires a non-empty example list")
+            raise ValueError("backbone policy forward requires a non-empty example list")
         batch = self._prepare_batch(examples, training=True)
         if state_conditioner is not None and self.collator.last_selected_indices != list(range(len(examples))):
             raise ValueError(
-                "Trajectory TBPTT segment exceeded XR-1 MAX_LENGTH; reduce trajectory_tbptt_steps"
+                "Trajectory TBPTT segment exceeded backbone MAX_LENGTH; reduce trajectory_tbptt_steps"
             )
         forward_kwargs = {"return_context_features": True} if return_context_features else {}
         if state_conditioner is not None:
             forward_kwargs["state_conditioner"] = state_conditioner
-        losses = self.xr1(
+        losses = self.backbone(
             batch,
             return_loss=True,
             **forward_kwargs,
@@ -713,9 +639,9 @@ class _XiaomiXR1PolicyBase(baseframework):
         output = {
             "action_loss": losses["loss"],
             "flowmatching_loss": losses["loss_mse"],
-            "xr1_frequency_loss": losses["loss_freq"],
-            "xr1_choice_loss": losses["loss_l1"],
-            "xr1_score_loss": losses["loss_score"],
+            "backbone_frequency_loss": losses["loss_freq"],
+            "backbone_choice_loss": losses["loss_l1"],
+            "backbone_score_loss": losses["loss_score"],
         }
         if return_context_features:
             output["context_features"] = losses["context_features"]
@@ -726,7 +652,7 @@ class _XiaomiXR1PolicyBase(baseframework):
         if not isinstance(examples, list):
             examples = [examples]
         if not examples:
-            raise ValueError("XR-1 policy predict_action requires a non-empty example list")
+            raise ValueError("backbone policy predict_action requires a non-empty example list")
         pending = list(enumerate(examples))
         packed_outputs: List[Optional[torch.Tensor]] = [None] * len(examples)
         return_context_features = bool(kwargs.get("return_context_features", False))
@@ -741,7 +667,7 @@ class _XiaomiXR1PolicyBase(baseframework):
                 if return_context_features
                 else {}
             )
-            generated = self.xr1.generate(
+            generated = self.backbone.generate(
                 self._prepare_batch([example for _, example in pending], training=False),
                 **generate_kwargs,
             )
@@ -754,7 +680,7 @@ class _XiaomiXR1PolicyBase(baseframework):
             selected_indices = self.collator.last_selected_indices
             if output.shape[0] != len(selected_indices):
                 raise ValueError(
-                    "XR-1 packed inference output count does not match selected samples: "
+                    "backbone packed inference output count does not match selected samples: "
                     f"outputs={output.shape[0]}, selected={len(selected_indices)}"
                 )
             selected_set = set(selected_indices)
@@ -766,7 +692,7 @@ class _XiaomiXR1PolicyBase(baseframework):
             pending = [item for index, item in enumerate(pending) if index not in selected_set]
 
         if any(item is None for item in packed_outputs):
-            raise RuntimeError("XR-1 packed inference did not produce an output for every input sample")
+            raise RuntimeError("backbone packed inference did not produce an output for every input sample")
         output = torch.stack(packed_outputs)
         canonical = torch.zeros(
             (*output.shape[:-1], self.source_width),
@@ -777,30 +703,30 @@ class _XiaomiXR1PolicyBase(baseframework):
         result = {"normalized_actions": canonical.float().cpu().numpy()}
         if return_context_features:
             if any(item is None for item in packed_context_features):
-                raise RuntimeError("XR-1 packed inference did not return every requested context feature")
+                raise RuntimeError("backbone packed inference did not return every requested context feature")
             result["context_features"] = torch.stack(packed_context_features).float()
         return result
 
 
-@FRAMEWORK_REGISTRY.register("XiaomiXR1StrictRoboDojoPolicy")
-class XiaomiXR1StrictRoboDojoPolicy(_XiaomiXR1PolicyBase):
-    """XR-1 with the official native 60-D state/action contract."""
+@FRAMEWORK_REGISTRY.register("StrictBackbonePolicy")
+class StrictBackbonePolicy(_BackbonePolicyBase):
+    """backbone with the official native 60-D state/action contract."""
 
     def __init__(self, config: Any = None, **kwargs: Any) -> None:
-        xr1_cfg = config.framework.xr1
-        expected = list(range(XR1_ACTION_DIM))
-        if int(xr1_cfg.get("source_width", -1)) != XR1_ACTION_DIM:
-            raise ValueError("Strict XR-1 requires framework.xr1.source_width=60")
-        if list(xr1_cfg.get("source_indices", [])) != expected:
-            raise ValueError("Strict XR-1 requires identity source_indices [0..59]")
-        if list(xr1_cfg.get("slot_indices", [])) != expected:
-            raise ValueError("Strict XR-1 requires identity slot_indices [0..59]")
-        if list(xr1_cfg.get("state_source_indices", expected)) != expected:
-            raise ValueError("Strict XR-1 requires identity state_source_indices [0..59]")
-        if list(xr1_cfg.get("state_slot_indices", expected)) != expected:
-            raise ValueError("Strict XR-1 requires identity state_slot_indices [0..59]")
-        if not bool(xr1_cfg.get("use_source_state", True)):
-            raise ValueError("Strict XR-1 requires framework.xr1.use_source_state=true")
+        backbone_cfg = config.framework.backbone
+        expected = list(range(BACKBONE_ACTION_DIM))
+        if int(backbone_cfg.get("source_width", -1)) != BACKBONE_ACTION_DIM:
+            raise ValueError("Strict backbone requires framework.backbone.source_width=60")
+        if list(backbone_cfg.get("source_indices", [])) != expected:
+            raise ValueError("Strict backbone requires identity source_indices [0..59]")
+        if list(backbone_cfg.get("slot_indices", [])) != expected:
+            raise ValueError("Strict backbone requires identity slot_indices [0..59]")
+        if list(backbone_cfg.get("state_source_indices", expected)) != expected:
+            raise ValueError("Strict backbone requires identity state_source_indices [0..59]")
+        if list(backbone_cfg.get("state_slot_indices", expected)) != expected:
+            raise ValueError("Strict backbone requires identity state_slot_indices [0..59]")
+        if not bool(backbone_cfg.get("use_source_state", True)):
+            raise ValueError("Strict backbone requires framework.backbone.use_source_state=true")
         super().__init__(config=config, **kwargs)
 
     def _messages(
@@ -810,9 +736,9 @@ class XiaomiXR1StrictRoboDojoPolicy(_XiaomiXR1PolicyBase):
         actual_length: int,
         training: bool,
     ) -> List[Dict[str, Any]]:
-        images = [_resize_xr1_image(to_pil_preserve(image)) for image in images]
+        images = [_resize_backbone_image(to_pil_preserve(image)) for image in images]
         if len(images) != 3:
-            raise ValueError(f"Strict XR-1 RoboDojo requires exactly three views, got {len(images)}")
+            raise ValueError(f"Strict backbone RoboDojo requires exactly three views, got {len(images)}")
         content: List[Dict[str, Any]] = [
             {
                 "type": "text",
@@ -843,33 +769,33 @@ class XiaomiXR1StrictRoboDojoPolicy(_XiaomiXR1PolicyBase):
         return messages
 
 
-@FRAMEWORK_REGISTRY.register("XiaomiXR1HumanMiBotPretrainPolicy")
-class XiaomiXR1HumanMiBotPretrainPolicy(_XiaomiXR1PolicyBase):
-    """XR-1 pretraining adapter for canonical human MiBot EEF trajectories."""
+@FRAMEWORK_REGISTRY.register("HumanMiBotPolicy")
+class HumanMiBotPolicy(_BackbonePolicyBase):
+    """backbone pretraining adapter for canonical human MiBot EEF trajectories."""
 
     def __init__(self, config: Any = None, **kwargs: Any) -> None:
-        xr1_cfg = config.framework.xr1
-        if int(xr1_cfg.get("source_width", -1)) != XR1_ACTION_DIM:
-            raise ValueError("Human MiBot XR-1 pretraining requires framework.xr1.source_width=60")
-        if tuple(xr1_cfg.get("source_indices", [])) != HUMAN_MIBOT_SOURCE_INDICES:
+        backbone_cfg = config.framework.backbone
+        if int(backbone_cfg.get("source_width", -1)) != BACKBONE_ACTION_DIM:
+            raise ValueError("Human MiBot backbone pretraining requires framework.backbone.source_width=60")
+        if tuple(backbone_cfg.get("source_indices", [])) != HUMAN_MIBOT_SOURCE_INDICES:
             raise ValueError(
-                "Human MiBot XR-1 pretraining requires canonical EEF/gripper source_indices "
+                "Human MiBot backbone pretraining requires canonical EEF/gripper source_indices "
                 f"{list(HUMAN_MIBOT_SOURCE_INDICES)}"
             )
-        if tuple(xr1_cfg.get("slot_indices", [])) != HUMAN_MIBOT_SLOT_INDICES:
+        if tuple(backbone_cfg.get("slot_indices", [])) != HUMAN_MIBOT_SLOT_INDICES:
             raise ValueError(
-                "Human MiBot XR-1 pretraining requires native XR-1 arm slot_indices "
+                "Human MiBot backbone pretraining requires native backbone arm slot_indices "
                 f"{list(HUMAN_MIBOT_SLOT_INDICES)}"
             )
-        if bool(xr1_cfg.get("use_source_state", True)):
-            if tuple(xr1_cfg.get("state_source_indices", [])) != HUMAN_MIBOT_SOURCE_INDICES:
+        if bool(backbone_cfg.get("use_source_state", True)):
+            if tuple(backbone_cfg.get("state_source_indices", [])) != HUMAN_MIBOT_SOURCE_INDICES:
                 raise ValueError(
-                    "Human MiBot XR-1 pretraining requires canonical EEF/gripper state_source_indices "
+                    "Human MiBot backbone pretraining requires canonical EEF/gripper state_source_indices "
                     f"{list(HUMAN_MIBOT_SOURCE_INDICES)}"
                 )
-            if tuple(xr1_cfg.get("state_slot_indices", [])) != HUMAN_MIBOT_STATE_SLOT_INDICES:
+            if tuple(backbone_cfg.get("state_slot_indices", [])) != HUMAN_MIBOT_STATE_SLOT_INDICES:
                 raise ValueError(
-                    "Human MiBot XR-1 pretraining requires EEF state_slot_indices "
+                    "Human MiBot backbone pretraining requires EEF state_slot_indices "
                     f"{list(HUMAN_MIBOT_STATE_SLOT_INDICES)}"
                 )
         super().__init__(config=config, **kwargs)

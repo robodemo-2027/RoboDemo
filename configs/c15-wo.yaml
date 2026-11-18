@@ -10,9 +10,7 @@ framework:
     torch_dtype: bfloat16
     attn_implementation: flash_attention_2
     local_files_only: true
-  xr1:
-    pretrained: ${oc.env:ROBODEMO_XR1}
-    load_pretrained: true
+  backbone:
     processor_path: ${oc.env:ROBODEMO_QWEN}
     action_length: 30
     source_width: 60

@@ -1,4 +1,4 @@
-"""Benchmark-specific I/O; the DemoTTT memories and XR-1 weights are unchanged."""
+"""Benchmark-specific I/O for the RoboDemo policy."""
 
 from collections import OrderedDict
 
@@ -7,7 +7,7 @@ import torch.nn.functional as F
 
 from demottt.models.policy import DemoTTTPolicy
 from demottt.encoders.vision import PackedVisionTokenBatch, pack_post_merger_tokens
-from demottt._vendor.starvla.model.framework.XiaomiXR1RoboDojoPolicy import _XiaomiXR1PolicyBase
+from demottt._vendor.starvla.model.framework.BackbonePolicy import _BackbonePolicyBase
 
 
 def promote_trainable_parameters(module):
@@ -26,19 +26,6 @@ def promote_trainable_parameters(module):
 
 
 class ImitationGamePolicy(DemoTTTPolicy):
-    @staticmethod
-    def _load_official_model(spec):
-        from transformers.modeling_utils import no_init_weights
-
-        if not bool(spec.load_pretrained):
-            raise ValueError("This full-shot profile requires the complete pretrained XR-1 checkpoint")
-        print("ImitationGame: loading strict XR-1 checkpoint", flush=True)
-        # Every XR-1 parameter is supplied by the strict checkpoint load.
-        with no_init_weights():
-            model = _XiaomiXR1PolicyBase._load_official_model(spec)
-        model.vlm.tie_weights()
-        return model
-
     def __init__(self, config=None, **kwargs):
         super().__init__(config=config, **kwargs)
         from demottt.encoders.temporal import FrozenVJEPA2Encoder
@@ -66,13 +53,13 @@ class ImitationGamePolicy(DemoTTTPolicy):
     def _messages(self, images, instruction, actual_length, training):
         if len(images) != 1:
             raise ValueError("IG-10K zed2i profile requires exactly one real camera, not duplicated views")
-        return _XiaomiXR1PolicyBase._messages(self, images, instruction, actual_length, training)
+        return _BackbonePolicyBase._messages(self, images, instruction, actual_length, training)
 
     @torch.no_grad()
     def _encode_uncached_visual_sequences(self, sequences):
         if not sequences or not sequences[0] or any(len(seq) != len(sequences[0]) for seq in sequences):
             raise ValueError("Visual sequences must be nonempty and equally long")
-        visual = self.xr1.vlm.model.visual
+        visual = self.backbone.vlm.model.visual
         if visual.training or any(p.requires_grad for p in visual.parameters()):
             raise RuntimeError("Writer-token encoding requires a frozen, eval-mode vision tower")
         images, owners = [], []
@@ -85,9 +72,9 @@ class ImitationGamePolicy(DemoTTTPolicy):
         processed = self.collator.processor.image_processor(
             images=images, do_resize=False, return_tensors="pt",
         )
-        device = next(self.xr1.parameters()).device
+        device = next(self.backbone.parameters()).device
         grids = processed["image_grid_thw"]
-        features, _ = self.xr1.vlm.get_image_features(
+        features, _ = self.backbone.vlm.get_image_features(
             processed["pixel_values"].to(device), grids.to(device),
         )
         return pack_post_merger_tokens(
@@ -121,7 +108,7 @@ class ImitationGamePolicy(DemoTTTPolicy):
         while len(self._human_semantic_cache) > self.reference_cache_size:
             self._human_semantic_cache.popitem(last=False)
         maximum = max(value.tokens.shape[-2] for value in selected)
-        device = next(self.xr1.parameters()).device
+        device = next(self.backbone.parameters()).device
         return PackedVisionTokenBatch(
             torch.cat([F.pad(v.tokens, (0, 0, 0, maximum - v.tokens.shape[-2])) for v in selected]).to(device),
             torch.cat([F.pad(v.mask, (0, maximum - v.mask.shape[-1])) for v in selected]).to(device),

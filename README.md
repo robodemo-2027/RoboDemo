@@ -37,7 +37,6 @@
 
 *Figure 1. From generated guidance to retrieved video as guidance.
 RoboDemo preserves reference guidance while tracking actual execution.*
-[Full-resolution PDF](docs/assets/paper/teaser.pdf)
 
 RoboDemo is a demonstration-augmented manipulation framework built on
 **Dual-Cascaded Test-Time Training**. A task-relevant human demonstration,
@@ -60,7 +59,6 @@ procedure.
 </a>
 
 *Figure 2. Overview of RoboDemo.*
-[Full-resolution PDF](docs/assets/paper/method.pdf)
 
 1. **Select a reference.** Use a task-relevant human demonstration, or retrieve
    a robot video with Refreward using the instruction and initial observation.
@@ -80,6 +78,8 @@ procedure.
 The two branches share learned projections and initialization but maintain
 independent fast-weight states. Learned policy parameters remain fixed at
 deployment, and both memory states remain fixed during action denoising.
+
+We use the XR-1 architecture to build our backbone.
 
 ## Models And Results
 
@@ -128,7 +128,6 @@ Weights are hosted on Hugging Face; this repository contains the code and logs.
 The upper-left panel reports real-world task SR; the upper-right panels
 show group-relative performance and level-wise SR on Full50.
 The lower panels show real-world executions and visual shifts.*
-[Full-resolution PDF](docs/assets/paper/exper.pdf)
 
 The paper evaluates three household tasks on the **AgiBot-G2 humanoid**,
 with 50 trials per method and task:
@@ -199,17 +198,16 @@ export ROBODEMO_DATA_ROOT=/data/IG-10K-Dataset
 export IMITATOR_GAME_ROOT=/path/to/ImitationGame
 export MS_ASSET_DIR=/data/maniskill
 export ROBODEMO_QWEN=/models/Qwen3-VL-4B-Instruct
-export ROBODEMO_XR1=/models/Xiaomi-Robotics-1-5B
 export ROBODEMO_VJEPA2_SOURCE=/path/to/vjepa2
 export ROBODEMO_VJEPA2_WEIGHTS=/models/vjepa2-ac-vitg.pt
 export PYTHONPATH="$IMITATOR_GAME_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 ```
 
-The pretrained components are
-[Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct),
-[Xiaomi-Robotics-1](https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-1-5B)
-and [V-JEPA2](https://github.com/facebookresearch/vjepa2).
-Their original distribution terms apply.
+Evaluation uses the local configuration and processor files from
+[Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) and the source
+and encoder checkpoint from [V-JEPA2](https://github.com/facebookresearch/vjepa2).
+The complete policy parameters are loaded from the selected RoboDemo checkpoint.
+The components' original distribution terms apply.
 
 `configs/*_trials.json` contains the reference identities and seeds used by the
 reported experiments. Paths inside those files are relative to the IG-10K
@@ -299,8 +297,8 @@ will be released in the next stage.
 
 ## Acknowledgments
 
-This implementation builds on Imitator Game, StarVLA, Xiaomi-Robotics-1,
-Qwen3-VL, V-JEPA2, LeRobot and OpenVLA. Upstream source notices are preserved
+This implementation builds on Imitator Game, StarVLA, Qwen3-VL, V-JEPA2,
+LeRobot and OpenVLA. Upstream source notices are preserved
 in the code and [licenses](licenses/). See [NOTICE](NOTICE.md).
 
 RoboDemo code is released under the [MIT License](LICENSE). Third-party

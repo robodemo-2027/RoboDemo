@@ -18,7 +18,7 @@ def validate_config(config, *, assets=False, for_training=False, for_model=False
         raise ValueError("Released checkpoints use full-reference dynamic-delta memory.")
     if int(memory.hidden_size) % int(memory.num_heads):
         raise ValueError("Hidden width must be divisible by the attention head count.")
-    if int(config.framework.xr1.action_length) != 30:
+    if int(config.framework.backbone.action_length) != 30:
         raise ValueError("Released checkpoints use 30-step action chunks.")
     if memory.execution_training.mode != "tbptt" or memory.execution_training.alignment != "endpoint":
         raise ValueError("Released checkpoints use endpoint-aligned execution states.")
@@ -37,7 +37,6 @@ def validate_config(config, *, assets=False, for_training=False, for_model=False
     if assets:
         paths = {
             "Qwen": config.framework.qwenvl.base_vlm,
-            "XR-1": config.framework.xr1.pretrained,
             "V-JEPA2 source": memory.retrieval_temporal_encoder.repository,
             "V-JEPA2 weights": memory.retrieval_temporal_encoder.checkpoint,
         }

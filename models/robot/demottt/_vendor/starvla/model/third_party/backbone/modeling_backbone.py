@@ -26,7 +26,7 @@ from .model_utils import auto_cast
 
 
 @dataclass
-class PreparedXR1Context:
+class PreparedBackboneContext:
     """Immutable observation-side tensors reused by one or more Action-DiT samples."""
 
     past_key_values: list[tuple[torch.Tensor, torch.Tensor]]
@@ -226,7 +226,7 @@ class DiT(nn.Module):
         return hidden_states
 
 
-class xr1(nn.Module):
+class PolicyBackbone(nn.Module):
     def __init__(
         self,
         freq_coefficient=1.0,
@@ -379,18 +379,18 @@ class xr1(nn.Module):
         prefix_length,
     ):
         timestep = self.t_projector(self.t_embedder(timestep[:, 0, 0] * 1000)).view(-1, 6, 1024)
-        trace_shape("xr1.dit.adaln_timestep", timestep)  # torch.Size([8, 6, 1024])
+        trace_shape("backbone.dit.adaln_timestep", timestep)  # torch.Size([8, 6, 1024])
         noisy_action = self.action_projector(noisy_action * action_mask)
-        trace_shape("xr1.dit.noisy_action_tokens", noisy_action)  # torch.Size([8, 30, 1024])
+        trace_shape("backbone.dit.noisy_action_tokens", noisy_action)  # torch.Size([8, 30, 1024])
         sink = self.sink.weight[None].repeat(state_embed.shape[0], 1, 1)
-        trace_shape("xr1.dit.sink_token", sink)  # torch.Size([8, 1, 1024])
-        trace_shape("xr1.dit.state_token", state_embed)  # torch.Size([8, 1, 1024])
+        trace_shape("backbone.dit.sink_token", sink)  # torch.Size([8, 1, 1024])
+        trace_shape("backbone.dit.state_token", state_embed)  # torch.Size([8, 1, 1024])
         hidden_states = torch.cat([sink, state_embed, noisy_action], dim=1).contiguous()
-        trace_shape("xr1.dit.input_tokens", hidden_states)  # torch.Size([8, 32, 1024])
+        trace_shape("backbone.dit.input_tokens", hidden_states)  # torch.Size([8, 32, 1024])
         hidden_states = self.dit(hidden_states, past_key_values, attn_mask, position_embeds, timestep)
-        trace_shape("xr1.dit.output_tokens", hidden_states)  # torch.Size([8, 32, 1024])
+        trace_shape("backbone.dit.output_tokens", hidden_states)  # torch.Size([8, 32, 1024])
         output = self.action_output_layer(hidden_states[:, -noisy_action.shape[1] :])
-        trace_shape("xr1.predicted_flow", output)  # torch.Size([8, 30, 60])
+        trace_shape("backbone.predicted_flow", output)  # torch.Size([8, 30, 60])
         if prefix_length:
             output[:, :prefix_length] = 0.0
         return output
@@ -398,17 +398,17 @@ class xr1(nn.Module):
     @torch.no_grad()
     def _generate(self, noise, kwargs):
         sample = noise.clone()
-        trace_shape(f"xr1.euler.B{sample.shape[0]}.initial_noise", sample)  # B=2: torch.Size([2, 30, 60])
+        trace_shape(f"backbone.euler.B{sample.shape[0]}.initial_noise", sample)  # B=2: torch.Size([2, 30, 60])
         dt = 1.0 / self.num_steps
         for step in range(self.num_steps):
             timestep = torch.ones(
                 (sample.shape[0], 1, 1), device=sample.device, dtype=sample.dtype
             ) * step / self.num_steps
-            trace_shape(f"xr1.euler.B{sample.shape[0]}.timestep", timestep)  # B=2: torch.Size([2, 1, 1])
+            trace_shape(f"backbone.euler.B{sample.shape[0]}.timestep", timestep)  # B=2: torch.Size([2, 1, 1])
             velocity = self.dit_forward(sample, timestep, **kwargs)
-            trace_shape(f"xr1.euler.B{sample.shape[0]}.velocity", velocity)  # B=2: torch.Size([2, 30, 60])
+            trace_shape(f"backbone.euler.B{sample.shape[0]}.velocity", velocity)  # B=2: torch.Size([2, 30, 60])
             sample = sample + velocity * dt
-        trace_shape(f"xr1.euler.B{sample.shape[0]}.final_action", sample)  # B=2: torch.Size([2, 30, 60])
+        trace_shape(f"backbone.euler.B{sample.shape[0]}.final_action", sample)  # B=2: torch.Size([2, 30, 60])
         return sample
 
     @torch.no_grad()
@@ -438,7 +438,7 @@ class xr1(nn.Module):
                 [hidden_states[0, int(start) : int(end)].mean(dim=0) for start, end in segments]
             )
         if pool != "first_image":
-            raise ValueError(f"Unsupported XR-1 context feature pool: {pool}")
+            raise ValueError(f"Unsupported backbone context feature pool: {pool}")
         if first_image_segments is not None:
             if first_image_segments.device.type != "cpu":
                 raise ValueError("Precomputed first-image segments must remain CPU-resident")
@@ -461,7 +461,7 @@ class xr1(nn.Module):
             ids = input_ids[token_batch, int(start) : int(end)]
             positions = torch.nonzero(ids == image_token_id, as_tuple=False).flatten()
             if positions.numel() == 0:
-                raise ValueError("XR-1 context does not contain an image token")
+                raise ValueError("backbone context does not contain an image token")
             first = int(positions[0])
             gaps = torch.nonzero(positions[1:] != positions[:-1] + 1, as_tuple=False).flatten()
             last = int(positions[int(gaps[0])]) + 1 if gaps.numel() else int(positions[-1]) + 1
@@ -485,16 +485,16 @@ class xr1(nn.Module):
         prefix_length = int(batch.pop("prefix_length", 0))
         batch.pop("labels", None)
         input_ids = batch["input_ids"]
-        trace_shape("xr1.prepare.input_ids", input_ids)  # batch-packed: torch.Size([1, 502]) for one control stream
-        trace_shape("xr1.prepare.action_template", action)  # torch.Size([1, 30, 60])
-        trace_shape("xr1.prepare.state", state)  # torch.Size([1, 1, 60])
+        trace_shape("backbone.prepare.input_ids", input_ids)  # batch-packed: torch.Size([1, 502]) for one control stream
+        trace_shape("backbone.prepare.action_template", action)  # torch.Size([1, 30, 60])
+        trace_shape("backbone.prepare.state", state)  # torch.Size([1, 1, 60])
         vlm_outputs = self.vlm(
             **batch,
             state_embeds=history_action_embeds,
             use_cache=True,
             skip_logits=True,
         )
-        trace_shape("xr1.prepare.vlm_hidden_states", vlm_outputs.hidden_states)  # torch.Size([1, 502, 2560])
+        trace_shape("backbone.prepare.vlm_hidden_states", vlm_outputs.hidden_states)  # torch.Size([1, 502, 2560])
         context_features = None
         if return_context_features:
             context_features = self._pool_context_features(
@@ -503,16 +503,16 @@ class xr1(nn.Module):
                 segments,
                 context_feature_pool,
             )
-            trace_shape("xr1.prepare.context_features", context_features)  # torch.Size([1, 2560])
+            trace_shape("backbone.prepare.context_features", context_features)  # torch.Size([1, 2560])
         past_key_values, position_ids, cache_mask = self._unpad(
             list(vlm_outputs.past_key_values),
             vlm_outputs.position_ids,
             vlm_outputs.attention_mask,
             segments,
         )
-        trace_shape("xr1.prepare.layer00_key", past_key_values[0][0])  # torch.Size([1, 8, 492, 128])
-        trace_shape("xr1.prepare.position_ids", position_ids)  # torch.Size([3, 1, 492])
-        trace_shape("xr1.prepare.cache_mask", cache_mask)  # torch.Size([1, 492])
+        trace_shape("backbone.prepare.layer00_key", past_key_values[0][0])  # torch.Size([1, 8, 492, 128])
+        trace_shape("backbone.prepare.position_ids", position_ids)  # torch.Size([3, 1, 492])
+        trace_shape("backbone.prepare.cache_mask", cache_mask)  # torch.Size([1, 492])
         batch_size, action_length, _ = action.shape
         state_length = state.shape[1]
         query_length = 1 + state_length + action_length
@@ -528,9 +528,9 @@ class xr1(nn.Module):
         causal_mask = torch.tril(torch.ones(batch_size, query_length, query_length, device=action.device))
         attn_mask = torch.cat([cache_mask, causal_mask], dim=-1)[:, None].bool()
         state_embed = self.state_projector(state)
-        trace_shape("xr1.prepare.state_embed", state_embed)  # torch.Size([1, 1, 1024])
-        trace_shape("xr1.prepare.attn_mask", attn_mask)  # torch.Size([1, 1, 32, 524])
-        return PreparedXR1Context(
+        trace_shape("backbone.prepare.state_embed", state_embed)  # torch.Size([1, 1, 1024])
+        trace_shape("backbone.prepare.attn_mask", attn_mask)  # torch.Size([1, 1, 32, 524])
+        return PreparedBackboneContext(
             past_key_values=past_key_values,
             state_embed=state_embed,
             action_template=action,
@@ -549,8 +549,8 @@ class xr1(nn.Module):
         if num_candidates <= 0:
             raise ValueError(f"num_candidates must be positive, got {num_candidates}")
         target_batch = prepared.action_template.shape[0] * num_candidates
-        trace_value(f"xr1.generate.B{target_batch}.num_candidates", num_candidates)  # B=2: 2
-        trace_shape(f"xr1.generate.B{target_batch}.action_template", prepared.action_template)  # [1,30,60]
+        trace_value(f"backbone.generate.B{target_batch}.num_candidates", num_candidates)  # B=2: 2
+        trace_shape(f"backbone.generate.B{target_batch}.action_template", prepared.action_template)  # [1,30,60]
 
         def repeat(value, dim=0):
             if value.shape[dim] == target_batch:
@@ -558,7 +558,7 @@ class xr1(nn.Module):
             return value.repeat_interleave(num_candidates, dim=dim)
 
         action = repeat(prepared.action_template)
-        trace_shape(f"xr1.generate.B{target_batch}.repeated_action_template", action)  # [2,30,60]
+        trace_shape(f"backbone.generate.B{target_batch}.repeated_action_template", action)  # [2,30,60]
         if noise is None:
             noise = torch.randn_like(action)
         elif noise.shape != action.shape:
@@ -576,7 +576,7 @@ class xr1(nn.Module):
             "prefix_length": prepared.prefix_length,
         }
         generated = self._generate(torch.cat([prefix, noise[:, prepared.prefix_length :]], dim=1), kwargs)
-        trace_shape(f"xr1.generate.B{target_batch}.generated_actions", generated)  # [2,30,60]
+        trace_shape(f"backbone.generate.B{target_batch}.generated_actions", generated)  # [2,30,60]
         return generated
 
     @torch.no_grad()
@@ -663,10 +663,10 @@ class xr1(nn.Module):
         action = batch.pop("action")
         action_mask = batch.pop("action_mask")
         state = batch.pop("state")
-        trace_shape("xr1.packed.action_segments", segments)  # torch.Size([8, 2])
-        trace_shape("xr1.action_target", action)  # torch.Size([8, 30, 60])
-        trace_shape("xr1.action_mask", action_mask)  # torch.Size([8, 30, 60])
-        trace_shape("xr1.state", state)  # torch.Size([8, 1, 60])
+        trace_shape("backbone.packed.action_segments", segments)  # torch.Size([8, 2])
+        trace_shape("backbone.action_target", action)  # torch.Size([8, 30, 60])
+        trace_shape("backbone.action_mask", action_mask)  # torch.Size([8, 30, 60])
+        trace_shape("backbone.state", state)  # torch.Size([8, 1, 60])
         history_action_embeds = batch.pop("history_action_embeds", None)
         history_action_counts = batch.pop("history_action_counts", None)
         prefix_length = random.randint(1, 6) if self.async_train and random.random() < 0.5 else 0
@@ -675,13 +675,13 @@ class xr1(nn.Module):
         actual_lengths = batch.pop("vlm_action_actual_length")
         choice_target = batch.pop("vlm_action_target")
         choice_mask = batch.pop("vlm_action_mask")
-        trace_shape("xr1.choice_target", choice_target)  # torch.Size([240, 60])
-        trace_shape("xr1.choice_mask", choice_mask)  # torch.Size([240, 60])
+        trace_shape("backbone.choice_target", choice_target)  # torch.Size([240, 60])
+        trace_shape("backbone.choice_mask", choice_mask)  # torch.Size([240, 60])
         state_embeds = self.state_projector_choice(state.flatten(0, 1))
-        trace_shape("xr1.vlm_state_embeds", state_embeds)  # torch.Size([8, 2560])
+        trace_shape("backbone.vlm_state_embeds", state_embeds)  # torch.Size([8, 2560])
         if history_action_embeds is not None:
             if history_action_counts is None or len(history_action_counts) != state_embeds.shape[0]:
-                raise ValueError("History action counts must align with packed XR-1 samples")
+                raise ValueError("History action counts must align with packed backbone samples")
             if int(history_action_counts.sum()) != history_action_embeds.shape[0]:
                 raise ValueError("History action counts do not match the number of action embeddings")
             offsets = [0]
@@ -695,8 +695,8 @@ class xr1(nn.Module):
         vlm_outputs = self.vlm(
             **batch, state_embeds=state_embeds, use_cache=True, skip_logits=True
         )
-        trace_shape("xr1.vlm.hidden_states", vlm_outputs.hidden_states)  # torch.Size([1, 4384, 2560])
-        trace_value("xr1.vlm.kv_layers", len(vlm_outputs.past_key_values))  # 36
+        trace_shape("backbone.vlm.hidden_states", vlm_outputs.hidden_states)  # torch.Size([1, 4384, 2560])
+        trace_value("backbone.vlm.kv_layers", len(vlm_outputs.past_key_values))  # 36
         action_choice = self.action_projector_choice(
             vlm_outputs.hidden_states[
                 (batch["input_ids"] >= ACTION_START_ID) & (batch["input_ids"] < ACTION_END_ID)
@@ -705,8 +705,8 @@ class xr1(nn.Module):
         score_choice = self.score_projector_choice(
             vlm_outputs.hidden_states[batch["input_ids"] == SCORE_ID]
         )
-        trace_shape("xr1.action_choice_logits", action_choice)  # torch.Size([240, 300])
-        trace_shape("xr1.score_choice_logits", score_choice)  # torch.Size([8, 5])
+        trace_shape("backbone.action_choice_logits", action_choice)  # torch.Size([240, 300])
+        trace_shape("backbone.score_choice_logits", score_choice)  # torch.Size([8, 5])
 
         context_features = None
         if return_context_features or state_conditioner is not None:
@@ -732,10 +732,10 @@ class xr1(nn.Module):
             vlm_outputs.attention_mask,
             segments,
         )
-        trace_shape("xr1.unpadded.layer00_key", past_key_values[0][0])  # torch.Size([8, 8, 502, 128])
-        trace_shape("xr1.unpadded.layer00_value", past_key_values[0][1])  # torch.Size([8, 8, 502, 128])
-        trace_shape("xr1.unpadded.position_ids", position_ids)  # torch.Size([3, 8, 502])
-        trace_shape("xr1.unpadded.cache_mask", cache_mask)  # torch.Size([8, 502])
+        trace_shape("backbone.unpadded.layer00_key", past_key_values[0][0])  # torch.Size([8, 8, 502, 128])
+        trace_shape("backbone.unpadded.layer00_value", past_key_values[0][1])  # torch.Size([8, 8, 502, 128])
+        trace_shape("backbone.unpadded.position_ids", position_ids)  # torch.Size([3, 8, 502])
+        trace_shape("backbone.unpadded.cache_mask", cache_mask)  # torch.Size([8, 502])
         batch_size, action_length, _ = action.shape
         state_length = state.shape[1]
         query_length = 1 + state_length + action_length
@@ -753,10 +753,10 @@ class xr1(nn.Module):
         if self.training and prefix_length > 2:
             causal_mask = self._random_mask_prefix(causal_mask, prefix_length, state_length)
         attn_mask = torch.cat([cache_mask, causal_mask], dim=-1)[:, None].bool()
-        trace_shape("xr1.dit_attention_mask_before_repeat", attn_mask)  # torch.Size([8, 1, 32, 534])
+        trace_shape("backbone.dit_attention_mask_before_repeat", attn_mask)  # torch.Size([8, 1, 32, 534])
 
         state_embed = self.state_projector(state)
-        trace_shape("xr1.state_embed_before_repeat", state_embed)  # torch.Size([8, 1, 1024])
+        trace_shape("backbone.state_embed_before_repeat", state_embed)  # torch.Size([8, 1, 1024])
         dit_position_ids = self._repeat(dit_position_ids, dim=1)
         action = self._repeat(action)
         action_mask = self._repeat(action_mask)
@@ -764,12 +764,12 @@ class xr1(nn.Module):
         state_embed = self._repeat(state_embed)
         attn_mask = self._repeat(attn_mask)
         position_embeds = self.rotary_emb(action, dit_position_ids)
-        trace_shape("xr1.dit_position_ids", dit_position_ids)  # torch.Size([3, 8, 32])
-        trace_shape("xr1.rotary_cos", position_embeds[0])  # torch.Size([8, 32, 128])
-        trace_shape("xr1.rotary_sin", position_embeds[1])  # torch.Size([8, 32, 128])
+        trace_shape("backbone.dit_position_ids", dit_position_ids)  # torch.Size([3, 8, 32])
+        trace_shape("backbone.rotary_cos", position_embeds[0])  # torch.Size([8, 32, 128])
+        trace_shape("backbone.rotary_sin", position_embeds[1])  # torch.Size([8, 32, 128])
 
         noise = torch.randn_like(action)
-        trace_shape("xr1.flow.noise", noise)  # torch.Size([8, 30, 60])
+        trace_shape("backbone.flow.noise", noise)  # torch.Size([8, 30, 60])
         kwargs = dict(
             action_mask=action_mask,
             state_embed=state_embed,
@@ -780,16 +780,16 @@ class xr1(nn.Module):
         )
         timestep = ((1 - self.beta.sample((action.shape[0],)).to(action.device)) * 0.999).to(action.dtype)
         timestep = timestep[:, None, None]
-        trace_shape("xr1.flow.timestep", timestep)  # torch.Size([8, 1, 1])
+        trace_shape("backbone.flow.timestep", timestep)  # torch.Size([8, 1, 1])
         noisy_action = (1 - timestep) * noise + timestep * action
         target = action - noise
-        trace_shape("xr1.flow.noisy_action", noisy_action)  # torch.Size([8, 30, 60])
-        trace_shape("xr1.flow.velocity_target", target)  # torch.Size([8, 30, 60])
+        trace_shape("backbone.flow.noisy_action", noisy_action)  # torch.Size([8, 30, 60])
+        trace_shape("backbone.flow.velocity_target", target)  # torch.Size([8, 30, 60])
         pred = self.dit_forward(
             torch.cat([prefix, noisy_action[:, prefix_length:]], dim=1), timestep, **kwargs
         )[:, prefix_length:]
         target = target[:, prefix_length:]
-        trace_shape("xr1.flow.predicted_velocity", pred)  # torch.Size([8, 30, 60])
+        trace_shape("backbone.flow.predicted_velocity", pred)  # torch.Size([8, 30, 60])
         if prefix_length:
             prefix_pred = self._generate(torch.cat([prefix, noise[:, prefix_length:]], dim=1), kwargs)
             weight = (prefix_pred[:, prefix_length:] - action[:, prefix_length:]).abs()

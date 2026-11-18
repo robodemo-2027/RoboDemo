@@ -150,7 +150,7 @@ framework:
     local_files_only: true
     model_type: qwen3_vl
     torch_dtype: bfloat16
-  xr1:
+  backbone:
     action_length: 30
     async_train: false
     ffn_gradient_checkpointing: true
@@ -158,9 +158,7 @@ framework:
     freq_excluded_dims:
     - 7
     - 15
-    load_pretrained: true
     max_length: 32768
-    pretrained: ${oc.env:ROBODEMO_XR1}
     processor_path: ${oc.env:ROBODEMO_QWEN}
     slot_indices:
     - 0

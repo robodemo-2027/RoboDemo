@@ -25,6 +25,8 @@ def test_smoke_evaluation_episode_limit():
 def test_inference_configuration_and_normalization(model):
     config = OmegaConf.load(ROOT / "configs" / (model + ".yaml"))
     validate_config(config, for_model=True)
+    assert "pretrained" not in config.framework.backbone
+    assert "load_pretrained" not in config.framework.backbone
     plan = json.loads((ROOT / "configs" / (model + "_trials.json")).read_text())
     assert len(plan["trials"]) == (2000 if model == "full50" else 400)
     assert len({t["trial_id"] for t in plan["trials"]}) == len(plan["trials"])

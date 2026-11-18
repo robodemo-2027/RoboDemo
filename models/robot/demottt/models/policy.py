@@ -3,7 +3,7 @@
 # Implemented by starVLA community in 2026.
 # Modification: End-to-end DemoTTT training policy.
 
-"""XR-1 policy using video writers and VL/action readers for DemoTTT."""
+"""backbone policy using video writers and VL/action readers for DemoTTT."""
 
 from __future__ import annotations
 
@@ -28,10 +28,10 @@ from demottt.models.components import (
     encode_post_merger_tokens,
     force_frozen_vision_eval,
 )
-from demottt._vendor.starvla.model.framework.XiaomiXR1RoboDojoPolicy import (
-    XR1_ACTION_DIM,
-    XiaomiXR1StrictRoboDojoPolicy,
-    _resize_xr1_image,
+from demottt._vendor.starvla.model.framework.BackbonePolicy import (
+    BACKBONE_ACTION_DIM,
+    StrictBackbonePolicy,
+    _resize_backbone_image,
 )
 from demottt.data.cache import (
     CACHED_MASK_KEY,
@@ -67,7 +67,7 @@ def normalize_compatibility_component(value: Any) -> str:
 
 
 @FRAMEWORK_REGISTRY.register("DemoTTT")
-class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
+class DemoTTTPolicy(StrictBackbonePolicy):
     """Trainable DemoTTT with strictly separated writer and query paths."""
 
     def __init__(self, config: Any = None, **kwargs: Any) -> None:
@@ -78,11 +78,11 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
         self.motion_config = motion_cfg
         self.retrieval_memory_mode = str(motion_cfg.get("retrieval_memory_mode", "legacy_phase_bank"))
         hidden_size = int(motion_cfg.get("hidden_size", 1024))
-        vision_dim = int(motion_cfg.get("vision_dim", self.xr1.vlm.config.text_config.hidden_size))
+        vision_dim = int(motion_cfg.get("vision_dim", self.backbone.vlm.config.text_config.hidden_size))
         self.trajectory_stride = int(motion_cfg.get("trajectory_stride", 1))
         self.phase_count = int(motion_cfg.get("retrieval_phases", 4))
-        self.xr1.training_repeat = int(motion_cfg.get("training_repeat", 1))
-        self.xr1.dit = DemoTTTDiT(self.xr1.dit, dict(motion_cfg))
+        self.backbone.training_repeat = int(motion_cfg.get("training_repeat", 1))
+        self.backbone.dit = DemoTTTDiT(self.backbone.dit, dict(motion_cfg))
 
         self.video_adapter = SharedVideoResampler(
             vision_dim=vision_dim,
@@ -105,8 +105,8 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
                 motion_scale=float(motion_cfg.get("retrieval_motion_scale", 0.01)),
             )
         self.execution_metadata = ExecutionMetadataFiLM(
-            state_dim=XR1_ACTION_DIM,
-            action_dim=XR1_ACTION_DIM,
+            state_dim=BACKBONE_ACTION_DIM,
+            action_dim=BACKBONE_ACTION_DIM,
             hidden_size=hidden_size,
         )
         self.retrieval_router = None
@@ -175,12 +175,12 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
         self._runtime_retrieval_phase_dwell = 0
 
         if bool(motion_cfg.get("freeze_vlm", True)):
-            self.xr1.vlm.requires_grad_(False)
-        force_frozen_vision_eval(self.xr1.vlm)
+            self.backbone.vlm.requires_grad_(False)
+        force_frozen_vision_eval(self.backbone.vlm)
 
     @property
     def motion_ttt(self) -> DemoTTTDiT:
-        return self.xr1.dit
+        return self.backbone.dit
 
     @property
     def uses_full_reference(self) -> bool:
@@ -201,7 +201,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
 
     def train(self, mode: bool = True):
         result = super().train(mode)
-        force_frozen_vision_eval(self.xr1.vlm)
+        force_frozen_vision_eval(self.backbone.vlm)
         return result
 
     @staticmethod
@@ -212,8 +212,8 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
             if torch.is_tensor(value)
             else torch.as_tensor(np.asarray(value), device=device, dtype=torch.float32)
         ).reshape(-1)
-        if state.shape != (XR1_ACTION_DIM,):
-            raise ValueError(f"DemoTTT state must have {XR1_ACTION_DIM} values, got {tuple(state.shape)}")
+        if state.shape != (BACKBONE_ACTION_DIM,):
+            raise ValueError(f"DemoTTT state must have {BACKBONE_ACTION_DIM} values, got {tuple(state.shape)}")
         return state
 
     def _step_executed_action(self, step: dict[str, Any], device: torch.device) -> torch.Tensor:
@@ -223,8 +223,8 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
             if torch.is_tensor(value)
             else torch.as_tensor(np.asarray(value), device=device, dtype=torch.float32)
         )
-        if action.ndim != 2 or action.shape[-1] != XR1_ACTION_DIM:
-            raise ValueError(f"DemoTTT action must be [H,{XR1_ACTION_DIM}], got {tuple(action.shape)}")
+        if action.ndim != 2 or action.shape[-1] != BACKBONE_ACTION_DIM:
+            raise ValueError(f"DemoTTT action must be [H,{BACKBONE_ACTION_DIM}], got {tuple(action.shape)}")
         valid_steps = int(step.get("valid_action_steps", action.shape[0]))
         if not 1 <= valid_steps <= action.shape[0]:
             raise ValueError("valid_action_steps is outside the action chunk")
@@ -281,7 +281,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
             {
                 "role": "user",
                 "content": [
-                    {"type": "image", "image": _resize_xr1_image(to_pil_preserve(image))},
+                    {"type": "image", "image": _resize_backbone_image(to_pil_preserve(image))},
                     {"type": "text", "text": "Encode the visual observation. /no_cot"},
                 ],
             },
@@ -302,7 +302,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
         if any(cached_flags):
             if not all(cached_flags):
                 raise ValueError("MotionTTT batches cannot mix cached and online vision tokens")
-            device = next(self.xr1.parameters()).device
+            device = next(self.backbone.parameters()).device
             tokens = torch.stack(
                 [
                     torch.stack([torch.as_tensor(step[CACHED_TOKENS_KEY]) for step in sequence])
@@ -341,7 +341,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
                         continue
                     messages.append(self._vision_messages(images[source_view]))
                     owners.append((batch_index, timestep, local_view))
-        device = next(self.xr1.parameters()).device
+        device = next(self.backbone.parameters()).device
         if not messages:
             vision_dim = self.video_adapter.vision_dim
             tokens = torch.zeros(
@@ -365,7 +365,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
         image_grid_thw = processed["image_grid_thw"].to(device)
         owner_tensor = torch.tensor(owners, dtype=torch.long, device=device)
         return encode_post_merger_tokens(
-            self.xr1.vlm,
+            self.backbone.vlm,
             pixel_values=pixel_values,
             image_grid_thw=image_grid_thw,
             owners=owner_tensor,
@@ -817,7 +817,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
             DemoTTTContext(
                 sequence_length=time_steps,
                 batch_size=len(examples),
-                repeats=int(self.xr1.training_repeat),
+                repeats=int(self.backbone.training_repeat),
                 retrieval_writers=retrieval_writers,
                 retrieval_token_mask=retrieval_token_mask,
                 retrieval_time_mask=retrieval_time_mask,
@@ -941,7 +941,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
             expected_steps = sum(len(item.get("trajectory", [])) for item in examples)
             if prepared_indices != list(range(expected_steps)):
                 raise ValueError(
-                    "Worker main XR-1 batch does not contain every supervised step: "
+                    "Worker main backbone batch does not contain every supervised step: "
                     f"selected={prepared_indices}, requested={expected_steps}"
                 )
         if not isinstance(examples, list) or not examples:
@@ -951,14 +951,14 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
         if prepared_main is None:
             output = super().forward(flat_steps)
         else:
-            device = next(self.xr1.parameters()).device
-            losses = self.xr1(_move_prepared_batch(prepared_main, device), return_loss=True)
+            device = next(self.backbone.parameters()).device
+            losses = self.backbone(_move_prepared_batch(prepared_main, device), return_loss=True)
             output = {
                 "action_loss": losses["loss"],
                 "flowmatching_loss": losses["loss_mse"],
-                "xr1_frequency_loss": losses["loss_freq"],
-                "xr1_choice_loss": losses["loss_l1"],
-                "xr1_score_loss": losses["loss_score"],
+                "backbone_frequency_loss": losses["loss_freq"],
+                "backbone_choice_loss": losses["loss_l1"],
+                "backbone_score_loss": losses["loss_score"],
             }
         self.motion_ttt.clear_context()
         base_action_loss = output["action_loss"]
@@ -1241,11 +1241,11 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
             retrieval_enabled = torch.zeros(1, dtype=torch.bool, device=current_visual.tokens.device)
             task_compatibility = current_visual.tokens.new_zeros(1)
 
-        prepared = self.xr1.prepare_context(
+        prepared = self.backbone.prepare_context(
             self._prepare_batch([local_example], training=False),
         )
         if self.collator.last_selected_indices != [0]:
-            raise ValueError("DemoTTT inference sample exceeded framework.xr1.max_length")
+            raise ValueError("DemoTTT inference sample exceeded framework.backbone.max_length")
         candidate_noise = kwargs.get("candidate_noise")
         if candidate_noise is not None:
             candidate_noise = torch.as_tensor(
@@ -1266,7 +1266,7 @@ class DemoTTTPolicy(XiaomiXR1StrictRoboDojoPolicy):
         )
         self.motion_ttt.set_context(context)
         try:
-            generated = self.xr1.generate_from_prepared_context(
+            generated = self.backbone.generate_from_prepared_context(
                 prepared,
                 noise=candidate_noise,
                 num_candidates=num_candidates,

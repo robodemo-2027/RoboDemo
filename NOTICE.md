@@ -18,5 +18,5 @@ their original distribution terms.
 - StarVLA adaptations: the preserved `licenses/STARVLA_LICENSE`.
 - RefReward support code: `licenses/RefReward-MIT.txt`.
 - OpenVLA logging utility: `licenses/OPENVLA_LICENSE`.
-- Xiaomi XR-1 modules: `licenses/XIAOMI_ROBOTICS_LICENSE` (Apache 2.0).
+- Xiaomi Robotics components: `licenses/XIAOMI_ROBOTICS_LICENSE` (Apache 2.0).
 - Qwen model adaptation: `licenses/APACHE-2.0.txt`.
