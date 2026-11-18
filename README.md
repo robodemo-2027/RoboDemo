@@ -1,55 +1,103 @@
-<a href="#models-and-results">
-  <picture>
-    <source media="(max-width: 600px)" srcset="docs/assets/hero-mobile.svg">
-    <img src="docs/assets/hero.svg" width="1120" alt="RoboDemo. Keep the intent. Track the interaction. Demonstration-guided manipulation with dual memory.">
-  </picture>
-</a>
+<div align="center">
 
-<p align="center">
+<h1>RoboDemo</h1>
+<h3>Reconciling Demonstration Intent and Execution Progress<br>for Long-Horizon Manipulation</h3>
+
+<p>Anonymous Authors &middot; Manuscript under review</p>
+
+<p>
   <a href="https://robodemo-2027.github.io/"><strong>Project Page</strong></a>
   &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-  <a href="https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc"><strong>Model Collection</strong></a>
+  <a href="https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc"><strong>Model Weights</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="#method"><strong>Method</strong></a>
   &nbsp;&nbsp;&middot;&nbsp;&nbsp;
   <a href="#models-and-results"><strong>Results</strong></a>
   &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-  <a href="#installation"><strong>Get Started</strong></a>
-  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-  <a href="docs/smoke-evaluation.md"><strong>Runtime Verification</strong></a>
+  <a href="#evaluation"><strong>Evaluate</strong></a>
 </p>
+
+</div>
 
 ## Release Status
 
 - [x] **Code:** model architecture, dual-memory inference, evaluator and environment.
 - [x] **Models & results:** five checkpoints, trial plans, normalization and 3,600 episode logs.
-- [x] **Verified:** all five models complete a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
+- [x] **Verified:** all five models completed a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
 
-## One Demonstration, Two Memories
+## Overview
 
-A demonstration shows **what should happen**. Interaction history reveals
-**what actually happened**. RoboDemo keeps these two kinds of context separate:
-Retrieval-TTT retains the reference intent, while Execution-TTT accumulates
-realized progress. The action expert reads them in that order, refining
-reference guidance without overwriting it.
+> **A demonstration describes how a task should proceed.
+> Interaction reveals how execution has actually progressed.**
 
-<a href="#evaluation">
-  <picture>
-    <source media="(max-width: 600px)" srcset="docs/assets/memory-mobile.svg">
-    <img src="docs/assets/memory.svg" width="1120" alt="Separate context writes, cascaded memory reads: reference video initializes intent memory; completed interactions update progress memory. Action tokens read Retrieval-TTT before Execution-TTT.">
-  </picture>
+<a href="docs/assets/paper/teaser.pdf">
+  <img src="docs/assets/paper/teaser.png" width="1120" alt="Paper Figure 1. Generated textual or visual guidance versus RoboDemo's demonstration-intent and interaction-progress memories.">
 </a>
 
-The reference can be a human demonstration or a retrieved robot video.
-Learned policy parameters remain fixed during evaluation; the two fast-weight
-memories have independent update schedules.
+*Figure 1. From generated guidance to retrieved video as guidance.
+RoboDemo preserves reference guidance while tracking actual execution.*
+[Full-resolution PDF](docs/assets/paper/teaser.pdf)
+
+RoboDemo is a demonstration-augmented manipulation framework built on
+**Dual-Cascaded Test-Time Training**. A task-relevant human demonstration,
+or a compatible robot video retrieved from the training corpus, supplies
+persistent **demonstration-intent memory**. Online observations, robot states
+and executed actions accumulate a separate **interaction-progress memory**.
+The action expert first reads reference intent, then refines it with realized
+progress, adapting to execution deviations without overwriting the stored
+procedure.
+
+| Imitator Game: C15 / C30 / C45 | Imitator Game: Full50 | Real-world household tasks |
+| :---: | :---: | :---: |
+| **90.7%** mean Seen-task SR | **84.6%** overall SR | **73.3%** mean SR |
+| Five shared Seen tasks, three training scales | All 50 tasks, 2,000 episodes | Three tasks on AgiBot-G2 |
+
+## Method
+
+<a href="docs/assets/paper/method.pdf">
+  <img src="docs/assets/paper/method.png" width="1120" alt="Paper Figure 2. Semantic-motion encoding writes reference intent once; state-action-conditioned observations update execution progress. Each Action-DiT block reads Retrieval-TTT before Execution-TTT.">
+</a>
+
+*Figure 2. Overview of RoboDemo.*
+[Full-resolution PDF](docs/assets/paper/method.pdf)
+
+1. **Select a reference.** Use a task-relevant human demonstration, or retrieve
+   a robot video with Refreward using the instruction and initial observation.
+2. **Encode demonstration intent.** Hierarchical Global-Event-Clip sampling
+   combines sparse semantic frames with a dense motion clip. Frozen Qwen3-VL
+   and V-JEPA2 encoders, Q-former alignment and gated fusion produce reference
+   memory tokens, written to Retrieval-TTT before rollout.
+3. **Track interaction progress.** Encode each completed transition using the
+   new observation, current robot state and preceding executed action.
+   State-action-conditioned adaptive normalization forms tokens that update
+   Execution-TTT causally.
+4. **Read in cascade.** Within each Action-DiT block, Retrieval-TTT supplies
+   reference guidance, then Execution-TTT refines the reference-conditioned
+   action representation using realized progress.
+
+**Cross-Memorization separates context writes from action reads.**
+The two branches share learned projections and initialization but maintain
+independent fast-weight states. Learned policy parameters remain fixed at
+deployment, and both memory states remain fixed during action denoising.
 
 ## Models And Results
 
+### Simulation
+
+The Imitator Game benchmark evaluates execution under four scene levels:
+L0 preserves the reference scene; L1, L2 and L3 vary object positions,
+appearance and functional affordances, respectively.
+
 **Full50: 84.6% success across all 50 Imitator Game tasks.**
 [RoboDemo-full50](https://huggingface.co/mxk1998/RoboDemo-full50), at
-240,000 updates, completes 1,692 of 2,000 episodes.
+240,000 updates, completes 1,692 of 2,000 episodes. The paper reports
+64.1% for DP and 74.9% for ACT (SigLIP2) on this full suite.
 
-The nested-corpus models use 200 Seen and 200 Unseen episodes each:
+**Training-scale evaluation.** C15, C30 and C45 train on nested corpora of
+15, 30 and 45 tasks, while sharing five Seen and five Unseen evaluation
+tasks. Each released nested-corpus evaluation contains 200 Seen and
+200 Unseen episodes.
 
 | Model | Checkpoint | Reference | Seen SR (%) | Unseen SR (%) |
 | --- | ---: | --- | ---: | ---: |
@@ -58,7 +106,9 @@ The nested-corpus models use 200 Seen and 200 Unseen episodes each:
 | [RoboDemo-c45](https://huggingface.co/mxk1998/RoboDemo-c45) | 260,000 | Human | 88.5 | 11.5 |
 | [RoboDemo-c15-wo](https://huggingface.co/mxk1998/RoboDemo-c15-wo) | 100,000 | Retrieved robot | 90.0 | 0.0 |
 
-The C15/C30/C45 Seen mean is **90.7%**.
+The equally weighted C15/C30/C45 Seen mean is **90.7%**, compared with
+80.8% for ACT/DINOv2 in the paper. With retrieved robot references,
+C15-wo reaches **90.0%** Seen SR versus 89.5% with human demonstrations.
 For C15-wo, Unseen denotes tasks held out from policy training; task-matched
 robot references are supplied from the benchmark training bank.
 
@@ -67,6 +117,51 @@ robot references are supplied from the benchmark training bank.
 
 Each linked checkpoint is the one used for its reported results.
 Weights are hosted on Hugging Face; this repository contains the code and logs.
+
+### Real-World Evaluation
+
+<a href="docs/assets/paper/exper.pdf">
+  <img src="docs/assets/paper/exper.png" width="1120" alt="Paper Figure 3. Real-world task success on AgiBot-G2, Full50 simulation profiles, and recorded household-task executions under standard, lighting and background conditions.">
+</a>
+
+*Figure 3. Real-world evaluation and simulation performance profiles.
+The upper-left panel reports real-world task SR; the upper-right panels
+show group-relative performance and level-wise SR on Full50.
+The lower panels show real-world executions and visual shifts.*
+[Full-resolution PDF](docs/assets/paper/exper.pdf)
+
+The paper evaluates three household tasks on the **AgiBot-G2 humanoid**,
+with 50 trials per method and task:
+
+| Task | RoboDemo SR (%) |
+| --- | ---: |
+| Tabletop Organization | 90.0 |
+| Bottle-to-Cup Pouring | 68.0 |
+| Sofa Cushion Arrangement | 62.0 |
+| **Mean** | **73.3** |
+
+The three-task mean exceeds the demonstration-prefix baseline by
+**20.0 percentage points**. On Tabletop Organization, RoboDemo achieves
+**46%** under changed lighting and **76%** under a changed background,
+without target-condition fine-tuning.
+
+<details>
+<summary><strong>Context and memory ablation on C15-Seen</strong></summary>
+
+| Context organization | SR (%) |
+| --- | ---: |
+| Base VLA | 62.0 |
+| Demonstration prefix | 68.5 |
+| Retrieval-TTT only | 71.5 |
+| Demonstration and execution in one TTT | 73.0 |
+| Two separate TTT modules, parallel reads | 82.0 |
+| **Dual-Cascaded TTT (RoboDemo)** | **89.5** |
+
+Separate memories avoid coupling stable reference intent to evolving
+execution context. Cascaded reads improve over parallel reads by
+7.5 percentage points.
+
+</details>
 
 ## Installation
 
@@ -193,6 +288,7 @@ The result package covers 3,600 episodes.
 | `configs` | Inference configurations, normalization and trial manifests |
 | `environments` | Evaluation dependency versions and simulator setup |
 | `results` | Episode logs, summary and per-task tables |
+| `docs/assets/paper` | Paper figures: original SVG and PDF, with web previews |
 
 The two policy source trees preserve their respective evaluation
 implementations. The original `demottt` module name is retained for checkpoint
@@ -214,7 +310,8 @@ components retain their respective licenses.
 
 ```bibtex
 @misc{anonymous2027robodemo,
-  title  = {RoboDemo},
+  title  = {RoboDemo: Reconciling Demonstration Intent and Execution
+            Progress for Long-Horizon Manipulation},
   author = {Anonymous Authors},
   year   = {2027},
   note   = {Manuscript under review}
