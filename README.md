@@ -15,6 +15,10 @@
   <a href="#models-and-results"><strong>Results</strong></a>
   &nbsp;&nbsp;&middot;&nbsp;&nbsp;
   <a href="#evaluation"><strong>Evaluate</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="docs/quickstart.md"><strong>Quickstart</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="results/README.md"><strong>All Numerical Results</strong></a>
 </p>
 
 </div>
@@ -25,6 +29,10 @@
 - [x] **Models & results:** five checkpoints, trial plans, normalization and 3,600 episode logs.
 - [x] **Verified:** all five models completed a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
+
+**Start here:** [Evaluate a checkpoint](docs/quickstart.md) &middot;
+[Browse complete results](results/README.md) &middot;
+[Paper comparisons and ablations](results/paper/README.md).
 
 ## Overview
 
@@ -112,7 +120,7 @@ C15-wo reaches **90.0%** Seen SR versus 89.5% with human demonstrations.
 For C15-wo, Unseen denotes tasks held out from policy training; task-matched
 robot references are supplied from the benchmark training bank.
 
-[All 360 task-level results](results/README.md) &middot;
+[All 360 task-level results and 3,600 episode records](results/README.md) &middot;
 [Download the five checkpoints](https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc)
 
 Each linked checkpoint is the one used for its reported results.
@@ -163,6 +171,9 @@ execution context. Cascaded reads improve over parallel reads by
 </details>
 
 ## Installation
+
+For the full clone-to-evaluation workflow, follow the
+[step-by-step quickstart](docs/quickstart.md).
 
 **Linux &middot; Python 3.10 &middot; PyTorch 2.6.0 / CUDA 12.4**
 
@@ -218,12 +229,20 @@ and candidate scores.
 
 ## Evaluation
 
+Download the checkpoint you want to evaluate:
+
+```bash
+hf download mxk1998/RoboDemo-c15 \
+  pytorch_model.pt policy.yaml normalization.json \
+  --local-dir checkpoints/RoboDemo-c15
+```
+
 Use a downloaded policy checkpoint and a GPU allocated to your job:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python evaluation/evaluate.py \
   --model c15 \
-  --checkpoint /models/RoboDemo-c15/pytorch_model.pt \
+  --checkpoint checkpoints/RoboDemo-c15/pytorch_model.pt \
   --data-root "$ROBODEMO_DATA_ROOT" \
   --output outputs/c15
 ```
@@ -270,7 +289,10 @@ python -m pytest tests
 ROBODEMO_TEST_VARIANT=robot python -m pytest tests
 ```
 
-The result package covers 3,600 episodes.
+The [results directory](results/README.md) includes per-model pages, complete
+task/level tables, split-by-level summaries, and CSV/JSON downloads for all
+3,600 episodes. [Paper tables](results/paper/README.md) include the baseline
+comparisons, ablations, real-world results and inference measurements.
 
 ## Code Layout
 

@@ -1,0 +1,812 @@
+[
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "successes": 37,
+    "episodes": 40,
+    "success_rate": 92.5
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "successes": 30,
+    "episodes": 40,
+    "success_rate": 75.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "successes": 37,
+    "episodes": 40,
+    "success_rate": 92.5
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "successes": 35,
+    "episodes": 40,
+    "success_rate": 87.5
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "task": "PickFood",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "successes": 37,
+    "episodes": 40,
+    "success_rate": 92.5
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "successes": 38,
+    "episodes": 40,
+    "success_rate": 95.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "successes": 30,
+    "episodes": 40,
+    "success_rate": 75.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "task": "PickFood",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "successes": 37,
+    "episodes": 40,
+    "success_rate": 92.5
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "successes": 34,
+    "episodes": 40,
+    "success_rate": 85.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "successes": 38,
+    "episodes": 40,
+    "success_rate": 95.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "successes": 1,
+    "episodes": 40,
+    "success_rate": 2.5
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickFood",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "successes": 38,
+    "episodes": 40,
+    "success_rate": 95.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "successes": 27,
+    "episodes": 40,
+    "success_rate": 67.5
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "successes": 37,
+    "episodes": 40,
+    "success_rate": 92.5
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "successes": 19,
+    "episodes": 40,
+    "success_rate": 47.5
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "task": "PickFood",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "successes": 0,
+    "episodes": 40,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "successes": 2,
+    "episodes": 40,
+    "success_rate": 5.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "successes": 2,
+    "episodes": 40,
+    "success_rate": 5.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "CleanCup",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "CleanDesk",
+    "successes": 15,
+    "episodes": 40,
+    "success_rate": 37.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "CutFruit",
+    "successes": 30,
+    "episodes": 40,
+    "success_rate": 75.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "FoldBox",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "FoldTowel",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "GrindFood",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "KnifeBowlFork",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "LiftLidFromSkillet",
+    "successes": 38,
+    "episodes": 40,
+    "success_rate": 95.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "OpenBox",
+    "successes": 29,
+    "episodes": 40,
+    "success_rate": 72.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "OpenLiquidCap",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickAppleBananaToBaskets",
+    "successes": 37,
+    "episodes": 40,
+    "success_rate": 92.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickAppleBasket",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickAppleToScale",
+    "successes": 38,
+    "episodes": 40,
+    "success_rate": 95.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickFood",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickFruitsToPlate",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickPillToRegions",
+    "successes": 27,
+    "episodes": 40,
+    "success_rate": 67.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickRemoteControl",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickTennisBallGolfBall",
+    "successes": 29,
+    "episodes": 40,
+    "success_rate": 72.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PickWash",
+    "successes": 34,
+    "episodes": 40,
+    "success_rate": 85.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceBookBookcase",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceBrushRest",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceBurgerTray",
+    "successes": 33,
+    "episodes": 40,
+    "success_rate": 82.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceChipsRack",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceClothBasket",
+    "successes": 29,
+    "episodes": 40,
+    "success_rate": 72.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceCommodityRack",
+    "successes": 28,
+    "episodes": 40,
+    "success_rate": 70.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceCupPlate",
+    "successes": 24,
+    "episodes": 40,
+    "success_rate": 60.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceFileFolder",
+    "successes": 33,
+    "episodes": 40,
+    "success_rate": 82.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceFoodScale",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceFruitBox",
+    "successes": 15,
+    "episodes": 40,
+    "success_rate": 37.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceMagazineFolder",
+    "successes": 28,
+    "episodes": 40,
+    "success_rate": 70.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceMugRack",
+    "successes": 38,
+    "episodes": 40,
+    "success_rate": 95.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlacePillBox",
+    "successes": 35,
+    "episodes": 40,
+    "success_rate": 87.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlacePlateRack",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceScrewdriver",
+    "successes": 30,
+    "episodes": 40,
+    "success_rate": 75.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PlaceShoeBox",
+    "successes": 34,
+    "episodes": 40,
+    "success_rate": 85.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PourCup",
+    "successes": 38,
+    "episodes": 40,
+    "success_rate": 95.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PourKetchupFries",
+    "successes": 35,
+    "episodes": 40,
+    "success_rate": 87.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PourKettle",
+    "successes": 28,
+    "episodes": 40,
+    "success_rate": 70.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PourLiquidCup",
+    "successes": 34,
+    "episodes": 40,
+    "success_rate": 85.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PourLiquidFilter",
+    "successes": 24,
+    "episodes": 40,
+    "success_rate": 60.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PourLiquidMug",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PressJuicer",
+    "successes": 30,
+    "episodes": 40,
+    "success_rate": 75.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PressStapler",
+    "successes": 37,
+    "episodes": 40,
+    "success_rate": 92.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PutBox",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "PutCubeOnScale",
+    "successes": 36,
+    "episodes": 40,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "ScanMilkBox",
+    "successes": 30,
+    "episodes": 40,
+    "success_rate": 75.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "ScanPillBottle",
+    "successes": 39,
+    "episodes": 40,
+    "success_rate": 97.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "StirSpoon",
+    "successes": 33,
+    "episodes": 40,
+    "success_rate": 82.5
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "TransFood",
+    "successes": 40,
+    "episodes": 40,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "task": "WipePot",
+    "successes": 30,
+    "episodes": 40,
+    "success_rate": 75.0
+  }
+]

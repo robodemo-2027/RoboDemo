@@ -1,0 +1,10 @@
+item,count
+Robot demonstrations in the bank,10000
+Tasks,50
+Fixed queries,350
+Queries per task,7
+Retained pointwise conditions,12994
+Retained pairwise conditions,2099
+Total retained conditions,15093
+Ordinary judgments per condition,3
+Ordinary teacher judgments,45279

@@ -1,0 +1,3602 @@
+[
+  {
+    "method": "DP",
+    "task": "CleanCup",
+    "level": "L0",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "CleanCup",
+    "level": "L1",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "CleanCup",
+    "level": "L2",
+    "success_rate": 20
+  },
+  {
+    "method": "DP",
+    "task": "CleanCup",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "CleanCup",
+    "level": "L0",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "CleanCup",
+    "level": "L1",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "CleanCup",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "CleanCup",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanCup",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanCup",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanCup",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanCup",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "CleanDesk",
+    "level": "L0",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "CleanDesk",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "CleanDesk",
+    "level": "L2",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "CleanDesk",
+    "level": "L3",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "CleanDesk",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "CleanDesk",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "CleanDesk",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "CleanDesk",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanDesk",
+    "level": "L0",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanDesk",
+    "level": "L1",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanDesk",
+    "level": "L2",
+    "success_rate": 50
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CleanDesk",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "CutFruit",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "CutFruit",
+    "level": "L1",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "CutFruit",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "CutFruit",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "CutFruit",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "CutFruit",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "CutFruit",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "CutFruit",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CutFruit",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CutFruit",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CutFruit",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "CutFruit",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "FoldBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "FoldBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "FoldBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "FoldBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "FoldBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "FoldBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "FoldBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "FoldBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "FoldTowel",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "FoldTowel",
+    "level": "L1",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "FoldTowel",
+    "level": "L2",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "FoldTowel",
+    "level": "L3",
+    "success_rate": 40
+  },
+  {
+    "method": "ACT",
+    "task": "FoldTowel",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "FoldTowel",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "FoldTowel",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "FoldTowel",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldTowel",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldTowel",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldTowel",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "FoldTowel",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "GrindFood",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "GrindFood",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "GrindFood",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "GrindFood",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "GrindFood",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "GrindFood",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "GrindFood",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "GrindFood",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "GrindFood",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "GrindFood",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "GrindFood",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "GrindFood",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "KnifeBowlFork",
+    "level": "L0",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "KnifeBowlFork",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "KnifeBowlFork",
+    "level": "L2",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "KnifeBowlFork",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "KnifeBowlFork",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "KnifeBowlFork",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "KnifeBowlFork",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "KnifeBowlFork",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "RoboDemo",
+    "task": "KnifeBowlFork",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "KnifeBowlFork",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "KnifeBowlFork",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "KnifeBowlFork",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "LiftLidFromSkillet",
+    "level": "L0",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "LiftLidFromSkillet",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "LiftLidFromSkillet",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "LiftLidFromSkillet",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "LiftLidFromSkillet",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "LiftLidFromSkillet",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "LiftLidFromSkillet",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "LiftLidFromSkillet",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "LiftLidFromSkillet",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "LiftLidFromSkillet",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "LiftLidFromSkillet",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "LiftLidFromSkillet",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "OpenBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "OpenBox",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "OpenBox",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "OpenBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "OpenBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "OpenBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "OpenBox",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "OpenBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenBox",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenBox",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "OpenLiquidCap",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "OpenLiquidCap",
+    "level": "L1",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "OpenLiquidCap",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "OpenLiquidCap",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "OpenLiquidCap",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "OpenLiquidCap",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "OpenLiquidCap",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "OpenLiquidCap",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenLiquidCap",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenLiquidCap",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenLiquidCap",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "OpenLiquidCap",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L0",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L2",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L2",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBananaToBaskets",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBasket",
+    "level": "L0",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBasket",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBasket",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleBasket",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBasket",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBasket",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBasket",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleBasket",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBasket",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBasket",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBasket",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleBasket",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleToScale",
+    "level": "L0",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleToScale",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleToScale",
+    "level": "L2",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PickAppleToScale",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleToScale",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleToScale",
+    "level": "L1",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleToScale",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickAppleToScale",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleToScale",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleToScale",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleToScale",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickAppleToScale",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickFood",
+    "level": "L0",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PickFood",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickFood",
+    "level": "L2",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "PickFood",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickFood",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickFood",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PickFood",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PickFood",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFood",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFood",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFood",
+    "level": "L2",
+    "success_rate": 60
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFood",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickFruitsToPlate",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickFruitsToPlate",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickFruitsToPlate",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickFruitsToPlate",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "PickFruitsToPlate",
+    "level": "L0",
+    "success_rate": 20
+  },
+  {
+    "method": "ACT",
+    "task": "PickFruitsToPlate",
+    "level": "L1",
+    "success_rate": 40
+  },
+  {
+    "method": "ACT",
+    "task": "PickFruitsToPlate",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickFruitsToPlate",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFruitsToPlate",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFruitsToPlate",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFruitsToPlate",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickFruitsToPlate",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickPillToRegions",
+    "level": "L0",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PickPillToRegions",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PickPillToRegions",
+    "level": "L2",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PickPillToRegions",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "PickPillToRegions",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickPillToRegions",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickPillToRegions",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PickPillToRegions",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickPillToRegions",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickPillToRegions",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickPillToRegions",
+    "level": "L2",
+    "success_rate": 50
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickPillToRegions",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PickRemoteControl",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickRemoteControl",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickRemoteControl",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickRemoteControl",
+    "level": "L3",
+    "success_rate": 40
+  },
+  {
+    "method": "ACT",
+    "task": "PickRemoteControl",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickRemoteControl",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickRemoteControl",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickRemoteControl",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickRemoteControl",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickRemoteControl",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickRemoteControl",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickRemoteControl",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickTennisBallGolfBall",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickTennisBallGolfBall",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickTennisBallGolfBall",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickTennisBallGolfBall",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickTennisBallGolfBall",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "PickTennisBallGolfBall",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PickTennisBallGolfBall",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PickTennisBallGolfBall",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickTennisBallGolfBall",
+    "level": "L0",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickTennisBallGolfBall",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickTennisBallGolfBall",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickTennisBallGolfBall",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PickWash",
+    "level": "L0",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PickWash",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PickWash",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "DP",
+    "task": "PickWash",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PickWash",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PickWash",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PickWash",
+    "level": "L2",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "PickWash",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickWash",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickWash",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickWash",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PickWash",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBookBookcase",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBookBookcase",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBookBookcase",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBookBookcase",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBookBookcase",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBookBookcase",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBookBookcase",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBookBookcase",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBookBookcase",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBookBookcase",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBookBookcase",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBookBookcase",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBrushRest",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBrushRest",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBrushRest",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBrushRest",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBrushRest",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBrushRest",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBrushRest",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBrushRest",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBrushRest",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBrushRest",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBrushRest",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBrushRest",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBurgerTray",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBurgerTray",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBurgerTray",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceBurgerTray",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBurgerTray",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBurgerTray",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBurgerTray",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceBurgerTray",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBurgerTray",
+    "level": "L0",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBurgerTray",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBurgerTray",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceBurgerTray",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceChipsRack",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceChipsRack",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceChipsRack",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceChipsRack",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceChipsRack",
+    "level": "L0",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceChipsRack",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceChipsRack",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceChipsRack",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceChipsRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceChipsRack",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceChipsRack",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceChipsRack",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceClothBasket",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceClothBasket",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceClothBasket",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceClothBasket",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceClothBasket",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceClothBasket",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceClothBasket",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceClothBasket",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceClothBasket",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceClothBasket",
+    "level": "L1",
+    "success_rate": 40
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceClothBasket",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceClothBasket",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCommodityRack",
+    "level": "L0",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCommodityRack",
+    "level": "L1",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCommodityRack",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCommodityRack",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCommodityRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCommodityRack",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCommodityRack",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCommodityRack",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCommodityRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCommodityRack",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCommodityRack",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCommodityRack",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCupPlate",
+    "level": "L0",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCupPlate",
+    "level": "L1",
+    "success_rate": 20
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCupPlate",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PlaceCupPlate",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCupPlate",
+    "level": "L0",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCupPlate",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCupPlate",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceCupPlate",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCupPlate",
+    "level": "L0",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCupPlate",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCupPlate",
+    "level": "L2",
+    "success_rate": 60
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceCupPlate",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFileFolder",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFileFolder",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFileFolder",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFileFolder",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFileFolder",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFileFolder",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFileFolder",
+    "level": "L2",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFileFolder",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFileFolder",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFileFolder",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFileFolder",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFileFolder",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFoodScale",
+    "level": "L0",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFoodScale",
+    "level": "L1",
+    "success_rate": 20
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFoodScale",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFoodScale",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFoodScale",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFoodScale",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFoodScale",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFoodScale",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFoodScale",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFoodScale",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFoodScale",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFoodScale",
+    "level": "L3",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFruitBox",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFruitBox",
+    "level": "L1",
+    "success_rate": 20
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFruitBox",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceFruitBox",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFruitBox",
+    "level": "L0",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFruitBox",
+    "level": "L1",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFruitBox",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceFruitBox",
+    "level": "L3",
+    "success_rate": 60
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFruitBox",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFruitBox",
+    "level": "L1",
+    "success_rate": 30
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFruitBox",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceFruitBox",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMagazineFolder",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMagazineFolder",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMagazineFolder",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMagazineFolder",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMagazineFolder",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMagazineFolder",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMagazineFolder",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMagazineFolder",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMagazineFolder",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMagazineFolder",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMagazineFolder",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMagazineFolder",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMugRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMugRack",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMugRack",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlaceMugRack",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMugRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMugRack",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMugRack",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceMugRack",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMugRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMugRack",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMugRack",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceMugRack",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlacePillBox",
+    "level": "L0",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PlacePillBox",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PlacePillBox",
+    "level": "L2",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PlacePillBox",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePillBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePillBox",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePillBox",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePillBox",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePillBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePillBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePillBox",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePillBox",
+    "level": "L3",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PlacePlateRack",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlacePlateRack",
+    "level": "L1",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "PlacePlateRack",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "DP",
+    "task": "PlacePlateRack",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePlateRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePlateRack",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePlateRack",
+    "level": "L2",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "PlacePlateRack",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePlateRack",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePlateRack",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePlateRack",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlacePlateRack",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PlaceScrewdriver",
+    "level": "L0",
+    "success_rate": 30
+  },
+  {
+    "method": "DP",
+    "task": "PlaceScrewdriver",
+    "level": "L1",
+    "success_rate": 20
+  },
+  {
+    "method": "DP",
+    "task": "PlaceScrewdriver",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "DP",
+    "task": "PlaceScrewdriver",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceScrewdriver",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceScrewdriver",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceScrewdriver",
+    "level": "L2",
+    "success_rate": 40
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceScrewdriver",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceScrewdriver",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceScrewdriver",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceScrewdriver",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceScrewdriver",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "PlaceShoeBox",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceShoeBox",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PlaceShoeBox",
+    "level": "L2",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PlaceShoeBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceShoeBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceShoeBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceShoeBox",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PlaceShoeBox",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceShoeBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceShoeBox",
+    "level": "L1",
+    "success_rate": 40
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceShoeBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PlaceShoeBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PourCup",
+    "level": "L0",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "PourCup",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PourCup",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PourCup",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PourCup",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourCup",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourCup",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourCup",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourCup",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourCup",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourCup",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourCup",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PourKetchupFries",
+    "level": "L0",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PourKetchupFries",
+    "level": "L1",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PourKetchupFries",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PourKetchupFries",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "PourKetchupFries",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourKetchupFries",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourKetchupFries",
+    "level": "L2",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PourKetchupFries",
+    "level": "L3",
+    "success_rate": 60
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKetchupFries",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKetchupFries",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKetchupFries",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKetchupFries",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "PourKettle",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PourKettle",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PourKettle",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "PourKettle",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "ACT",
+    "task": "PourKettle",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourKettle",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PourKettle",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "PourKettle",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKettle",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKettle",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKettle",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourKettle",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidCup",
+    "level": "L0",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidCup",
+    "level": "L1",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidCup",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidCup",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidCup",
+    "level": "L0",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidCup",
+    "level": "L1",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidCup",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidCup",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidCup",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidCup",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidCup",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidCup",
+    "level": "L3",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidFilter",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidFilter",
+    "level": "L1",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidFilter",
+    "level": "L2",
+    "success_rate": 20
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidFilter",
+    "level": "L3",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidFilter",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidFilter",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidFilter",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidFilter",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidFilter",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidFilter",
+    "level": "L1",
+    "success_rate": 10
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidFilter",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidFilter",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidMug",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidMug",
+    "level": "L1",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidMug",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PourLiquidMug",
+    "level": "L3",
+    "success_rate": 20
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidMug",
+    "level": "L0",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidMug",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidMug",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "ACT",
+    "task": "PourLiquidMug",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidMug",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidMug",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidMug",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PourLiquidMug",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PressJuicer",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "DP",
+    "task": "PressJuicer",
+    "level": "L1",
+    "success_rate": 80
+  },
+  {
+    "method": "DP",
+    "task": "PressJuicer",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "PressJuicer",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PressJuicer",
+    "level": "L0",
+    "success_rate": 20
+  },
+  {
+    "method": "ACT",
+    "task": "PressJuicer",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PressJuicer",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "PressJuicer",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressJuicer",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressJuicer",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressJuicer",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressJuicer",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PressStapler",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PressStapler",
+    "level": "L1",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PressStapler",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PressStapler",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PressStapler",
+    "level": "L0",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "PressStapler",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PressStapler",
+    "level": "L2",
+    "success_rate": 40
+  },
+  {
+    "method": "ACT",
+    "task": "PressStapler",
+    "level": "L3",
+    "success_rate": 40
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressStapler",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressStapler",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressStapler",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PressStapler",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "PutBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PutBox",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PutBox",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PutBox",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "PutBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PutBox",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "PutBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PutBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutBox",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PutCubeOnScale",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "PutCubeOnScale",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PutCubeOnScale",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "PutCubeOnScale",
+    "level": "L3",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "PutCubeOnScale",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PutCubeOnScale",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PutCubeOnScale",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "PutCubeOnScale",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutCubeOnScale",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutCubeOnScale",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutCubeOnScale",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "PutCubeOnScale",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "ScanMilkBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "ScanMilkBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "ScanMilkBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "ScanMilkBox",
+    "level": "L3",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "ScanMilkBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "ScanMilkBox",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "ScanMilkBox",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "ScanMilkBox",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanMilkBox",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanMilkBox",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanMilkBox",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanMilkBox",
+    "level": "L3",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "ScanPillBottle",
+    "level": "L0",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "ScanPillBottle",
+    "level": "L1",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "ScanPillBottle",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "ScanPillBottle",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "ScanPillBottle",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "ScanPillBottle",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "ScanPillBottle",
+    "level": "L2",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "ScanPillBottle",
+    "level": "L3",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanPillBottle",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanPillBottle",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanPillBottle",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "ScanPillBottle",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "StirSpoon",
+    "level": "L0",
+    "success_rate": 20
+  },
+  {
+    "method": "DP",
+    "task": "StirSpoon",
+    "level": "L1",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "StirSpoon",
+    "level": "L2",
+    "success_rate": 40
+  },
+  {
+    "method": "DP",
+    "task": "StirSpoon",
+    "level": "L3",
+    "success_rate": 10
+  },
+  {
+    "method": "ACT",
+    "task": "StirSpoon",
+    "level": "L0",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "StirSpoon",
+    "level": "L1",
+    "success_rate": 50
+  },
+  {
+    "method": "ACT",
+    "task": "StirSpoon",
+    "level": "L2",
+    "success_rate": 40
+  },
+  {
+    "method": "ACT",
+    "task": "StirSpoon",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "StirSpoon",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "StirSpoon",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "RoboDemo",
+    "task": "StirSpoon",
+    "level": "L2",
+    "success_rate": 70
+  },
+  {
+    "method": "RoboDemo",
+    "task": "StirSpoon",
+    "level": "L3",
+    "success_rate": 70
+  },
+  {
+    "method": "DP",
+    "task": "TransFood",
+    "level": "L0",
+    "success_rate": 50
+  },
+  {
+    "method": "DP",
+    "task": "TransFood",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "DP",
+    "task": "TransFood",
+    "level": "L2",
+    "success_rate": 30
+  },
+  {
+    "method": "DP",
+    "task": "TransFood",
+    "level": "L3",
+    "success_rate": 30
+  },
+  {
+    "method": "ACT",
+    "task": "TransFood",
+    "level": "L0",
+    "success_rate": 60
+  },
+  {
+    "method": "ACT",
+    "task": "TransFood",
+    "level": "L1",
+    "success_rate": 90
+  },
+  {
+    "method": "ACT",
+    "task": "TransFood",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "TransFood",
+    "level": "L3",
+    "success_rate": 20
+  },
+  {
+    "method": "RoboDemo",
+    "task": "TransFood",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "TransFood",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "TransFood",
+    "level": "L2",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "TransFood",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "DP",
+    "task": "WipePot",
+    "level": "L0",
+    "success_rate": 10
+  },
+  {
+    "method": "DP",
+    "task": "WipePot",
+    "level": "L1",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "WipePot",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "DP",
+    "task": "WipePot",
+    "level": "L3",
+    "success_rate": 100
+  },
+  {
+    "method": "ACT",
+    "task": "WipePot",
+    "level": "L0",
+    "success_rate": 20
+  },
+  {
+    "method": "ACT",
+    "task": "WipePot",
+    "level": "L1",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "WipePot",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "ACT",
+    "task": "WipePot",
+    "level": "L3",
+    "success_rate": 80
+  },
+  {
+    "method": "RoboDemo",
+    "task": "WipePot",
+    "level": "L0",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "WipePot",
+    "level": "L1",
+    "success_rate": 100
+  },
+  {
+    "method": "RoboDemo",
+    "task": "WipePot",
+    "level": "L2",
+    "success_rate": 0
+  },
+  {
+    "method": "RoboDemo",
+    "task": "WipePot",
+    "level": "L3",
+    "success_rate": 100
+  }
+]

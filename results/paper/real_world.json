@@ -1,0 +1,92 @@
+[
+  {
+    "method": "GR00T-N1.7",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 44
+  },
+  {
+    "method": "pi0",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 36
+  },
+  {
+    "method": "pi0.5",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 56
+  },
+  {
+    "method": "pi0.5 + Demo (Prefix)",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 68
+  },
+  {
+    "method": "RoboDemo",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 90
+  },
+  {
+    "method": "GR00T-N1.7",
+    "task": "Sofa Cushion Arrangement",
+    "trials": 50,
+    "success_rate": 18
+  },
+  {
+    "method": "pi0",
+    "task": "Sofa Cushion Arrangement",
+    "trials": 50,
+    "success_rate": 20
+  },
+  {
+    "method": "pi0.5",
+    "task": "Sofa Cushion Arrangement",
+    "trials": 50,
+    "success_rate": 40
+  },
+  {
+    "method": "pi0.5 + Demo (Prefix)",
+    "task": "Sofa Cushion Arrangement",
+    "trials": 50,
+    "success_rate": 44
+  },
+  {
+    "method": "RoboDemo",
+    "task": "Sofa Cushion Arrangement",
+    "trials": 50,
+    "success_rate": 62
+  },
+  {
+    "method": "GR00T-N1.7",
+    "task": "Bottle-to-Cup Pouring",
+    "trials": 50,
+    "success_rate": 36
+  },
+  {
+    "method": "pi0",
+    "task": "Bottle-to-Cup Pouring",
+    "trials": 50,
+    "success_rate": 16
+  },
+  {
+    "method": "pi0.5",
+    "task": "Bottle-to-Cup Pouring",
+    "trials": 50,
+    "success_rate": 30
+  },
+  {
+    "method": "pi0.5 + Demo (Prefix)",
+    "task": "Bottle-to-Cup Pouring",
+    "trials": 50,
+    "success_rate": 48
+  },
+  {
+    "method": "RoboDemo",
+    "task": "Bottle-to-Cup Pouring",
+    "trials": 50,
+    "success_rate": 68
+  }
+]

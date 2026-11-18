@@ -1,0 +1,1361 @@
+training_corpus,split,method,task,level,success_rate
+c15,seen,GR00T-N1.6,FoldTowel,L0,0.0
+c15,seen,OpenVLA,FoldTowel,L0,40.0
+c15,seen,pi0.5,FoldTowel,L0,100.0
+c15,seen,RDT-1B,FoldTowel,L0,50.0
+c15,seen,UniSkill,FoldTowel,L0,100.0
+c15,seen,XSkill,FoldTowel,L0,80.0
+c15,seen,Zero-WAM,FoldTowel,L0,100.0
+c15,seen,RoboDemo,FoldTowel,L0,100.0
+c15,seen,GR00T-N1.6,FoldTowel,L1,0.0
+c15,seen,OpenVLA,FoldTowel,L1,0.0
+c15,seen,pi0.5,FoldTowel,L1,10.0
+c15,seen,RDT-1B,FoldTowel,L1,0.0
+c15,seen,UniSkill,FoldTowel,L1,100.0
+c15,seen,XSkill,FoldTowel,L1,100.0
+c15,seen,Zero-WAM,FoldTowel,L1,100.0
+c15,seen,RoboDemo,FoldTowel,L1,100.0
+c15,seen,GR00T-N1.6,FoldTowel,L2,0.0
+c15,seen,OpenVLA,FoldTowel,L2,20.0
+c15,seen,pi0.5,FoldTowel,L2,10.0
+c15,seen,RDT-1B,FoldTowel,L2,0.0
+c15,seen,UniSkill,FoldTowel,L2,90.0
+c15,seen,XSkill,FoldTowel,L2,80.0
+c15,seen,Zero-WAM,FoldTowel,L2,60.0
+c15,seen,RoboDemo,FoldTowel,L2,80.0
+c15,seen,GR00T-N1.6,FoldTowel,L3,0.0
+c15,seen,OpenVLA,FoldTowel,L3,50.0
+c15,seen,pi0.5,FoldTowel,L3,50.0
+c15,seen,RDT-1B,FoldTowel,L3,40.0
+c15,seen,UniSkill,FoldTowel,L3,60.0
+c15,seen,XSkill,FoldTowel,L3,70.0
+c15,seen,Zero-WAM,FoldTowel,L3,90.0
+c15,seen,RoboDemo,FoldTowel,L3,90.0
+c15,seen,GR00T-N1.6,PlaceFileFolder,L0,0.0
+c15,seen,OpenVLA,PlaceFileFolder,L0,90.0
+c15,seen,pi0.5,PlaceFileFolder,L0,50.0
+c15,seen,RDT-1B,PlaceFileFolder,L0,70.0
+c15,seen,UniSkill,PlaceFileFolder,L0,90.0
+c15,seen,XSkill,PlaceFileFolder,L0,90.0
+c15,seen,Zero-WAM,PlaceFileFolder,L0,60.0
+c15,seen,RoboDemo,PlaceFileFolder,L0,70.0
+c15,seen,GR00T-N1.6,PlaceFileFolder,L1,0.0
+c15,seen,OpenVLA,PlaceFileFolder,L1,0.0
+c15,seen,pi0.5,PlaceFileFolder,L1,10.0
+c15,seen,RDT-1B,PlaceFileFolder,L1,0.0
+c15,seen,UniSkill,PlaceFileFolder,L1,70.0
+c15,seen,XSkill,PlaceFileFolder,L1,80.0
+c15,seen,Zero-WAM,PlaceFileFolder,L1,0.0
+c15,seen,RoboDemo,PlaceFileFolder,L1,50.0
+c15,seen,GR00T-N1.6,PlaceFileFolder,L2,60.0
+c15,seen,OpenVLA,PlaceFileFolder,L2,20.0
+c15,seen,pi0.5,PlaceFileFolder,L2,30.0
+c15,seen,RDT-1B,PlaceFileFolder,L2,10.0
+c15,seen,UniSkill,PlaceFileFolder,L2,40.0
+c15,seen,XSkill,PlaceFileFolder,L2,20.0
+c15,seen,Zero-WAM,PlaceFileFolder,L2,80.0
+c15,seen,RoboDemo,PlaceFileFolder,L2,90.0
+c15,seen,GR00T-N1.6,PlaceFileFolder,L3,40.0
+c15,seen,OpenVLA,PlaceFileFolder,L3,90.0
+c15,seen,pi0.5,PlaceFileFolder,L3,70.0
+c15,seen,RDT-1B,PlaceFileFolder,L3,100.0
+c15,seen,UniSkill,PlaceFileFolder,L3,100.0
+c15,seen,XSkill,PlaceFileFolder,L3,80.0
+c15,seen,Zero-WAM,PlaceFileFolder,L3,30.0
+c15,seen,RoboDemo,PlaceFileFolder,L3,90.0
+c15,seen,GR00T-N1.6,PlaceMugRack,L0,0.0
+c15,seen,OpenVLA,PlaceMugRack,L0,70.0
+c15,seen,pi0.5,PlaceMugRack,L0,90.0
+c15,seen,RDT-1B,PlaceMugRack,L0,10.0
+c15,seen,UniSkill,PlaceMugRack,L0,90.0
+c15,seen,XSkill,PlaceMugRack,L0,90.0
+c15,seen,Zero-WAM,PlaceMugRack,L0,50.0
+c15,seen,RoboDemo,PlaceMugRack,L0,100.0
+c15,seen,GR00T-N1.6,PlaceMugRack,L1,0.0
+c15,seen,OpenVLA,PlaceMugRack,L1,40.0
+c15,seen,pi0.5,PlaceMugRack,L1,100.0
+c15,seen,RDT-1B,PlaceMugRack,L1,0.0
+c15,seen,UniSkill,PlaceMugRack,L1,90.0
+c15,seen,XSkill,PlaceMugRack,L1,100.0
+c15,seen,Zero-WAM,PlaceMugRack,L1,40.0
+c15,seen,RoboDemo,PlaceMugRack,L1,80.0
+c15,seen,GR00T-N1.6,PlaceMugRack,L2,20.0
+c15,seen,OpenVLA,PlaceMugRack,L2,0.0
+c15,seen,pi0.5,PlaceMugRack,L2,80.0
+c15,seen,RDT-1B,PlaceMugRack,L2,60.0
+c15,seen,UniSkill,PlaceMugRack,L2,100.0
+c15,seen,XSkill,PlaceMugRack,L2,90.0
+c15,seen,Zero-WAM,PlaceMugRack,L2,80.0
+c15,seen,RoboDemo,PlaceMugRack,L2,90.0
+c15,seen,GR00T-N1.6,PlaceMugRack,L3,100.0
+c15,seen,OpenVLA,PlaceMugRack,L3,90.0
+c15,seen,pi0.5,PlaceMugRack,L3,90.0
+c15,seen,RDT-1B,PlaceMugRack,L3,90.0
+c15,seen,UniSkill,PlaceMugRack,L3,100.0
+c15,seen,XSkill,PlaceMugRack,L3,90.0
+c15,seen,Zero-WAM,PlaceMugRack,L3,0.0
+c15,seen,RoboDemo,PlaceMugRack,L3,100.0
+c15,seen,GR00T-N1.6,PlacePlateRack,L0,60.0
+c15,seen,OpenVLA,PlacePlateRack,L0,10.0
+c15,seen,pi0.5,PlacePlateRack,L0,100.0
+c15,seen,RDT-1B,PlacePlateRack,L0,60.0
+c15,seen,UniSkill,PlacePlateRack,L0,80.0
+c15,seen,XSkill,PlacePlateRack,L0,90.0
+c15,seen,Zero-WAM,PlacePlateRack,L0,100.0
+c15,seen,RoboDemo,PlacePlateRack,L0,100.0
+c15,seen,GR00T-N1.6,PlacePlateRack,L1,70.0
+c15,seen,OpenVLA,PlacePlateRack,L1,30.0
+c15,seen,pi0.5,PlacePlateRack,L1,70.0
+c15,seen,RDT-1B,PlacePlateRack,L1,70.0
+c15,seen,UniSkill,PlacePlateRack,L1,80.0
+c15,seen,XSkill,PlacePlateRack,L1,70.0
+c15,seen,Zero-WAM,PlacePlateRack,L1,80.0
+c15,seen,RoboDemo,PlacePlateRack,L1,100.0
+c15,seen,GR00T-N1.6,PlacePlateRack,L2,30.0
+c15,seen,OpenVLA,PlacePlateRack,L2,50.0
+c15,seen,pi0.5,PlacePlateRack,L2,90.0
+c15,seen,RDT-1B,PlacePlateRack,L2,50.0
+c15,seen,UniSkill,PlacePlateRack,L2,50.0
+c15,seen,XSkill,PlacePlateRack,L2,60.0
+c15,seen,Zero-WAM,PlacePlateRack,L2,50.0
+c15,seen,RoboDemo,PlacePlateRack,L2,100.0
+c15,seen,GR00T-N1.6,PlacePlateRack,L3,80.0
+c15,seen,OpenVLA,PlacePlateRack,L3,60.0
+c15,seen,pi0.5,PlacePlateRack,L3,80.0
+c15,seen,RDT-1B,PlacePlateRack,L3,50.0
+c15,seen,UniSkill,PlacePlateRack,L3,100.0
+c15,seen,XSkill,PlacePlateRack,L3,90.0
+c15,seen,Zero-WAM,PlacePlateRack,L3,90.0
+c15,seen,RoboDemo,PlacePlateRack,L3,100.0
+c15,seen,GR00T-N1.6,StirSpoon,L0,60.0
+c15,seen,OpenVLA,StirSpoon,L0,60.0
+c15,seen,pi0.5,StirSpoon,L0,90.0
+c15,seen,RDT-1B,StirSpoon,L0,0.0
+c15,seen,UniSkill,StirSpoon,L0,70.0
+c15,seen,XSkill,StirSpoon,L0,90.0
+c15,seen,Zero-WAM,StirSpoon,L0,100.0
+c15,seen,RoboDemo,StirSpoon,L0,100.0
+c15,seen,GR00T-N1.6,StirSpoon,L1,0.0
+c15,seen,OpenVLA,StirSpoon,L1,60.0
+c15,seen,pi0.5,StirSpoon,L1,50.0
+c15,seen,RDT-1B,StirSpoon,L1,0.0
+c15,seen,UniSkill,StirSpoon,L1,60.0
+c15,seen,XSkill,StirSpoon,L1,80.0
+c15,seen,Zero-WAM,StirSpoon,L1,100.0
+c15,seen,RoboDemo,StirSpoon,L1,90.0
+c15,seen,GR00T-N1.6,StirSpoon,L2,40.0
+c15,seen,OpenVLA,StirSpoon,L2,0.0
+c15,seen,pi0.5,StirSpoon,L2,70.0
+c15,seen,RDT-1B,StirSpoon,L2,20.0
+c15,seen,UniSkill,StirSpoon,L2,60.0
+c15,seen,XSkill,StirSpoon,L2,100.0
+c15,seen,Zero-WAM,StirSpoon,L2,80.0
+c15,seen,RoboDemo,StirSpoon,L2,90.0
+c15,seen,GR00T-N1.6,StirSpoon,L3,30.0
+c15,seen,OpenVLA,StirSpoon,L3,0.0
+c15,seen,pi0.5,StirSpoon,L3,10.0
+c15,seen,RDT-1B,StirSpoon,L3,60.0
+c15,seen,UniSkill,StirSpoon,L3,30.0
+c15,seen,XSkill,StirSpoon,L3,40.0
+c15,seen,Zero-WAM,StirSpoon,L3,70.0
+c15,seen,RoboDemo,StirSpoon,L3,70.0
+c15,seen,ACT / DINOv2,FoldTowel,L0,80.0
+c15,seen,ACT / SigLIP2,FoldTowel,L0,100.0
+c15,seen,ACT / VideoMAE,FoldTowel,L0,100.0
+c15,seen,DP / DINOv2,FoldTowel,L0,90.0
+c15,seen,DP / SigLIP2,FoldTowel,L0,50.0
+c15,seen,DP / VideoMAE,FoldTowel,L0,40.0
+c15,seen,VQ-BeT / DINOv2,FoldTowel,L0,100.0
+c15,seen,VQ-BeT / SigLIP2,FoldTowel,L0,100.0
+c15,seen,VQ-BeT / VideoMAE,FoldTowel,L0,90.0
+c15,seen,ACT / DINOv2,FoldTowel,L1,100.0
+c15,seen,ACT / SigLIP2,FoldTowel,L1,100.0
+c15,seen,ACT / VideoMAE,FoldTowel,L1,100.0
+c15,seen,DP / DINOv2,FoldTowel,L1,70.0
+c15,seen,DP / SigLIP2,FoldTowel,L1,50.0
+c15,seen,DP / VideoMAE,FoldTowel,L1,30.0
+c15,seen,VQ-BeT / DINOv2,FoldTowel,L1,70.0
+c15,seen,VQ-BeT / SigLIP2,FoldTowel,L1,90.0
+c15,seen,VQ-BeT / VideoMAE,FoldTowel,L1,100.0
+c15,seen,ACT / DINOv2,FoldTowel,L2,100.0
+c15,seen,ACT / SigLIP2,FoldTowel,L2,100.0
+c15,seen,ACT / VideoMAE,FoldTowel,L2,90.0
+c15,seen,DP / DINOv2,FoldTowel,L2,30.0
+c15,seen,DP / SigLIP2,FoldTowel,L2,10.0
+c15,seen,DP / VideoMAE,FoldTowel,L2,10.0
+c15,seen,VQ-BeT / DINOv2,FoldTowel,L2,10.0
+c15,seen,VQ-BeT / SigLIP2,FoldTowel,L2,30.0
+c15,seen,VQ-BeT / VideoMAE,FoldTowel,L2,20.0
+c15,seen,ACT / DINOv2,FoldTowel,L3,90.0
+c15,seen,ACT / SigLIP2,FoldTowel,L3,60.0
+c15,seen,ACT / VideoMAE,FoldTowel,L3,80.0
+c15,seen,DP / DINOv2,FoldTowel,L3,100.0
+c15,seen,DP / SigLIP2,FoldTowel,L3,80.0
+c15,seen,DP / VideoMAE,FoldTowel,L3,10.0
+c15,seen,VQ-BeT / DINOv2,FoldTowel,L3,50.0
+c15,seen,VQ-BeT / SigLIP2,FoldTowel,L3,70.0
+c15,seen,VQ-BeT / VideoMAE,FoldTowel,L3,70.0
+c15,seen,ACT / DINOv2,PlaceFileFolder,L0,90.0
+c15,seen,ACT / SigLIP2,PlaceFileFolder,L0,60.0
+c15,seen,ACT / VideoMAE,PlaceFileFolder,L0,80.0
+c15,seen,DP / DINOv2,PlaceFileFolder,L0,80.0
+c15,seen,DP / SigLIP2,PlaceFileFolder,L0,90.0
+c15,seen,DP / VideoMAE,PlaceFileFolder,L0,80.0
+c15,seen,VQ-BeT / DINOv2,PlaceFileFolder,L0,50.0
+c15,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L0,80.0
+c15,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L0,60.0
+c15,seen,ACT / DINOv2,PlaceFileFolder,L1,100.0
+c15,seen,ACT / SigLIP2,PlaceFileFolder,L1,100.0
+c15,seen,ACT / VideoMAE,PlaceFileFolder,L1,90.0
+c15,seen,DP / DINOv2,PlaceFileFolder,L1,90.0
+c15,seen,DP / SigLIP2,PlaceFileFolder,L1,50.0
+c15,seen,DP / VideoMAE,PlaceFileFolder,L1,50.0
+c15,seen,VQ-BeT / DINOv2,PlaceFileFolder,L1,80.0
+c15,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L1,90.0
+c15,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L1,70.0
+c15,seen,ACT / DINOv2,PlaceFileFolder,L2,100.0
+c15,seen,ACT / SigLIP2,PlaceFileFolder,L2,80.0
+c15,seen,ACT / VideoMAE,PlaceFileFolder,L2,60.0
+c15,seen,DP / DINOv2,PlaceFileFolder,L2,60.0
+c15,seen,DP / SigLIP2,PlaceFileFolder,L2,80.0
+c15,seen,DP / VideoMAE,PlaceFileFolder,L2,40.0
+c15,seen,VQ-BeT / DINOv2,PlaceFileFolder,L2,70.0
+c15,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L2,100.0
+c15,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L2,60.0
+c15,seen,ACT / DINOv2,PlaceFileFolder,L3,100.0
+c15,seen,ACT / SigLIP2,PlaceFileFolder,L3,80.0
+c15,seen,ACT / VideoMAE,PlaceFileFolder,L3,90.0
+c15,seen,DP / DINOv2,PlaceFileFolder,L3,90.0
+c15,seen,DP / SigLIP2,PlaceFileFolder,L3,90.0
+c15,seen,DP / VideoMAE,PlaceFileFolder,L3,10.0
+c15,seen,VQ-BeT / DINOv2,PlaceFileFolder,L3,60.0
+c15,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L3,80.0
+c15,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L3,80.0
+c15,seen,ACT / DINOv2,PlaceMugRack,L0,100.0
+c15,seen,ACT / SigLIP2,PlaceMugRack,L0,100.0
+c15,seen,ACT / VideoMAE,PlaceMugRack,L0,100.0
+c15,seen,DP / DINOv2,PlaceMugRack,L0,80.0
+c15,seen,DP / SigLIP2,PlaceMugRack,L0,100.0
+c15,seen,DP / VideoMAE,PlaceMugRack,L0,0.0
+c15,seen,VQ-BeT / DINOv2,PlaceMugRack,L0,0.0
+c15,seen,VQ-BeT / SigLIP2,PlaceMugRack,L0,30.0
+c15,seen,VQ-BeT / VideoMAE,PlaceMugRack,L0,0.0
+c15,seen,ACT / DINOv2,PlaceMugRack,L1,70.0
+c15,seen,ACT / SigLIP2,PlaceMugRack,L1,80.0
+c15,seen,ACT / VideoMAE,PlaceMugRack,L1,80.0
+c15,seen,DP / DINOv2,PlaceMugRack,L1,100.0
+c15,seen,DP / SigLIP2,PlaceMugRack,L1,100.0
+c15,seen,DP / VideoMAE,PlaceMugRack,L1,20.0
+c15,seen,VQ-BeT / DINOv2,PlaceMugRack,L1,90.0
+c15,seen,VQ-BeT / SigLIP2,PlaceMugRack,L1,60.0
+c15,seen,VQ-BeT / VideoMAE,PlaceMugRack,L1,0.0
+c15,seen,ACT / DINOv2,PlaceMugRack,L2,100.0
+c15,seen,ACT / SigLIP2,PlaceMugRack,L2,90.0
+c15,seen,ACT / VideoMAE,PlaceMugRack,L2,80.0
+c15,seen,DP / DINOv2,PlaceMugRack,L2,80.0
+c15,seen,DP / SigLIP2,PlaceMugRack,L2,90.0
+c15,seen,DP / VideoMAE,PlaceMugRack,L2,0.0
+c15,seen,VQ-BeT / DINOv2,PlaceMugRack,L2,0.0
+c15,seen,VQ-BeT / SigLIP2,PlaceMugRack,L2,10.0
+c15,seen,VQ-BeT / VideoMAE,PlaceMugRack,L2,0.0
+c15,seen,ACT / DINOv2,PlaceMugRack,L3,100.0
+c15,seen,ACT / SigLIP2,PlaceMugRack,L3,100.0
+c15,seen,ACT / VideoMAE,PlaceMugRack,L3,90.0
+c15,seen,DP / DINOv2,PlaceMugRack,L3,80.0
+c15,seen,DP / SigLIP2,PlaceMugRack,L3,100.0
+c15,seen,DP / VideoMAE,PlaceMugRack,L3,90.0
+c15,seen,VQ-BeT / DINOv2,PlaceMugRack,L3,50.0
+c15,seen,VQ-BeT / SigLIP2,PlaceMugRack,L3,80.0
+c15,seen,VQ-BeT / VideoMAE,PlaceMugRack,L3,10.0
+c15,seen,ACT / DINOv2,PlacePlateRack,L0,80.0
+c15,seen,ACT / SigLIP2,PlacePlateRack,L0,70.0
+c15,seen,ACT / VideoMAE,PlacePlateRack,L0,90.0
+c15,seen,DP / DINOv2,PlacePlateRack,L0,80.0
+c15,seen,DP / SigLIP2,PlacePlateRack,L0,100.0
+c15,seen,DP / VideoMAE,PlacePlateRack,L0,0.0
+c15,seen,VQ-BeT / DINOv2,PlacePlateRack,L0,20.0
+c15,seen,VQ-BeT / SigLIP2,PlacePlateRack,L0,80.0
+c15,seen,VQ-BeT / VideoMAE,PlacePlateRack,L0,90.0
+c15,seen,ACT / DINOv2,PlacePlateRack,L1,70.0
+c15,seen,ACT / SigLIP2,PlacePlateRack,L1,80.0
+c15,seen,ACT / VideoMAE,PlacePlateRack,L1,100.0
+c15,seen,DP / DINOv2,PlacePlateRack,L1,60.0
+c15,seen,DP / SigLIP2,PlacePlateRack,L1,40.0
+c15,seen,DP / VideoMAE,PlacePlateRack,L1,0.0
+c15,seen,VQ-BeT / DINOv2,PlacePlateRack,L1,70.0
+c15,seen,VQ-BeT / SigLIP2,PlacePlateRack,L1,90.0
+c15,seen,VQ-BeT / VideoMAE,PlacePlateRack,L1,60.0
+c15,seen,ACT / DINOv2,PlacePlateRack,L2,50.0
+c15,seen,ACT / SigLIP2,PlacePlateRack,L2,70.0
+c15,seen,ACT / VideoMAE,PlacePlateRack,L2,50.0
+c15,seen,DP / DINOv2,PlacePlateRack,L2,30.0
+c15,seen,DP / SigLIP2,PlacePlateRack,L2,40.0
+c15,seen,DP / VideoMAE,PlacePlateRack,L2,0.0
+c15,seen,VQ-BeT / DINOv2,PlacePlateRack,L2,0.0
+c15,seen,VQ-BeT / SigLIP2,PlacePlateRack,L2,30.0
+c15,seen,VQ-BeT / VideoMAE,PlacePlateRack,L2,10.0
+c15,seen,ACT / DINOv2,PlacePlateRack,L3,100.0
+c15,seen,ACT / SigLIP2,PlacePlateRack,L3,100.0
+c15,seen,ACT / VideoMAE,PlacePlateRack,L3,100.0
+c15,seen,DP / DINOv2,PlacePlateRack,L3,80.0
+c15,seen,DP / SigLIP2,PlacePlateRack,L3,50.0
+c15,seen,DP / VideoMAE,PlacePlateRack,L3,10.0
+c15,seen,VQ-BeT / DINOv2,PlacePlateRack,L3,10.0
+c15,seen,VQ-BeT / SigLIP2,PlacePlateRack,L3,50.0
+c15,seen,VQ-BeT / VideoMAE,PlacePlateRack,L3,60.0
+c15,seen,ACT / DINOv2,StirSpoon,L0,40.0
+c15,seen,ACT / SigLIP2,StirSpoon,L0,80.0
+c15,seen,ACT / VideoMAE,StirSpoon,L0,90.0
+c15,seen,DP / DINOv2,StirSpoon,L0,20.0
+c15,seen,DP / SigLIP2,StirSpoon,L0,20.0
+c15,seen,DP / VideoMAE,StirSpoon,L0,0.0
+c15,seen,VQ-BeT / DINOv2,StirSpoon,L0,20.0
+c15,seen,VQ-BeT / SigLIP2,StirSpoon,L0,20.0
+c15,seen,VQ-BeT / VideoMAE,StirSpoon,L0,10.0
+c15,seen,ACT / DINOv2,StirSpoon,L1,10.0
+c15,seen,ACT / SigLIP2,StirSpoon,L1,60.0
+c15,seen,ACT / VideoMAE,StirSpoon,L1,40.0
+c15,seen,DP / DINOv2,StirSpoon,L1,10.0
+c15,seen,DP / SigLIP2,StirSpoon,L1,10.0
+c15,seen,DP / VideoMAE,StirSpoon,L1,10.0
+c15,seen,VQ-BeT / DINOv2,StirSpoon,L1,50.0
+c15,seen,VQ-BeT / SigLIP2,StirSpoon,L1,0.0
+c15,seen,VQ-BeT / VideoMAE,StirSpoon,L1,70.0
+c15,seen,ACT / DINOv2,StirSpoon,L2,50.0
+c15,seen,ACT / SigLIP2,StirSpoon,L2,80.0
+c15,seen,ACT / VideoMAE,StirSpoon,L2,40.0
+c15,seen,DP / DINOv2,StirSpoon,L2,50.0
+c15,seen,DP / SigLIP2,StirSpoon,L2,50.0
+c15,seen,DP / VideoMAE,StirSpoon,L2,40.0
+c15,seen,VQ-BeT / DINOv2,StirSpoon,L2,20.0
+c15,seen,VQ-BeT / SigLIP2,StirSpoon,L2,40.0
+c15,seen,VQ-BeT / VideoMAE,StirSpoon,L2,10.0
+c15,seen,ACT / DINOv2,StirSpoon,L3,80.0
+c15,seen,ACT / SigLIP2,StirSpoon,L3,50.0
+c15,seen,ACT / VideoMAE,StirSpoon,L3,60.0
+c15,seen,DP / DINOv2,StirSpoon,L3,20.0
+c15,seen,DP / SigLIP2,StirSpoon,L3,10.0
+c15,seen,DP / VideoMAE,StirSpoon,L3,30.0
+c15,seen,VQ-BeT / DINOv2,StirSpoon,L3,80.0
+c15,seen,VQ-BeT / SigLIP2,StirSpoon,L3,40.0
+c15,seen,VQ-BeT / VideoMAE,StirSpoon,L3,10.0
+c30,seen,GR00T-N1.6,FoldTowel,L0,30.0
+c30,seen,OpenVLA,FoldTowel,L0,10.0
+c30,seen,pi0.5,FoldTowel,L0,100.0
+c30,seen,RDT-1B,FoldTowel,L0,90.0
+c30,seen,UniSkill,FoldTowel,L0,100.0
+c30,seen,XSkill,FoldTowel,L0,80.0
+c30,seen,Zero-WAM,FoldTowel,L0,100.0
+c30,seen,RoboDemo,FoldTowel,L0,100.0
+c30,seen,GR00T-N1.6,FoldTowel,L1,70.0
+c30,seen,OpenVLA,FoldTowel,L1,0.0
+c30,seen,pi0.5,FoldTowel,L1,100.0
+c30,seen,RDT-1B,FoldTowel,L1,20.0
+c30,seen,UniSkill,FoldTowel,L1,90.0
+c30,seen,XSkill,FoldTowel,L1,100.0
+c30,seen,Zero-WAM,FoldTowel,L1,80.0
+c30,seen,RoboDemo,FoldTowel,L1,90.0
+c30,seen,GR00T-N1.6,FoldTowel,L2,0.0
+c30,seen,OpenVLA,FoldTowel,L2,0.0
+c30,seen,pi0.5,FoldTowel,L2,90.0
+c30,seen,RDT-1B,FoldTowel,L2,0.0
+c30,seen,UniSkill,FoldTowel,L2,80.0
+c30,seen,XSkill,FoldTowel,L2,100.0
+c30,seen,Zero-WAM,FoldTowel,L2,70.0
+c30,seen,RoboDemo,FoldTowel,L2,80.0
+c30,seen,GR00T-N1.6,FoldTowel,L3,0.0
+c30,seen,OpenVLA,FoldTowel,L3,0.0
+c30,seen,pi0.5,FoldTowel,L3,90.0
+c30,seen,RDT-1B,FoldTowel,L3,80.0
+c30,seen,UniSkill,FoldTowel,L3,80.0
+c30,seen,XSkill,FoldTowel,L3,30.0
+c30,seen,Zero-WAM,FoldTowel,L3,80.0
+c30,seen,RoboDemo,FoldTowel,L3,100.0
+c30,seen,GR00T-N1.6,PlaceFileFolder,L0,80.0
+c30,seen,OpenVLA,PlaceFileFolder,L0,50.0
+c30,seen,pi0.5,PlaceFileFolder,L0,70.0
+c30,seen,RDT-1B,PlaceFileFolder,L0,10.0
+c30,seen,UniSkill,PlaceFileFolder,L0,0.0
+c30,seen,XSkill,PlaceFileFolder,L0,90.0
+c30,seen,Zero-WAM,PlaceFileFolder,L0,90.0
+c30,seen,RoboDemo,PlaceFileFolder,L0,70.0
+c30,seen,GR00T-N1.6,PlaceFileFolder,L1,70.0
+c30,seen,OpenVLA,PlaceFileFolder,L1,10.0
+c30,seen,pi0.5,PlaceFileFolder,L1,20.0
+c30,seen,RDT-1B,PlaceFileFolder,L1,60.0
+c30,seen,UniSkill,PlaceFileFolder,L1,0.0
+c30,seen,XSkill,PlaceFileFolder,L1,100.0
+c30,seen,Zero-WAM,PlaceFileFolder,L1,20.0
+c30,seen,RoboDemo,PlaceFileFolder,L1,80.0
+c30,seen,GR00T-N1.6,PlaceFileFolder,L2,30.0
+c30,seen,OpenVLA,PlaceFileFolder,L2,0.0
+c30,seen,pi0.5,PlaceFileFolder,L2,70.0
+c30,seen,RDT-1B,PlaceFileFolder,L2,10.0
+c30,seen,UniSkill,PlaceFileFolder,L2,0.0
+c30,seen,XSkill,PlaceFileFolder,L2,50.0
+c30,seen,Zero-WAM,PlaceFileFolder,L2,80.0
+c30,seen,RoboDemo,PlaceFileFolder,L2,100.0
+c30,seen,GR00T-N1.6,PlaceFileFolder,L3,50.0
+c30,seen,OpenVLA,PlaceFileFolder,L3,90.0
+c30,seen,pi0.5,PlaceFileFolder,L3,60.0
+c30,seen,RDT-1B,PlaceFileFolder,L3,90.0
+c30,seen,UniSkill,PlaceFileFolder,L3,100.0
+c30,seen,XSkill,PlaceFileFolder,L3,60.0
+c30,seen,Zero-WAM,PlaceFileFolder,L3,90.0
+c30,seen,RoboDemo,PlaceFileFolder,L3,90.0
+c30,seen,GR00T-N1.6,PlaceMugRack,L0,40.0
+c30,seen,OpenVLA,PlaceMugRack,L0,30.0
+c30,seen,pi0.5,PlaceMugRack,L0,90.0
+c30,seen,RDT-1B,PlaceMugRack,L0,60.0
+c30,seen,UniSkill,PlaceMugRack,L0,100.0
+c30,seen,XSkill,PlaceMugRack,L0,90.0
+c30,seen,Zero-WAM,PlaceMugRack,L0,100.0
+c30,seen,RoboDemo,PlaceMugRack,L0,90.0
+c30,seen,GR00T-N1.6,PlaceMugRack,L1,70.0
+c30,seen,OpenVLA,PlaceMugRack,L1,30.0
+c30,seen,pi0.5,PlaceMugRack,L1,100.0
+c30,seen,RDT-1B,PlaceMugRack,L1,30.0
+c30,seen,UniSkill,PlaceMugRack,L1,100.0
+c30,seen,XSkill,PlaceMugRack,L1,100.0
+c30,seen,Zero-WAM,PlaceMugRack,L1,50.0
+c30,seen,RoboDemo,PlaceMugRack,L1,90.0
+c30,seen,GR00T-N1.6,PlaceMugRack,L2,60.0
+c30,seen,OpenVLA,PlaceMugRack,L2,0.0
+c30,seen,pi0.5,PlaceMugRack,L2,80.0
+c30,seen,RDT-1B,PlaceMugRack,L2,40.0
+c30,seen,UniSkill,PlaceMugRack,L2,100.0
+c30,seen,XSkill,PlaceMugRack,L2,100.0
+c30,seen,Zero-WAM,PlaceMugRack,L2,100.0
+c30,seen,RoboDemo,PlaceMugRack,L2,100.0
+c30,seen,GR00T-N1.6,PlaceMugRack,L3,90.0
+c30,seen,OpenVLA,PlaceMugRack,L3,90.0
+c30,seen,pi0.5,PlaceMugRack,L3,90.0
+c30,seen,RDT-1B,PlaceMugRack,L3,100.0
+c30,seen,UniSkill,PlaceMugRack,L3,70.0
+c30,seen,XSkill,PlaceMugRack,L3,20.0
+c30,seen,Zero-WAM,PlaceMugRack,L3,10.0
+c30,seen,RoboDemo,PlaceMugRack,L3,100.0
+c30,seen,GR00T-N1.6,PlacePlateRack,L0,90.0
+c30,seen,OpenVLA,PlacePlateRack,L0,40.0
+c30,seen,pi0.5,PlacePlateRack,L0,90.0
+c30,seen,RDT-1B,PlacePlateRack,L0,60.0
+c30,seen,UniSkill,PlacePlateRack,L0,80.0
+c30,seen,XSkill,PlacePlateRack,L0,90.0
+c30,seen,Zero-WAM,PlacePlateRack,L0,100.0
+c30,seen,RoboDemo,PlacePlateRack,L0,100.0
+c30,seen,GR00T-N1.6,PlacePlateRack,L1,60.0
+c30,seen,OpenVLA,PlacePlateRack,L1,0.0
+c30,seen,pi0.5,PlacePlateRack,L1,90.0
+c30,seen,RDT-1B,PlacePlateRack,L1,80.0
+c30,seen,UniSkill,PlacePlateRack,L1,90.0
+c30,seen,XSkill,PlacePlateRack,L1,90.0
+c30,seen,Zero-WAM,PlacePlateRack,L1,80.0
+c30,seen,RoboDemo,PlacePlateRack,L1,100.0
+c30,seen,GR00T-N1.6,PlacePlateRack,L2,100.0
+c30,seen,OpenVLA,PlacePlateRack,L2,0.0
+c30,seen,pi0.5,PlacePlateRack,L2,50.0
+c30,seen,RDT-1B,PlacePlateRack,L2,70.0
+c30,seen,UniSkill,PlacePlateRack,L2,80.0
+c30,seen,XSkill,PlacePlateRack,L2,70.0
+c30,seen,Zero-WAM,PlacePlateRack,L2,60.0
+c30,seen,RoboDemo,PlacePlateRack,L2,100.0
+c30,seen,GR00T-N1.6,PlacePlateRack,L3,100.0
+c30,seen,OpenVLA,PlacePlateRack,L3,80.0
+c30,seen,pi0.5,PlacePlateRack,L3,90.0
+c30,seen,RDT-1B,PlacePlateRack,L3,50.0
+c30,seen,UniSkill,PlacePlateRack,L3,100.0
+c30,seen,XSkill,PlacePlateRack,L3,90.0
+c30,seen,Zero-WAM,PlacePlateRack,L3,90.0
+c30,seen,RoboDemo,PlacePlateRack,L3,100.0
+c30,seen,GR00T-N1.6,StirSpoon,L0,20.0
+c30,seen,OpenVLA,StirSpoon,L0,20.0
+c30,seen,pi0.5,StirSpoon,L0,60.0
+c30,seen,RDT-1B,StirSpoon,L0,40.0
+c30,seen,UniSkill,StirSpoon,L0,70.0
+c30,seen,XSkill,StirSpoon,L0,80.0
+c30,seen,Zero-WAM,StirSpoon,L0,100.0
+c30,seen,RoboDemo,StirSpoon,L0,90.0
+c30,seen,GR00T-N1.6,StirSpoon,L1,0.0
+c30,seen,OpenVLA,StirSpoon,L1,40.0
+c30,seen,pi0.5,StirSpoon,L1,60.0
+c30,seen,RDT-1B,StirSpoon,L1,0.0
+c30,seen,UniSkill,StirSpoon,L1,60.0
+c30,seen,XSkill,StirSpoon,L1,40.0
+c30,seen,Zero-WAM,StirSpoon,L1,60.0
+c30,seen,RoboDemo,StirSpoon,L1,100.0
+c30,seen,GR00T-N1.6,StirSpoon,L2,0.0
+c30,seen,OpenVLA,StirSpoon,L2,0.0
+c30,seen,pi0.5,StirSpoon,L2,50.0
+c30,seen,RDT-1B,StirSpoon,L2,30.0
+c30,seen,UniSkill,StirSpoon,L2,60.0
+c30,seen,XSkill,StirSpoon,L2,90.0
+c30,seen,Zero-WAM,StirSpoon,L2,90.0
+c30,seen,RoboDemo,StirSpoon,L2,100.0
+c30,seen,GR00T-N1.6,StirSpoon,L3,0.0
+c30,seen,OpenVLA,StirSpoon,L3,20.0
+c30,seen,pi0.5,StirSpoon,L3,30.0
+c30,seen,RDT-1B,StirSpoon,L3,90.0
+c30,seen,UniSkill,StirSpoon,L3,30.0
+c30,seen,XSkill,StirSpoon,L3,60.0
+c30,seen,Zero-WAM,StirSpoon,L3,90.0
+c30,seen,RoboDemo,StirSpoon,L3,100.0
+c30,seen,ACT / DINOv2,FoldTowel,L0,100.0
+c30,seen,ACT / SigLIP2,FoldTowel,L0,90.0
+c30,seen,ACT / VideoMAE,FoldTowel,L0,100.0
+c30,seen,DP / DINOv2,FoldTowel,L0,100.0
+c30,seen,DP / SigLIP2,FoldTowel,L0,50.0
+c30,seen,DP / VideoMAE,FoldTowel,L0,0.0
+c30,seen,VQ-BeT / DINOv2,FoldTowel,L0,20.0
+c30,seen,VQ-BeT / SigLIP2,FoldTowel,L0,70.0
+c30,seen,VQ-BeT / VideoMAE,FoldTowel,L0,0.0
+c30,seen,ACT / DINOv2,FoldTowel,L1,100.0
+c30,seen,ACT / SigLIP2,FoldTowel,L1,100.0
+c30,seen,ACT / VideoMAE,FoldTowel,L1,100.0
+c30,seen,DP / DINOv2,FoldTowel,L1,70.0
+c30,seen,DP / SigLIP2,FoldTowel,L1,0.0
+c30,seen,DP / VideoMAE,FoldTowel,L1,0.0
+c30,seen,VQ-BeT / DINOv2,FoldTowel,L1,90.0
+c30,seen,VQ-BeT / SigLIP2,FoldTowel,L1,100.0
+c30,seen,VQ-BeT / VideoMAE,FoldTowel,L1,10.0
+c30,seen,ACT / DINOv2,FoldTowel,L2,90.0
+c30,seen,ACT / SigLIP2,FoldTowel,L2,90.0
+c30,seen,ACT / VideoMAE,FoldTowel,L2,50.0
+c30,seen,DP / DINOv2,FoldTowel,L2,10.0
+c30,seen,DP / SigLIP2,FoldTowel,L2,10.0
+c30,seen,DP / VideoMAE,FoldTowel,L2,0.0
+c30,seen,VQ-BeT / DINOv2,FoldTowel,L2,0.0
+c30,seen,VQ-BeT / SigLIP2,FoldTowel,L2,30.0
+c30,seen,VQ-BeT / VideoMAE,FoldTowel,L2,0.0
+c30,seen,ACT / DINOv2,FoldTowel,L3,90.0
+c30,seen,ACT / SigLIP2,FoldTowel,L3,80.0
+c30,seen,ACT / VideoMAE,FoldTowel,L3,90.0
+c30,seen,DP / DINOv2,FoldTowel,L3,80.0
+c30,seen,DP / SigLIP2,FoldTowel,L3,70.0
+c30,seen,DP / VideoMAE,FoldTowel,L3,0.0
+c30,seen,VQ-BeT / DINOv2,FoldTowel,L3,0.0
+c30,seen,VQ-BeT / SigLIP2,FoldTowel,L3,40.0
+c30,seen,VQ-BeT / VideoMAE,FoldTowel,L3,20.0
+c30,seen,ACT / DINOv2,PlaceFileFolder,L0,70.0
+c30,seen,ACT / SigLIP2,PlaceFileFolder,L0,90.0
+c30,seen,ACT / VideoMAE,PlaceFileFolder,L0,40.0
+c30,seen,DP / DINOv2,PlaceFileFolder,L0,90.0
+c30,seen,DP / SigLIP2,PlaceFileFolder,L0,70.0
+c30,seen,DP / VideoMAE,PlaceFileFolder,L0,0.0
+c30,seen,VQ-BeT / DINOv2,PlaceFileFolder,L0,60.0
+c30,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L0,60.0
+c30,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L0,30.0
+c30,seen,ACT / DINOv2,PlaceFileFolder,L1,90.0
+c30,seen,ACT / SigLIP2,PlaceFileFolder,L1,60.0
+c30,seen,ACT / VideoMAE,PlaceFileFolder,L1,60.0
+c30,seen,DP / DINOv2,PlaceFileFolder,L1,90.0
+c30,seen,DP / SigLIP2,PlaceFileFolder,L1,50.0
+c30,seen,DP / VideoMAE,PlaceFileFolder,L1,10.0
+c30,seen,VQ-BeT / DINOv2,PlaceFileFolder,L1,90.0
+c30,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L1,80.0
+c30,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L1,0.0
+c30,seen,ACT / DINOv2,PlaceFileFolder,L2,60.0
+c30,seen,ACT / SigLIP2,PlaceFileFolder,L2,30.0
+c30,seen,ACT / VideoMAE,PlaceFileFolder,L2,0.0
+c30,seen,DP / DINOv2,PlaceFileFolder,L2,90.0
+c30,seen,DP / SigLIP2,PlaceFileFolder,L2,80.0
+c30,seen,DP / VideoMAE,PlaceFileFolder,L2,40.0
+c30,seen,VQ-BeT / DINOv2,PlaceFileFolder,L2,90.0
+c30,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L2,60.0
+c30,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L2,100.0
+c30,seen,ACT / DINOv2,PlaceFileFolder,L3,100.0
+c30,seen,ACT / SigLIP2,PlaceFileFolder,L3,100.0
+c30,seen,ACT / VideoMAE,PlaceFileFolder,L3,100.0
+c30,seen,DP / DINOv2,PlaceFileFolder,L3,80.0
+c30,seen,DP / SigLIP2,PlaceFileFolder,L3,100.0
+c30,seen,DP / VideoMAE,PlaceFileFolder,L3,20.0
+c30,seen,VQ-BeT / DINOv2,PlaceFileFolder,L3,80.0
+c30,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L3,70.0
+c30,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L3,0.0
+c30,seen,ACT / DINOv2,PlaceMugRack,L0,100.0
+c30,seen,ACT / SigLIP2,PlaceMugRack,L0,90.0
+c30,seen,ACT / VideoMAE,PlaceMugRack,L0,100.0
+c30,seen,DP / DINOv2,PlaceMugRack,L0,100.0
+c30,seen,DP / SigLIP2,PlaceMugRack,L0,80.0
+c30,seen,DP / VideoMAE,PlaceMugRack,L0,10.0
+c30,seen,VQ-BeT / DINOv2,PlaceMugRack,L0,60.0
+c30,seen,VQ-BeT / SigLIP2,PlaceMugRack,L0,50.0
+c30,seen,VQ-BeT / VideoMAE,PlaceMugRack,L0,0.0
+c30,seen,ACT / DINOv2,PlaceMugRack,L1,90.0
+c30,seen,ACT / SigLIP2,PlaceMugRack,L1,70.0
+c30,seen,ACT / VideoMAE,PlaceMugRack,L1,90.0
+c30,seen,DP / DINOv2,PlaceMugRack,L1,90.0
+c30,seen,DP / SigLIP2,PlaceMugRack,L1,90.0
+c30,seen,DP / VideoMAE,PlaceMugRack,L1,70.0
+c30,seen,VQ-BeT / DINOv2,PlaceMugRack,L1,70.0
+c30,seen,VQ-BeT / SigLIP2,PlaceMugRack,L1,80.0
+c30,seen,VQ-BeT / VideoMAE,PlaceMugRack,L1,0.0
+c30,seen,ACT / DINOv2,PlaceMugRack,L2,80.0
+c30,seen,ACT / SigLIP2,PlaceMugRack,L2,100.0
+c30,seen,ACT / VideoMAE,PlaceMugRack,L2,100.0
+c30,seen,DP / DINOv2,PlaceMugRack,L2,100.0
+c30,seen,DP / SigLIP2,PlaceMugRack,L2,100.0
+c30,seen,DP / VideoMAE,PlaceMugRack,L2,60.0
+c30,seen,VQ-BeT / DINOv2,PlaceMugRack,L2,70.0
+c30,seen,VQ-BeT / SigLIP2,PlaceMugRack,L2,60.0
+c30,seen,VQ-BeT / VideoMAE,PlaceMugRack,L2,0.0
+c30,seen,ACT / DINOv2,PlaceMugRack,L3,100.0
+c30,seen,ACT / SigLIP2,PlaceMugRack,L3,100.0
+c30,seen,ACT / VideoMAE,PlaceMugRack,L3,90.0
+c30,seen,DP / DINOv2,PlaceMugRack,L3,90.0
+c30,seen,DP / SigLIP2,PlaceMugRack,L3,100.0
+c30,seen,DP / VideoMAE,PlaceMugRack,L3,100.0
+c30,seen,VQ-BeT / DINOv2,PlaceMugRack,L3,80.0
+c30,seen,VQ-BeT / SigLIP2,PlaceMugRack,L3,100.0
+c30,seen,VQ-BeT / VideoMAE,PlaceMugRack,L3,40.0
+c30,seen,ACT / DINOv2,PlacePlateRack,L0,100.0
+c30,seen,ACT / SigLIP2,PlacePlateRack,L0,70.0
+c30,seen,ACT / VideoMAE,PlacePlateRack,L0,80.0
+c30,seen,DP / DINOv2,PlacePlateRack,L0,90.0
+c30,seen,DP / SigLIP2,PlacePlateRack,L0,80.0
+c30,seen,DP / VideoMAE,PlacePlateRack,L0,20.0
+c30,seen,VQ-BeT / DINOv2,PlacePlateRack,L0,80.0
+c30,seen,VQ-BeT / SigLIP2,PlacePlateRack,L0,90.0
+c30,seen,VQ-BeT / VideoMAE,PlacePlateRack,L0,80.0
+c30,seen,ACT / DINOv2,PlacePlateRack,L1,80.0
+c30,seen,ACT / SigLIP2,PlacePlateRack,L1,90.0
+c30,seen,ACT / VideoMAE,PlacePlateRack,L1,80.0
+c30,seen,DP / DINOv2,PlacePlateRack,L1,60.0
+c30,seen,DP / SigLIP2,PlacePlateRack,L1,60.0
+c30,seen,DP / VideoMAE,PlacePlateRack,L1,0.0
+c30,seen,VQ-BeT / DINOv2,PlacePlateRack,L1,70.0
+c30,seen,VQ-BeT / SigLIP2,PlacePlateRack,L1,70.0
+c30,seen,VQ-BeT / VideoMAE,PlacePlateRack,L1,50.0
+c30,seen,ACT / DINOv2,PlacePlateRack,L2,80.0
+c30,seen,ACT / SigLIP2,PlacePlateRack,L2,80.0
+c30,seen,ACT / VideoMAE,PlacePlateRack,L2,60.0
+c30,seen,DP / DINOv2,PlacePlateRack,L2,60.0
+c30,seen,DP / SigLIP2,PlacePlateRack,L2,20.0
+c30,seen,DP / VideoMAE,PlacePlateRack,L2,0.0
+c30,seen,VQ-BeT / DINOv2,PlacePlateRack,L2,10.0
+c30,seen,VQ-BeT / SigLIP2,PlacePlateRack,L2,30.0
+c30,seen,VQ-BeT / VideoMAE,PlacePlateRack,L2,0.0
+c30,seen,ACT / DINOv2,PlacePlateRack,L3,90.0
+c30,seen,ACT / SigLIP2,PlacePlateRack,L3,90.0
+c30,seen,ACT / VideoMAE,PlacePlateRack,L3,90.0
+c30,seen,DP / DINOv2,PlacePlateRack,L3,80.0
+c30,seen,DP / SigLIP2,PlacePlateRack,L3,90.0
+c30,seen,DP / VideoMAE,PlacePlateRack,L3,0.0
+c30,seen,VQ-BeT / DINOv2,PlacePlateRack,L3,20.0
+c30,seen,VQ-BeT / SigLIP2,PlacePlateRack,L3,30.0
+c30,seen,VQ-BeT / VideoMAE,PlacePlateRack,L3,60.0
+c30,seen,ACT / DINOv2,StirSpoon,L0,70.0
+c30,seen,ACT / SigLIP2,StirSpoon,L0,50.0
+c30,seen,ACT / VideoMAE,StirSpoon,L0,60.0
+c30,seen,DP / DINOv2,StirSpoon,L0,10.0
+c30,seen,DP / SigLIP2,StirSpoon,L0,20.0
+c30,seen,DP / VideoMAE,StirSpoon,L0,0.0
+c30,seen,VQ-BeT / DINOv2,StirSpoon,L0,30.0
+c30,seen,VQ-BeT / SigLIP2,StirSpoon,L0,20.0
+c30,seen,VQ-BeT / VideoMAE,StirSpoon,L0,10.0
+c30,seen,ACT / DINOv2,StirSpoon,L1,60.0
+c30,seen,ACT / SigLIP2,StirSpoon,L1,60.0
+c30,seen,ACT / VideoMAE,StirSpoon,L1,40.0
+c30,seen,DP / DINOv2,StirSpoon,L1,30.0
+c30,seen,DP / SigLIP2,StirSpoon,L1,20.0
+c30,seen,DP / VideoMAE,StirSpoon,L1,10.0
+c30,seen,VQ-BeT / DINOv2,StirSpoon,L1,30.0
+c30,seen,VQ-BeT / SigLIP2,StirSpoon,L1,0.0
+c30,seen,VQ-BeT / VideoMAE,StirSpoon,L1,70.0
+c30,seen,ACT / DINOv2,StirSpoon,L2,20.0
+c30,seen,ACT / SigLIP2,StirSpoon,L2,20.0
+c30,seen,ACT / VideoMAE,StirSpoon,L2,10.0
+c30,seen,DP / DINOv2,StirSpoon,L2,30.0
+c30,seen,DP / SigLIP2,StirSpoon,L2,60.0
+c30,seen,DP / VideoMAE,StirSpoon,L2,0.0
+c30,seen,VQ-BeT / DINOv2,StirSpoon,L2,70.0
+c30,seen,VQ-BeT / SigLIP2,StirSpoon,L2,40.0
+c30,seen,VQ-BeT / VideoMAE,StirSpoon,L2,10.0
+c30,seen,ACT / DINOv2,StirSpoon,L3,60.0
+c30,seen,ACT / SigLIP2,StirSpoon,L3,70.0
+c30,seen,ACT / VideoMAE,StirSpoon,L3,40.0
+c30,seen,DP / DINOv2,StirSpoon,L3,10.0
+c30,seen,DP / SigLIP2,StirSpoon,L3,20.0
+c30,seen,DP / VideoMAE,StirSpoon,L3,0.0
+c30,seen,VQ-BeT / DINOv2,StirSpoon,L3,20.0
+c30,seen,VQ-BeT / SigLIP2,StirSpoon,L3,40.0
+c30,seen,VQ-BeT / VideoMAE,StirSpoon,L3,10.0
+c45,seen,GR00T-N1.6,FoldTowel,L0,90.0
+c45,seen,OpenVLA,FoldTowel,L0,0.0
+c45,seen,pi0.5,FoldTowel,L0,100.0
+c45,seen,RDT-1B,FoldTowel,L0,70.0
+c45,seen,UniSkill,FoldTowel,L0,100.0
+c45,seen,XSkill,FoldTowel,L0,100.0
+c45,seen,Zero-WAM,FoldTowel,L0,100.0
+c45,seen,RoboDemo,FoldTowel,L0,100.0
+c45,seen,GR00T-N1.6,FoldTowel,L1,70.0
+c45,seen,OpenVLA,FoldTowel,L1,0.0
+c45,seen,pi0.5,FoldTowel,L1,100.0
+c45,seen,RDT-1B,FoldTowel,L1,80.0
+c45,seen,UniSkill,FoldTowel,L1,90.0
+c45,seen,XSkill,FoldTowel,L1,100.0
+c45,seen,Zero-WAM,FoldTowel,L1,90.0
+c45,seen,RoboDemo,FoldTowel,L1,100.0
+c45,seen,GR00T-N1.6,FoldTowel,L2,60.0
+c45,seen,OpenVLA,FoldTowel,L2,0.0
+c45,seen,pi0.5,FoldTowel,L2,90.0
+c45,seen,RDT-1B,FoldTowel,L2,30.0
+c45,seen,UniSkill,FoldTowel,L2,100.0
+c45,seen,XSkill,FoldTowel,L2,60.0
+c45,seen,Zero-WAM,FoldTowel,L2,70.0
+c45,seen,RoboDemo,FoldTowel,L2,90.0
+c45,seen,GR00T-N1.6,FoldTowel,L3,50.0
+c45,seen,OpenVLA,FoldTowel,L3,0.0
+c45,seen,pi0.5,FoldTowel,L3,80.0
+c45,seen,RDT-1B,FoldTowel,L3,40.0
+c45,seen,UniSkill,FoldTowel,L3,70.0
+c45,seen,XSkill,FoldTowel,L3,80.0
+c45,seen,Zero-WAM,FoldTowel,L3,70.0
+c45,seen,RoboDemo,FoldTowel,L3,90.0
+c45,seen,GR00T-N1.6,PlaceFileFolder,L0,90.0
+c45,seen,OpenVLA,PlaceFileFolder,L0,50.0
+c45,seen,pi0.5,PlaceFileFolder,L0,80.0
+c45,seen,RDT-1B,PlaceFileFolder,L0,40.0
+c45,seen,UniSkill,PlaceFileFolder,L0,90.0
+c45,seen,XSkill,PlaceFileFolder,L0,100.0
+c45,seen,Zero-WAM,PlaceFileFolder,L0,30.0
+c45,seen,RoboDemo,PlaceFileFolder,L0,80.0
+c45,seen,GR00T-N1.6,PlaceFileFolder,L1,90.0
+c45,seen,OpenVLA,PlaceFileFolder,L1,30.0
+c45,seen,pi0.5,PlaceFileFolder,L1,40.0
+c45,seen,RDT-1B,PlaceFileFolder,L1,0.0
+c45,seen,UniSkill,PlaceFileFolder,L1,20.0
+c45,seen,XSkill,PlaceFileFolder,L1,60.0
+c45,seen,Zero-WAM,PlaceFileFolder,L1,30.0
+c45,seen,RoboDemo,PlaceFileFolder,L1,20.0
+c45,seen,GR00T-N1.6,PlaceFileFolder,L2,70.0
+c45,seen,OpenVLA,PlaceFileFolder,L2,0.0
+c45,seen,pi0.5,PlaceFileFolder,L2,80.0
+c45,seen,RDT-1B,PlaceFileFolder,L2,0.0
+c45,seen,UniSkill,PlaceFileFolder,L2,40.0
+c45,seen,XSkill,PlaceFileFolder,L2,80.0
+c45,seen,Zero-WAM,PlaceFileFolder,L2,70.0
+c45,seen,RoboDemo,PlaceFileFolder,L2,100.0
+c45,seen,GR00T-N1.6,PlaceFileFolder,L3,90.0
+c45,seen,OpenVLA,PlaceFileFolder,L3,60.0
+c45,seen,pi0.5,PlaceFileFolder,L3,70.0
+c45,seen,RDT-1B,PlaceFileFolder,L3,90.0
+c45,seen,UniSkill,PlaceFileFolder,L3,100.0
+c45,seen,XSkill,PlaceFileFolder,L3,100.0
+c45,seen,Zero-WAM,PlaceFileFolder,L3,20.0
+c45,seen,RoboDemo,PlaceFileFolder,L3,70.0
+c45,seen,GR00T-N1.6,PlaceMugRack,L0,100.0
+c45,seen,OpenVLA,PlaceMugRack,L0,0.0
+c45,seen,pi0.5,PlaceMugRack,L0,80.0
+c45,seen,RDT-1B,PlaceMugRack,L0,80.0
+c45,seen,UniSkill,PlaceMugRack,L0,90.0
+c45,seen,XSkill,PlaceMugRack,L0,90.0
+c45,seen,Zero-WAM,PlaceMugRack,L0,70.0
+c45,seen,RoboDemo,PlaceMugRack,L0,80.0
+c45,seen,GR00T-N1.6,PlaceMugRack,L1,60.0
+c45,seen,OpenVLA,PlaceMugRack,L1,60.0
+c45,seen,pi0.5,PlaceMugRack,L1,100.0
+c45,seen,RDT-1B,PlaceMugRack,L1,0.0
+c45,seen,UniSkill,PlaceMugRack,L1,100.0
+c45,seen,XSkill,PlaceMugRack,L1,100.0
+c45,seen,Zero-WAM,PlaceMugRack,L1,70.0
+c45,seen,RoboDemo,PlaceMugRack,L1,90.0
+c45,seen,GR00T-N1.6,PlaceMugRack,L2,60.0
+c45,seen,OpenVLA,PlaceMugRack,L2,0.0
+c45,seen,pi0.5,PlaceMugRack,L2,90.0
+c45,seen,RDT-1B,PlaceMugRack,L2,0.0
+c45,seen,UniSkill,PlaceMugRack,L2,100.0
+c45,seen,XSkill,PlaceMugRack,L2,100.0
+c45,seen,Zero-WAM,PlaceMugRack,L2,70.0
+c45,seen,RoboDemo,PlaceMugRack,L2,100.0
+c45,seen,GR00T-N1.6,PlaceMugRack,L3,90.0
+c45,seen,OpenVLA,PlaceMugRack,L3,60.0
+c45,seen,pi0.5,PlaceMugRack,L3,90.0
+c45,seen,RDT-1B,PlaceMugRack,L3,100.0
+c45,seen,UniSkill,PlaceMugRack,L3,90.0
+c45,seen,XSkill,PlaceMugRack,L3,40.0
+c45,seen,Zero-WAM,PlaceMugRack,L3,0.0
+c45,seen,RoboDemo,PlaceMugRack,L3,100.0
+c45,seen,GR00T-N1.6,PlacePlateRack,L0,60.0
+c45,seen,OpenVLA,PlacePlateRack,L0,0.0
+c45,seen,pi0.5,PlacePlateRack,L0,70.0
+c45,seen,RDT-1B,PlacePlateRack,L0,40.0
+c45,seen,UniSkill,PlacePlateRack,L0,80.0
+c45,seen,XSkill,PlacePlateRack,L0,100.0
+c45,seen,Zero-WAM,PlacePlateRack,L0,90.0
+c45,seen,RoboDemo,PlacePlateRack,L0,100.0
+c45,seen,GR00T-N1.6,PlacePlateRack,L1,100.0
+c45,seen,OpenVLA,PlacePlateRack,L1,0.0
+c45,seen,pi0.5,PlacePlateRack,L1,90.0
+c45,seen,RDT-1B,PlacePlateRack,L1,80.0
+c45,seen,UniSkill,PlacePlateRack,L1,60.0
+c45,seen,XSkill,PlacePlateRack,L1,100.0
+c45,seen,Zero-WAM,PlacePlateRack,L1,100.0
+c45,seen,RoboDemo,PlacePlateRack,L1,90.0
+c45,seen,GR00T-N1.6,PlacePlateRack,L2,70.0
+c45,seen,OpenVLA,PlacePlateRack,L2,10.0
+c45,seen,pi0.5,PlacePlateRack,L2,90.0
+c45,seen,RDT-1B,PlacePlateRack,L2,60.0
+c45,seen,UniSkill,PlacePlateRack,L2,90.0
+c45,seen,XSkill,PlacePlateRack,L2,80.0
+c45,seen,Zero-WAM,PlacePlateRack,L2,40.0
+c45,seen,RoboDemo,PlacePlateRack,L2,100.0
+c45,seen,GR00T-N1.6,PlacePlateRack,L3,90.0
+c45,seen,OpenVLA,PlacePlateRack,L3,30.0
+c45,seen,pi0.5,PlacePlateRack,L3,100.0
+c45,seen,RDT-1B,PlacePlateRack,L3,40.0
+c45,seen,UniSkill,PlacePlateRack,L3,100.0
+c45,seen,XSkill,PlacePlateRack,L3,100.0
+c45,seen,Zero-WAM,PlacePlateRack,L3,70.0
+c45,seen,RoboDemo,PlacePlateRack,L3,100.0
+c45,seen,GR00T-N1.6,StirSpoon,L0,80.0
+c45,seen,OpenVLA,StirSpoon,L0,80.0
+c45,seen,pi0.5,StirSpoon,L0,100.0
+c45,seen,RDT-1B,StirSpoon,L0,20.0
+c45,seen,UniSkill,StirSpoon,L0,40.0
+c45,seen,XSkill,StirSpoon,L0,40.0
+c45,seen,Zero-WAM,StirSpoon,L0,100.0
+c45,seen,RoboDemo,StirSpoon,L0,100.0
+c45,seen,GR00T-N1.6,StirSpoon,L1,80.0
+c45,seen,OpenVLA,StirSpoon,L1,30.0
+c45,seen,pi0.5,StirSpoon,L1,70.0
+c45,seen,RDT-1B,StirSpoon,L1,0.0
+c45,seen,UniSkill,StirSpoon,L1,70.0
+c45,seen,XSkill,StirSpoon,L1,50.0
+c45,seen,Zero-WAM,StirSpoon,L1,90.0
+c45,seen,RoboDemo,StirSpoon,L1,100.0
+c45,seen,GR00T-N1.6,StirSpoon,L2,30.0
+c45,seen,OpenVLA,StirSpoon,L2,10.0
+c45,seen,pi0.5,StirSpoon,L2,80.0
+c45,seen,RDT-1B,StirSpoon,L2,10.0
+c45,seen,UniSkill,StirSpoon,L2,80.0
+c45,seen,XSkill,StirSpoon,L2,80.0
+c45,seen,Zero-WAM,StirSpoon,L2,100.0
+c45,seen,RoboDemo,StirSpoon,L2,70.0
+c45,seen,GR00T-N1.6,StirSpoon,L3,60.0
+c45,seen,OpenVLA,StirSpoon,L3,20.0
+c45,seen,pi0.5,StirSpoon,L3,40.0
+c45,seen,RDT-1B,StirSpoon,L3,40.0
+c45,seen,UniSkill,StirSpoon,L3,20.0
+c45,seen,XSkill,StirSpoon,L3,70.0
+c45,seen,Zero-WAM,StirSpoon,L3,80.0
+c45,seen,RoboDemo,StirSpoon,L3,90.0
+c45,seen,ACT / DINOv2,FoldTowel,L0,100.0
+c45,seen,ACT / SigLIP2,FoldTowel,L0,100.0
+c45,seen,ACT / VideoMAE,FoldTowel,L0,100.0
+c45,seen,DP / DINOv2,FoldTowel,L0,70.0
+c45,seen,DP / SigLIP2,FoldTowel,L0,100.0
+c45,seen,DP / VideoMAE,FoldTowel,L0,0.0
+c45,seen,VQ-BeT / DINOv2,FoldTowel,L0,60.0
+c45,seen,VQ-BeT / SigLIP2,FoldTowel,L0,70.0
+c45,seen,VQ-BeT / VideoMAE,FoldTowel,L0,80.0
+c45,seen,ACT / DINOv2,FoldTowel,L1,100.0
+c45,seen,ACT / SigLIP2,FoldTowel,L1,90.0
+c45,seen,ACT / VideoMAE,FoldTowel,L1,100.0
+c45,seen,DP / DINOv2,FoldTowel,L1,80.0
+c45,seen,DP / SigLIP2,FoldTowel,L1,70.0
+c45,seen,DP / VideoMAE,FoldTowel,L1,0.0
+c45,seen,VQ-BeT / DINOv2,FoldTowel,L1,100.0
+c45,seen,VQ-BeT / SigLIP2,FoldTowel,L1,100.0
+c45,seen,VQ-BeT / VideoMAE,FoldTowel,L1,0.0
+c45,seen,ACT / DINOv2,FoldTowel,L2,70.0
+c45,seen,ACT / SigLIP2,FoldTowel,L2,50.0
+c45,seen,ACT / VideoMAE,FoldTowel,L2,90.0
+c45,seen,DP / DINOv2,FoldTowel,L2,80.0
+c45,seen,DP / SigLIP2,FoldTowel,L2,30.0
+c45,seen,DP / VideoMAE,FoldTowel,L2,0.0
+c45,seen,VQ-BeT / DINOv2,FoldTowel,L2,30.0
+c45,seen,VQ-BeT / SigLIP2,FoldTowel,L2,30.0
+c45,seen,VQ-BeT / VideoMAE,FoldTowel,L2,0.0
+c45,seen,ACT / DINOv2,FoldTowel,L3,90.0
+c45,seen,ACT / SigLIP2,FoldTowel,L3,70.0
+c45,seen,ACT / VideoMAE,FoldTowel,L3,100.0
+c45,seen,DP / DINOv2,FoldTowel,L3,60.0
+c45,seen,DP / SigLIP2,FoldTowel,L3,60.0
+c45,seen,DP / VideoMAE,FoldTowel,L3,0.0
+c45,seen,VQ-BeT / DINOv2,FoldTowel,L3,50.0
+c45,seen,VQ-BeT / SigLIP2,FoldTowel,L3,40.0
+c45,seen,VQ-BeT / VideoMAE,FoldTowel,L3,20.0
+c45,seen,ACT / DINOv2,PlaceFileFolder,L0,80.0
+c45,seen,ACT / SigLIP2,PlaceFileFolder,L0,100.0
+c45,seen,ACT / VideoMAE,PlaceFileFolder,L0,30.0
+c45,seen,DP / DINOv2,PlaceFileFolder,L0,70.0
+c45,seen,DP / SigLIP2,PlaceFileFolder,L0,60.0
+c45,seen,DP / VideoMAE,PlaceFileFolder,L0,20.0
+c45,seen,VQ-BeT / DINOv2,PlaceFileFolder,L0,70.0
+c45,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L0,80.0
+c45,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L0,60.0
+c45,seen,ACT / DINOv2,PlaceFileFolder,L1,60.0
+c45,seen,ACT / SigLIP2,PlaceFileFolder,L1,60.0
+c45,seen,ACT / VideoMAE,PlaceFileFolder,L1,0.0
+c45,seen,DP / DINOv2,PlaceFileFolder,L1,90.0
+c45,seen,DP / SigLIP2,PlaceFileFolder,L1,100.0
+c45,seen,DP / VideoMAE,PlaceFileFolder,L1,0.0
+c45,seen,VQ-BeT / DINOv2,PlaceFileFolder,L1,80.0
+c45,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L1,90.0
+c45,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L1,80.0
+c45,seen,ACT / DINOv2,PlaceFileFolder,L2,50.0
+c45,seen,ACT / SigLIP2,PlaceFileFolder,L2,90.0
+c45,seen,ACT / VideoMAE,PlaceFileFolder,L2,10.0
+c45,seen,DP / DINOv2,PlaceFileFolder,L2,80.0
+c45,seen,DP / SigLIP2,PlaceFileFolder,L2,40.0
+c45,seen,DP / VideoMAE,PlaceFileFolder,L2,30.0
+c45,seen,VQ-BeT / DINOv2,PlaceFileFolder,L2,60.0
+c45,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L2,70.0
+c45,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L2,60.0
+c45,seen,ACT / DINOv2,PlaceFileFolder,L3,90.0
+c45,seen,ACT / SigLIP2,PlaceFileFolder,L3,80.0
+c45,seen,ACT / VideoMAE,PlaceFileFolder,L3,80.0
+c45,seen,DP / DINOv2,PlaceFileFolder,L3,60.0
+c45,seen,DP / SigLIP2,PlaceFileFolder,L3,70.0
+c45,seen,DP / VideoMAE,PlaceFileFolder,L3,0.0
+c45,seen,VQ-BeT / DINOv2,PlaceFileFolder,L3,60.0
+c45,seen,VQ-BeT / SigLIP2,PlaceFileFolder,L3,90.0
+c45,seen,VQ-BeT / VideoMAE,PlaceFileFolder,L3,100.0
+c45,seen,ACT / DINOv2,PlaceMugRack,L0,90.0
+c45,seen,ACT / SigLIP2,PlaceMugRack,L0,100.0
+c45,seen,ACT / VideoMAE,PlaceMugRack,L0,100.0
+c45,seen,DP / DINOv2,PlaceMugRack,L0,100.0
+c45,seen,DP / SigLIP2,PlaceMugRack,L0,80.0
+c45,seen,DP / VideoMAE,PlaceMugRack,L0,0.0
+c45,seen,VQ-BeT / DINOv2,PlaceMugRack,L0,100.0
+c45,seen,VQ-BeT / SigLIP2,PlaceMugRack,L0,80.0
+c45,seen,VQ-BeT / VideoMAE,PlaceMugRack,L0,0.0
+c45,seen,ACT / DINOv2,PlaceMugRack,L1,90.0
+c45,seen,ACT / SigLIP2,PlaceMugRack,L1,90.0
+c45,seen,ACT / VideoMAE,PlaceMugRack,L1,100.0
+c45,seen,DP / DINOv2,PlaceMugRack,L1,70.0
+c45,seen,DP / SigLIP2,PlaceMugRack,L1,90.0
+c45,seen,DP / VideoMAE,PlaceMugRack,L1,0.0
+c45,seen,VQ-BeT / DINOv2,PlaceMugRack,L1,100.0
+c45,seen,VQ-BeT / SigLIP2,PlaceMugRack,L1,70.0
+c45,seen,VQ-BeT / VideoMAE,PlaceMugRack,L1,0.0
+c45,seen,ACT / DINOv2,PlaceMugRack,L2,100.0
+c45,seen,ACT / SigLIP2,PlaceMugRack,L2,100.0
+c45,seen,ACT / VideoMAE,PlaceMugRack,L2,90.0
+c45,seen,DP / DINOv2,PlaceMugRack,L2,90.0
+c45,seen,DP / SigLIP2,PlaceMugRack,L2,100.0
+c45,seen,DP / VideoMAE,PlaceMugRack,L2,0.0
+c45,seen,VQ-BeT / DINOv2,PlaceMugRack,L2,0.0
+c45,seen,VQ-BeT / SigLIP2,PlaceMugRack,L2,60.0
+c45,seen,VQ-BeT / VideoMAE,PlaceMugRack,L2,0.0
+c45,seen,ACT / DINOv2,PlaceMugRack,L3,100.0
+c45,seen,ACT / SigLIP2,PlaceMugRack,L3,100.0
+c45,seen,ACT / VideoMAE,PlaceMugRack,L3,100.0
+c45,seen,DP / DINOv2,PlaceMugRack,L3,90.0
+c45,seen,DP / SigLIP2,PlaceMugRack,L3,90.0
+c45,seen,DP / VideoMAE,PlaceMugRack,L3,0.0
+c45,seen,VQ-BeT / DINOv2,PlaceMugRack,L3,100.0
+c45,seen,VQ-BeT / SigLIP2,PlaceMugRack,L3,60.0
+c45,seen,VQ-BeT / VideoMAE,PlaceMugRack,L3,0.0
+c45,seen,ACT / DINOv2,PlacePlateRack,L0,100.0
+c45,seen,ACT / SigLIP2,PlacePlateRack,L0,90.0
+c45,seen,ACT / VideoMAE,PlacePlateRack,L0,80.0
+c45,seen,DP / DINOv2,PlacePlateRack,L0,60.0
+c45,seen,DP / SigLIP2,PlacePlateRack,L0,100.0
+c45,seen,DP / VideoMAE,PlacePlateRack,L0,0.0
+c45,seen,VQ-BeT / DINOv2,PlacePlateRack,L0,30.0
+c45,seen,VQ-BeT / SigLIP2,PlacePlateRack,L0,70.0
+c45,seen,VQ-BeT / VideoMAE,PlacePlateRack,L0,0.0
+c45,seen,ACT / DINOv2,PlacePlateRack,L1,90.0
+c45,seen,ACT / SigLIP2,PlacePlateRack,L1,90.0
+c45,seen,ACT / VideoMAE,PlacePlateRack,L1,80.0
+c45,seen,DP / DINOv2,PlacePlateRack,L1,40.0
+c45,seen,DP / SigLIP2,PlacePlateRack,L1,60.0
+c45,seen,DP / VideoMAE,PlacePlateRack,L1,0.0
+c45,seen,VQ-BeT / DINOv2,PlacePlateRack,L1,60.0
+c45,seen,VQ-BeT / SigLIP2,PlacePlateRack,L1,50.0
+c45,seen,VQ-BeT / VideoMAE,PlacePlateRack,L1,10.0
+c45,seen,ACT / DINOv2,PlacePlateRack,L2,70.0
+c45,seen,ACT / SigLIP2,PlacePlateRack,L2,70.0
+c45,seen,ACT / VideoMAE,PlacePlateRack,L2,80.0
+c45,seen,DP / DINOv2,PlacePlateRack,L2,50.0
+c45,seen,DP / SigLIP2,PlacePlateRack,L2,40.0
+c45,seen,DP / VideoMAE,PlacePlateRack,L2,0.0
+c45,seen,VQ-BeT / DINOv2,PlacePlateRack,L2,30.0
+c45,seen,VQ-BeT / SigLIP2,PlacePlateRack,L2,10.0
+c45,seen,VQ-BeT / VideoMAE,PlacePlateRack,L2,0.0
+c45,seen,ACT / DINOv2,PlacePlateRack,L3,80.0
+c45,seen,ACT / SigLIP2,PlacePlateRack,L3,80.0
+c45,seen,ACT / VideoMAE,PlacePlateRack,L3,70.0
+c45,seen,DP / DINOv2,PlacePlateRack,L3,90.0
+c45,seen,DP / SigLIP2,PlacePlateRack,L3,90.0
+c45,seen,DP / VideoMAE,PlacePlateRack,L3,0.0
+c45,seen,VQ-BeT / DINOv2,PlacePlateRack,L3,60.0
+c45,seen,VQ-BeT / SigLIP2,PlacePlateRack,L3,50.0
+c45,seen,VQ-BeT / VideoMAE,PlacePlateRack,L3,0.0
+c45,seen,ACT / DINOv2,StirSpoon,L0,100.0
+c45,seen,ACT / SigLIP2,StirSpoon,L0,70.0
+c45,seen,ACT / VideoMAE,StirSpoon,L0,50.0
+c45,seen,DP / DINOv2,StirSpoon,L0,40.0
+c45,seen,DP / SigLIP2,StirSpoon,L0,10.0
+c45,seen,DP / VideoMAE,StirSpoon,L0,0.0
+c45,seen,VQ-BeT / DINOv2,StirSpoon,L0,70.0
+c45,seen,VQ-BeT / SigLIP2,StirSpoon,L0,40.0
+c45,seen,VQ-BeT / VideoMAE,StirSpoon,L0,0.0
+c45,seen,ACT / DINOv2,StirSpoon,L1,40.0
+c45,seen,ACT / SigLIP2,StirSpoon,L1,50.0
+c45,seen,ACT / VideoMAE,StirSpoon,L1,40.0
+c45,seen,DP / DINOv2,StirSpoon,L1,40.0
+c45,seen,DP / SigLIP2,StirSpoon,L1,10.0
+c45,seen,DP / VideoMAE,StirSpoon,L1,0.0
+c45,seen,VQ-BeT / DINOv2,StirSpoon,L1,0.0
+c45,seen,VQ-BeT / SigLIP2,StirSpoon,L1,0.0
+c45,seen,VQ-BeT / VideoMAE,StirSpoon,L1,0.0
+c45,seen,ACT / DINOv2,StirSpoon,L2,60.0
+c45,seen,ACT / SigLIP2,StirSpoon,L2,0.0
+c45,seen,ACT / VideoMAE,StirSpoon,L2,20.0
+c45,seen,DP / DINOv2,StirSpoon,L2,50.0
+c45,seen,DP / SigLIP2,StirSpoon,L2,40.0
+c45,seen,DP / VideoMAE,StirSpoon,L2,0.0
+c45,seen,VQ-BeT / DINOv2,StirSpoon,L2,80.0
+c45,seen,VQ-BeT / SigLIP2,StirSpoon,L2,40.0
+c45,seen,VQ-BeT / VideoMAE,StirSpoon,L2,0.0
+c45,seen,ACT / DINOv2,StirSpoon,L3,50.0
+c45,seen,ACT / SigLIP2,StirSpoon,L3,70.0
+c45,seen,ACT / VideoMAE,StirSpoon,L3,20.0
+c45,seen,DP / DINOv2,StirSpoon,L3,60.0
+c45,seen,DP / SigLIP2,StirSpoon,L3,20.0
+c45,seen,DP / VideoMAE,StirSpoon,L3,0.0
+c45,seen,VQ-BeT / DINOv2,StirSpoon,L3,30.0
+c45,seen,VQ-BeT / SigLIP2,StirSpoon,L3,60.0
+c45,seen,VQ-BeT / VideoMAE,StirSpoon,L3,0.0
+c45,unseen,GR00T-N1.6,FoldBox,L0,0.0
+c45,unseen,OpenVLA,FoldBox,L0,20.0
+c45,unseen,pi0.5,FoldBox,L0,0.0
+c45,unseen,RDT-1B,FoldBox,L0,0.0
+c45,unseen,UniSkill,FoldBox,L0,50.0
+c45,unseen,XSkill,FoldBox,L0,10.0
+c45,unseen,Zero-WAM,FoldBox,L0,100.0
+c45,unseen,RoboDemo,FoldBox,L0,90.0
+c45,unseen,GR00T-N1.6,FoldBox,L1,0.0
+c45,unseen,OpenVLA,FoldBox,L1,0.0
+c45,unseen,pi0.5,FoldBox,L1,100.0
+c45,unseen,RDT-1B,FoldBox,L1,0.0
+c45,unseen,UniSkill,FoldBox,L1,0.0
+c45,unseen,XSkill,FoldBox,L1,30.0
+c45,unseen,Zero-WAM,FoldBox,L1,30.0
+c45,unseen,RoboDemo,FoldBox,L1,0.0
+c45,unseen,GR00T-N1.6,FoldBox,L2,80.0
+c45,unseen,OpenVLA,FoldBox,L2,100.0
+c45,unseen,pi0.5,FoldBox,L2,0.0
+c45,unseen,RDT-1B,FoldBox,L2,90.0
+c45,unseen,UniSkill,FoldBox,L2,0.0
+c45,unseen,XSkill,FoldBox,L2,0.0
+c45,unseen,Zero-WAM,FoldBox,L2,90.0
+c45,unseen,RoboDemo,FoldBox,L2,0.0
+c45,unseen,GR00T-N1.6,FoldBox,L3,0.0
+c45,unseen,OpenVLA,FoldBox,L3,0.0
+c45,unseen,pi0.5,FoldBox,L3,90.0
+c45,unseen,RDT-1B,FoldBox,L3,0.0
+c45,unseen,UniSkill,FoldBox,L3,0.0
+c45,unseen,XSkill,FoldBox,L3,0.0
+c45,unseen,Zero-WAM,FoldBox,L3,100.0
+c45,unseen,RoboDemo,FoldBox,L3,100.0
+c45,unseen,GR00T-N1.6,PickFood,L0,0.0
+c45,unseen,OpenVLA,PickFood,L0,0.0
+c45,unseen,pi0.5,PickFood,L0,0.0
+c45,unseen,RDT-1B,PickFood,L0,0.0
+c45,unseen,UniSkill,PickFood,L0,0.0
+c45,unseen,XSkill,PickFood,L0,0.0
+c45,unseen,Zero-WAM,PickFood,L0,0.0
+c45,unseen,RoboDemo,PickFood,L0,0.0
+c45,unseen,GR00T-N1.6,PickFood,L1,0.0
+c45,unseen,OpenVLA,PickFood,L1,0.0
+c45,unseen,pi0.5,PickFood,L1,0.0
+c45,unseen,RDT-1B,PickFood,L1,0.0
+c45,unseen,UniSkill,PickFood,L1,0.0
+c45,unseen,XSkill,PickFood,L1,0.0
+c45,unseen,Zero-WAM,PickFood,L1,30.0
+c45,unseen,RoboDemo,PickFood,L1,0.0
+c45,unseen,GR00T-N1.6,PickFood,L2,0.0
+c45,unseen,OpenVLA,PickFood,L2,0.0
+c45,unseen,pi0.5,PickFood,L2,0.0
+c45,unseen,RDT-1B,PickFood,L2,0.0
+c45,unseen,UniSkill,PickFood,L2,0.0
+c45,unseen,XSkill,PickFood,L2,0.0
+c45,unseen,Zero-WAM,PickFood,L2,0.0
+c45,unseen,RoboDemo,PickFood,L2,0.0
+c45,unseen,GR00T-N1.6,PickFood,L3,0.0
+c45,unseen,OpenVLA,PickFood,L3,0.0
+c45,unseen,pi0.5,PickFood,L3,0.0
+c45,unseen,RDT-1B,PickFood,L3,0.0
+c45,unseen,UniSkill,PickFood,L3,0.0
+c45,unseen,XSkill,PickFood,L3,0.0
+c45,unseen,Zero-WAM,PickFood,L3,0.0
+c45,unseen,RoboDemo,PickFood,L3,0.0
+c45,unseen,GR00T-N1.6,PickRemoteControl,L0,0.0
+c45,unseen,OpenVLA,PickRemoteControl,L0,0.0
+c45,unseen,pi0.5,PickRemoteControl,L0,0.0
+c45,unseen,RDT-1B,PickRemoteControl,L0,0.0
+c45,unseen,UniSkill,PickRemoteControl,L0,0.0
+c45,unseen,XSkill,PickRemoteControl,L0,0.0
+c45,unseen,Zero-WAM,PickRemoteControl,L0,0.0
+c45,unseen,RoboDemo,PickRemoteControl,L0,0.0
+c45,unseen,GR00T-N1.6,PickRemoteControl,L1,0.0
+c45,unseen,OpenVLA,PickRemoteControl,L1,0.0
+c45,unseen,pi0.5,PickRemoteControl,L1,0.0
+c45,unseen,RDT-1B,PickRemoteControl,L1,0.0
+c45,unseen,UniSkill,PickRemoteControl,L1,0.0
+c45,unseen,XSkill,PickRemoteControl,L1,0.0
+c45,unseen,Zero-WAM,PickRemoteControl,L1,0.0
+c45,unseen,RoboDemo,PickRemoteControl,L1,0.0
+c45,unseen,GR00T-N1.6,PickRemoteControl,L2,0.0
+c45,unseen,OpenVLA,PickRemoteControl,L2,0.0
+c45,unseen,pi0.5,PickRemoteControl,L2,0.0
+c45,unseen,RDT-1B,PickRemoteControl,L2,0.0
+c45,unseen,UniSkill,PickRemoteControl,L2,0.0
+c45,unseen,XSkill,PickRemoteControl,L2,0.0
+c45,unseen,Zero-WAM,PickRemoteControl,L2,0.0
+c45,unseen,RoboDemo,PickRemoteControl,L2,0.0
+c45,unseen,GR00T-N1.6,PickRemoteControl,L3,0.0
+c45,unseen,OpenVLA,PickRemoteControl,L3,0.0
+c45,unseen,pi0.5,PickRemoteControl,L3,0.0
+c45,unseen,RDT-1B,PickRemoteControl,L3,0.0
+c45,unseen,UniSkill,PickRemoteControl,L3,0.0
+c45,unseen,XSkill,PickRemoteControl,L3,10.0
+c45,unseen,Zero-WAM,PickRemoteControl,L3,0.0
+c45,unseen,RoboDemo,PickRemoteControl,L3,0.0
+c45,unseen,GR00T-N1.6,PourKettle,L0,0.0
+c45,unseen,OpenVLA,PourKettle,L0,0.0
+c45,unseen,pi0.5,PourKettle,L0,10.0
+c45,unseen,RDT-1B,PourKettle,L0,0.0
+c45,unseen,UniSkill,PourKettle,L0,0.0
+c45,unseen,XSkill,PourKettle,L0,40.0
+c45,unseen,Zero-WAM,PourKettle,L0,50.0
+c45,unseen,RoboDemo,PourKettle,L0,10.0
+c45,unseen,GR00T-N1.6,PourKettle,L1,0.0
+c45,unseen,OpenVLA,PourKettle,L1,0.0
+c45,unseen,pi0.5,PourKettle,L1,0.0
+c45,unseen,RDT-1B,PourKettle,L1,0.0
+c45,unseen,UniSkill,PourKettle,L1,0.0
+c45,unseen,XSkill,PourKettle,L1,0.0
+c45,unseen,Zero-WAM,PourKettle,L1,10.0
+c45,unseen,RoboDemo,PourKettle,L1,10.0
+c45,unseen,GR00T-N1.6,PourKettle,L2,0.0
+c45,unseen,OpenVLA,PourKettle,L2,0.0
+c45,unseen,pi0.5,PourKettle,L2,0.0
+c45,unseen,RDT-1B,PourKettle,L2,0.0
+c45,unseen,UniSkill,PourKettle,L2,0.0
+c45,unseen,XSkill,PourKettle,L2,0.0
+c45,unseen,Zero-WAM,PourKettle,L2,0.0
+c45,unseen,RoboDemo,PourKettle,L2,0.0
+c45,unseen,GR00T-N1.6,PourKettle,L3,0.0
+c45,unseen,OpenVLA,PourKettle,L3,0.0
+c45,unseen,pi0.5,PourKettle,L3,0.0
+c45,unseen,RDT-1B,PourKettle,L3,0.0
+c45,unseen,UniSkill,PourKettle,L3,0.0
+c45,unseen,XSkill,PourKettle,L3,0.0
+c45,unseen,Zero-WAM,PourKettle,L3,30.0
+c45,unseen,RoboDemo,PourKettle,L3,0.0
+c45,unseen,GR00T-N1.6,ScanMilkBox,L0,10.0
+c45,unseen,OpenVLA,ScanMilkBox,L0,0.0
+c45,unseen,pi0.5,ScanMilkBox,L0,0.0
+c45,unseen,RDT-1B,ScanMilkBox,L0,0.0
+c45,unseen,UniSkill,ScanMilkBox,L0,40.0
+c45,unseen,XSkill,ScanMilkBox,L0,0.0
+c45,unseen,Zero-WAM,ScanMilkBox,L0,0.0
+c45,unseen,RoboDemo,ScanMilkBox,L0,10.0
+c45,unseen,GR00T-N1.6,ScanMilkBox,L1,0.0
+c45,unseen,OpenVLA,ScanMilkBox,L1,0.0
+c45,unseen,pi0.5,ScanMilkBox,L1,0.0
+c45,unseen,RDT-1B,ScanMilkBox,L1,0.0
+c45,unseen,UniSkill,ScanMilkBox,L1,0.0
+c45,unseen,XSkill,ScanMilkBox,L1,0.0
+c45,unseen,Zero-WAM,ScanMilkBox,L1,0.0
+c45,unseen,RoboDemo,ScanMilkBox,L1,0.0
+c45,unseen,GR00T-N1.6,ScanMilkBox,L2,20.0
+c45,unseen,OpenVLA,ScanMilkBox,L2,0.0
+c45,unseen,pi0.5,ScanMilkBox,L2,0.0
+c45,unseen,RDT-1B,ScanMilkBox,L2,0.0
+c45,unseen,UniSkill,ScanMilkBox,L2,0.0
+c45,unseen,XSkill,ScanMilkBox,L2,10.0
+c45,unseen,Zero-WAM,ScanMilkBox,L2,0.0
+c45,unseen,RoboDemo,ScanMilkBox,L2,10.0
+c45,unseen,GR00T-N1.6,ScanMilkBox,L3,0.0
+c45,unseen,OpenVLA,ScanMilkBox,L3,0.0
+c45,unseen,pi0.5,ScanMilkBox,L3,0.0
+c45,unseen,RDT-1B,ScanMilkBox,L3,0.0
+c45,unseen,UniSkill,ScanMilkBox,L3,0.0
+c45,unseen,XSkill,ScanMilkBox,L3,0.0
+c45,unseen,Zero-WAM,ScanMilkBox,L3,0.0
+c45,unseen,RoboDemo,ScanMilkBox,L3,0.0
+c45,unseen,ACT / DINOv2,FoldBox,L0,0.0
+c45,unseen,ACT / SigLIP2,FoldBox,L0,40.0
+c45,unseen,ACT / VideoMAE,FoldBox,L0,10.0
+c45,unseen,DP / DINOv2,FoldBox,L0,0.0
+c45,unseen,DP / SigLIP2,FoldBox,L0,0.0
+c45,unseen,DP / VideoMAE,FoldBox,L0,0.0
+c45,unseen,VQ-BeT / DINOv2,FoldBox,L0,100.0
+c45,unseen,VQ-BeT / SigLIP2,FoldBox,L0,90.0
+c45,unseen,VQ-BeT / VideoMAE,FoldBox,L0,0.0
+c45,unseen,ACT / DINOv2,FoldBox,L1,0.0
+c45,unseen,ACT / SigLIP2,FoldBox,L1,0.0
+c45,unseen,ACT / VideoMAE,FoldBox,L1,0.0
+c45,unseen,DP / DINOv2,FoldBox,L1,50.0
+c45,unseen,DP / SigLIP2,FoldBox,L1,30.0
+c45,unseen,DP / VideoMAE,FoldBox,L1,0.0
+c45,unseen,VQ-BeT / DINOv2,FoldBox,L1,90.0
+c45,unseen,VQ-BeT / SigLIP2,FoldBox,L1,90.0
+c45,unseen,VQ-BeT / VideoMAE,FoldBox,L1,100.0
+c45,unseen,ACT / DINOv2,FoldBox,L2,10.0
+c45,unseen,ACT / SigLIP2,FoldBox,L2,0.0
+c45,unseen,ACT / VideoMAE,FoldBox,L2,0.0
+c45,unseen,DP / DINOv2,FoldBox,L2,40.0
+c45,unseen,DP / SigLIP2,FoldBox,L2,30.0
+c45,unseen,DP / VideoMAE,FoldBox,L2,40.0
+c45,unseen,VQ-BeT / DINOv2,FoldBox,L2,0.0
+c45,unseen,VQ-BeT / SigLIP2,FoldBox,L2,0.0
+c45,unseen,VQ-BeT / VideoMAE,FoldBox,L2,40.0
+c45,unseen,ACT / DINOv2,FoldBox,L3,0.0
+c45,unseen,ACT / SigLIP2,FoldBox,L3,0.0
+c45,unseen,ACT / VideoMAE,FoldBox,L3,30.0
+c45,unseen,DP / DINOv2,FoldBox,L3,0.0
+c45,unseen,DP / SigLIP2,FoldBox,L3,0.0
+c45,unseen,DP / VideoMAE,FoldBox,L3,0.0
+c45,unseen,VQ-BeT / DINOv2,FoldBox,L3,100.0
+c45,unseen,VQ-BeT / SigLIP2,FoldBox,L3,30.0
+c45,unseen,VQ-BeT / VideoMAE,FoldBox,L3,0.0
+c45,unseen,ACT / DINOv2,PickFood,L0,0.0
+c45,unseen,ACT / SigLIP2,PickFood,L0,0.0
+c45,unseen,ACT / VideoMAE,PickFood,L0,0.0
+c45,unseen,DP / DINOv2,PickFood,L0,0.0
+c45,unseen,DP / SigLIP2,PickFood,L0,0.0
+c45,unseen,DP / VideoMAE,PickFood,L0,0.0
+c45,unseen,VQ-BeT / DINOv2,PickFood,L0,0.0
+c45,unseen,VQ-BeT / SigLIP2,PickFood,L0,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickFood,L0,0.0
+c45,unseen,ACT / DINOv2,PickFood,L1,0.0
+c45,unseen,ACT / SigLIP2,PickFood,L1,0.0
+c45,unseen,ACT / VideoMAE,PickFood,L1,0.0
+c45,unseen,DP / DINOv2,PickFood,L1,0.0
+c45,unseen,DP / SigLIP2,PickFood,L1,0.0
+c45,unseen,DP / VideoMAE,PickFood,L1,0.0
+c45,unseen,VQ-BeT / DINOv2,PickFood,L1,0.0
+c45,unseen,VQ-BeT / SigLIP2,PickFood,L1,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickFood,L1,0.0
+c45,unseen,ACT / DINOv2,PickFood,L2,0.0
+c45,unseen,ACT / SigLIP2,PickFood,L2,0.0
+c45,unseen,ACT / VideoMAE,PickFood,L2,0.0
+c45,unseen,DP / DINOv2,PickFood,L2,0.0
+c45,unseen,DP / SigLIP2,PickFood,L2,0.0
+c45,unseen,DP / VideoMAE,PickFood,L2,0.0
+c45,unseen,VQ-BeT / DINOv2,PickFood,L2,0.0
+c45,unseen,VQ-BeT / SigLIP2,PickFood,L2,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickFood,L2,0.0
+c45,unseen,ACT / DINOv2,PickFood,L3,0.0
+c45,unseen,ACT / SigLIP2,PickFood,L3,0.0
+c45,unseen,ACT / VideoMAE,PickFood,L3,0.0
+c45,unseen,DP / DINOv2,PickFood,L3,0.0
+c45,unseen,DP / SigLIP2,PickFood,L3,0.0
+c45,unseen,DP / VideoMAE,PickFood,L3,0.0
+c45,unseen,VQ-BeT / DINOv2,PickFood,L3,0.0
+c45,unseen,VQ-BeT / SigLIP2,PickFood,L3,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickFood,L3,0.0
+c45,unseen,ACT / DINOv2,PickRemoteControl,L0,0.0
+c45,unseen,ACT / SigLIP2,PickRemoteControl,L0,0.0
+c45,unseen,ACT / VideoMAE,PickRemoteControl,L0,0.0
+c45,unseen,DP / DINOv2,PickRemoteControl,L0,0.0
+c45,unseen,DP / SigLIP2,PickRemoteControl,L0,0.0
+c45,unseen,DP / VideoMAE,PickRemoteControl,L0,0.0
+c45,unseen,VQ-BeT / DINOv2,PickRemoteControl,L0,0.0
+c45,unseen,VQ-BeT / SigLIP2,PickRemoteControl,L0,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickRemoteControl,L0,0.0
+c45,unseen,ACT / DINOv2,PickRemoteControl,L1,0.0
+c45,unseen,ACT / SigLIP2,PickRemoteControl,L1,0.0
+c45,unseen,ACT / VideoMAE,PickRemoteControl,L1,0.0
+c45,unseen,DP / DINOv2,PickRemoteControl,L1,0.0
+c45,unseen,DP / SigLIP2,PickRemoteControl,L1,0.0
+c45,unseen,DP / VideoMAE,PickRemoteControl,L1,0.0
+c45,unseen,VQ-BeT / DINOv2,PickRemoteControl,L1,0.0
+c45,unseen,VQ-BeT / SigLIP2,PickRemoteControl,L1,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickRemoteControl,L1,0.0
+c45,unseen,ACT / DINOv2,PickRemoteControl,L2,0.0
+c45,unseen,ACT / SigLIP2,PickRemoteControl,L2,0.0
+c45,unseen,ACT / VideoMAE,PickRemoteControl,L2,0.0
+c45,unseen,DP / DINOv2,PickRemoteControl,L2,0.0
+c45,unseen,DP / SigLIP2,PickRemoteControl,L2,0.0
+c45,unseen,DP / VideoMAE,PickRemoteControl,L2,0.0
+c45,unseen,VQ-BeT / DINOv2,PickRemoteControl,L2,0.0
+c45,unseen,VQ-BeT / SigLIP2,PickRemoteControl,L2,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickRemoteControl,L2,0.0
+c45,unseen,ACT / DINOv2,PickRemoteControl,L3,0.0
+c45,unseen,ACT / SigLIP2,PickRemoteControl,L3,0.0
+c45,unseen,ACT / VideoMAE,PickRemoteControl,L3,0.0
+c45,unseen,DP / DINOv2,PickRemoteControl,L3,0.0
+c45,unseen,DP / SigLIP2,PickRemoteControl,L3,0.0
+c45,unseen,DP / VideoMAE,PickRemoteControl,L3,0.0
+c45,unseen,VQ-BeT / DINOv2,PickRemoteControl,L3,60.0
+c45,unseen,VQ-BeT / SigLIP2,PickRemoteControl,L3,0.0
+c45,unseen,VQ-BeT / VideoMAE,PickRemoteControl,L3,10.0
+c45,unseen,ACT / DINOv2,PourKettle,L0,0.0
+c45,unseen,ACT / SigLIP2,PourKettle,L0,0.0
+c45,unseen,ACT / VideoMAE,PourKettle,L0,0.0
+c45,unseen,DP / DINOv2,PourKettle,L0,0.0
+c45,unseen,DP / SigLIP2,PourKettle,L0,0.0
+c45,unseen,DP / VideoMAE,PourKettle,L0,10.0
+c45,unseen,VQ-BeT / DINOv2,PourKettle,L0,0.0
+c45,unseen,VQ-BeT / SigLIP2,PourKettle,L0,0.0
+c45,unseen,VQ-BeT / VideoMAE,PourKettle,L0,0.0
+c45,unseen,ACT / DINOv2,PourKettle,L1,0.0
+c45,unseen,ACT / SigLIP2,PourKettle,L1,0.0
+c45,unseen,ACT / VideoMAE,PourKettle,L1,0.0
+c45,unseen,DP / DINOv2,PourKettle,L1,0.0
+c45,unseen,DP / SigLIP2,PourKettle,L1,0.0
+c45,unseen,DP / VideoMAE,PourKettle,L1,0.0
+c45,unseen,VQ-BeT / DINOv2,PourKettle,L1,0.0
+c45,unseen,VQ-BeT / SigLIP2,PourKettle,L1,0.0
+c45,unseen,VQ-BeT / VideoMAE,PourKettle,L1,0.0
+c45,unseen,ACT / DINOv2,PourKettle,L2,0.0
+c45,unseen,ACT / SigLIP2,PourKettle,L2,0.0
+c45,unseen,ACT / VideoMAE,PourKettle,L2,0.0
+c45,unseen,DP / DINOv2,PourKettle,L2,0.0
+c45,unseen,DP / SigLIP2,PourKettle,L2,0.0
+c45,unseen,DP / VideoMAE,PourKettle,L2,0.0
+c45,unseen,VQ-BeT / DINOv2,PourKettle,L2,0.0
+c45,unseen,VQ-BeT / SigLIP2,PourKettle,L2,0.0
+c45,unseen,VQ-BeT / VideoMAE,PourKettle,L2,0.0
+c45,unseen,ACT / DINOv2,PourKettle,L3,0.0
+c45,unseen,ACT / SigLIP2,PourKettle,L3,0.0
+c45,unseen,ACT / VideoMAE,PourKettle,L3,0.0
+c45,unseen,DP / DINOv2,PourKettle,L3,0.0
+c45,unseen,DP / SigLIP2,PourKettle,L3,0.0
+c45,unseen,DP / VideoMAE,PourKettle,L3,0.0
+c45,unseen,VQ-BeT / DINOv2,PourKettle,L3,0.0
+c45,unseen,VQ-BeT / SigLIP2,PourKettle,L3,0.0
+c45,unseen,VQ-BeT / VideoMAE,PourKettle,L3,0.0
+c45,unseen,ACT / DINOv2,ScanMilkBox,L0,0.0
+c45,unseen,ACT / SigLIP2,ScanMilkBox,L0,0.0
+c45,unseen,ACT / VideoMAE,ScanMilkBox,L0,10.0
+c45,unseen,DP / DINOv2,ScanMilkBox,L0,20.0
+c45,unseen,DP / SigLIP2,ScanMilkBox,L0,0.0
+c45,unseen,DP / VideoMAE,ScanMilkBox,L0,0.0
+c45,unseen,VQ-BeT / DINOv2,ScanMilkBox,L0,0.0
+c45,unseen,VQ-BeT / SigLIP2,ScanMilkBox,L0,0.0
+c45,unseen,VQ-BeT / VideoMAE,ScanMilkBox,L0,0.0
+c45,unseen,ACT / DINOv2,ScanMilkBox,L1,0.0
+c45,unseen,ACT / SigLIP2,ScanMilkBox,L1,0.0
+c45,unseen,ACT / VideoMAE,ScanMilkBox,L1,0.0
+c45,unseen,DP / DINOv2,ScanMilkBox,L1,0.0
+c45,unseen,DP / SigLIP2,ScanMilkBox,L1,0.0
+c45,unseen,DP / VideoMAE,ScanMilkBox,L1,0.0
+c45,unseen,VQ-BeT / DINOv2,ScanMilkBox,L1,0.0
+c45,unseen,VQ-BeT / SigLIP2,ScanMilkBox,L1,0.0
+c45,unseen,VQ-BeT / VideoMAE,ScanMilkBox,L1,0.0
+c45,unseen,ACT / DINOv2,ScanMilkBox,L2,10.0
+c45,unseen,ACT / SigLIP2,ScanMilkBox,L2,0.0
+c45,unseen,ACT / VideoMAE,ScanMilkBox,L2,0.0
+c45,unseen,DP / DINOv2,ScanMilkBox,L2,0.0
+c45,unseen,DP / SigLIP2,ScanMilkBox,L2,0.0
+c45,unseen,DP / VideoMAE,ScanMilkBox,L2,10.0
+c45,unseen,VQ-BeT / DINOv2,ScanMilkBox,L2,0.0
+c45,unseen,VQ-BeT / SigLIP2,ScanMilkBox,L2,0.0
+c45,unseen,VQ-BeT / VideoMAE,ScanMilkBox,L2,0.0
+c45,unseen,ACT / DINOv2,ScanMilkBox,L3,0.0
+c45,unseen,ACT / SigLIP2,ScanMilkBox,L3,0.0
+c45,unseen,ACT / VideoMAE,ScanMilkBox,L3,0.0
+c45,unseen,DP / DINOv2,ScanMilkBox,L3,0.0
+c45,unseen,DP / SigLIP2,ScanMilkBox,L3,0.0
+c45,unseen,DP / VideoMAE,ScanMilkBox,L3,0.0
+c45,unseen,VQ-BeT / DINOv2,ScanMilkBox,L3,0.0
+c45,unseen,VQ-BeT / SigLIP2,ScanMilkBox,L3,0.0
+c45,unseen,VQ-BeT / VideoMAE,ScanMilkBox,L3,0.0

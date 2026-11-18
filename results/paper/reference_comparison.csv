@@ -1,0 +1,6 @@
+method,FoldTowel,PlaceFileFolder,PlaceMugRack,PlacePlateRack,StirSpoon,mean
+pi0.5,43.5,40.0,90.5,85.5,55.0,62.9
+ACT,90.0,80.5,93.5,80.0,68.5,82.5
+Zero-WAM,88.0,43.5,43.0,80.5,88.0,68.6
+RoboDemo,92.5,75.0,92.5,100.0,87.5,89.5
+RoboDemo-wo,92.5,90.0,95.0,97.5,75.0,90.0

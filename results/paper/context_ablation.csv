@@ -1,0 +1,7 @@
+variant,c15_seen_success_rate
+Base VLA,62.0
+Demonstration prefix,68.5
+Retrieval-TTT only,71.5
+Demonstration and execution in one TTT,73.0
+Two TTT modules with parallel reads,82.0
+Dual-Cascaded TTT (RoboDemo),89.5

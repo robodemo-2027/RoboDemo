@@ -1,0 +1,8 @@
+component,scope,parameters,time
+"VLM backbone","per query","4.438B","64.7 ms"
+"Original action expert","per query","0.675B","28.8 ms x 5"
+"Dual-TTT","per query","189.7M slow; 37.9M x 2 fast states","Write: 55.1 ms x 1; read: 59.0 ms x 5"
+"Reference motion encoder","per episode","1.012B","290.5 ms"
+"Semantic encoding and preload","per episode","Shared","364.8 ms"
+"Refreward","per query-candidate pair","7.4M","5.3 ms"
+"RoboDemo (reference initialization + one query)","episode initialization plus query","6.35B","1.22 s"

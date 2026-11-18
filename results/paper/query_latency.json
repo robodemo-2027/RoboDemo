@@ -1,0 +1,51 @@
+[
+  {
+    "stage": "VLM backbone",
+    "mean_ms": 64.7,
+    "median_ms": 63.8,
+    "p95_ms": 67.6,
+    "std_ms": 2.4
+  },
+  {
+    "stage": "Original action expert (five rounds)",
+    "mean_ms": 144.1,
+    "median_ms": 143.6,
+    "p95_ms": 147.9,
+    "std_ms": 2.8
+  },
+  {
+    "stage": "TTT write (once)",
+    "mean_ms": 55.1,
+    "median_ms": 54.5,
+    "p95_ms": 58.4,
+    "std_ms": 1.7
+  },
+  {
+    "stage": "TTT reads (five rounds)",
+    "mean_ms": 295.1,
+    "median_ms": 294.4,
+    "p95_ms": 305.3,
+    "std_ms": 6.4
+  },
+  {
+    "stage": "Memory adapters",
+    "mean_ms": 1.8,
+    "median_ms": 1.8,
+    "p95_ms": 1.9,
+    "std_ms": 0.1
+  },
+  {
+    "stage": "Full policy query (uninstrumented)",
+    "mean_ms": 563.6,
+    "median_ms": 559.9,
+    "p95_ms": 588.1,
+    "std_ms": 12.9
+  },
+  {
+    "stage": "Full policy query (instrumented)",
+    "mean_ms": 578.7,
+    "median_ms": 577.1,
+    "p95_ms": 597.5,
+    "std_ms": 11.0
+  }
+]

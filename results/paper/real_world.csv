@@ -1,0 +1,16 @@
+method,task,trials,success_rate
+GR00T-N1.7,Tabletop Organization,50,44
+pi0,Tabletop Organization,50,36
+pi0.5,Tabletop Organization,50,56
+pi0.5 + Demo (Prefix),Tabletop Organization,50,68
+RoboDemo,Tabletop Organization,50,90
+GR00T-N1.7,Sofa Cushion Arrangement,50,18
+pi0,Sofa Cushion Arrangement,50,20
+pi0.5,Sofa Cushion Arrangement,50,40
+pi0.5 + Demo (Prefix),Sofa Cushion Arrangement,50,44
+RoboDemo,Sofa Cushion Arrangement,50,62
+GR00T-N1.7,Bottle-to-Cup Pouring,50,36
+pi0,Bottle-to-Cup Pouring,50,16
+pi0.5,Bottle-to-Cup Pouring,50,30
+pi0.5 + Demo (Prefix),Bottle-to-Cup Pouring,50,48
+RoboDemo,Bottle-to-Cup Pouring,50,68

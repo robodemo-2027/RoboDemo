@@ -1,0 +1,38 @@
+[
+  {
+    "item": "Robot demonstrations in the bank",
+    "count": 10000
+  },
+  {
+    "item": "Tasks",
+    "count": 50
+  },
+  {
+    "item": "Fixed queries",
+    "count": 350
+  },
+  {
+    "item": "Queries per task",
+    "count": 7
+  },
+  {
+    "item": "Retained pointwise conditions",
+    "count": 12994
+  },
+  {
+    "item": "Retained pairwise conditions",
+    "count": 2099
+  },
+  {
+    "item": "Total retained conditions",
+    "count": 15093
+  },
+  {
+    "item": "Ordinary judgments per condition",
+    "count": 3
+  },
+  {
+    "item": "Ordinary teacher judgments",
+    "count": 45279
+  }
+]

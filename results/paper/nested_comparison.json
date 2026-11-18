@@ -1,0 +1,138 @@
+[
+  {
+    "method": "GR00T-N1.6",
+    "c15_seen": 29.5,
+    "c30_seen": 48.0,
+    "c45_seen": 74.5,
+    "seen_mean": 50.7,
+    "c45_unseen": 5.5
+  },
+  {
+    "method": "OpenVLA",
+    "c15_seen": 39.0,
+    "c30_seen": 25.5,
+    "c45_seen": 22.0,
+    "seen_mean": 28.8,
+    "c45_unseen": 6.0
+  },
+  {
+    "method": "pi0.5",
+    "c15_seen": 62.5,
+    "c30_seen": 74.0,
+    "c45_seen": 82.0,
+    "seen_mean": 72.8,
+    "c45_unseen": 10.0
+  },
+  {
+    "method": "RDT-1B",
+    "c15_seen": 37.0,
+    "c30_seen": 50.5,
+    "c45_seen": 41.0,
+    "seen_mean": 42.8,
+    "c45_unseen": 4.5
+  },
+  {
+    "method": "UniSkill",
+    "c15_seen": 78.0,
+    "c30_seen": 69.5,
+    "c45_seen": 76.5,
+    "seen_mean": 74.7,
+    "c45_unseen": 4.5
+  },
+  {
+    "method": "XSkill",
+    "c15_seen": 79.5,
+    "c30_seen": 76.5,
+    "c45_seen": 81.5,
+    "seen_mean": 79.2,
+    "c45_unseen": 5.0
+  },
+  {
+    "method": "ACT / DINOv2",
+    "c15_seen": 80.5,
+    "c30_seen": 81.5,
+    "c45_seen": 80.5,
+    "seen_mean": 80.8,
+    "c45_unseen": 1.0
+  },
+  {
+    "method": "ACT / SigLIP2",
+    "c15_seen": 82.0,
+    "c30_seen": 76.5,
+    "c45_seen": 77.5,
+    "seen_mean": 78.7,
+    "c45_unseen": 2.0
+  },
+  {
+    "method": "ACT / VideoMAE",
+    "c15_seen": 80.5,
+    "c30_seen": 69.0,
+    "c45_seen": 67.0,
+    "seen_mean": 72.2,
+    "c45_unseen": 2.5
+  },
+  {
+    "method": "DP / DINOv2",
+    "c15_seen": 65.0,
+    "c30_seen": 68.0,
+    "c45_seen": 68.5,
+    "seen_mean": 67.2,
+    "c45_unseen": 5.5
+  },
+  {
+    "method": "DP / SigLIP2",
+    "c15_seen": 60.5,
+    "c30_seen": 58.5,
+    "c45_seen": 63.0,
+    "seen_mean": 60.7,
+    "c45_unseen": 3.0
+  },
+  {
+    "method": "DP / VideoMAE",
+    "c15_seen": 23.5,
+    "c30_seen": 17.0,
+    "c45_seen": 2.5,
+    "seen_mean": 14.3,
+    "c45_unseen": 3.0
+  },
+  {
+    "method": "VQ-BeT / DINOv2",
+    "c15_seen": 45.0,
+    "c30_seen": 52.0,
+    "c45_seen": 58.5,
+    "seen_mean": 51.8,
+    "c45_unseen": 17.5
+  },
+  {
+    "method": "VQ-BeT / SigLIP2",
+    "c15_seen": 58.5,
+    "c30_seen": 56.0,
+    "c45_seen": 58.0,
+    "seen_mean": 57.5,
+    "c45_unseen": 10.5
+  },
+  {
+    "method": "VQ-BeT / VideoMAE",
+    "c15_seen": 44.0,
+    "c30_seen": 24.5,
+    "c45_seen": 20.5,
+    "seen_mean": 29.7,
+    "c45_unseen": 7.5
+  },
+  {
+    "method": "Zero-WAM",
+    "c15_seen": 68.0,
+    "c30_seen": 77.0,
+    "c45_seen": 68.0,
+    "seen_mean": 71.0,
+    "c45_unseen": 22.0
+  },
+  {
+    "method": "RoboDemo",
+    "c15_seen": 89.5,
+    "c30_seen": 94.0,
+    "c45_seen": 88.5,
+    "seen_mean": 90.7,
+    "c45_unseen": 11.5
+  }
+]

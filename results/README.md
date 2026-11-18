@@ -1,130 +1,62 @@
-# Complete Imitator Game Results
+# Complete Numerical Results
 
-SR is the percentage of episodes that satisfy the task success condition within 500 control steps. Each task-level cell contains ten trials.
+[Quickstart](../docs/quickstart.md) | [Paper comparisons](paper/README.md) |
+[Result file guide](data_dictionary.md)
 
-| Model | Step | Split | Successes | Episodes | SR (%) |
-| --- | ---: | --- | ---: | ---: | ---: |
-| RoboDemo-full50 | 240000 | all | 1692 | 2000 | 84.6 |
-| RoboDemo-c15 | 90000 | seen | 179 | 200 | 89.5 |
-| RoboDemo-c15 | 90000 | unseen | 0 | 200 | 0.0 |
-| RoboDemo-c30 | 160000 | seen | 188 | 200 | 94.0 |
-| RoboDemo-c30 | 160000 | unseen | 1 | 200 | 0.5 |
-| RoboDemo-c45 | 260000 | seen | 177 | 200 | 88.5 |
-| RoboDemo-c45 | 260000 | unseen | 23 | 200 | 11.5 |
-| RoboDemo-c15-wo | 100000 | seen | 180 | 200 | 90.0 |
-| RoboDemo-c15-wo | 100000 | unseen | 0 | 200 | 0.0 |
+The five released checkpoints cover **3,600 episodes**, **360 task-level
+cells**, and **90 model-task pairs**. Each task is evaluated at L0-L3, with
+ten episodes per level. Success means completing the task within 500
+control steps.
 
-## RoboDemo-full50 (240,000 Updates)
+## Browse By Model
 
-| Task | Split | L0 | L1 | L2 | L3 | Mean |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| CleanCup | all | 60.0 | 100.0 | 100.0 | 100.0 | 90.0 |
-| CleanDesk | all | 0.0 | 0.0 | 50.0 | 100.0 | 37.5 |
-| CutFruit | all | 100.0 | 100.0 | 0.0 | 100.0 | 75.0 |
-| FoldBox | all | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| FoldTowel | all | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| GrindFood | all | 100.0 | 100.0 | 100.0 | 90.0 | 97.5 |
-| KnifeBowlFork | all | 100.0 | 100.0 | 90.0 | 100.0 | 97.5 |
-| LiftLidFromSkillet | all | 90.0 | 90.0 | 100.0 | 100.0 | 95.0 |
-| OpenBox | all | 100.0 | 100.0 | 0.0 | 90.0 | 72.5 |
-| OpenLiquidCap | all | 80.0 | 90.0 | 100.0 | 90.0 | 90.0 |
-| PickAppleBananaToBaskets | all | 100.0 | 100.0 | 70.0 | 100.0 | 92.5 |
-| PickAppleBasket | all | 90.0 | 100.0 | 100.0 | 100.0 | 97.5 |
-| PickAppleToScale | all | 100.0 | 100.0 | 80.0 | 100.0 | 95.0 |
-| PickFood | all | 100.0 | 100.0 | 60.0 | 100.0 | 90.0 |
-| PickFruitsToPlate | all | 90.0 | 90.0 | 90.0 | 90.0 | 90.0 |
-| PickPillToRegions | all | 80.0 | 90.0 | 50.0 | 50.0 | 67.5 |
-| PickRemoteControl | all | 100.0 | 100.0 | 100.0 | 90.0 | 97.5 |
-| PickTennisBallGolfBall | all | 70.0 | 100.0 | 30.0 | 90.0 | 72.5 |
-| PickWash | all | 80.0 | 100.0 | 80.0 | 80.0 | 85.0 |
-| PlaceBookBookcase | all | 90.0 | 100.0 | 100.0 | 100.0 | 97.5 |
-| PlaceBrushRest | all | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| PlaceBurgerTray | all | 70.0 | 80.0 | 100.0 | 80.0 | 82.5 |
-| PlaceChipsRack | all | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| PlaceClothBasket | all | 100.0 | 40.0 | 100.0 | 50.0 | 72.5 |
-| PlaceCommodityRack | all | 100.0 | 100.0 | 80.0 | 0.0 | 70.0 |
-| PlaceCupPlate | all | 70.0 | 60.0 | 60.0 | 50.0 | 60.0 |
-| PlaceFileFolder | all | 80.0 | 70.0 | 100.0 | 80.0 | 82.5 |
-| PlaceFoodScale | all | 100.0 | 100.0 | 100.0 | 60.0 | 90.0 |
-| PlaceFruitBox | all | 80.0 | 30.0 | 30.0 | 10.0 | 37.5 |
-| PlaceMagazineFolder | all | 100.0 | 100.0 | 0.0 | 80.0 | 70.0 |
-| PlaceMugRack | all | 100.0 | 90.0 | 90.0 | 100.0 | 95.0 |
-| PlacePillBox | all | 100.0 | 100.0 | 90.0 | 60.0 | 87.5 |
-| PlacePlateRack | all | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| PlaceScrewdriver | all | 100.0 | 90.0 | 100.0 | 10.0 | 75.0 |
-| PlaceShoeBox | all | 100.0 | 40.0 | 100.0 | 100.0 | 85.0 |
-| PourCup | all | 100.0 | 100.0 | 90.0 | 90.0 | 95.0 |
-| PourKetchupFries | all | 100.0 | 100.0 | 100.0 | 50.0 | 87.5 |
-| PourKettle | all | 100.0 | 80.0 | 0.0 | 100.0 | 70.0 |
-| PourLiquidCup | all | 100.0 | 90.0 | 90.0 | 60.0 | 85.0 |
-| PourLiquidFilter | all | 100.0 | 10.0 | 30.0 | 100.0 | 60.0 |
-| PourLiquidMug | all | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| PressJuicer | all | 100.0 | 100.0 | 0.0 | 100.0 | 75.0 |
-| PressStapler | all | 100.0 | 100.0 | 100.0 | 70.0 | 92.5 |
-| PutBox | all | 100.0 | 100.0 | 100.0 | 90.0 | 97.5 |
-| PutCubeOnScale | all | 100.0 | 100.0 | 90.0 | 70.0 | 90.0 |
-| ScanMilkBox | all | 100.0 | 90.0 | 70.0 | 40.0 | 75.0 |
-| ScanPillBottle | all | 100.0 | 90.0 | 100.0 | 100.0 | 97.5 |
-| StirSpoon | all | 100.0 | 90.0 | 70.0 | 70.0 | 82.5 |
-| TransFood | all | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| WipePot | all | 100.0 | 100.0 | 0.0 | 100.0 | 75.0 |
+| Checkpoint | Updates | Reference | Tasks | Episodes | Files |
+| --- | --- | --- | --- | --- | --- |
+| [RoboDemo-full50](full50/README.md) | 240,000 | Human | 50 | 2000 | [CSV](full50/episodes.csv) / [JSONL](full50/episodes.jsonl) |
+| [RoboDemo-c15](c15/README.md) | 90,000 | Human | 10 | 400 | [CSV](c15/episodes.csv) / [JSONL](c15/episodes.jsonl) |
+| [RoboDemo-c30](c30/README.md) | 160,000 | Human | 10 | 400 | [CSV](c30/episodes.csv) / [JSONL](c30/episodes.jsonl) |
+| [RoboDemo-c45](c45/README.md) | 260,000 | Human | 10 | 400 | [CSV](c45/episodes.csv) / [JSONL](c45/episodes.jsonl) |
+| [RoboDemo-c15-wo](c15-wo/README.md) | 100,000 | Retrieved robot | 10 | 400 | [CSV](c15-wo/episodes.csv) / [JSONL](c15-wo/episodes.jsonl) |
 
-## RoboDemo-c15 (90,000 Updates)
+## Success By Split And Scene Level
 
-| Task | Split | L0 | L1 | L2 | L3 | Mean |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| FoldBox | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| FoldTowel | seen | 100.0 | 100.0 | 80.0 | 90.0 | 92.5 |
-| PickFood | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PickRemoteControl | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PlaceFileFolder | seen | 70.0 | 50.0 | 90.0 | 90.0 | 75.0 |
-| PlaceMugRack | seen | 100.0 | 80.0 | 90.0 | 100.0 | 92.5 |
-| PlacePlateRack | seen | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| PourKettle | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| ScanMilkBox | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| StirSpoon | seen | 100.0 | 90.0 | 90.0 | 70.0 | 87.5 |
+All SR values are percentages.
 
-## RoboDemo-c30 (160,000 Updates)
+| Model | Split | L0 | L1 | L2 | L3 | Overall SR (%) | Successes / Episodes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| RoboDemo-full50 | All | 92.6 | 88.2 | 75.8 | 81.8 | 84.6 | 1692/2000 |
+| RoboDemo-c15 | Seen | 94.0 | 84.0 | 90.0 | 90.0 | 89.5 | 179/200 |
+| RoboDemo-c15 | Unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0/200 |
+| RoboDemo-c30 | Seen | 90.0 | 92.0 | 96.0 | 98.0 | 94.0 | 188/200 |
+| RoboDemo-c30 | Unseen | 0.0 | 0.0 | 2.0 | 0.0 | 0.5 | 1/200 |
+| RoboDemo-c45 | Seen | 92.0 | 80.0 | 92.0 | 90.0 | 88.5 | 177/200 |
+| RoboDemo-c45 | Unseen | 22.0 | 2.0 | 2.0 | 20.0 | 11.5 | 23/200 |
+| RoboDemo-c15-wo | Seen | 94.0 | 86.0 | 92.0 | 88.0 | 90.0 | 180/200 |
+| RoboDemo-c15-wo | Unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0/200 |
 
-| Task | Split | L0 | L1 | L2 | L3 | Mean |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| FoldBox | unseen | 0.0 | 0.0 | 10.0 | 0.0 | 2.5 |
-| FoldTowel | seen | 100.0 | 90.0 | 80.0 | 100.0 | 92.5 |
-| PickFood | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PickRemoteControl | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PlaceFileFolder | seen | 70.0 | 80.0 | 100.0 | 90.0 | 85.0 |
-| PlaceMugRack | seen | 90.0 | 90.0 | 100.0 | 100.0 | 95.0 |
-| PlacePlateRack | seen | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
-| PourKettle | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| ScanMilkBox | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| StirSpoon | seen | 90.0 | 100.0 | 100.0 | 100.0 | 97.5 |
+## Download All Values
 
-## RoboDemo-c45 (260,000 Updates)
+| Results | CSV | JSON / JSONL |
+| --- | --- | --- |
+| Overall and split summaries | [summary.csv](summary.csv) | [summary.json](summary.json) |
+| 36 split-by-level summaries | [level_summary.csv](level_summary.csv) | [level_summary.json](level_summary.json) |
+| 90 model-task summaries | [task_summary.csv](task_summary.csv) | [task_summary.json](task_summary.json) |
+| 360 task-level results | [task_level.csv](task_level.csv) | [task_level.json](task_level.json) |
+| All 3,600 episodes | [episodes.csv](episodes.csv) | Per-model JSONL files above |
+| Baselines, ablations, real-world results and efficiency | [Paper result files](paper/README.md) | [Paper result files](paper/README.md) |
 
-| Task | Split | L0 | L1 | L2 | L3 | Mean |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| FoldBox | unseen | 90.0 | 0.0 | 0.0 | 100.0 | 47.5 |
-| FoldTowel | seen | 100.0 | 100.0 | 90.0 | 90.0 | 95.0 |
-| PickFood | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PickRemoteControl | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PlaceFileFolder | seen | 80.0 | 20.0 | 100.0 | 70.0 | 67.5 |
-| PlaceMugRack | seen | 80.0 | 90.0 | 100.0 | 100.0 | 92.5 |
-| PlacePlateRack | seen | 100.0 | 90.0 | 100.0 | 100.0 | 97.5 |
-| PourKettle | unseen | 10.0 | 10.0 | 0.0 | 0.0 | 5.0 |
-| ScanMilkBox | unseen | 10.0 | 0.0 | 10.0 | 0.0 | 5.0 |
-| StirSpoon | seen | 100.0 | 100.0 | 70.0 | 90.0 | 90.0 |
+On a GitHub CSV or JSON file page, use **Raw** or **Download raw file** to
+download it. Cloning the repository also downloads all result tables and logs.
 
-## RoboDemo-c15-wo (100,000 Updates)
+## Recompute Without A GPU
 
-| Task | Split | L0 | L1 | L2 | L3 | Mean |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| FoldBox | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| FoldTowel | seen | 100.0 | 100.0 | 70.0 | 100.0 | 92.5 |
-| PickFood | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PickRemoteControl | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| PlaceFileFolder | seen | 100.0 | 60.0 | 100.0 | 100.0 | 90.0 |
-| PlaceMugRack | seen | 90.0 | 90.0 | 100.0 | 100.0 | 95.0 |
-| PlacePlateRack | seen | 90.0 | 100.0 | 100.0 | 100.0 | 97.5 |
-| PourKettle | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| ScanMilkBox | unseen | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| StirSpoon | seen | 90.0 | 80.0 | 90.0 | 40.0 | 75.0 |
+From the repository root, using Python 3.10 or later:
+
+```bash
+python evaluation/summarize.py results/*/episodes.jsonl
+python evaluation/export_results.py --output outputs/result-tables
+```
+
+The exporter uses only the Python standard library and the released episode
+logs. It produces CSV/JSON summaries and the five model result pages without
+loading a checkpoint or starting the simulator.

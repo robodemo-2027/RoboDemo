@@ -21,7 +21,7 @@
     "split": "unseen",
     "successes": 0,
     "episodes": 200,
-    "success_rate": 0
+    "success_rate": 0.0
   },
   {
     "model": "RoboDemo-c30",
@@ -29,7 +29,7 @@
     "split": "seen",
     "successes": 188,
     "episodes": 200,
-    "success_rate": 94
+    "success_rate": 94.0
   },
   {
     "model": "RoboDemo-c30",
@@ -61,7 +61,7 @@
     "split": "seen",
     "successes": 180,
     "episodes": 200,
-    "success_rate": 90
+    "success_rate": 90.0
   },
   {
     "model": "RoboDemo-c15-wo",
@@ -69,6 +69,6 @@
     "split": "unseen",
     "successes": 0,
     "episodes": 200,
-    "success_rate": 0
+    "success_rate": 0.0
   }
 ]

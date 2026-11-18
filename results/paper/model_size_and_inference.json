@@ -1,0 +1,44 @@
+[
+  {
+    "component": "VLM backbone",
+    "scope": "per query",
+    "parameters": "4.438B",
+    "time": "64.7 ms"
+  },
+  {
+    "component": "Original action expert",
+    "scope": "per query",
+    "parameters": "0.675B",
+    "time": "28.8 ms x 5"
+  },
+  {
+    "component": "Dual-TTT",
+    "scope": "per query",
+    "parameters": "189.7M slow; 37.9M x 2 fast states",
+    "time": "Write: 55.1 ms x 1; read: 59.0 ms x 5"
+  },
+  {
+    "component": "Reference motion encoder",
+    "scope": "per episode",
+    "parameters": "1.012B",
+    "time": "290.5 ms"
+  },
+  {
+    "component": "Semantic encoding and preload",
+    "scope": "per episode",
+    "parameters": "Shared",
+    "time": "364.8 ms"
+  },
+  {
+    "component": "Refreward",
+    "scope": "per query-candidate pair",
+    "parameters": "7.4M",
+    "time": "5.3 ms"
+  },
+  {
+    "component": "RoboDemo (reference initialization + one query)",
+    "scope": "episode initialization plus query",
+    "parameters": "6.35B",
+    "time": "1.22 s"
+  }
+]

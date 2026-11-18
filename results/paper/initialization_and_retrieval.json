@@ -1,0 +1,22 @@
+[
+  {
+    "stage": "Reference motion encoding",
+    "scope": "per episode",
+    "time_ms": 290.5
+  },
+  {
+    "stage": "Semantic encoding and reference preload",
+    "scope": "per episode",
+    "time_ms": 364.8
+  },
+  {
+    "stage": "Refreward scorer with precomputed features",
+    "scope": "per query-candidate pair",
+    "time_ms": 5.3
+  },
+  {
+    "stage": "Reference initialization plus one policy query",
+    "scope": "per episode plus one query, excluding retrieval",
+    "time_ms": 1220.0
+  }
+]

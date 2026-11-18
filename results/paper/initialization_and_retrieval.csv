@@ -1,0 +1,5 @@
+stage,scope,time_ms
+Reference motion encoding,per episode,290.5
+Semantic encoding and reference preload,per episode,364.8
+Refreward scorer with precomputed features,per query-candidate pair,5.3
+Reference initialization plus one policy query,"per episode plus one query, excluding retrieval",1220.0

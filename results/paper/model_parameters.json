@@ -1,0 +1,26 @@
+[
+  {
+    "component": "VLM",
+    "parameters_billion": 4.438
+  },
+  {
+    "component": "Base action expert",
+    "parameters_billion": 0.675
+  },
+  {
+    "component": "Dual-TTT slow parameters",
+    "parameters_billion": 0.19
+  },
+  {
+    "component": "Memory adapters",
+    "parameters_billion": 0.032
+  },
+  {
+    "component": "Reference motion encoder",
+    "parameters_billion": 1.012
+  },
+  {
+    "component": "Total unique policy parameters",
+    "parameters_billion": 6.347
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "method": "GR00T-N1.7",
+    "condition": "Lighting",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 20
+  },
+  {
+    "method": "pi0",
+    "condition": "Lighting",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 18
+  },
+  {
+    "method": "pi0.5",
+    "condition": "Lighting",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 32
+  },
+  {
+    "method": "pi0.5 + Demo (Prefix)",
+    "condition": "Lighting",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 32
+  },
+  {
+    "method": "RoboDemo",
+    "condition": "Lighting",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 46
+  },
+  {
+    "method": "GR00T-N1.7",
+    "condition": "Background",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 24
+  },
+  {
+    "method": "pi0",
+    "condition": "Background",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 26
+  },
+  {
+    "method": "pi0.5",
+    "condition": "Background",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 38
+  },
+  {
+    "method": "pi0.5 + Demo (Prefix)",
+    "condition": "Background",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 42
+  },
+  {
+    "method": "RoboDemo",
+    "condition": "Background",
+    "task": "Tabletop Organization",
+    "trials": 50,
+    "success_rate": 76
+  }
+]

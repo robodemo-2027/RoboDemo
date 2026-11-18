@@ -1,0 +1,11 @@
+method,condition,task,trials,success_rate
+GR00T-N1.7,Lighting,Tabletop Organization,50,20
+pi0,Lighting,Tabletop Organization,50,18
+pi0.5,Lighting,Tabletop Organization,50,32
+pi0.5 + Demo (Prefix),Lighting,Tabletop Organization,50,32
+RoboDemo,Lighting,Tabletop Organization,50,46
+GR00T-N1.7,Background,Tabletop Organization,50,24
+pi0,Background,Tabletop Organization,50,26
+pi0.5,Background,Tabletop Organization,50,38
+pi0.5 + Demo (Prefix),Background,Tabletop Organization,50,42
+RoboDemo,Background,Tabletop Organization,50,76

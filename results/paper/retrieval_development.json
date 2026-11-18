@@ -1,0 +1,10 @@
+[
+  {
+    "split": "checkpoint-selection development set",
+    "queries": 50,
+    "candidates_per_query": 60,
+    "known_top1_labels": 50,
+    "suitable_top1": 45,
+    "top1_suitability_rate": 90
+  }
+]

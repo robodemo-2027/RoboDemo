@@ -1,0 +1,7 @@
+component,parameters_billion
+VLM,4.438
+Base action expert,0.675
+Dual-TTT slow parameters,0.19
+Memory adapters,0.032
+Reference motion encoder,1.012
+Total unique policy parameters,6.347

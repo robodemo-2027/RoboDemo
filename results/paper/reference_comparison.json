@@ -1,0 +1,47 @@
+[
+  {
+    "method": "pi0.5",
+    "FoldTowel": 43.5,
+    "PlaceFileFolder": 40.0,
+    "PlaceMugRack": 90.5,
+    "PlacePlateRack": 85.5,
+    "StirSpoon": 55.0,
+    "mean": 62.9
+  },
+  {
+    "method": "ACT",
+    "FoldTowel": 90.0,
+    "PlaceFileFolder": 80.5,
+    "PlaceMugRack": 93.5,
+    "PlacePlateRack": 80.0,
+    "StirSpoon": 68.5,
+    "mean": 82.5
+  },
+  {
+    "method": "Zero-WAM",
+    "FoldTowel": 88.0,
+    "PlaceFileFolder": 43.5,
+    "PlaceMugRack": 43.0,
+    "PlacePlateRack": 80.5,
+    "StirSpoon": 88.0,
+    "mean": 68.6
+  },
+  {
+    "method": "RoboDemo",
+    "FoldTowel": 92.5,
+    "PlaceFileFolder": 75.0,
+    "PlaceMugRack": 92.5,
+    "PlacePlateRack": 100.0,
+    "StirSpoon": 87.5,
+    "mean": 89.5
+  },
+  {
+    "method": "RoboDemo-wo",
+    "FoldTowel": 92.5,
+    "PlaceFileFolder": 90.0,
+    "PlaceMugRack": 95.0,
+    "PlacePlateRack": 97.5,
+    "StirSpoon": 75.0,
+    "mean": 90.0
+  }
+]

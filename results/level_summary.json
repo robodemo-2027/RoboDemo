@@ -1,0 +1,326 @@
+[
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "level": "L0",
+    "successes": 47,
+    "episodes": 50,
+    "success_rate": 94.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "level": "L1",
+    "successes": 42,
+    "episodes": 50,
+    "success_rate": 84.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "level": "L2",
+    "successes": 45,
+    "episodes": 50,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "seen",
+    "level": "L3",
+    "successes": 45,
+    "episodes": 50,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "level": "L2",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15",
+    "checkpoint_step": 90000,
+    "split": "unseen",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "level": "L0",
+    "successes": 47,
+    "episodes": 50,
+    "success_rate": 94.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "level": "L1",
+    "successes": 43,
+    "episodes": 50,
+    "success_rate": 86.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "level": "L2",
+    "successes": 46,
+    "episodes": 50,
+    "success_rate": 92.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "seen",
+    "level": "L3",
+    "successes": 44,
+    "episodes": 50,
+    "success_rate": 88.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "level": "L2",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000,
+    "split": "unseen",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "level": "L0",
+    "successes": 45,
+    "episodes": 50,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "level": "L1",
+    "successes": 46,
+    "episodes": 50,
+    "success_rate": 92.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "level": "L2",
+    "successes": 48,
+    "episodes": 50,
+    "success_rate": 96.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "level": "L3",
+    "successes": 49,
+    "episodes": 50,
+    "success_rate": 98.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "level": "L2",
+    "successes": 1,
+    "episodes": 50,
+    "success_rate": 2.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 50,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "level": "L0",
+    "successes": 46,
+    "episodes": 50,
+    "success_rate": 92.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "level": "L1",
+    "successes": 40,
+    "episodes": 50,
+    "success_rate": 80.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "level": "L2",
+    "successes": 46,
+    "episodes": 50,
+    "success_rate": 92.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "seen",
+    "level": "L3",
+    "successes": 45,
+    "episodes": 50,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "level": "L0",
+    "successes": 11,
+    "episodes": 50,
+    "success_rate": 22.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "level": "L1",
+    "successes": 1,
+    "episodes": 50,
+    "success_rate": 2.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "level": "L2",
+    "successes": 1,
+    "episodes": 50,
+    "success_rate": 2.0
+  },
+  {
+    "model": "RoboDemo-c45",
+    "checkpoint_step": 260000,
+    "split": "unseen",
+    "level": "L3",
+    "successes": 10,
+    "episodes": 50,
+    "success_rate": 20.0
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "level": "L0",
+    "successes": 463,
+    "episodes": 500,
+    "success_rate": 92.6
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "level": "L1",
+    "successes": 441,
+    "episodes": 500,
+    "success_rate": 88.2
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "level": "L2",
+    "successes": 379,
+    "episodes": 500,
+    "success_rate": 75.8
+  },
+  {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "split": "all",
+    "level": "L3",
+    "successes": 409,
+    "episodes": 500,
+    "success_rate": 81.8
+  }
+]

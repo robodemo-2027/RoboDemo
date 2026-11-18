@@ -1,0 +1,47 @@
+[
+  {
+    "method": "DP",
+    "containers_13": 71.7,
+    "racks_5": 73.0,
+    "tabletop_10": 59.8,
+    "pouring_6": 49.2,
+    "cleaning_4": 48.1,
+    "opening_folding_5": 66.5,
+    "tools_scanning_7": 69.6,
+    "L0": 65.6,
+    "L1": 67.2,
+    "L2": 60.0,
+    "L3": 63.4,
+    "overall": 64.1
+  },
+  {
+    "method": "ACT",
+    "containers_13": 78.3,
+    "racks_5": 80.5,
+    "tabletop_10": 73.3,
+    "pouring_6": 66.3,
+    "cleaning_4": 65.0,
+    "opening_folding_5": 86.0,
+    "tools_scanning_7": 71.8,
+    "L0": 80.8,
+    "L1": 82.0,
+    "L2": 68.4,
+    "L3": 68.2,
+    "overall": 74.9
+  },
+  {
+    "method": "RoboDemo",
+    "containers_13": 83.3,
+    "racks_5": 92.5,
+    "tabletop_10": 84.8,
+    "pouring_6": 82.9,
+    "cleaning_4": 71.9,
+    "opening_folding_5": 91.5,
+    "tools_scanning_7": 85.0,
+    "L0": 92.6,
+    "L1": 88.2,
+    "L2": 75.8,
+    "L3": 81.8,
+    "overall": 84.6
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "variant": "Base VLA",
+    "c15_seen_success_rate": 62.0
+  },
+  {
+    "variant": "Demonstration prefix",
+    "c15_seen_success_rate": 68.5
+  },
+  {
+    "variant": "Retrieval-TTT only",
+    "c15_seen_success_rate": 71.5
+  },
+  {
+    "variant": "Demonstration and execution in one TTT",
+    "c15_seen_success_rate": 73.0
+  },
+  {
+    "variant": "Two TTT modules with parallel reads",
+    "c15_seen_success_rate": 82.0
+  },
+  {
+    "variant": "Dual-Cascaded TTT (RoboDemo)",
+    "c15_seen_success_rate": 89.5
+  }
+]

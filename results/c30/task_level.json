@@ -1,0 +1,402 @@
+[
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "level": "L0",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "level": "L1",
+    "successes": 9,
+    "episodes": 10,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "level": "L2",
+    "successes": 8,
+    "episodes": 10,
+    "success_rate": 80.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "FoldTowel",
+    "level": "L3",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "level": "L0",
+    "successes": 7,
+    "episodes": 10,
+    "success_rate": 70.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "level": "L1",
+    "successes": 8,
+    "episodes": 10,
+    "success_rate": 80.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "level": "L2",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceFileFolder",
+    "level": "L3",
+    "successes": 9,
+    "episodes": 10,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "level": "L0",
+    "successes": 9,
+    "episodes": 10,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "level": "L1",
+    "successes": 9,
+    "episodes": 10,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "level": "L2",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlaceMugRack",
+    "level": "L3",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "level": "L0",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "level": "L1",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "level": "L2",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "PlacePlateRack",
+    "level": "L3",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "level": "L0",
+    "successes": 9,
+    "episodes": 10,
+    "success_rate": 90.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "level": "L1",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "level": "L2",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "seen",
+    "task": "StirSpoon",
+    "level": "L3",
+    "successes": 10,
+    "episodes": 10,
+    "success_rate": 100.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "level": "L2",
+    "successes": 1,
+    "episodes": 10,
+    "success_rate": 10.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "FoldBox",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickFood",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickFood",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickFood",
+    "level": "L2",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickFood",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "level": "L2",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PickRemoteControl",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "level": "L2",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "PourKettle",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "level": "L0",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "level": "L1",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "level": "L2",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  },
+  {
+    "model": "RoboDemo-c30",
+    "checkpoint_step": 160000,
+    "split": "unseen",
+    "task": "ScanMilkBox",
+    "level": "L3",
+    "successes": 0,
+    "episodes": 10,
+    "success_rate": 0.0
+  }
+]

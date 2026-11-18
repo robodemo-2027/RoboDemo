@@ -1,0 +1,8 @@
+stage,mean_ms,median_ms,p95_ms,std_ms
+VLM backbone,64.7,63.8,67.6,2.4
+Original action expert (five rounds),144.1,143.6,147.9,2.8
+TTT write (once),55.1,54.5,58.4,1.7
+TTT reads (five rounds),295.1,294.4,305.3,6.4
+Memory adapters,1.8,1.8,1.9,0.1
+Full policy query (uninstrumented),563.6,559.9,588.1,12.9
+Full policy query (instrumented),578.7,577.1,597.5,11.0
