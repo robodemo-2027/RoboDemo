@@ -61,8 +61,8 @@ Last reviewed: November 19, 2026.
 | Docker | Image built, CPU import/package checks passed, archive published | [Download and use the image](https://huggingface.co/mxk1998/RoboDemo-Docker); GPU simulator validation |
 | CI | GitHub Actions runs offline code tests and website tests | [Code](https://github.com/robodemo-2027/RoboDemo/actions) and [website](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml) |
 
-The complete CPU suite passed **98 tests for each policy variant**. Hosted
-code CI runs a 28-case offline subset plus inspection of the included sample;
+The complete CPU suite passed **100 tests for each policy variant**. Hosted
+code CI runs a 30-case offline subset plus inspection of the included sample;
 the static site suite has 17 cases. These counts describe different suites,
 not independent benchmark experiments.
 

@@ -4,7 +4,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG PYTHON_VERSION=3.10.20
 ARG IMITATOR_GAME_REVISION=d6d16ec511bc389e0a207692730c137bc022ef14
 ENV LANG=C.UTF-8 PYTHONUNBUFFERED=1 PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_CACHE_DIR=1
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g; s|http://security.ubuntu.com|https://security.ubuntu.com|g' /etc/apt/sources.list \
+    && apt-get update && apt-get install -y --no-install-recommends \
     build-essential ca-certificates curl git pkg-config cmake ninja-build \
     libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libffi-dev \
     liblzma-dev libgdbm-dev libncursesw5-dev uuid-dev ffmpeg \
@@ -33,7 +34,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8 PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_CACHE_DIR=1
 # Triton needs a C compiler at runtime, but not the full CUDA development toolkit.
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g; s|http://security.ubuntu.com|https://security.ubuntu.com|g' /etc/apt/sources.list \
+    && apt-get update && apt-get install -y --no-install-recommends \
     build-essential ca-certificates curl git ffmpeg \
     libssl3 zlib1g libbz2-1.0 libreadline8 libsqlite3-0 libffi8 \
     liblzma5 libgdbm6 libncursesw6 libuuid1 \

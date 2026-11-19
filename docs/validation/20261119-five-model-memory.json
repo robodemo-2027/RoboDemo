@@ -15,8 +15,8 @@
     "process_memory_sampling_seconds": 0.5
   },
   "cpu_regression": {
-    "human": 98,
-    "robot": 98
+    "human": 100,
+    "robot": 100
   },
   "runs": [
     {
