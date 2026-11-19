@@ -31,9 +31,8 @@ or control a physical robot. A new GPU rollout is separate from those tests.
 
 ## Docker Recipe
 
-The same build files are mirrored in
-[the shared Hugging Face evaluation repository](https://huggingface.co/mxk1998/RoboDemo-Evaluation).
-They serve all five policy checkpoints. We provide a **Docker build recipe**,
+The build files, package inventory and diagnostics are maintained here in
+GitHub. They serve all five policy checkpoints. We provide a **Docker build recipe**,
 not a prebuilt container image. The recorded native environment has completed
 policy/simulator runs; a fresh Docker build and GPU run still need validation.
 
@@ -100,3 +99,28 @@ The diagnostics do not run an episode. Follow them with a one-episode
 simulator smoke test before starting a larger evaluation. See
 [memory and parallelism](../docs/evaluation-scaling.md) for 32-GB/80-GB
 starting configurations and the currently measured scope.
+
+## Measure Your Inference Process
+
+The profiler records both the PyTorch allocator peak and sampled total
+process memory reported by `nvidia-smi`. It can also apply a PyTorch-only
+allocation budget, without filling the card or reserving unused memory:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python environments/profile_memory.py \
+  --budget-gib 32 --output outputs/memory.json -- \
+  examples/predict_actions.py \
+  --checkpoint checkpoints/RoboDemo-full50/pytorch_model.pt \
+  --output outputs/profiled-example
+```
+
+A budget is not a physical GPU partition: the driver and renderer allocate
+memory outside the PyTorch limit. Use the process-memory reading and a
+complete simulator episode when deciding how many workers fit.
+
+The manual image-build workflow is in `ci/build-image.yml`. It builds a
+clean Linux amd64 image, checks its imports/package versions, and publishes
+a `docker load` archive to `mxk1998/RoboDemo-Docker` only after those checks
+pass. Activation requires GitHub Actions workflow permission and the
+repository secret `HF_TOKEN`; an unbuilt archive is never advertised as a
+released image.

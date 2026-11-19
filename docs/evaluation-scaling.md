@@ -42,13 +42,24 @@ for the complete plan: 2,000 episodes for Full50 or 400 for each other model.
 | 32 GB | **1** | `--max-episodes 1` |
 | 80 GB | **1 initially; 2 after a one-worker check** | `--max-episodes 2` |
 
-**32 GB is the recommended entry configuration, not a measured hardware
-minimum.** The completed full-horizon runs used H20 GPUs with 97,871 MiB
-reported capacity. An offline two-call replay of each checkpoint measured
-about **17.5 GiB of peak PyTorch allocated memory**. That figure excludes
-some CUDA, Vulkan and OptiX allocations and is not a total-VRAM requirement.
-A native 32-GB/80-GB validation and an eight-GPU end-to-end run are not yet
-recorded. We do not currently claim support below 32 GB.
+The new Full50 human-video example has completed both policy calls on H200
+under **18, 32 and 80 GiB PyTorch allocation budgets**. Budgets of 16 and
+17 GiB failed with allocator OOM; all failures are retained. Its peak
+PyTorch allocation was **17.48 GiB**, with sampled process memory up to
+**18.23 GiB**.
+
+A complete **500-step** Full50 simulator episode also passed under both
+24 and 32 GiB PyTorch budgets: **17.62 GiB** peak allocated and up to
+**21.39 GiB** sampled total process memory including the renderer. See the
+[validation record](validation/20261119.json).
+
+These are **allocation-budget tests on H200**, not native 32-GB or 80-GB
+hardware tests. The budget does not cap Vulkan or driver allocations.
+**32 GB remains the recommended entry capacity**; the 18 GiB example
+result is not a minimum hardware requirement for full evaluation. A
+single episode cannot establish a minimum for every task/reference.
+The available host has two GPUs, so native eight-GPU execution remains
+unverified.
 
 Start with enough *free* VRAM, not merely the card's nominal capacity. On
 an 80-GB card, increase to two workers only after checking the full episode's

@@ -15,3 +15,4 @@ checkpoints/
 !examples/assets/human-reference.mp4
 !examples/assets/human-conditioned-execution.mp4
 !examples/assets/robot-episode.npz
+!resources/refreward/model.safetensors

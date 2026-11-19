@@ -11,8 +11,10 @@ sys.path[:0] = [str(ROOT / "evaluation"), str(ROOT / "models/robot")]
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--episodes", type=Path, required=True, help="Downloaded retrieval episodes.jsonl")
-    p.add_argument("--checkpoint", type=Path, required=True, help="Refreward 6000-step safetensors")
+    p.add_argument("--episodes", type=Path, default=ROOT / "resources/refreward/data/episodes.jsonl",
+                   help="Retrieval episode metadata")
+    p.add_argument("--checkpoint", type=Path, default=ROOT / "resources/refreward/model.safetensors",
+                   help="Refreward 6000-step safetensors")
     p.add_argument("--data-root", type=Path, required=True)
     p.add_argument("--qwen", default=os.environ.get("ROBODEMO_RETRIEVAL_QWEN"))
     p.add_argument("--dino", default=os.environ.get("ROBODEMO_RETRIEVAL_DINO"))

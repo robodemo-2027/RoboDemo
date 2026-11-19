@@ -1,0 +1,20 @@
+{
+  "architecture": "refreward.revision.RefRewardRevision",
+  "checkpoint_step": 6000,
+  "parameters": 7359877,
+  "balanced": true,
+  "joint_prior": true,
+  "dino_dim": 1280,
+  "semantic_dim": 2048,
+  "hidden_dim": 256,
+  "heads": 8,
+  "reward_latents": 32,
+  "query_input": "initial RGB and audited task instruction",
+  "candidate_process_frames": 32,
+  "feature_storage_dtype": "float16",
+  "scoring_dtype": "float32",
+  "frozen_encoders": {
+    "semantic": "Qwen/Qwen3-VL-Embedding-2B",
+    "visual": "facebook/dinov3-vith16plus-pretrain-lvd1689m"
+  }
+}

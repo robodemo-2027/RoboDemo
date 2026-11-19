@@ -6,9 +6,9 @@ separate intent/progress memory architecture.
 
 ## Released Resources
 
-- [Refreward 6000-step scorer](https://huggingface.co/mxk1998/RoboDemo-Refreward):
+- [Refreward 6000-step scorer](https://github.com/robodemo-2027/RoboDemo/tree/main/resources/refreward):
   the selected 7,359,877-parameter model, approximately 29.4 MB.
-- [Retrieval annotation dataset](https://huggingface.co/datasets/mxk1998/RoboDemo-Retrieval):
+- [Retrieval annotation dataset](https://github.com/robodemo-2027/RoboDemo/tree/main/resources/refreward/data):
   15,093 GPT-labeled conditions, three ordinary judgments per condition,
   retained reviews, aggregated targets, audited robot instructions and
   benchmark-relative episode identities.
@@ -29,19 +29,15 @@ Seven unavailable planned conditions are listed separately, not invented.
 
 ## Obtain The Data
 
-```bash
-hf download mxk1998/RoboDemo-Retrieval --repo-type dataset \
-  --local-dir data/refreward
-hf download mxk1998/RoboDemo-Refreward model.safetensors config.json \
-  --local-dir checkpoints/refreward
-```
+The scorer, labels and episode metadata are included in a normal Git clone
+under `resources/refreward/`; no separate download is required.
 
 Retrieve media, states and episode files from
 [Imitator Game](https://imitator-game.github.io/). `data/episodes.jsonl` maps
 each stable retrieval episode ID to its benchmark repository, episode index,
 video path, frame offset, length, frame rate and audited instruction.
 `replay_group` identifies equivalent replays that should not retrieve one
-another. No source videos or encoder features are bundled in the HF dataset.
+another. Source videos and encoder features are not duplicated in the resource package.
 
 ## Rebuild Encoder Features
 
@@ -55,7 +51,7 @@ export ROBODEMO_RETRIEVAL_QWEN=/models/Qwen3-VL-Embedding-2B
 export ROBODEMO_RETRIEVAL_DINO=/models/dinov3-vith16plus-pretrain-lvd1689m
 
 CUDA_VISIBLE_DEVICES=0 python evaluation/build_retrieval_cache.py \
-  --episodes data/refreward/data/episodes.jsonl \
+  --episodes resources/refreward/data/episodes.jsonl \
   --data-root "$ROBODEMO_DATA_ROOT" \
   --task TwoRobotPourKettle --device cuda:0 \
   --output outputs/pour-kettle-features
@@ -81,7 +77,7 @@ retrieval uses the published eligible candidate list.
 For the original GPU query-conditioned integration, set:
 
 ```bash
-export ROBODEMO_RETRIEVER="$PWD/checkpoints/refreward/model.safetensors"
+export ROBODEMO_RETRIEVER="$PWD/resources/refreward/model.safetensors"
 export ROBODEMO_CANDIDATE_FEATURES="$PWD/outputs/pour-kettle-features"
 ```
 
@@ -97,7 +93,7 @@ Read compressed JSONL with Python's standard library:
 
 ```python
 import gzip, json
-with gzip.open("data/refreward/data/annotations.jsonl.gz", "rt") as stream:
+with gzip.open("resources/refreward/data/annotations.jsonl.gz", "rt") as stream:
     first = json.loads(next(stream))
 print(first["kind"], first["query"], first["candidates"])
 print(first["votes"][0]["label"]["rationale"])

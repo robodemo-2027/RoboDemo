@@ -28,10 +28,10 @@
 - [x] **Code:** model architecture, dual-memory inference, evaluator and environment.
 - [x] **Models & results:** five checkpoints, trial plans, normalization and 3,600 episode logs.
 - [x] **Verified:** all five models completed a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
-- [x] **Getting started:** genuine recorded inputs, two minimal inference examples, and per-model single/eight-GPU launchers.
-- [x] **Retrieval:** selected Refreward scorer, GPT annotations, audited instructions and compact reference maps.
+- [x] **Getting started:** two end-to-end tested minimal inference examples, recorded inputs, and per-model single/eight-GPU launchers.
+- [x] **Retrieval:** scorer weights and GPT annotation data bundled in [resources/refreward](resources/refreward), plus compact reference maps.
 - [x] **Environment:** shared Docker recipe, pinned dependencies and environment diagnostics.
-- [x] **Tests:** offline regression suite and an [optional GitHub Actions template](environments/ci/README.md).
+- [x] **Tests:** 95 passing CPU regression tests and [H200 memory-budget checks](docs/evaluation-scaling.md), with an [optional GitHub Actions template](environments/ci/README.md).
 - [ ] **Automation:** activate the supplied Actions workflow.
 - [ ] **Validation next:** fresh Docker GPU run, native 32/80-GB sizing and eight-GPU end-to-end evaluation.
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
@@ -41,7 +41,7 @@
 [Paper comparisons and ablations](results/paper/README.md).
 
 [Minimal examples](examples/README.md) &middot;
-[Docker environment](https://huggingface.co/mxk1998/RoboDemo-Evaluation) &middot;
+[Docker environment](https://github.com/robodemo-2027/RoboDemo/tree/main/environments) &middot;
 [GPU sizing and launchers](docs/evaluation-scaling.md) &middot;
 [Refreward weights and data](docs/retrieval.md).
 
@@ -193,7 +193,7 @@ See [environment setup](environments/README.md) for the full dependency
 inventory and rendering configuration.
 
 For a container-based setup, use the shared
-[Docker build recipe](https://huggingface.co/mxk1998/RoboDemo-Evaluation).
+[Docker build recipe](https://github.com/robodemo-2027/RoboDemo/tree/main/environments).
 It covers all five checkpoints and includes driver and asset diagnostics.
 
 <details>

@@ -49,14 +49,7 @@ aggregation and simulator-specific bounds.
 
 ## 2. Retrieve A Robot Reference
 
-Download the small scorer and annotation metadata:
-
-```bash
-hf download mxk1998/RoboDemo-Refreward model.safetensors \
-  --local-dir checkpoints/refreward
-hf download mxk1998/RoboDemo-Retrieval data/episodes.jsonl \
-  --repo-type dataset --local-dir data/refreward
-```
+The selected scorer and annotation metadata are included in `resources/refreward/`.
 
 Obtain robot media from [Imitator Game](https://imitator-game.github.io/).
 Prepare the frozen
@@ -69,8 +62,8 @@ export ROBODEMO_RETRIEVAL_QWEN=/models/Qwen3-VL-Embedding-2B
 export ROBODEMO_RETRIEVAL_DINO=/models/dinov3-vith16plus-pretrain-lvd1689m
 
 python examples/retrieve_reference.py \
-  --episodes data/refreward/data/episodes.jsonl \
-  --checkpoint checkpoints/refreward/model.safetensors \
+  --episodes resources/refreward/data/episodes.jsonl \
+  --checkpoint resources/refreward/model.safetensors \
   --data-root "$ROBODEMO_DATA_ROOT" \
   --query-episode 3806 --candidate-ids 3836 3815 3820 \
   --device cpu
@@ -89,6 +82,19 @@ benchmark candidate pool. Use the published eligible bank and
 CPU extraction is supported but slow. To use an allocated CUDA GPU, set
 `CUDA_VISIBLE_DEVICES` and pass `--device cuda:0`. The small scorer runs on CPU.
 Generated feature files stay in `outputs/`; they are not part of the release.
+
+## Verified Examples
+
+Both examples completed end to end on 2026-11-19. The policy example
+returned two finite action chunks with execution-memory ages `[0, 1]`.
+Its first chunk differed from the recorded comparison by at most 0.0078125
+on the tested H200 environment; the optional strict comparison is not
+claimed to pass across hardware.
+
+The CPU retrieval example rebuilt features from the raw query/candidate
+media, loaded the released scorer and selected episode 3836 from the
+three-candidate subset. [Inputs, scores and memory measurements](../docs/validation/20261119.json)
+are available with the release. No physical robot is controlled.
 
 ## Sample Attribution
 

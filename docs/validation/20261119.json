@@ -1,0 +1,188 @@
+{
+  "date": "2026-11-19",
+  "hardware": {
+    "gpu": "NVIDIA H200",
+    "driver": "570.195.03",
+    "visible_gpus": 2
+  },
+  "offline_cpu_tests": {
+    "passed": 95
+  },
+  "policy_example": {
+    "checkpoint": "RoboDemo-full50 240k",
+    "calls": 2,
+    "strict_load": true,
+    "execution_memory_ages": [
+      0,
+      1
+    ],
+    "normalized_chunk_shape": [
+      30,
+      16
+    ],
+    "first_native_action": [
+      0.0067708895076066256,
+      0.4091213242500089,
+      0.012619200279004872,
+      -1.962055289579439,
+      0.02620556065812707,
+      2.369520572043257,
+      0.7741265359800309,
+      0.9921875,
+      0.0033763100509531796,
+      0.39752938062883914,
+      0.02029103768290952,
+      -1.9576929077302339,
+      0.04402807308360934,
+      2.360387362074107,
+      0.7769316993653774,
+      1.015625
+    ],
+    "recorded_first_chunk_max_absolute_error": 0.0078125,
+    "physical_robot_control": false
+  },
+  "policy_memory_budget_runs": [
+    {
+      "completed": false,
+      "error_type": "OutOfMemoryError",
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 16,
+      "peak_pytorch_allocated_gib": 15.845112800598145,
+      "peak_pytorch_reserved_gib": 15.998046875,
+      "peak_process_nvidia_smi_mib": 16968,
+      "process_memory_samples": 55,
+      "elapsed_seconds": 32.428701270371675,
+      "native_capacity_test": false
+    },
+    {
+      "completed": false,
+      "error_type": "OutOfMemoryError",
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 17,
+      "peak_pytorch_allocated_gib": 16.93088388442993,
+      "peak_pytorch_reserved_gib": 16.9921875,
+      "peak_process_nvidia_smi_mib": 17994,
+      "process_memory_samples": 49,
+      "elapsed_seconds": 28.755769856274128,
+      "native_capacity_test": false
+    },
+    {
+      "completed": true,
+      "error_type": null,
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 18,
+      "peak_pytorch_allocated_gib": 17.481365203857422,
+      "peak_pytorch_reserved_gib": 17.5625,
+      "peak_process_nvidia_smi_mib": 18390,
+      "process_memory_samples": 55,
+      "elapsed_seconds": 32.57025768607855,
+      "native_capacity_test": false
+    },
+    {
+      "completed": true,
+      "error_type": null,
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 32,
+      "peak_pytorch_allocated_gib": 17.481365203857422,
+      "peak_pytorch_reserved_gib": 17.5625,
+      "peak_process_nvidia_smi_mib": 18670,
+      "process_memory_samples": 96,
+      "elapsed_seconds": 56.69606463238597,
+      "native_capacity_test": false
+    },
+    {
+      "completed": true,
+      "error_type": null,
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 80,
+      "peak_pytorch_allocated_gib": 17.481365203857422,
+      "peak_pytorch_reserved_gib": 17.5625,
+      "peak_process_nvidia_smi_mib": 18670,
+      "process_memory_samples": 52,
+      "elapsed_seconds": 30.739595025777817,
+      "native_capacity_test": false
+    }
+  ],
+  "simulator": [
+    {
+      "completed": true,
+      "error_type": null,
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 24,
+      "peak_pytorch_allocated_gib": 17.623350143432617,
+      "peak_pytorch_reserved_gib": 17.720703125,
+      "peak_process_nvidia_smi_mib": 21894,
+      "process_memory_samples": 1127,
+      "elapsed_seconds": 357.0385534539819,
+      "native_capacity_test": false,
+      "model": "RoboDemo-full50 240k",
+      "episode": "L0_TwoRobotFoldTowel-v1_trial00",
+      "control_steps": 500,
+      "success": true
+    },
+    {
+      "completed": true,
+      "error_type": null,
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 32,
+      "peak_pytorch_allocated_gib": 17.623350143432617,
+      "peak_pytorch_reserved_gib": 17.720703125,
+      "peak_process_nvidia_smi_mib": 21900,
+      "process_memory_samples": 1122,
+      "elapsed_seconds": 354.55204297602177,
+      "native_capacity_test": false,
+      "model": "RoboDemo-full50 240k",
+      "episode": "L0_TwoRobotFoldTowel-v1_trial00",
+      "control_steps": 500,
+      "success": true
+    }
+  ],
+  "retrieval_example": {
+    "query_episode": "L0_TwoRobotPourKettle-v1:6",
+    "query_instruction": "Grasp the kettle and position it above the cup for pouring.",
+    "query_frames_used": [
+      0
+    ],
+    "candidate_count": 3,
+    "scope": "Ranking within the explicitly supplied candidate subset",
+    "selected": {
+      "episode_id": 3836,
+      "uid": "L0_TwoRobotPourKettle-v1:36",
+      "instruction": "Grasp the kettle and position it above the cup for pouring.",
+      "score": 1.7081705331802368
+    },
+    "rankings": [
+      {
+        "episode_id": 3836,
+        "uid": "L0_TwoRobotPourKettle-v1:36",
+        "instruction": "Grasp the kettle and position it above the cup for pouring.",
+        "score": 1.7081705331802368
+      },
+      {
+        "episode_id": 3820,
+        "uid": "L0_TwoRobotPourKettle-v1:20",
+        "instruction": "Grasp the kettle and position it above the cup for pouring.",
+        "score": 1.6411762237548828
+      },
+      {
+        "episode_id": 3815,
+        "uid": "L0_TwoRobotPourKettle-v1:15",
+        "instruction": "Grasp the kettle and position it above the cup for pouring.",
+        "score": 1.1644337177276611
+      }
+    ]
+  },
+  "limits": {
+    "native_32gb_gpu": false,
+    "native_80gb_gpu": false,
+    "eight_gpu_execution": false,
+    "container_image_built": false
+  }
+}

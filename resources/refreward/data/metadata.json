@@ -1,0 +1,81 @@
+{
+  "conditions": 15093,
+  "ordinary_votes": 45279,
+  "reviews": 544,
+  "kinds": {
+    "pointwise": 12994,
+    "pairwise": 2099
+  },
+  "queries": 350,
+  "episodes": 10000,
+  "mapping_rows": 10000,
+  "unavailable_conditions": [
+    {
+      "condition_id": "condition-05138",
+      "kind": "pointwise",
+      "query": 3971,
+      "candidates": [
+        3998
+      ],
+      "source_role": "test"
+    },
+    {
+      "condition_id": "condition-05145",
+      "kind": "pointwise",
+      "query": 3971,
+      "candidates": [
+        3845
+      ],
+      "source_role": "test"
+    },
+    {
+      "condition_id": "condition-05873",
+      "kind": "pairwise",
+      "query": 3773,
+      "candidates": [
+        3737,
+        3662
+      ],
+      "source_role": "test"
+    },
+    {
+      "condition_id": "condition-07526",
+      "kind": "pointwise",
+      "query": 3920,
+      "candidates": [
+        3845
+      ],
+      "source_role": "calibration"
+    },
+    {
+      "condition_id": "condition-09849",
+      "kind": "pointwise",
+      "query": 3972,
+      "candidates": [
+        3845
+      ],
+      "source_role": "train"
+    },
+    {
+      "condition_id": "condition-10088",
+      "kind": "pointwise",
+      "query": 2590,
+      "candidates": [
+        2599
+      ],
+      "source_role": "test"
+    },
+    {
+      "condition_id": "condition-11084",
+      "kind": "pointwise",
+      "query": 9594,
+      "candidates": [
+        9451
+      ],
+      "source_role": "test"
+    }
+  ],
+  "teacher": "gpt-6-astra",
+  "source": "existing saved annotations",
+  "new_teacher_calls": 0
+}
