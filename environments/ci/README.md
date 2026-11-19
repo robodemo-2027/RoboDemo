@@ -14,6 +14,8 @@ is a separate manual dispatch.
 
 The [first validated release run](https://github.com/robodemo-2027/RoboDemo/actions/runs/44465316393)
 passed all 28 offline cases and inspected the recorded policy inputs.
+The current suite has 30 offline cases, including the image-publication
+gate tests.
 The [website CI](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml)
 separately checks numerical totals, animations, media metadata and generated
 evaluation commands.

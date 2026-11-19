@@ -48,8 +48,8 @@ measurements**, including the renderer, rather than native 24/32/80-GB
 card tests. Use 24 GB as the minimum practical target for the measured
 configuration and **32 GB or more for comfortable evaluation**. Rendering
 and reference-video differences can change the peak across tasks.
-The 80-GB two-worker recommendation is a memory estimate, not a measured
-concurrency or throughput result.
+The two-worker configuration also completed a real concurrent Full50 run
+on H200, described below.
 
 ### Policy Example
 
@@ -86,6 +86,18 @@ The allocator budget does not cap Vulkan or driver allocations; the
 **total process peak** is the sizing quantity. An 18-GiB allocator budget
 does not mean full evaluation fits on an 18-GB card.
 
+### Concurrent Workers
+
+Full50 completed **four 500-step episodes on two H200s, with two workers
+per GPU**, using the published launcher and result merge. All four episodes
+completed 500 policy calls and 499 progress-memory updates. The peak
+combined process memory was **42.77 GiB per GPU**, including both renderers.
+This supports the **two-worker starting configuration for 80 GB**.
+
+[Concurrent-run measurements](validation/20261119-concurrency.json).
+
+### Profile An Episode
+
 To reproduce a measured complete-episode profile:
 
 ```bash
@@ -107,8 +119,9 @@ runtime, **not per-worker VRAM**. Do not change token counts, action horizon,
 image resolution or precision to reproduce the reported protocol.
 
 The eight-GPU launcher uses exactly the same independent worker per device.
-Its sharding and merge logic have CPU tests; end-to-end execution on eight
-physical GPUs is not yet validated. The available H200 host has two GPUs.
+Its sharding and merge logic have CPU tests and the two-GPU integration
+run above. End-to-end execution on eight physical GPUs is not yet validated;
+the available H200 host has two GPUs.
 
 ## Restart And Merge
 

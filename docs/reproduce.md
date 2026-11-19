@@ -57,6 +57,7 @@ Last reviewed: November 19, 2026.
 | Human-video policy example | Two real policy calls; memory ages `[0, 1]` | [Example outputs](validation/20261119.json) |
 | Raw-media retrieval example | Both encoders and scorer ran on CPU; selected episode 3836 | [Inputs and ranking](../examples/README.md#2-retrieve-a-robot-reference) |
 | Memory sizing | H200 process measurements and 24/32/80-GB configuration guidance | [Peaks and worker counts](evaluation-scaling.md) |
+| Concurrent evaluation | Two H200s, two workers per GPU, four complete episodes and a successful result merge | [42.77-GiB per-GPU peak](validation/20261119-concurrency.json) |
 | Eight-GPU evaluation | Ten per-model launchers and CPU sharding tests released | Eight physical GPUs running end to end |
 | Docker | Image built, CPU import/package checks passed, archive published | [Download and use the image](https://huggingface.co/mxk1998/RoboDemo-Docker); GPU simulator validation |
 | CI | GitHub Actions runs offline code tests and website tests | [Code](https://github.com/robodemo-2027/RoboDemo/actions) and [website](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml) |

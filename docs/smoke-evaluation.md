@@ -50,6 +50,11 @@ completed 500 policy calls and 499 execution-memory updates. The measured
 total process peaks were 21.38 GiB for Full50/C15/C30/C45 and 21.37 GiB for
 C15-wo, including rendering. All five trials reached the success condition.
 
-The human-reference and robot-reference CPU suites each passed 98 tests.
+The human-reference and robot-reference CPU suites each passed 100 tests.
 [H200 records](validation/20261119-five-model-memory.json) and
 [24/32/80-GB sizing guidance](evaluation-scaling.md) accompany these runs.
+
+A separate Full50 integration run completed four episodes on two H200s
+with two workers per GPU. The launcher merged all four results, and the
+peak combined process memory was 42.77 GiB per GPU.
+[Concurrent-run record](validation/20261119-concurrency.json).

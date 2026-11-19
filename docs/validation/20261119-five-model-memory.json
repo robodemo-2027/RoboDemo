@@ -130,7 +130,8 @@
     "recommended_entry_gb": 32,
     "workers_per_32gb_gpu": 1,
     "workers_per_80gb_gpu": 2,
-    "source": "H200 total-process measurements; two-worker setting is a capacity estimate"
+    "source": "Five single-worker H200 process measurements and a Full50 two-workers-per-GPU integration run",
+    "concurrent_run": "20261119-concurrency.json"
   },
   "eight_physical_gpu_execution": false
 }

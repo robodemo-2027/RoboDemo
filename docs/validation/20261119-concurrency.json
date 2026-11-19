@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-19",
+  "purpose": "Integration and memory sizing, separate from benchmark statistics",
+  "hardware": {
+    "gpu": "NVIDIA H200",
+    "driver": "570.195.03",
+    "physical_gpu_count": 2
+  },
+  "configuration": {
+    "model": "RoboDemo-full50",
+    "checkpoint_step": 240000,
+    "workers_per_gpu": 2,
+    "policy_batch_size": 1,
+    "global_episode_count": 4,
+    "control_steps_per_episode": 500,
+    "rendering": "224x224 RGB, rt-fast, OptiX denoising"
+  },
+  "completed": true,
+  "merge_complete": true,
+  "memory": {
+    "method": "Per-sample process totals deduplicated by PID and GPU, then peak over samples",
+    "requested_sampling_interval_seconds": 0.5,
+    "sample_count": 619,
+    "peak_process_total_per_gpu_mib": [
+      43788,
+      43800
+    ],
+    "peak_process_per_worker_mib": [
+      21900,
+      21894,
+      21900,
+      21894
+    ]
+  },
+  "elapsed_seconds": 373.46999008208513,
+  "episodes": [
+    {
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial00",
+      "control_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "success": true,
+      "first_success_step": 346
+    },
+    {
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial01",
+      "control_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "success": true,
+      "first_success_step": 346
+    },
+    {
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial02",
+      "control_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "success": true,
+      "first_success_step": 345
+    },
+    {
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial03",
+      "control_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "success": true,
+      "first_success_step": 347
+    }
+  ],
+  "native_80gb_hardware": false,
+  "eight_physical_gpu_execution": false
+}

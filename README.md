@@ -34,6 +34,7 @@
 - [x] **Retrieval:** scorer weights and GPT annotation data bundled in [resources/refreward](resources/refreward), plus compact reference maps.
 - [x] **Environment:** [downloadable Docker image](https://huggingface.co/mxk1998/RoboDemo-Docker), pinned dependencies and environment diagnostics.
 - [x] **Tests:** 100 CPU regression tests per policy variant and [five-model H200 memory measurements](docs/evaluation-scaling.md).
+- [x] **Parallel evaluation:** [two GPUs with two workers each](docs/validation/20261119-concurrency.json), four complete episodes and a successful merge; 42.77 GiB peak per GPU.
 - [x] **Automation:** [GitHub Actions](environments/ci/README.md) runs 30 offline tests and inspects the included policy inputs on every push and pull request.
 - [ ] **Validation next:** Docker GPU rendering and eight-GPU end-to-end evaluation.
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
