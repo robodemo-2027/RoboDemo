@@ -1,16 +1,22 @@
-# GitHub Actions Templates
+# GitHub Actions
 
-These templates are not active workflows in this release.
+The workflows are active under [`.github/workflows`](../../.github/workflows).
+Copies in this directory are available for reuse.
 
 | Template | Trigger | Purpose |
 | --- | --- | --- |
 | `offline-tests.yml` | Push or pull request | CPU-only regression and sample checks |
 | `build-image.yml` | Manual dispatch | Build, check and publish the evaluation image |
 
-Repository maintainers can place the files under `.github/workflows/` using
-a credential authorized to update workflows. Workflow-update permission is
-needed to publish those files; the jobs themselves request only
-`contents: read`, not permission to modify repository code.
+The jobs request only `contents: read`, not permission to modify repository
+code. CPU regression runs on every push and pull request; image publication
+is a separate manual dispatch.
+
+The [first validated release run](https://github.com/robodemo-2027/RoboDemo/actions/runs/44465316393)
+passed all 28 offline cases and inspected the recorded policy inputs.
+The [website CI](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml)
+separately checks numerical totals, animations, media metadata and generated
+evaluation commands.
 
 The workflow checks synthetic orchestration, recorded sample integrity and
 the small scorer interface. It does not load policy weights, start a simulator

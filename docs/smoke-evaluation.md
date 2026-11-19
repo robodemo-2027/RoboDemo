@@ -41,3 +41,15 @@ the remaining runs. Use a new output directory for each run.
 [Machine-readable records](smoke-evaluation.json) include per-run outcomes
 and timings. These five episodes are separate from the published benchmark
 statistics and do not measure fresh-query retrieval for C15-wo.
+
+## H200 Follow-Up
+
+On November 19, all five checkpoints also completed the same 500-step trial
+on H200 with NVIDIA driver 570.195.03. Every checkpoint loaded strictly and
+completed 500 policy calls and 499 execution-memory updates. The measured
+total process peaks were 21.38 GiB for Full50/C15/C30/C45 and 21.37 GiB for
+C15-wo, including rendering. All five trials reached the success condition.
+
+The human-reference and robot-reference CPU suites each passed 98 tests.
+[H200 records](validation/20261119-five-model-memory.json) and
+[24/32/80-GB sizing guidance](evaluation-scaling.md) accompany these runs.

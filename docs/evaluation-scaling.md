@@ -39,34 +39,76 @@ for the complete plan: 2,000 episodes for Full50 or 400 for each other model.
 
 | GPU capacity | `--workers-per-gpu` | Suggested first run |
 | --- | ---: | --- |
-| 32 GB | **1** | `--max-episodes 1` |
-| 80 GB | **1 initially; 2 after a one-worker check** | `--max-episodes 2` |
+| 24 GB | **1** | `--max-episodes 1`; lower-capacity option for the measured setup |
+| 32 GB | **1** | `--max-episodes 1`; recommended entry configuration |
+| 80 GB | **2** | `--max-episodes 2`; budget about 43 GiB for two measured workers |
 
-The new Full50 human-video example has completed both policy calls on H200
+These are capacity recommendations derived from **H200 process-memory
+measurements**, including the renderer, rather than native 24/32/80-GB
+card tests. Use 24 GB as the minimum practical target for the measured
+configuration and **32 GB or more for comfortable evaluation**. Rendering
+and reference-video differences can change the peak across tasks.
+The 80-GB two-worker recommendation is a memory estimate, not a measured
+concurrency or throughput result.
+
+### Policy Example
+
+The Full50 human-video example completed both policy calls on H200
 under **18, 32 and 80 GiB PyTorch allocation budgets**. Budgets of 16 and
 17 GiB failed with allocator OOM; all failures are retained. Its peak
 PyTorch allocation was **17.48 GiB**, with sampled process memory up to
 **18.23 GiB**.
 
-A complete **500-step** Full50 simulator episode also passed under both
+### Complete Simulator Episodes
+
+All five released checkpoints completed a **500-step** episode on H200,
+with strict loading and the unchanged renderer and policy settings:
+
+| Checkpoint | Peak PyTorch allocation (GiB) | Peak total process (GiB) | Control steps |
+| --- | ---: | ---: | ---: |
+| Full50 240k | 17.62 | 21.38 | 500 |
+| C15 90k | 17.62 | 21.38 | 500 |
+| C30 160k | 17.62 | 21.38 | 500 |
+| C45 260k | 17.62 | 21.38 | 500 |
+| C15-wo 100k | 17.62 | 21.37 | 500 |
+
+The scene was `L0_TwoRobotFoldTowel-v1_trial00`, batch size 1, 224-by-224 RGB,
+PhysX CPU simulation, and `rt-fast` with OptiX denoising. Each run completed
+500 policy calls and 499 progress-memory updates. Process memory was sampled
+every 0.5 seconds. [Download the measurements](validation/20261119-five-model-memory.json).
+
+Earlier complete Full50 simulator episodes also passed under both
 24 and 32 GiB PyTorch budgets: **17.62 GiB** peak allocated and up to
 **21.39 GiB** sampled total process memory including the renderer. See the
 [validation record](validation/20261119.json).
 
-These are **allocation-budget tests on H200**, not native 32-GB or 80-GB
-hardware tests. The budget does not cap Vulkan or driver allocations.
-**32 GB remains the recommended entry capacity**; the 18 GiB example
-result is not a minimum hardware requirement for full evaluation. A
-single episode cannot establish a minimum for every task/reference.
-The available host has two GPUs, so native eight-GPU execution remains
-unverified.
+The allocator budget does not cap Vulkan or driver allocations; the
+**total process peak** is the sizing quantity. An 18-GiB allocator budget
+does not mean full evaluation fits on an 18-GB card.
 
-Start with enough *free* VRAM, not merely the card's nominal capacity. On
-an 80-GB card, increase to two workers only after checking the full episode's
-observed memory use and leaving room for the renderer. If memory is tight,
-reduce `--workers-per-gpu` to 1. Reducing the number of episodes changes
+To reproduce a measured complete-episode profile:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python environments/profile_memory.py \
+  --budget-gib 18 --output outputs/full50-memory.json -- \
+  evaluation/evaluate.py --model full50 \
+  --checkpoint checkpoints/RoboDemo-full50/pytorch_model.pt \
+  --data-root "$ROBODEMO_DATA_ROOT" \
+  --task-level L0_TwoRobotFoldTowel-v1 --max-episodes 1 \
+  --output outputs/full50-profiled
+```
+
+### Choose The Evaluation Scale
+
+Start with enough *free* VRAM, not merely the card's nominal capacity.
+On a shared 80-GB card, use one worker if two copies and a safety margin
+do not fit in the available memory. Reducing the number of episodes changes
 runtime, **not per-worker VRAM**. Do not change token counts, action horizon,
 image resolution or precision to reproduce the reported protocol.
+
+The eight-GPU launcher uses exactly the same independent worker per device.
+Its sharding and merge logic have CPU tests; end-to-end execution on eight
+physical GPUs is not yet validated. The available H200 host has two GPUs.
 
 ## Restart And Merge
 
