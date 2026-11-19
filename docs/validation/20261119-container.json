@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-19",
+  "platform": "Linux amd64",
+  "repository": "https://huggingface.co/mxk1998/RoboDemo-Docker",
+  "workflow": "https://github.com/robodemo-2027/RoboDemo/actions/runs/44467850247",
+  "image_archive_bytes": 11723560187,
+  "clean_build": true,
+  "archive_export_and_upload": true,
+  "cpu_check": {
+    "python": "3.10.20",
+    "packages": {
+      "torch": "2.6.0+cu124",
+      "torchvision": "0.21.0+cu124",
+      "transformers": "4.57.6",
+      "flash-attn": "2.7.4.post1",
+      "sapien": "3.0.3",
+      "gymnasium": "0.29.1",
+      "numpy": "1.26.4",
+      "av": "12.3.0",
+      "triton": "3.2.0",
+      "pytorch-kinematics": "0.7.5",
+      "fast-kinematics": "0.2.2",
+      "mplib": "0.1.1"
+    },
+    "checks": {
+      "import_torch": true,
+      "import_transformers": true,
+      "import_sapien": true,
+      "import_gymnasium": true,
+      "import_pytorch_kinematics": true,
+      "import_fast_kinematics": true,
+      "import_mani_skill.envs": true
+    },
+    "errors": [],
+    "passed": true
+  },
+  "gpu_simulator_test": false
+}

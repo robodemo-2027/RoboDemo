@@ -25,15 +25,17 @@
 
 ## Release Status
 
+[![Offline release tests](https://github.com/robodemo-2027/RoboDemo/actions/workflows/offline-tests.yml/badge.svg)](https://github.com/robodemo-2027/RoboDemo/actions/workflows/offline-tests.yml)
+
 - [x] **Code:** model architecture, dual-memory inference, evaluator and environment.
 - [x] **Models & results:** five checkpoints, trial plans, normalization and 3,600 episode logs.
 - [x] **Verified:** all five models completed a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
 - [x] **Getting started:** two end-to-end tested minimal inference examples, recorded inputs, and per-model single/eight-GPU launchers.
 - [x] **Retrieval:** scorer weights and GPT annotation data bundled in [resources/refreward](resources/refreward), plus compact reference maps.
-- [x] **Environment:** shared Docker recipe, pinned dependencies and environment diagnostics.
-- [x] **Tests:** 95 passing CPU regression tests and [H200 memory-budget checks](docs/evaluation-scaling.md), with an [optional GitHub Actions template](environments/ci/README.md).
-- [ ] **Automation:** activate the supplied Actions workflow.
-- [ ] **Validation next:** fresh Docker GPU run, native 32/80-GB sizing and eight-GPU end-to-end evaluation.
+- [x] **Environment:** [downloadable Docker image](https://huggingface.co/mxk1998/RoboDemo-Docker), pinned dependencies and environment diagnostics.
+- [x] **Tests:** 98 CPU regression tests per policy variant and [five-model H200 memory measurements](docs/evaluation-scaling.md).
+- [x] **Automation:** [GitHub Actions](environments/ci/README.md) runs 28 offline tests and inspects the included policy inputs on every push and pull request.
+- [ ] **Validation next:** Docker GPU rendering and eight-GPU end-to-end evaluation.
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
 
 **Start here:** [Choose a reproduction path](docs/reproduce.md) &middot;
@@ -197,8 +199,9 @@ See [environment setup](environments/README.md) for the full dependency
 inventory and rendering configuration.
 
 For a container-based setup, use the shared
-[Docker build recipe](https://github.com/robodemo-2027/RoboDemo/tree/main/environments).
-It covers all five checkpoints and includes driver and asset diagnostics.
+[prebuilt Docker image](https://huggingface.co/mxk1998/RoboDemo-Docker).
+The [environment guide](environments/README.md) covers streaming download,
+data mounts, driver checks and evaluation for all five checkpoints.
 
 <details>
 <summary><strong>Install the evaluation environment</strong></summary>

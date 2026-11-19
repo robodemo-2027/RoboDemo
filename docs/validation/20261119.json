@@ -183,6 +183,10 @@
     "native_32gb_gpu": false,
     "native_80gb_gpu": false,
     "eight_gpu_execution": false,
-    "container_image_built": false
+    "container_image_built": true
+  },
+  "follow_up": {
+    "five_model_memory": "20261119-five-model-memory.json",
+    "container": "20261119-container.json"
   }
 }

@@ -7,6 +7,10 @@ inspect the included inputs or try a policy/retrieval example without a simulato
 
 ## 1. Install The Code
 
+For a ready-made Linux amd64 environment, use the
+[Docker image and mounted-data commands](../environments/README.md#docker-image).
+For a native Python environment:
+
 ```bash
 git clone https://github.com/robodemo-2027/RoboDemo.git
 cd RoboDemo

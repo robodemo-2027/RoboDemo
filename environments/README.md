@@ -29,12 +29,14 @@ The tests use small synthetic tensors and saved episode records.
 They do not load pretrained weights, run the simulator, make network requests
 or control a physical robot. A new GPU rollout is separate from those tests.
 
-## Docker Recipe
+## Docker Image
 
 The build files, package inventory and diagnostics are maintained here in
-GitHub. They serve all five policy checkpoints. We provide a **Docker build recipe**,
-not a prebuilt container image. The recorded native environment has completed
-policy/simulator runs; a fresh Docker build and GPU run still need validation.
+GitHub. The shared Linux **amd64** image is available from
+[RoboDemo-Docker on Hugging Face](https://huggingface.co/mxk1998/RoboDemo-Docker).
+It serves all five policy checkpoints and has passed a clean build and CPU
+package/simulator-import checks in
+[GitHub Actions](https://github.com/robodemo-2027/RoboDemo/actions/runs/44467850247).
 
 The image fixes Python 3.10.20, the CUDA 12.4 PyTorch build, simulator source,
 and package versions. Dataset assets and model files are mounted separately.
@@ -42,7 +44,9 @@ It deliberately does not install the simulator repository's current training
 extras, which target a different Python/PyTorch stack.
 
 ```bash
-docker build -t robodemo-evaluation:cu124 environments
+# Stream into Docker without storing a second archive copy.
+curl -fL https://huggingface.co/mxk1998/RoboDemo-Docker/resolve/main/robodemo-evaluation-cu124-amd64.tar.gz \
+  | gzip -d | docker load
 
 # Run from the RoboDemo repository; /data/robodemo-assets is an example path.
 export ROBODEMO_HOST_ASSETS=/data/robodemo-assets
@@ -52,6 +56,10 @@ mkdir -p "$ROBODEMO_HOST_OUTPUTS"
 docker compose -f environments/docker-compose.yml run --rm evaluation \
   python environments/check_environment.py --assets
 ```
+
+To build from source instead, run
+`docker build -t robodemo-evaluation:cu124 environments`.
+The image does not contain model weights or benchmark assets.
 
 The asset mount should contain `IG-10K-Dataset/`, `maniskill/`,
 `Qwen3-VL-4B-Instruct/`, `vjepa2/`, and `vjepa2-ac-vitg.pt`.
@@ -78,7 +86,7 @@ Two native driver configurations have completed simulator runs:
 | NVIDIA driver | Recorded validation |
 | --- | --- |
 | **555.42.06** | Original recorded evaluation environment |
-| **570.195.03** | [Full50 500-step runs and minimal examples on H200](../docs/validation/20261119.json) |
+| **570.195.03** | [Five-model 500-step memory runs on H200](../docs/validation/20261119-five-model-memory.json) and [minimal examples](../docs/validation/20261119.json) |
 
 CUDA 12.4 wheels require a compatible Linux driver (CUDA 12.x minor-version
 compatibility starts at 525.60.13), but that CUDA floor alone does not certify
@@ -125,9 +133,9 @@ A budget is not a physical GPU partition: the driver and renderer allocate
 memory outside the PyTorch limit. Use the process-memory reading and a
 complete simulator episode when deciding how many workers fit.
 
-The manual image-build workflow is in `ci/build-image.yml`. It builds a
+The active manual [image-build workflow](../.github/workflows/build-image.yml) builds a
 clean Linux amd64 image, checks its imports/package versions, and publishes
 a `docker load` archive to `mxk1998/RoboDemo-Docker` only after those checks
-pass. Activation requires GitHub Actions workflow permission and the
-repository secret `HF_TOKEN`; an unbuilt archive is never advertised as a
-released image.
+pass. The publication step uses the repository's `HF_TOKEN` secret; users
+do not need a token to download the public image. `ci/build-image.yml` is
+the reusable workflow copy.

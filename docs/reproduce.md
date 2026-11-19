@@ -42,9 +42,10 @@ Use a GPU allocated to your job and a new output directory. A smoke run
 completes the full 500-control-step horizon. Omit `--max-episodes` to run
 the complete plan, or increase it for a smaller study.
 
-**Start with one worker per GPU.** 32 GB is the recommended entry capacity.
-On an 80-GB GPU, start with one worker and measure a complete episode before
-trying two. Episode count changes runtime, not per-worker memory.
+**Use one worker on 32 GB, or two workers on 80 GB.** These starting
+configurations use H200 process-memory measurements. A 24-GB card is the
+minimum practical target for the measured setup; 32 GB leaves more rendering
+headroom. Episode count changes runtime, not per-worker memory.
 
 ## Validation Status
 
@@ -52,17 +53,22 @@ Last reviewed: November 19, 2026.
 
 | Item | Completed | Next validation |
 | --- | --- | --- |
-| Five policy checkpoints | Strict loading and one complete simulator episode per checkpoint | [Recorded runs](smoke-evaluation.md) |
+| Five policy checkpoints | Strict loading and one complete simulator episode per checkpoint on H20 and H200 | [Recorded runs](smoke-evaluation.md) and [H200 measurements](validation/20261119-five-model-memory.json) |
 | Human-video policy example | Two real policy calls; memory ages `[0, 1]` | [Example outputs](validation/20261119.json) |
 | Raw-media retrieval example | Both encoders and scorer ran on CPU; selected episode 3836 | [Inputs and ranking](../examples/README.md#2-retrieve-a-robot-reference) |
-| Memory sizing | H200 allocator-budget checks; Full50 simulator process peaked at 21.39 GiB | Native 32/80-GB cards and minimum capacity |
+| Memory sizing | H200 process measurements and 24/32/80-GB configuration guidance | [Peaks and worker counts](evaluation-scaling.md) |
 | Eight-GPU evaluation | Ten per-model launchers and CPU sharding tests released | Eight physical GPUs running end to end |
-| Docker | Pinned recipe, diagnostics and build/upload workflow supplied | Build and upload the image; GPU simulator test |
-| CI | Local CPU and website tests; workflow templates supplied | Activate GitHub Actions |
+| Docker | Image built, CPU import/package checks passed, archive published | [Download and use the image](https://huggingface.co/mxk1998/RoboDemo-Docker); GPU simulator validation |
+| CI | GitHub Actions runs offline code tests and website tests | [Code](https://github.com/robodemo-2027/RoboDemo/actions) and [website](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml) |
 
-The [memory measurements](evaluation-scaling.md) are H200 allocation-budget
-tests, not physical 32/80-GB GPU tests. They do not establish an exact minimum
-for all tasks. The available validation host has two GPUs.
+The complete CPU suite passed **98 tests for each policy variant**. Hosted
+code CI runs a 28-case offline subset plus inspection of the included sample;
+the static site suite has 17 cases. These counts describe different suites,
+not independent benchmark experiments.
+
+The [memory guide](evaluation-scaling.md) uses measured total process peaks,
+including rendering. Hardware-specific performance and eight-device execution
+are separate from this capacity guidance.
 
 ## Common Setup Problems
 
