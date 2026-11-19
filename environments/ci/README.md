@@ -39,8 +39,10 @@ python -m pytest -q tests
 
 The manual image job builds Linux amd64 on a GitHub-hosted CPU runner.
 The container writes its diagnostics to a mounted JSON file, separately
-from library stdout. A failed build or failed import check stops publication.
-The diagnostics are retained as a workflow artifact.
+from library stdout. Publication also runs the complete CPU suite inside the
+image for both policy variants. A failed build, import check or regression
+test stops publication. Import diagnostics are retained as a workflow artifact;
+both JSON reports accompany the published image.
 
 Only the publication step receives the repository's `HF_TOKEN` secret. It
 uploads the loadable image archive to `mxk1998/RoboDemo-Docker`.

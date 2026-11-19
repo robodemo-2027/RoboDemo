@@ -2,8 +2,8 @@
   "date": "2026-11-19",
   "platform": "Linux amd64",
   "repository": "https://huggingface.co/mxk1998/RoboDemo-Docker",
-  "workflow": "https://github.com/robodemo-2027/RoboDemo/actions/runs/44467850247",
-  "image_archive_bytes": 11723560187,
+  "workflow": "https://github.com/robodemo-2027/RoboDemo/actions/runs/44473741985",
+  "image_archive_bytes": 5897034623,
   "clean_build": true,
   "archive_export_and_upload": true,
   "cpu_check": {
@@ -34,5 +34,20 @@
     "errors": [],
     "passed": true
   },
-  "gpu_simulator_test": false
+  "gpu_simulator_test": false,
+  "cpu_regression": {
+    "image": "robodemo-evaluation:cu124",
+    "gpu_execution": false,
+    "variants": {
+      "human": {
+        "exit_code": 0,
+        "passed_tests": 100
+      },
+      "robot": {
+        "exit_code": 0,
+        "passed_tests": 100
+      }
+    },
+    "passed": true
+  }
 }

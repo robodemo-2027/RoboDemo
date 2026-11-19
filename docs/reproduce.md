@@ -59,7 +59,7 @@ Last reviewed: November 19, 2026.
 | Memory sizing | H200 process measurements and 24/32/80-GB configuration guidance | [Peaks and worker counts](evaluation-scaling.md) |
 | Concurrent evaluation | Two H200s, two workers per GPU, four complete episodes and a successful result merge | [42.77-GiB per-GPU peak](validation/20261119-concurrency.json) |
 | Eight-GPU evaluation | Ten per-model launchers and CPU sharding tests released | Eight physical GPUs running end to end |
-| Docker | Image built, CPU import/package checks passed, archive published | [Download and use the image](https://huggingface.co/mxk1998/RoboDemo-Docker); GPU simulator validation |
+| Docker | 5.9-GB image published; imports and 100 CPU tests per variant passed inside the image | [Download and use the image](https://huggingface.co/mxk1998/RoboDemo-Docker); GPU simulator validation |
 | CI | GitHub Actions runs offline code tests and website tests | [Code](https://github.com/robodemo-2027/RoboDemo/actions) and [website](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml) |
 
 The complete CPU suite passed **100 tests for each policy variant**. Hosted

@@ -34,9 +34,10 @@ or control a physical robot. A new GPU rollout is separate from those tests.
 The build files, package inventory and diagnostics are maintained here in
 GitHub. The shared Linux **amd64** image is available from
 [RoboDemo-Docker on Hugging Face](https://huggingface.co/mxk1998/RoboDemo-Docker).
-It serves all five policy checkpoints and has passed a clean build and CPU
-package/simulator-import checks in
-[GitHub Actions](https://github.com/robodemo-2027/RoboDemo/actions/runs/44467850247).
+It serves all five policy checkpoints. The **5.9-GB download** passed a clean
+build, CPU package/simulator-import checks and **100 CPU tests for each
+policy variant inside the image** in
+[GitHub Actions](https://github.com/robodemo-2027/RoboDemo/actions/runs/44473741985).
 
 The image fixes Python 3.10.20, the CUDA 12.4 PyTorch build, simulator source,
 and package versions. Dataset assets and model files are mounted separately.
@@ -134,7 +135,8 @@ memory outside the PyTorch limit. Use the process-memory reading and a
 complete simulator episode when deciding how many workers fit.
 
 The active manual [image-build workflow](../.github/workflows/build-image.yml) builds a
-clean Linux amd64 image, checks its imports/package versions, and publishes
+clean Linux amd64 image, checks its imports/package versions and both complete
+CPU test suites, and publishes
 a `docker load` archive to `mxk1998/RoboDemo-Docker` only after those checks
 pass. The publication step uses the repository's `HF_TOKEN` secret; users
 do not need a token to download the public image. `ci/build-image.yml` is
