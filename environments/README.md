@@ -73,11 +73,18 @@ one GPU; it is not an eight-GPU reservation.
 
 ## Host Driver And Diagnostics
 
-The validated native evaluation used NVIDIA driver **555.42.06**. CUDA
-12.4 wheels require a compatible Linux driver (CUDA 12.x minor-version
+Two native driver configurations have completed simulator runs:
+
+| NVIDIA driver | Recorded validation |
+| --- | --- |
+| **555.42.06** | Original recorded evaluation environment |
+| **570.195.03** | [Full50 500-step runs and minimal examples on H200](../docs/validation/20261119.json) |
+
+CUDA 12.4 wheels require a compatible Linux driver (CUDA 12.x minor-version
 compatibility starts at 525.60.13), but that CUDA floor alone does not certify
-SAPIEN/Vulkan/OptiX compatibility. Prefer the recorded driver when reproducing
-rendering. Do not install a kernel driver inside the container.
+SAPIEN/Vulkan/OptiX compatibility. Use a supported host driver and run the
+checks below; downgrading to 555.42.06 is not required. Do not install a
+kernel driver inside the container.
 
 `nvidia-smi`'s "CUDA Version" is the driver's supported CUDA level, not the
 PyTorch build's toolkit version. Use `torch.version.cuda` to check the latter.

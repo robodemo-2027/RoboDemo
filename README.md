@@ -36,7 +36,8 @@
 - [ ] **Validation next:** fresh Docker GPU run, native 32/80-GB sizing and eight-GPU end-to-end evaluation.
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
 
-**Start here:** [Evaluate a checkpoint](docs/quickstart.md) &middot;
+**Start here:** [Choose a reproduction path](docs/reproduce.md) &middot;
+[Evaluate a checkpoint](docs/quickstart.md) &middot;
 [Browse complete results](results/README.md) &middot;
 [Paper comparisons and ablations](results/paper/README.md).
 
@@ -44,6 +45,9 @@
 [Docker environment](https://github.com/robodemo-2027/RoboDemo/tree/main/environments) &middot;
 [GPU sizing and launchers](docs/evaluation-scaling.md) &middot;
 [Refreward weights and data](docs/retrieval.md).
+
+The [validation status](docs/reproduce.md#validation-status) separates tested
+examples and simulator runs from the remaining container and hardware checks.
 
 ## Overview
 

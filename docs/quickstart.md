@@ -2,6 +2,8 @@
 
 Run the evaluator on Linux with Python 3.10 and an NVIDIA GPU.
 All five checkpoints use the same entry point.
+For a smaller first step, see the [reproduction navigator](reproduce.md):
+inspect the included inputs or try a policy/retrieval example without a simulator.
 
 ## 1. Install The Code
 
@@ -71,7 +73,14 @@ retrieval run is needed to evaluate its released trial plan. See
 
 ## 4. Test One Episode
 
-From the repository root:
+From the repository root, check the environment and asset paths first:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python environments/check_environment.py --assets \
+  --output "outputs/${MODEL}-environment.json"
+```
+
+Then run one episode:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python evaluation/evaluate.py \
