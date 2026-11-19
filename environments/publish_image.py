@@ -17,42 +17,7 @@ def main():
         raise RuntimeError("Use the RoboDemo release account.")
     repo = "mxk1998/RoboDemo-Docker"
     api.create_repo(repo, private=False, exist_ok=True)
-    card = """---
-license: apache-2.0
-tags:
-- robotics
-- docker
-- evaluation
----
-# RoboDemo Evaluation Image
-
-A Linux **amd64** Docker image shared by all five RoboDemo checkpoints.
-It contains the pinned Python/CUDA/PyTorch environment and Imitator Game
-simulator source. Dataset assets and model weights are mounted separately.
-
-```bash
-hf download mxk1998/RoboDemo-Docker robodemo-evaluation-cu124-amd64.tar.gz \\
-  --local-dir .
-gunzip -c robodemo-evaluation-cu124-amd64.tar.gz | docker load
-docker run --rm --gpus all robodemo-evaluation:cu124
-```
-
-For dataset/model mounts, one-episode evaluation, driver requirements and
-diagnostics, use the [environment guide](https://github.com/robodemo-2027/RoboDemo/tree/main/environments).
-The reproducible [Dockerfile](https://github.com/robodemo-2027/RoboDemo/blob/main/environments/Dockerfile)
-is maintained in GitHub.
-
-## Validation
-
-The image completed a clean build and CPU import/package checks.
-`container-check.json` contains those results. This build job has no GPU:
-it does **not** establish GPU rendering compatibility. Run the documented
-GPU/asset checks and a complete episode on the deployment host.
-
-The host supplies its NVIDIA driver, NVIDIA Container Toolkit, Vulkan
-discovery and matching OptiX runtime. Do not install a kernel driver inside
-the image.
-"""
+    card = Path(__file__).with_name("IMAGE_README.md").read_text()
     commit = api.create_commit(
         repo_id=repo,
         operations=[

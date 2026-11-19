@@ -38,8 +38,9 @@ def main():
                 report["errors"].append(f"{package}: expected {expected}, found {version}")
         except importlib.metadata.PackageNotFoundError:
             report["errors"].append(f"Missing package: {package}")
+    # Joint-position rollouts do not use MPLib's optional motion planner.
     for module in ("torch", "transformers", "sapien", "gymnasium",
-                   "pytorch_kinematics", "fast_kinematics", "mplib", "mani_skill.envs"):
+                   "pytorch_kinematics", "fast_kinematics", "mani_skill.envs"):
         try:
             importlib.import_module(module)
             report["checks"]["import_" + module] = True

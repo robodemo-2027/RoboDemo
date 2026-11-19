@@ -9,6 +9,7 @@ gymnasium==0.29.1
 huggingface-hub==0.36.2
 imageio==2.37.3
 imageio-ffmpeg==0.6.0
+ipython==8.39.0
 h5py==3.16.0
 GitPython==3.1.46
 lxml==7.0.0b1
