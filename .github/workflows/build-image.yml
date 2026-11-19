@@ -1,0 +1,49 @@
+name: Build evaluation image
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: robodemo-evaluation-image
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reclaim disposable runner tool caches
+        run: |
+          sudo rm -rf /usr/local/lib/android /opt/ghc /usr/share/dotnet
+          df -h /
+      - name: Build the pinned Linux amd64 environment
+        run: docker build --progress=plain -t robodemo-evaluation:cu124 environments
+      - name: Check the container's CPU imports and package versions
+        run: |
+          mkdir -p container-report
+          docker run --rm --entrypoint bash \
+            -e CUDA_VISIBLE_DEVICES="" \
+            -v "$PWD/container-report:/report" \
+            robodemo-evaluation:cu124 -lc \
+            'python /opt/robodemo-environment/check_environment.py --cpu-only --output /report/container-check.json'
+          cp container-report/container-check.json container-check.json
+      - name: Preserve container diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: container-diagnostics
+          path: container-report/container-check.json
+          if-no-files-found: ignore
+      - name: Export a loadable Docker image
+        run: |
+          docker save robodemo-evaluation:cu124 | gzip -1 > robodemo-evaluation-cu124-amd64.tar.gz
+          gzip -t robodemo-evaluation-cu124-amd64.tar.gz
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: pip install huggingface-hub==0.36.2
+      - name: Publish the image to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: python environments/publish_image.py
