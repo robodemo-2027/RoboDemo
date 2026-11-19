@@ -34,7 +34,7 @@
     "errors": [],
     "passed": true
   },
-  "gpu_simulator_test": false,
+  "gpu_simulator_test": true,
   "cpu_regression": {
     "image": "robodemo-evaluation:cu124",
     "gpu_execution": false,
@@ -49,5 +49,183 @@
       }
     },
     "passed": true
+  },
+  "gpu_validation": {
+    "purpose": "Image integration and memory sizing, separate from benchmark statistics",
+    "hardware": {
+      "gpu": "NVIDIA H200",
+      "driver": "570.195.03",
+      "physical_gpu_count": 1
+    },
+    "runtime": {
+      "python": "3.10.20",
+      "executable": "/opt/python/bin/python",
+      "torch": "2.6.0+cu124",
+      "torch_path": "/opt/python/lib/python3.10/site-packages/torch/__init__.py",
+      "transformers_path": "/opt/python/lib/python3.10/site-packages/transformers/__init__.py",
+      "sapien_path": "/opt/python/lib/python3.10/site-packages/sapien/__init__.py",
+      "optix_library": [
+        "/opt/nvidia-optix/libnvoptix.so.570.195.03"
+      ],
+      "nvoptix_resource_present": true,
+      "runtime": "Apptainer 1.5.5-1, user namespace, exported Docker image",
+      "host_python_packages_used": false,
+      "docker_engine_tested": false,
+      "nvidia_container_toolkit_tested": false,
+      "published_model_evaluation_config_files_matched": 118,
+      "published_example_sample_scorer_files_matched": 8
+    },
+    "environment": {
+      "python": "3.10.20",
+      "packages": {
+        "torch": "2.6.0+cu124",
+        "torchvision": "0.21.0+cu124",
+        "transformers": "4.57.6",
+        "flash-attn": "2.7.4.post1",
+        "sapien": "3.0.3",
+        "gymnasium": "0.29.1",
+        "numpy": "1.26.4",
+        "av": "12.3.0",
+        "triton": "3.2.0",
+        "pytorch-kinematics": "0.7.5",
+        "fast-kinematics": "0.2.2",
+        "mplib": "0.1.1"
+      },
+      "checks": {
+        "import_torch": true,
+        "import_transformers": true,
+        "import_sapien": true,
+        "import_gymnasium": true,
+        "import_pytorch_kinematics": true,
+        "import_fast_kinematics": true,
+        "import_mani_skill.envs": true,
+        "libcuda.so.1": true,
+        "libvulkan.so.1": true,
+        "libnvoptix.so.1": true,
+        "cuda_available": true,
+        "ROBODEMO_DATA_ROOT": true,
+        "IMITATOR_GAME_ROOT": true,
+        "MS_ASSET_DIR": true,
+        "ROBODEMO_QWEN": true,
+        "ROBODEMO_VJEPA2_SOURCE": true,
+        "ROBODEMO_VJEPA2_WEIGHTS": true
+      },
+      "pytorch_cuda": "12.4",
+      "passed": true
+    },
+    "policy": {
+      "model": "RoboDemo-full50",
+      "checkpoint_step": 240000,
+      "checkpoint_path": "/checkpoints/full50.pt",
+      "strict": true,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "optimizer_loaded": false,
+      "training_rank_state_loaded": false
+    },
+    "episode": {
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial00",
+      "reference_uid": "human_H49:5",
+      "reference_source": "human",
+      "control_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "success": true,
+      "first_success_step": 346,
+      "sim_backend": "physx_cpu",
+      "image_size": [
+        224,
+        224
+      ],
+      "shader": "rt-fast",
+      "denoiser": "optix",
+      "standard_optix_rendering": true
+    },
+    "memory": {
+      "completed": true,
+      "error_type": null,
+      "gpu": "NVIDIA H200",
+      "physical_capacity_gib": 139.81085205078125,
+      "pytorch_allocator_budget_gib": 18,
+      "peak_pytorch_allocated_gib": 17.623350143432617,
+      "peak_pytorch_reserved_gib": 17.720703125,
+      "peak_process_nvidia_smi_mib": 21894,
+      "process_memory_samples": 1149,
+      "elapsed_seconds": 361.289633795619,
+      "native_capacity_test": false
+    }
+  },
+  "image_examples": {
+    "policy": {
+      "device": "NVIDIA H200",
+      "calls": 2,
+      "strict_load": true,
+      "execution_memory_ages": [
+        0,
+        1
+      ],
+      "normalized_chunk_shape": [
+        30,
+        16
+      ],
+      "first_native_action": [
+        0.0067708895076066256,
+        0.4091213242500089,
+        0.012619200279004872,
+        -1.962055289579439,
+        0.02620556065812707,
+        2.369520572043257,
+        0.7741265359800309,
+        0.9921875,
+        0.0033763100509531796,
+        0.39752938062883914,
+        0.02029103768290952,
+        -1.9576929077302339,
+        0.04402807308360934,
+        2.360387362074107,
+        0.7769316993653774,
+        1.015625
+      ],
+      "recorded_first_chunk_max_absolute_error": 0.0078125,
+      "physical_robot_control": false
+    },
+    "retrieval": {
+      "device": "cpu",
+      "cuda_visible_devices": "",
+      "rebuilt_features_from_raw_media": true,
+      "query_episode": "L0_TwoRobotPourKettle-v1:6",
+      "query_instruction": "Grasp the kettle and position it above the cup for pouring.",
+      "query_frames_used": [
+        0
+      ],
+      "candidate_count": 3,
+      "scope": "Ranking within the explicitly supplied candidate subset",
+      "selected": {
+        "episode_id": 3836,
+        "uid": "L0_TwoRobotPourKettle-v1:36",
+        "instruction": "Grasp the kettle and position it above the cup for pouring.",
+        "score": 1.7081705331802368
+      },
+      "rankings": [
+        {
+          "episode_id": 3836,
+          "uid": "L0_TwoRobotPourKettle-v1:36",
+          "instruction": "Grasp the kettle and position it above the cup for pouring.",
+          "score": 1.7081705331802368
+        },
+        {
+          "episode_id": 3820,
+          "uid": "L0_TwoRobotPourKettle-v1:20",
+          "instruction": "Grasp the kettle and position it above the cup for pouring.",
+          "score": 1.6411762237548828
+        },
+        {
+          "episode_id": 3815,
+          "uid": "L0_TwoRobotPourKettle-v1:15",
+          "instruction": "Grasp the kettle and position it above the cup for pouring.",
+          "score": 1.1644337177276611
+        }
+      ]
+    }
   }
 }

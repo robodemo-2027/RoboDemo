@@ -49,6 +49,8 @@ uploads the loadable image archive to `mxk1998/RoboDemo-Docker`.
 Do not put a token in a workflow file, model card or build argument.
 No policy checkpoint or benchmark dataset is embedded in the image.
 
-The runner has no GPU. A successful build and CPU import check still need
-the documented host-driver checks and a complete simulator episode before
-container-based GPU evaluation is validated.
+The build runner has no GPU. Separately, the exported image passed a complete
+500-step Full50 episode on H200 through Apptainer, with standard OptiX
+rendering. The [container validation record](../../docs/validation/20261119-container.json)
+documents this runtime and its results. Deployment hosts should run the
+driver/asset checks and a one-episode smoke test before a larger evaluation.

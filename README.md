@@ -32,11 +32,11 @@
 - [x] **Verified:** all five models completed a 500-step simulator test. [View the runs](docs/smoke-evaluation.md).
 - [x] **Getting started:** two end-to-end tested minimal inference examples, recorded inputs, and per-model single/eight-GPU launchers.
 - [x] **Retrieval:** scorer weights and GPT annotation data bundled in [resources/refreward](resources/refreward), plus compact reference maps.
-- [x] **Environment:** [downloadable Docker image](https://huggingface.co/mxk1998/RoboDemo-Docker), pinned dependencies and environment diagnostics.
+- [x] **Environment:** [downloadable Docker image](https://huggingface.co/mxk1998/RoboDemo-Docker), pinned dependencies, diagnostics and a [complete GPU simulator test](docs/validation/20261119-container.json).
 - [x] **Tests:** 100 CPU regression tests per policy variant and [five-model H200 memory measurements](docs/evaluation-scaling.md).
 - [x] **Parallel evaluation:** [two GPUs with two workers each](docs/validation/20261119-concurrency.json), four complete episodes and a successful merge; 42.77 GiB peak per GPU.
 - [x] **Automation:** [GitHub Actions](environments/ci/README.md) runs 30 offline tests and inspects the included policy inputs on every push and pull request.
-- [ ] **Validation next:** Docker GPU rendering and eight-GPU end-to-end evaluation.
+- [ ] **Validation next:** end-to-end evaluation on eight physical GPUs.
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
 
 **Start here:** [Choose a reproduction path](docs/reproduce.md) &middot;
@@ -49,8 +49,8 @@
 [GPU sizing and launchers](docs/evaluation-scaling.md) &middot;
 [Refreward weights and data](docs/retrieval.md).
 
-The [validation status](docs/reproduce.md#validation-status) separates tested
-examples and simulator runs from the remaining container and hardware checks.
+The [validation status](docs/reproduce.md#validation-status) records tested
+examples, simulator runs and container runtimes alongside remaining hardware checks.
 
 ## Overview
 

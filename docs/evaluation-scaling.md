@@ -37,6 +37,9 @@ for the complete plan: 2,000 episodes for Full50 or 400 for each other model.
 
 ## Memory Sizing
 
+The pinned environment targets Linux x86-64 and NVIDIA Ampere, Ada or
+Hopper GPUs with CUDA 12.4 and FlashAttention 2.
+
 | GPU capacity | `--workers-per-gpu` | Suggested first run |
 | --- | ---: | --- |
 | 24 GB | **1** | `--max-episodes 1`; lower-capacity option for the measured setup |
@@ -121,7 +124,7 @@ image resolution or precision to reproduce the reported protocol.
 The eight-GPU launcher uses exactly the same independent worker per device.
 Its sharding and merge logic have CPU tests and the two-GPU integration
 run above. End-to-end execution on eight physical GPUs is not yet validated;
-the available H200 host has two GPUs.
+only two GPUs were available in this validation environment.
 
 ## Restart And Merge
 

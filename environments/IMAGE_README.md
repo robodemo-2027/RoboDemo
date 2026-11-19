@@ -70,15 +70,29 @@ is maintained in GitHub.
 
 ## Validation
 
-The image completed a clean build, CPU import/package checks and the full
-release test suite for both policy variants. `container-check.json` and
-`container-regression.json` contain the results. This build job has no GPU:
-it does **not** establish GPU rendering compatibility. Run the documented
-GPU/asset checks and a complete episode on the deployment host.
+The image passed a clean build, CPU package checks and **100 regression
+tests for each policy variant**. It also completed a **500-step Full50
+episode on H200**, with Vulkan/OptiX rendering and **21.38 GiB** peak process
+memory. It completed 500 policy calls and 499 memory updates, with task success.
+
+The GPU run loaded this exported image with **Apptainer 1.5.5-1**, NVIDIA
+driver 570.195.03 and the image's own Python packages. Docker Engine/NVIDIA
+Container Toolkit execution was not tested on that host. Reports:
+[CPU environment](https://huggingface.co/mxk1998/RoboDemo-Docker/blob/main/container-check.json),
+[CPU tests](https://huggingface.co/mxk1998/RoboDemo-Docker/blob/main/container-regression.json) and
+[GPU validation](https://huggingface.co/mxk1998/RoboDemo-Docker/blob/main/container-gpu-validation.json).
+
+The [two minimal examples](https://github.com/robodemo-2027/RoboDemo/tree/main/examples#run-the-examples-in-docker)
+also passed inside the image: human-video action prediction on H200 and
+raw-media reference retrieval on CPU. The GPU report includes both outputs.
 
 The host supplies its NVIDIA driver, NVIDIA Container Toolkit, Vulkan
 discovery and matching OptiX runtime. Do not install a kernel driver inside
 the image.
+
+If the host exposes OptiX separately, keep `libnvoptix.so.1` and `nvoptix.bin`
+together and use the documented
+[OptiX mount override](https://github.com/robodemo-2027/RoboDemo/tree/main/environments#standalone-optix-runtime).
 
 ## Licenses
 

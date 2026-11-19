@@ -1,0 +1,6 @@
+services:
+  evaluation:
+    volumes:
+      - ${ROBODEMO_HOST_OPTIX:?Set ROBODEMO_HOST_OPTIX to the matching OptiX runtime directory}:/opt/nvidia-optix:ro
+    environment:
+      LD_LIBRARY_PATH: /opt/nvidia-optix:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64

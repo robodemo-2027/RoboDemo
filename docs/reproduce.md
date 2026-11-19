@@ -51,21 +51,27 @@ headroom. Episode count changes runtime, not per-worker memory.
 
 Last reviewed: November 19, 2026.
 
-| Item | Completed | Next validation |
+| Item | Completed | Details / remaining check |
 | --- | --- | --- |
 | Five policy checkpoints | Strict loading and one complete simulator episode per checkpoint on H20 and H200 | [Recorded runs](smoke-evaluation.md) and [H200 measurements](validation/20261119-five-model-memory.json) |
-| Human-video policy example | Two real policy calls; memory ages `[0, 1]` | [Example outputs](validation/20261119.json) |
-| Raw-media retrieval example | Both encoders and scorer ran on CPU; selected episode 3836 | [Inputs and ranking](../examples/README.md#2-retrieve-a-robot-reference) |
+| Human-video policy example | Native and image runs passed; two real policy calls, memory ages `[0, 1]` | [Native outputs](validation/20261119.json) and [image outputs](validation/20261119-container.json) |
+| Raw-media retrieval example | Native and image CPU runs rebuilt features and selected episode 3836 with identical scores | [Inputs and ranking](../examples/README.md#2-retrieve-a-robot-reference) |
 | Memory sizing | H200 process measurements and 24/32/80-GB configuration guidance | [Peaks and worker counts](evaluation-scaling.md) |
 | Concurrent evaluation | Two H200s, two workers per GPU, four complete episodes and a successful result merge | [42.77-GiB per-GPU peak](validation/20261119-concurrency.json) |
 | Eight-GPU evaluation | Ten per-model launchers and CPU sharding tests released | Eight physical GPUs running end to end |
-| Docker | 5.9-GB image published; imports and 100 CPU tests per variant passed inside the image | [Download and use the image](https://huggingface.co/mxk1998/RoboDemo-Docker); GPU simulator validation |
+| Container image | 5.9-GB image published; 100 CPU tests per variant and a complete Full50 GPU simulator episode passed | [Download](https://huggingface.co/mxk1998/RoboDemo-Docker) and [runtime/results](validation/20261119-container.json) |
 | CI | GitHub Actions runs offline code tests and website tests | [Code](https://github.com/robodemo-2027/RoboDemo/actions) and [website](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml) |
 
 The complete CPU suite passed **100 tests for each policy variant**. Hosted
 code CI runs a 30-case offline subset plus inspection of the included sample;
 the static site suite has 17 cases. These counts describe different suites,
 not independent benchmark experiments.
+
+The exported Docker image completed GPU validation through **Apptainer
+1.5.5-1** on H200 with driver 570.195.03, using only the image's Python
+packages. Full50 completed all 500 steps with OptiX rendering and a
+**21.38-GiB** total process peak. Docker Engine/NVIDIA Container Toolkit
+execution was not tested on this host.
 
 The [memory guide](evaluation-scaling.md) uses measured total process peaks,
 including rendering. Hardware-specific performance and eight-device execution
@@ -77,6 +83,7 @@ are separate from this capacity guidance.
 | --- | --- |
 | `mani_skill` cannot be imported | Use the recorded simulator revision and put its root on `PYTHONPATH`. |
 | Renderer reports a missing Vulkan or OptiX runtime | Expose the host's matching NVIDIA graphics/OptiX libraries. Follow the [driver checks](../environments/README.md#host-driver-and-diagnostics). |
+| OptiX denoising fails or the first rendered image is blank | Keep `nvoptix.bin` beside the matching loaded library; see the [standalone-runtime mount](../environments/README.md#standalone-optix-runtime). |
 | CUDA out of memory | Use `--workers-per-gpu 1`, check free VRAM, and [profile a complete run](../environments/README.md#measure-your-inference-process). |
 | Asset or encoder path not found | Run `check_environment.py --assets` and correct the reported environment variable. |
 | Output directory is already populated | Use a new directory, or follow the launcher's [resume instructions](evaluation-scaling.md#restart-and-merge). |

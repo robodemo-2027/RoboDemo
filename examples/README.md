@@ -83,6 +83,35 @@ CPU extraction is supported but slow. To use an allocated CUDA GPU, set
 `CUDA_VISIBLE_DEVICES` and pass `--device cuda:0`. The small scorer runs on CPU.
 Generated feature files stay in `outputs/`; they are not part of the release.
 
+## Run The Examples In Docker
+
+Load the [shared image and set the asset mounts](../environments/README.md#docker-image).
+The Full50 checkpoint belongs in `checkpoints/RoboDemo-full50/`.
+
+```bash
+docker compose -f environments/docker-compose.yml run --rm evaluation \
+  python examples/predict_actions.py \
+  --checkpoint checkpoints/RoboDemo-full50/pytorch_model.pt \
+  --output /outputs/minimal-policy
+```
+
+For retrieval, also place the two frozen retrieval encoder directories
+listed above in the shared asset mount. Rebuild features from the raw
+benchmark media on CPU:
+
+```bash
+docker compose -f environments/docker-compose.yml run --rm \
+  -e CUDA_VISIBLE_DEVICES= evaluation \
+  python examples/retrieve_reference.py \
+  --data-root /assets/IG-10K-Dataset \
+  --query-episode 3806 --candidate-ids 3836 3815 3820 --device cpu \
+  --cache /outputs/retrieval-features \
+  --output /outputs/minimal-retrieval.json
+```
+
+Use new output directories when repeating an example. These two scripts
+do not render simulator images, so they do not require the OptiX mount override.
+
 ## Verified Examples
 
 Both examples completed end to end on 2026-11-19. The policy example
@@ -95,6 +124,11 @@ The CPU retrieval example rebuilt features from the raw query/candidate
 media, loaded the released scorer and selected episode 3836 from the
 three-candidate subset. [Inputs, scores and memory measurements](../docs/validation/20261119.json)
 are available with the release. No physical robot is controlled.
+
+Both examples also passed inside the released evaluation image, loaded
+through Apptainer. The policy returned finite `[2, 30, 16]` action chunks;
+CPU retrieval rebuilt all features and reproduced the same three-candidate
+ranking and scores. See the [image validation record](../docs/validation/20261119-container.json).
 
 ## Sample Attribution
 

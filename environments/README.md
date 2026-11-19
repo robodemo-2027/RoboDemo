@@ -39,6 +39,12 @@ build, CPU package/simulator-import checks and **100 CPU tests for each
 policy variant inside the image** in
 [GitHub Actions](https://github.com/robodemo-2027/RoboDemo/actions/runs/44473741985).
 
+The same exported image also passed a **500-step Full50 simulator episode
+on H200**, including Vulkan/OptiX rendering, with **21.38 GiB** peak process
+memory. This GPU run used Apptainer 1.5.5-1 and the image's own Python
+environment; Docker Engine/NVIDIA Container Toolkit execution was not tested
+on that host. See the [container validation record](../docs/validation/20261119-container.json).
+
 The image fixes Python 3.10.20, the CUDA 12.4 PyTorch build, simulator source,
 and package versions. Dataset assets and model files are mounted separately.
 It deliberately does not install the simulator repository's current training
@@ -65,6 +71,10 @@ The image does not contain model weights or benchmark assets.
 The asset mount should contain `IG-10K-Dataset/`, `maniskill/`,
 `Qwen3-VL-4B-Instruct/`, `vjepa2/`, and `vjepa2-ac-vitg.pt`.
 Place policy weights in the repository's ignored `checkpoints/` directory.
+For the raw-media retrieval example, optionally add `Qwen3-VL-Embedding-2B/`
+and `dinov3-vith16plus-pretrain-lvd1689m/` under the same asset directory.
+These extra encoders are not needed for standard C15-wo evaluation with
+the included reference map.
 Run one complete episode:
 
 ```bash
@@ -102,6 +112,34 @@ The host needs NVIDIA Container Toolkit, Vulkan driver discovery, and
 `compute,utility,graphics` driver capabilities. If OptiX is absent, install
 its matching host driver component rather than substituting a different
 shader or turning off denoising.
+
+### Standalone OptiX Runtime
+
+On hosts that provide OptiX separately, keep **`libnvoptix.so.1` and
+`nvoptix.bin` together** in a dedicated directory from the matching NVIDIA
+driver. The resource file must be accessible beside the loaded library.
+Use the optional Compose override to mount that directory and put it first
+on the library search path:
+
+```bash
+export ROBODEMO_HOST_OPTIX=/data/nvidia-optix
+docker compose -f environments/docker-compose.yml \
+  -f environments/docker-compose.optix.yml run --rm evaluation \
+  python environments/check_environment.py --assets
+
+docker compose -f environments/docker-compose.yml \
+  -f environments/docker-compose.optix.yml run --rm evaluation \
+  bash scripts/evaluate/c15-single.sh \
+  --checkpoint checkpoints/RoboDemo-c15/pytorch_model.pt \
+  --data-root /assets/IG-10K-Dataset --max-episodes 1 \
+  --output /outputs/c15-optix-smoke
+```
+
+Use the same override for other models. The directory should contain the
+OptiX runtime files, not a host operating system's entire library directory.
+This is a host-driver mount; the model, shader and denoiser settings are unchanged.
+
+### Check The Environment
 
 ```bash
 nvidia-smi
