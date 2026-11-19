@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 
 from huggingface_hub import HfApi, CommitOperationAdd
+from validate_image import validate
 
 
 def main():
@@ -12,6 +13,7 @@ def main():
     diagnostics = json.loads(check_path.read_text())
     if not diagnostics.get("passed") or not archive.is_file():
         raise RuntimeError("A passing container check and image archive are required.")
+    validate()
     api = HfApi(token=os.environ["HF_TOKEN"])
     if api.whoami()["name"] != "mxk1998":
         raise RuntimeError("Use the RoboDemo release account.")
@@ -24,6 +26,8 @@ def main():
             CommitOperationAdd(path_in_repo="README.md", path_or_fileobj=card.encode()),
             CommitOperationAdd(path_in_repo=archive.name, path_or_fileobj=archive),
             CommitOperationAdd(path_in_repo=check_path.name, path_or_fileobj=check_path),
+            CommitOperationAdd(path_in_repo="container-regression.json",
+                               path_or_fileobj=Path("container-regression.json")),
         ],
         commit_message="Publish evaluation image after clean build and CPU checks",
     )

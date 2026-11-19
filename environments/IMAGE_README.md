@@ -12,6 +12,8 @@ tags:
 A Linux **amd64** Docker image shared by all five RoboDemo checkpoints.
 It contains the pinned Python/CUDA/PyTorch environment and Imitator Game
 simulator source. Dataset assets and model weights are mounted separately.
+The runtime image omits build-stage downloads and CUDA compiler tools;
+the C compiler needed by Triton remains included.
 
 ## 1. Load The Image
 
@@ -68,8 +70,9 @@ is maintained in GitHub.
 
 ## Validation
 
-The image completed a clean build and CPU import/package checks.
-`container-check.json` contains those results. This build job has no GPU:
+The image completed a clean build, CPU import/package checks and the full
+release test suite for both policy variants. `container-check.json` and
+`container-regression.json` contain the results. This build job has no GPU:
 it does **not** establish GPU rendering compatibility. Run the documented
 GPU/asset checks and a complete episode on the deployment host.
 

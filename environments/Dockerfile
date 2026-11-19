@@ -1,9 +1,9 @@
-FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
+FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04 AS builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG PYTHON_VERSION=3.10.20
 ARG IMITATOR_GAME_REVISION=d6d16ec511bc389e0a207692730c137bc022ef14
-ENV LANG=C.UTF-8 PYTHONUNBUFFERED=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV LANG=C.UTF-8 PYTHONUNBUFFERED=1 PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_CACHE_DIR=1
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential ca-certificates curl git pkg-config cmake ninja-build \
     libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libffi-dev \
@@ -25,7 +25,24 @@ ENV TORCH_CUDA_ARCH_LIST="8.0;8.6;8.9;9.0" MAX_JOBS=4
 RUN python -m pip install flash-attn==2.7.4.post1 --no-build-isolation
 # Import the evaluated simulator source, not its unrelated training extras.
 RUN git clone https://github.com/imitator-game/The-Imitator-Game.git /opt/ImitatorGame \
-    && git -C /opt/ImitatorGame checkout "${IMITATOR_GAME_REVISION}"
+    && git -C /opt/ImitatorGame checkout "${IMITATOR_GAME_REVISION}" \
+    && rm -rf /opt/ImitatorGame/.git
+
+FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04
+ARG DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8 PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_CACHE_DIR=1
+# Triton needs a C compiler at runtime, but not the full CUDA development toolkit.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential ca-certificates curl git ffmpeg \
+    libssl3 zlib1g libbz2-1.0 libreadline8 libsqlite3-0 libffi8 \
+    liblzma5 libgdbm6 libncursesw6 libuuid1 \
+    libgl1 libegl1 libglvnd0 libvulkan1 vulkan-tools libx11-6 libxext6 \
+    libxrender1 libxi6 libsm6 libglib2.0-0 && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /opt/python /opt/python
+COPY --from=builder /opt/ImitatorGame /opt/ImitatorGame
+COPY --from=builder /opt/robodemo-environment /opt/robodemo-environment
+ENV PATH=/opt/python/bin:${PATH}
 COPY check_environment.py /opt/robodemo-environment/check_environment.py
 COPY entrypoint.sh /opt/robodemo-environment/entrypoint.sh
 ENV IMITATOR_GAME_ROOT=/opt/ImitatorGame PYTHONPATH=/opt/ImitatorGame \
