@@ -14,6 +14,8 @@ EXPECTED = {
     "torch": "2.6.0", "torchvision": "0.21.0", "transformers": "4.57.6",
     "flash-attn": "2.7.4.post1", "sapien": "3.0.3", "gymnasium": "0.29.1",
     "numpy": "1.26.4", "av": "12.3.0", "triton": "3.2.0",
+    "pytorch-kinematics": "0.7.5", "fast-kinematics": "0.2.2",
+    "mplib": "0.1.1",
 }
 PATHS = ["ROBODEMO_DATA_ROOT", "IMITATOR_GAME_ROOT", "MS_ASSET_DIR",
          "ROBODEMO_QWEN", "ROBODEMO_VJEPA2_SOURCE", "ROBODEMO_VJEPA2_WEIGHTS"]
@@ -36,7 +38,8 @@ def main():
                 report["errors"].append(f"{package}: expected {expected}, found {version}")
         except importlib.metadata.PackageNotFoundError:
             report["errors"].append(f"Missing package: {package}")
-    for module in ("torch", "transformers", "sapien", "gymnasium", "mani_skill.envs"):
+    for module in ("torch", "transformers", "sapien", "gymnasium",
+                   "pytorch_kinematics", "fast_kinematics", "mplib", "mani_skill.envs"):
         try:
             importlib.import_module(module)
             report["checks"]["import_" + module] = True
