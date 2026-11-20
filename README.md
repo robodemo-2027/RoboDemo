@@ -23,6 +23,14 @@
 
 </div>
 
+**November 20, 2026 · [`v0.1-evaluation`](https://github.com/robodemo-2027/RoboDemo/releases/tag/v0.1-evaluation) is available.**
+Five checkpoints, complete evaluation results, two worked examples and a shared
+evaluation image, with profile-based asset setup and an Apptainer launcher.
+
+[Use this release](docs/reproduce.md#use-the-versioned-release) &middot;
+[Release notes](https://github.com/robodemo-2027/RoboDemo/releases/tag/v0.1-evaluation) &middot;
+[Versioned image](https://huggingface.co/mxk1998/RoboDemo-Docker/tree/v0.1-evaluation).
+
 ## Release Status
 
 [![Offline release tests](https://github.com/robodemo-2027/RoboDemo/actions/workflows/offline-tests.yml/badge.svg)](https://github.com/robodemo-2027/RoboDemo/actions/workflows/offline-tests.yml)

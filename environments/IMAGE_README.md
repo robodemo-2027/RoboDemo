@@ -9,6 +9,10 @@ tags:
 ---
 # RoboDemo Evaluation Image
 
+[Project page](https://robodemo-2027.github.io/) |
+[Code and releases](https://github.com/robodemo-2027/RoboDemo/releases) |
+[All checkpoints](https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc)
+
 A Linux **amd64** Docker image shared by all five RoboDemo checkpoints.
 It contains the pinned Python/CUDA/PyTorch environment and Imitator Game
 simulator source. Dataset assets and model weights are mounted separately.
@@ -41,12 +45,13 @@ The shared asset directory contains `IG-10K-Dataset/`, `maniskill/`,
 The temporal encoder's source is bundled with the code.
 
 ```bash
+git clone https://github.com/robodemo-2027/RoboDemo.git
+cd RoboDemo
 python scripts/prepare_assets.py --root /data/robodemo-assets \
   --profile smoke --model c15 --extract-assets
 ```
 
 ```bash
-cd RoboDemo
 export ROBODEMO_HOST_ASSETS=/data/robodemo-assets
 export ROBODEMO_HOST_OUTPUTS="$PWD/outputs"
 export ROBODEMO_GPU=0
@@ -81,8 +86,14 @@ is maintained in GitHub.
 
 ## Validation
 
-The image passed a clean build, CPU package checks and **100 regression
-tests for each policy variant**. It also completed a **500-step Full50
+The **v0.1-evaluation** follow-up on November 20 passed the expanded
+**113 CPU regression tests for each policy variant** inside a freshly
+imported copy of this image. The new Apptainer launcher also passed the GPU
+environment check and the released Full50 action-prediction example.
+[Release validation](https://github.com/robodemo-2027/RoboDemo/blob/v0.1-evaluation/docs/validation/20261120-release.json).
+
+The original November 19 image checks passed a clean build, package checks
+and 100 CPU tests per variant. It also completed a **500-step Full50
 episode on H200**, with Vulkan/OptiX rendering and **21.38 GiB** peak process
 memory. It completed 500 policy calls and 499 memory updates, with task success.
 

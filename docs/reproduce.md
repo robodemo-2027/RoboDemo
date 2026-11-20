@@ -2,6 +2,27 @@
 
 Choose the shortest path for what you want to try.
 
+## Use The Versioned Release
+
+The current evaluation release is
+[`v0.1-evaluation`](https://github.com/robodemo-2027/RoboDemo/releases/tag/v0.1-evaluation)
+(November 20, 2026). Start with its code:
+
+```bash
+git clone --branch v0.1-evaluation --single-branch \
+  https://github.com/robodemo-2027/RoboDemo.git
+cd RoboDemo
+```
+
+The five model repositories and the
+[evaluation image](https://huggingface.co/mxk1998/RoboDemo-Docker/tree/v0.1-evaluation)
+share the same release tag. For manual `hf download` commands, add
+`--revision v0.1-evaluation`. The
+[asset preparation helper](data-preparation.md) already selects the recorded
+asset revisions. Training code remains planned for a later public release.
+
+## Choose A Reproduction Path
+
 | Goal | Start here | Required resources |
 | --- | --- | --- |
 | Explore the method's inputs | `python examples/predict_actions.py --inspect-only` | Python and NumPy; included sample |
@@ -59,7 +80,7 @@ Last reviewed: November 20, 2026.
 | Memory sizing | H200 process measurements and 24/32/80-GB configuration guidance | [Peaks and worker counts](evaluation-scaling.md) |
 | Concurrent evaluation | Two H200s, two workers per GPU, four complete episodes and a successful result merge | [42.77-GiB per-GPU peak](validation/20261119-concurrency.json) |
 | Eight-GPU evaluation | Ten per-model launchers and CPU sharding tests released | Eight physical GPUs running end to end |
-| Container image | 5.9-GB image published; 100 CPU tests per variant and a complete Full50 GPU simulator episode passed | [Download](https://huggingface.co/mxk1998/RoboDemo-Docker) and [runtime/results](validation/20261119-container.json) |
+| Container image | 5.9-GB image published; expanded 113-test suites per variant passed inside the image; complete Full50 GPU simulator episode passed | [Download](https://huggingface.co/mxk1998/RoboDemo-Docker), [GPU run](validation/20261119-container.json) and [release follow-up](validation/20261120-release.json) |
 | CI | GitHub Actions runs offline code tests and website tests | [Code](https://github.com/robodemo-2027/RoboDemo/actions) and [website](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml) |
 
 The November 19 image passed **100 CPU tests for each policy variant**.
@@ -67,7 +88,7 @@ Hosted code CI now runs the complete, expanded suite for each variant, plus
 inspection of the included sample. The November 20
 [fresh-install CI run](https://github.com/robodemo-2027/RoboDemo/actions/runs/44714118357)
 passed **113 tests per variant**; the same suites also passed inside a newly
-imported copy of the published image. The current static site suite has 19 cases.
+imported copy of the published image. The static site has its own regression suite.
 These are software checks, not independent benchmark experiments.
 
 The exported Docker image completed GPU validation through **Apptainer
