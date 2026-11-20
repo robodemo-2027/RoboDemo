@@ -28,13 +28,22 @@ docker run --rm --gpus all robodemo-evaluation:cu124
 The streaming command avoids keeping a second copy of the image archive.
 Docker still needs disk space for the unpacked image.
 
+Already inside a managed notebook container, or without Docker Engine?
+Use the [Apptainer import and launch guide](https://github.com/robodemo-2027/RoboDemo/blob/main/docs/apptainer.md).
+This imports the same archive without a Docker daemon.
+
 ## 2. Mount Data And Models
 
 Clone [RoboDemo](https://github.com/robodemo-2027/RoboDemo) and follow its
-[data and encoder setup](https://github.com/robodemo-2027/RoboDemo/blob/main/docs/quickstart.md#3-prepare-the-benchmark-and-encoders).
+[profile-based asset preparation](https://github.com/robodemo-2027/RoboDemo/blob/main/docs/data-preparation.md).
 The shared asset directory contains `IG-10K-Dataset/`, `maniskill/`,
-`Qwen3-VL-4B-Instruct/`, `vjepa2/`, and `vjepa2-ac-vitg.pt`.
-Put a released checkpoint in `checkpoints/RoboDemo-c15/pytorch_model.pt`.
+`Qwen3-VL-4B-Instruct/`, `vjepa2-ac-vitg.pt` and `checkpoints/`.
+The temporal encoder's source is bundled with the code.
+
+```bash
+python scripts/prepare_assets.py --root /data/robodemo-assets \
+  --profile smoke --model c15 --extract-assets
+```
 
 ```bash
 cd RoboDemo
@@ -52,13 +61,15 @@ docker compose -f environments/docker-compose.yml run --rm evaluation \
 ```bash
 docker compose -f environments/docker-compose.yml run --rm evaluation \
   bash scripts/evaluate/c15-single.sh \
-  --checkpoint checkpoints/RoboDemo-c15/pytorch_model.pt \
-  --data-root /assets/IG-10K-Dataset --workers-per-gpu 1 --max-episodes 1 \
+  --checkpoint /assets/checkpoints/RoboDemo-c15/pytorch_model.pt \
+  --data-root /assets/IG-10K-Dataset --task-level L0_TwoRobotFoldTowel-v1 \
+  --workers-per-gpu 1 --max-episodes 1 \
   --output /outputs/c15-smoke
 ```
 
 Replace `c15` with `full50`, `c30`, `c45` or `c15-wo` and its checkpoint.
-Remove `--max-episodes` for the complete trial plan.
+Use the `evaluation` asset profile, then remove `--task-level` and
+`--max-episodes` for the complete trial plan.
 [GPU sizing](https://github.com/robodemo-2027/RoboDemo/blob/main/docs/evaluation-scaling.md)
 recommends one worker on 32 GB or two on 80 GB, based on H200 process-memory
 measurements. The Compose example allocates one GPU.
@@ -86,13 +97,20 @@ The [two minimal examples](https://github.com/robodemo-2027/RoboDemo/tree/main/e
 also passed inside the image: human-video action prediction on H200 and
 raw-media reference retrieval on CPU. The GPU report includes both outputs.
 
-The host supplies its NVIDIA driver, NVIDIA Container Toolkit, Vulkan
-discovery and matching OptiX runtime. Do not install a kernel driver inside
-the image.
+The host supplies its NVIDIA driver, Vulkan discovery and matching OptiX
+runtime. Docker execution additionally needs NVIDIA Container Toolkit;
+Apptainer does not. Do not install a kernel driver inside the image.
 
 If the host exposes OptiX separately, keep `libnvoptix.so.1` and `nvoptix.bin`
 together and use the documented
 [OptiX mount override](https://github.com/robodemo-2027/RoboDemo/tree/main/environments#standalone-optix-runtime).
+
+## Image Versions
+
+Future CI image builds are published under `images/<version>/` with their own
+validation reports. A new CPU-checked build does not replace this GPU-tested
+root image or inherit its GPU results.
+See [build and publication instructions](https://github.com/robodemo-2027/RoboDemo/blob/main/environments/ci/README.md).
 
 ## Licenses
 

@@ -12,10 +12,10 @@ The jobs request only `contents: read`, not permission to modify repository
 code. CPU regression runs on every push and pull request; image publication
 is a separate manual dispatch.
 
-The [first validated release run](https://github.com/robodemo-2027/RoboDemo/actions/runs/44465316393)
-passed all 28 offline cases and inspected the recorded policy inputs.
-The current workflow runs complete `pytest` suites separately for both policy
-variants, covering TTT math, memory, TBPTT, DiT, checkpoint loading, planning,
+The [November 20 release run](https://github.com/robodemo-2027/RoboDemo/actions/runs/44714118357)
+passed **113 tests per policy variant** after a fresh CPU dependency installation,
+and inspected the recorded policy inputs.
+The complete `pytest` suites cover TTT math, memory, TBPTT, DiT, checkpoint loading, planning,
 asset preparation and image publication.
 The [website CI](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml)
 separately checks numerical totals, animations, media metadata and generated

@@ -64,7 +64,10 @@ Last reviewed: November 20, 2026.
 
 The November 19 image passed **100 CPU tests for each policy variant**.
 Hosted code CI now runs the complete, expanded suite for each variant, plus
-inspection of the included sample. The current static site suite has 19 cases.
+inspection of the included sample. The November 20
+[fresh-install CI run](https://github.com/robodemo-2027/RoboDemo/actions/runs/44714118357)
+passed **113 tests per variant**; the same suites also passed inside a newly
+imported copy of the published image. The current static site suite has 19 cases.
 These are software checks, not independent benchmark experiments.
 
 The exported Docker image completed GPU validation through **Apptainer
@@ -74,6 +77,8 @@ packages. Full50 completed all 500 steps with OptiX rendering and a
 startup is not qualified on this managed notebook host: an isolated load
 attempt was denied by its nested-container permissions. Use the documented
 [Apptainer route](apptainer.md) rather than starting a nested Docker daemon.
+The [November 20 follow-up](validation/20261120-release.json) verified the new
+launcher with a freshly imported image and the released Full50 policy example.
 
 [Profile-based asset preparation](data-preparation.md) now covers the examples
 and each model's evaluation references. This does not remove upstream DINOv3

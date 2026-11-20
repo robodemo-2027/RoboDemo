@@ -33,7 +33,7 @@
 - [x] **Getting started:** two end-to-end tested minimal inference examples, recorded inputs, and per-model single/eight-GPU launchers.
 - [x] **Retrieval:** scorer weights and GPT annotation data bundled in [resources/refreward](resources/refreward), plus compact reference maps.
 - [x] **Environment:** [downloadable Docker image](https://huggingface.co/mxk1998/RoboDemo-Docker), pinned dependencies, diagnostics and a [complete GPU simulator test](docs/validation/20261119-container.json).
-- [x] **Tests:** 100 CPU regression tests per policy variant and [five-model H200 memory measurements](docs/evaluation-scaling.md).
+- [x] **Tests:** 113 CPU regression tests per policy variant and [five-model H200 memory measurements](docs/evaluation-scaling.md).
 - [x] **Parallel evaluation:** [two GPUs with two workers each](docs/validation/20261119-concurrency.json), four complete episodes and a successful merge; 42.77 GiB peak per GPU.
 - [x] **Automation:** [GitHub Actions](environments/ci/README.md) runs complete human/robot CPU regression suites and inspects the included inputs on every push and pull request.
 - [x] **Asset preparation:** [profile-based downloads](docs/data-preparation.md), bundled temporal-encoder source, and resumable retrieval-feature extraction.

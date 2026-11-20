@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-20",
+  "scope": "Release setup and integration; no new benchmark statistics",
+  "source_revision": "f13fdd6801635f3ee69a5ec2654cc91a64084153",
+  "hosted_ci": {
+    "url": "https://github.com/robodemo-2027/RoboDemo/actions/runs/44714118357",
+    "fresh_dependency_installation": true,
+    "variants": {
+      "human": 113,
+      "robot": 113
+    },
+    "passed": true
+  },
+  "image": {
+    "repository": "https://huggingface.co/mxk1998/RoboDemo-Docker",
+    "version": "v0.1-evaluation",
+    "archive_bytes": 5897034623,
+    "imported_fresh_sandbox": true,
+    "runtime": "Apptainer 1.5.5-1",
+    "nested_docker_attempted": false,
+    "cpu_tests": {
+      "human": 113,
+      "robot": 113
+    },
+    "gpu": "NVIDIA H200",
+    "driver": "570.195.03",
+    "environment": {
+      "python": "3.10.20",
+      "packages": {
+        "torch": "2.6.0+cu124",
+        "torchvision": "0.21.0+cu124",
+        "transformers": "4.57.6",
+        "flash-attn": "2.7.4.post1",
+        "sapien": "3.0.3",
+        "gymnasium": "0.29.1",
+        "numpy": "1.26.4",
+        "av": "12.3.0",
+        "triton": "3.2.0",
+        "pytorch-kinematics": "0.7.5",
+        "fast-kinematics": "0.2.2",
+        "mplib": "0.1.1"
+      },
+      "checks": {
+        "import_torch": true,
+        "import_transformers": true,
+        "import_sapien": true,
+        "import_gymnasium": true,
+        "import_pytorch_kinematics": true,
+        "import_fast_kinematics": true,
+        "import_mani_skill.envs": true,
+        "libcuda.so.1": true,
+        "libvulkan.so.1": true,
+        "libnvoptix.so.1": true,
+        "cuda_available": true,
+        "ROBODEMO_DATA_ROOT": true,
+        "IMITATOR_GAME_ROOT": true,
+        "MS_ASSET_DIR": true,
+        "ROBODEMO_QWEN": true,
+        "ROBODEMO_VJEPA2_SOURCE": true,
+        "ROBODEMO_VJEPA2_WEIGHTS": true
+      },
+      "errors": [],
+      "pytorch_cuda": "12.4",
+      "passed": true
+    },
+    "launcher": "environments/run-apptainer.sh",
+    "policy_example": {
+      "strict_load": true,
+      "execution_memory_ages": [
+        0,
+        1
+      ],
+      "normalized_chunk_shape": [
+        30,
+        16
+      ],
+      "first_native_action": [
+        0.0067708895076066256,
+        0.4091213242500089,
+        0.012619200279004872,
+        -1.962055289579439,
+        0.02620556065812707,
+        2.369520572043257,
+        0.7741265359800309,
+        0.9921875,
+        0.0033763100509531796,
+        0.39752938062883914,
+        0.02029103768290952,
+        -1.9576929077302339,
+        0.04402807308360934,
+        2.360387362074107,
+        0.7769316993653774,
+        1.015625
+      ],
+      "recorded_first_chunk_max_absolute_error": 0.0078125,
+      "physical_robot_control": false,
+      "checkpoint": "Full50 240000",
+      "matches_previous_image_example": true,
+      "strict_recorded_sample_comparison_passed": false
+    }
+  },
+  "boundaries": {
+    "new_simulator_benchmark_run": false,
+    "physical_eight_gpu_test": false,
+    "full_fresh_network_asset_download": false
+  }
+}

@@ -6,6 +6,10 @@ release. The host still needs NVIDIA graphics/OptiX drivers and permission
 to create user namespaces. Use Apptainer 1.5.5 or a compatible installation.
 Do not start a nested Docker daemon inside a managed notebook container.
 
+The [November 20 launcher check](validation/20261120-release.json) reimported
+the published archive, passed both 113-test CPU suites, checked GPU assets
+and ran the released Full50 policy example through the commands below.
+
 ## Import The Published Image
 
 Run on the Linux server with space for an unpacked image and conversion files:
