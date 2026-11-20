@@ -64,6 +64,11 @@ image-text embeddings, spatial patch/color/position tokens, and up to 32
 uniform chronological process embeddings. Files use FP16 storage; Refreward
 scoring uses FP32 arithmetic. Large features stay local and can be regenerated.
 
+To continue an interrupted extraction, repeat the same command with `--resume`.
+Completed feature files are reused; an interrupted file is recomputed.
+Use the same episode selection, encoders and device setting. Older feature
+directories without the resumable manifest should be kept separately.
+
 ## Minimal Query-Conditioned Retrieval
 
 Follow [the worked example](../examples/README.md#2-retrieve-a-robot-reference).

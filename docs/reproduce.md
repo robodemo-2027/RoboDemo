@@ -49,7 +49,7 @@ headroom. Episode count changes runtime, not per-worker memory.
 
 ## Validation Status
 
-Last reviewed: November 19, 2026.
+Last reviewed: November 20, 2026.
 
 | Item | Completed | Details / remaining check |
 | --- | --- | --- |
@@ -62,16 +62,22 @@ Last reviewed: November 19, 2026.
 | Container image | 5.9-GB image published; 100 CPU tests per variant and a complete Full50 GPU simulator episode passed | [Download](https://huggingface.co/mxk1998/RoboDemo-Docker) and [runtime/results](validation/20261119-container.json) |
 | CI | GitHub Actions runs offline code tests and website tests | [Code](https://github.com/robodemo-2027/RoboDemo/actions) and [website](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml) |
 
-The complete CPU suite passed **100 tests for each policy variant**. Hosted
-code CI runs a 30-case offline subset plus inspection of the included sample;
-the static site suite has 17 cases. These counts describe different suites,
-not independent benchmark experiments.
+The November 19 image passed **100 CPU tests for each policy variant**.
+Hosted code CI now runs the complete, expanded suite for each variant, plus
+inspection of the included sample. The current static site suite has 19 cases.
+These are software checks, not independent benchmark experiments.
 
 The exported Docker image completed GPU validation through **Apptainer
 1.5.5-1** on H200 with driver 570.195.03, using only the image's Python
 packages. Full50 completed all 500 steps with OptiX rendering and a
 **21.38-GiB** total process peak. Docker Engine/NVIDIA Container Toolkit
-execution was not tested on this host.
+startup is not qualified on this managed notebook host: an isolated load
+attempt was denied by its nested-container permissions. Use the documented
+[Apptainer route](apptainer.md) rather than starting a nested Docker daemon.
+
+[Profile-based asset preparation](data-preparation.md) now covers the examples
+and each model's evaluation references. This does not remove upstream DINOv3
+access approval or the need to install matching host graphics drivers.
 
 The [memory guide](evaluation-scaling.md) uses measured total process peaks,
 including rendering. Hardware-specific performance and eight-device execution

@@ -31,6 +31,10 @@ or control a physical robot. A new GPU rollout is separate from those tests.
 
 ## Docker Image
 
+**Already inside a managed container?** Use the
+[Apptainer route](../docs/apptainer.md) and its ready-to-run launcher.
+It imports this same image without starting Docker Engine.
+
 The build files, package inventory and diagnostics are maintained here in
 GitHub. The shared Linux **amd64** image is available from
 [RoboDemo-Docker on Hugging Face](https://huggingface.co/mxk1998/RoboDemo-Docker).
@@ -68,9 +72,12 @@ To build from source instead, run
 `docker build -t robodemo-evaluation:cu124 environments`.
 The image does not contain model weights or benchmark assets.
 
-The asset mount should contain `IG-10K-Dataset/`, `maniskill/`,
-`Qwen3-VL-4B-Instruct/`, `vjepa2/`, and `vjepa2-ac-vitg.pt`.
+The [asset downloader](../docs/data-preparation.md) prepares
+`IG-10K-Dataset/`, `maniskill/`, `Qwen3-VL-4B-Instruct/`, and
+`vjepa2-ac-vitg.pt`. V-JEPA2 source is bundled in `vendor/vjepa2`.
 Place policy weights in the repository's ignored `checkpoints/` directory.
+Alternatively, downloader-created weights are accessible inside Compose
+at `/assets/checkpoints/RoboDemo-<model>/pytorch_model.pt`.
 For the raw-media retrieval example, optionally add `Qwen3-VL-Embedding-2B/`
 and `dinov3-vith16plus-pretrain-lvd1689m/` under the same asset directory.
 These extra encoders are not needed for standard C15-wo evaluation with
@@ -176,6 +183,8 @@ The active manual [image-build workflow](../.github/workflows/build-image.yml) b
 clean Linux amd64 image, checks its imports/package versions and both complete
 CPU test suites, and publishes
 a `docker load` archive to `mxk1998/RoboDemo-Docker` only after those checks
-pass. The publication step uses the repository's `HF_TOKEN` secret; users
+pass. Each build requires a new version and publishes under `images/<version>/`.
+It does not overwrite the tested image or reuse older GPU reports.
+The publication step uses the repository's `HF_TOKEN` secret; users
 do not need a token to download the public image. `ci/build-image.yml` is
 the reusable workflow copy.

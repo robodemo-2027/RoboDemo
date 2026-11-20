@@ -1,6 +1,11 @@
 name: Build evaluation image
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: "New immutable image version, for example v0.2.0"
+        required: true
+        type: string
 permissions:
   contents: read
 concurrency:
@@ -46,4 +51,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           HF_HUB_DISABLE_TELEMETRY: "1"
-        run: python environments/publish_image.py
+          IMAGE_VERSION: ${{ inputs.version }}
+        run: python environments/publish_image.py --version "$IMAGE_VERSION"

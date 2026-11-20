@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the anonymous manuscript when using RoboDemo."
+title: "RoboDemo: Reconciling Demonstration Intent and Execution Progress for Long-Horizon Manipulation"
+type: software
+authors:
+  - name: Anonymous Authors
+version: v0.1-evaluation
+url: "https://robodemo-2027.github.io/"
+repository-code: "https://github.com/robodemo-2027/RoboDemo"
+license: MIT

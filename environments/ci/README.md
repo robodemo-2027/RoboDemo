@@ -5,7 +5,7 @@ Copies in this directory are available for reuse.
 
 | Template | Trigger | Purpose |
 | --- | --- | --- |
-| `offline-tests.yml` | Push or pull request | CPU-only regression and sample checks |
+| `offline-tests.yml` | Push or pull request | Complete human/robot CPU suites and sample checks |
 | `build-image.yml` | Manual dispatch | Build, check and publish the evaluation image |
 
 The jobs request only `contents: read`, not permission to modify repository
@@ -14,8 +14,9 @@ is a separate manual dispatch.
 
 The [first validated release run](https://github.com/robodemo-2027/RoboDemo/actions/runs/44465316393)
 passed all 28 offline cases and inspected the recorded policy inputs.
-The current suite has 30 offline cases, including the image-publication
-gate tests.
+The current workflow runs complete `pytest` suites separately for both policy
+variants, covering TTT math, memory, TBPTT, DiT, checkpoint loading, planning,
+asset preparation and image publication.
 The [website CI](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml)
 separately checks numerical totals, animations, media metadata and generated
 evaluation commands.
@@ -25,7 +26,8 @@ the small scorer interface. It does not load policy weights, start a simulator
 or use a GPU. To run the same checks locally:
 
 ```bash
-python -m unittest discover -s tests -p '*offline.py'
+ROBODEMO_TEST_VARIANT=human python -m pytest -q tests
+ROBODEMO_TEST_VARIANT=robot python -m pytest -q tests
 python examples/predict_actions.py --inspect-only
 ```
 
@@ -45,7 +47,10 @@ test stops publication. Import diagnostics are retained as a workflow artifact;
 both JSON reports accompany the published image.
 
 Only the publication step receives the repository's `HF_TOKEN` secret. It
-uploads the loadable image archive to `mxk1998/RoboDemo-Docker`.
+uploads the archive and its reports to `images/<version>/` in
+`mxk1998/RoboDemo-Docker`. Choose a new version in the workflow form.
+Existing versions and the current image are not overwritten. GPU status
+starts as untested for each new build.
 Do not put a token in a workflow file, model card or build argument.
 No policy checkpoint or benchmark dataset is embedded in the image.
 

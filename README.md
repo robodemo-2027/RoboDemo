@@ -35,7 +35,9 @@
 - [x] **Environment:** [downloadable Docker image](https://huggingface.co/mxk1998/RoboDemo-Docker), pinned dependencies, diagnostics and a [complete GPU simulator test](docs/validation/20261119-container.json).
 - [x] **Tests:** 100 CPU regression tests per policy variant and [five-model H200 memory measurements](docs/evaluation-scaling.md).
 - [x] **Parallel evaluation:** [two GPUs with two workers each](docs/validation/20261119-concurrency.json), four complete episodes and a successful merge; 42.77 GiB peak per GPU.
-- [x] **Automation:** [GitHub Actions](environments/ci/README.md) runs 30 offline tests and inspects the included policy inputs on every push and pull request.
+- [x] **Automation:** [GitHub Actions](environments/ci/README.md) runs complete human/robot CPU regression suites and inspects the included inputs on every push and pull request.
+- [x] **Asset preparation:** [profile-based downloads](docs/data-preparation.md), bundled temporal-encoder source, and resumable retrieval-feature extraction.
+- [x] **Managed containers:** [Apptainer instructions and launcher](docs/apptainer.md), without a nested Docker daemon.
 - [ ] **Validation next:** end-to-end evaluation on eight physical GPUs.
 - [ ] **Next release:** training code, training-data preparation and launch recipes.
 
@@ -48,6 +50,8 @@
 [Docker environment](https://github.com/robodemo-2027/RoboDemo/tree/main/environments) &middot;
 [GPU sizing and launchers](docs/evaluation-scaling.md) &middot;
 [Refreward weights and data](docs/retrieval.md).
+
+[Release notes](CHANGELOG.md) &middot; [Contributing](CONTRIBUTING.md).
 
 The [validation status](docs/reproduce.md#validation-status) records tested
 examples, simulator runs and container runtimes alongside remaining hardware checks.

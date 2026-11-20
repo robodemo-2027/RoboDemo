@@ -1,0 +1,127 @@
+{
+  "dataset": {
+    "repo_id": "imitator-game/IG-10K-Dataset",
+    "repo_type": "dataset",
+    "revision": "9a57b27edcb54823d8da7d2b77efa61c092ffa95",
+    "directory": "IG-10K-Dataset",
+    "allow_patterns": [
+      "README.md",
+      "imitator_human_v1/*/meta/**",
+      "imitator_human_v1/*/data/**",
+      "imitator_human_v1/*/videos/observation.images.zed2i/**",
+      "imitator_sim_v1_zed2i/*/meta/**",
+      "imitator_sim_v1_zed2i/*/data/**",
+      "imitator_sim_v1_zed2i/*/videos/observation.images.zed2i/**"
+    ]
+  },
+  "sim-assets": {
+    "repo_id": "imitator-game/IG-10K-Assets",
+    "repo_type": "dataset",
+    "revision": "2d7a339b27aff14a0780db4bd4d5e3a68c6358bc",
+    "directory": "maniskill",
+    "allow_patterns": [
+      "assets.tar.zst",
+      "partnet_mobility.tar.zst",
+      "robotwin.tar.zst",
+      "sketchfab.tar.zst",
+      "README.md"
+    ]
+  },
+  "policy-qwen": {
+    "repo_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "repo_type": "model",
+    "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "directory": "Qwen3-VL-4B-Instruct",
+    "allow_patterns": [
+      "*.json",
+      "*.txt",
+      "*.jinja",
+      "README.md",
+      "LICENSE*"
+    ]
+  },
+  "retrieval-qwen": {
+    "repo_id": "Qwen/Qwen3-VL-Embedding-2B",
+    "repo_type": "model",
+    "revision": "9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda",
+    "directory": "Qwen3-VL-Embedding-2B"
+  },
+  "retrieval-dino": {
+    "repo_id": "facebook/dinov3-vith16plus-pretrain-lvd1689m",
+    "repo_type": "model",
+    "revision": "c807c9eeea853df70aec4069e6f56b28ddc82acc",
+    "directory": "dinov3-vith16plus-pretrain-lvd1689m"
+  },
+  "full50": {
+    "repo_id": "mxk1998/RoboDemo-full50",
+    "repo_type": "model",
+    "revision": "a04dd36cd310a163a06d162c21b221057eb74fbe",
+    "directory": "checkpoints/RoboDemo-full50",
+    "allow_patterns": [
+      "pytorch_model.pt",
+      "policy.yaml",
+      "normalization.json",
+      "README.md"
+    ]
+  },
+  "c15": {
+    "repo_id": "mxk1998/RoboDemo-c15",
+    "repo_type": "model",
+    "revision": "32f61793257b8c8714b63deed9e9bacb8250f6d1",
+    "directory": "checkpoints/RoboDemo-c15",
+    "allow_patterns": [
+      "pytorch_model.pt",
+      "policy.yaml",
+      "normalization.json",
+      "README.md"
+    ]
+  },
+  "c30": {
+    "repo_id": "mxk1998/RoboDemo-c30",
+    "repo_type": "model",
+    "revision": "4c348f4805a0eb8fd55266d7e119c30d3302efd5",
+    "directory": "checkpoints/RoboDemo-c30",
+    "allow_patterns": [
+      "pytorch_model.pt",
+      "policy.yaml",
+      "normalization.json",
+      "README.md"
+    ]
+  },
+  "c45": {
+    "repo_id": "mxk1998/RoboDemo-c45",
+    "repo_type": "model",
+    "revision": "51c0f3aa0fb72f31b467b835f981fd2c63ec2e50",
+    "directory": "checkpoints/RoboDemo-c45",
+    "allow_patterns": [
+      "pytorch_model.pt",
+      "policy.yaml",
+      "normalization.json",
+      "README.md"
+    ]
+  },
+  "c15-wo": {
+    "repo_id": "mxk1998/RoboDemo-c15-wo",
+    "repo_type": "model",
+    "revision": "3643e98dd2d94bb2475a66b9419a72831aef45a5",
+    "directory": "checkpoints/RoboDemo-c15-wo",
+    "allow_patterns": [
+      "pytorch_model.pt",
+      "policy.yaml",
+      "normalization.json",
+      "README.md"
+    ]
+  },
+  "policy-vjepa": {
+    "kind": "file",
+    "url": "https://dl.fbaipublicfiles.com/vjepa2/vjepa2-ac-vitg.pt",
+    "directory": "vjepa2-ac-vitg.pt",
+    "bytes": 11760743310
+  },
+  "simulator": {
+    "kind": "git",
+    "url": "https://github.com/imitator-game/The-Imitator-Game.git",
+    "revision": "d6d16ec511bc389e0a207692730c137bc022ef14",
+    "directory": "ImitatorGame"
+  }
+}

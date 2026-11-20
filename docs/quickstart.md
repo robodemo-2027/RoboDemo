@@ -51,6 +51,10 @@ configuration and normalization from this repository.
 
 ## 3. Prepare The Benchmark And Encoders
 
+Use the [asset downloader](data-preparation.md) for automatic, model-specific
+preparation. It provides minimal-example, one-episode and complete-evaluation
+profiles and writes the environment paths. Manual setup remains supported:
+
 Follow the [Imitator Game project](https://imitator-game.github.io/) to obtain
 the IG-10K dataset, simulator source and simulation assets. Keep the
 benchmark's dataset directory layout, including human and robot videos.

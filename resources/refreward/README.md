@@ -34,6 +34,8 @@ with gzip.open(root / 'data/annotations.jsonl.gz', 'rt') as stream:
 print(first['kind'], first['query'], first['candidates'])
 ```
 
-The files are released under Apache-2.0. Benchmark and encoder licenses remain
-with their respective authors. The former Hugging Face resource repositories
-retain migration notices so existing links remain usable.
+The scorer weights, configuration and implementation are MIT-licensed
+(`LICENSE` and `../../licenses/RefReward-MIT.txt`). The annotation dataset
+under `data/` is Apache-2.0 (`data/LICENSE`). Benchmark and encoder licenses
+remain with their respective authors. The former Hugging Face resource
+repositories retain migration notices so existing links remain usable.

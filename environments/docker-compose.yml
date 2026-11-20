@@ -15,7 +15,7 @@ services:
       ROBODEMO_DATA_ROOT: /assets/IG-10K-Dataset
       MS_ASSET_DIR: /assets/maniskill
       ROBODEMO_QWEN: /assets/Qwen3-VL-4B-Instruct
-      ROBODEMO_VJEPA2_SOURCE: /assets/vjepa2
+      ROBODEMO_VJEPA2_SOURCE: /workspace/RoboDemo/vendor/vjepa2
       ROBODEMO_VJEPA2_WEIGHTS: /assets/vjepa2-ac-vitg.pt
       ROBODEMO_RETRIEVAL_QWEN: /assets/Qwen3-VL-Embedding-2B
       ROBODEMO_RETRIEVAL_DINO: /assets/dinov3-vith16plus-pretrain-lvd1689m

@@ -5,14 +5,22 @@ permissions:
 jobs:
   interfaces:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        variant: [human, robot]
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+      ROBODEMO_TEST_VARIANT: ${{ matrix.variant }}
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-      - run: pip install numpy==1.26.4 av==12.3.0 pillow==12.2.0 pydantic==2.10.6 safetensors==0.7.0 packaging==26.0
-      - run: pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
-      - name: Synthetic orchestration and real sample integrity
-        run: python -m unittest discover -s tests -p '*offline.py'
+      - run: pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install -r environments/requirements-tests.txt
+      - name: Core model, orchestration and recorded sample tests
+        run: python -m pytest -q tests
       - name: Inspect recorded policy inputs
         run: python examples/predict_actions.py --inspect-only
